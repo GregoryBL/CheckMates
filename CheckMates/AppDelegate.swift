@@ -18,6 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        let backgroundColor = UIColor(hexString: "#0190FB")
+        
+        UITabBar.appearance().barTintColor = backgroundColor
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState:.Normal)
+        
+        let tabBarConroller = self.window?.rootViewController as! UITabBarController
+        tabBarConroller.selectedIndex = 1
+        
         return true
     }
 

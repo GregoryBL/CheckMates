@@ -1,14 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="C5c-Ns-eeS">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Receipts-->
+        <scene sceneID="lBc-bA-oOl">
+            <objects>
+                <viewController id="5Gh-Nc-Pbt" customClass="ReceiptsViewController" customModule="CheckMates" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="W9Z-gW-4fk"/>
+                        <viewControllerLayoutGuide type="bottom" id="coP-pv-d8X"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ybd-gH-o56">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Receipts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQa-y4-QFP">
+                                <rect key="frame" x="0.0" y="20" width="600" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="cQa-y4-QFP" secondAttribute="trailing" id="IId-u2-pYA"/>
+                            <constraint firstItem="cQa-y4-QFP" firstAttribute="top" secondItem="W9Z-gW-4fk" secondAttribute="bottom" id="MFT-bE-zLB"/>
+                            <constraint firstItem="cQa-y4-QFP" firstAttribute="leading" secondItem="ybd-gH-o56" secondAttribute="leading" id="MXq-b9-l59"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Receipts" image="ReceiptIcon" id="P4H-4C-EBR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="efM-tH-Kbc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1143" y="-542"/>
+        </scene>
+        <!--Snap Receipt-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CheckMates" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="AddReceiptsViewController" customModule="CheckMates" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +48,83 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Snap Receipts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6H-vG-QZM">
+                                <rect key="frame" x="0.0" y="20" width="600" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="g6H-vG-QZM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4JP-lO-Gvr"/>
+                            <constraint firstAttribute="trailing" secondItem="g6H-vG-QZM" secondAttribute="trailing" id="Afm-d8-USP"/>
+                            <constraint firstItem="g6H-vG-QZM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Njb-qc-71E"/>
+                        </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Snap Receipt" image="CameraIcon" id="sOf-FE-HZS"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1140" y="123"/>
+        </scene>
+        <!--Enter Receipt-->
+        <scene sceneID="aIh-Vr-pNH">
+            <objects>
+                <viewController id="ZsR-Ol-0cW" customClass="SnapReceiptsViewController" customModule="CheckMates" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eBT-Cb-cxo"/>
+                        <viewControllerLayoutGuide type="bottom" id="azc-XS-LGV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nCV-tK-Wcg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Receipt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3N-tP-StT">
+                                <rect key="frame" x="0.0" y="20" width="600" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="p3N-tP-StT" secondAttribute="trailing" id="UVV-tb-TAi"/>
+                            <constraint firstItem="p3N-tP-StT" firstAttribute="leading" secondItem="nCV-tK-Wcg" secondAttribute="leading" id="eSm-bU-89u"/>
+                            <constraint firstItem="p3N-tP-StT" firstAttribute="top" secondItem="eBT-Cb-cxo" secondAttribute="bottom" id="p3C-OT-Ek0"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Enter Receipt" image="PointerIcon" id="tO3-ke-EUr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tpq-V2-dKk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1128" y="903"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="d0o-Fv-NkE">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="C5c-Ns-eeS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="mkj-HC-MHt">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="ZsR-Ol-0cW" kind="relationship" relationship="viewControllers" id="cgf-0p-MO5"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="XVf-Cu-H7Y"/>
+                        <segue destination="5Gh-Nc-Pbt" kind="relationship" relationship="viewControllers" id="2tB-df-Dml"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ddQ-Q6-eVm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="328" y="123"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="CameraIcon" width="25" height="25"/>
+        <image name="PointerIcon" width="25" height="25"/>
+        <image name="ReceiptIcon" width="25" height="25"/>
+    </resources>
 </document>
