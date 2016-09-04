@@ -114,7 +114,7 @@ class DwollaAPIManager {
             }
             .responseData { request in
                 print("request")
-                print(request.result.value)
+                print(request)
                 let returnValue = JSON(data: request.result.value!)
                 if let a_token = returnValue["access_token"].string {
                     self.OAuthToken = a_token
@@ -130,4 +130,66 @@ class DwollaAPIManager {
                 print(self.refreshToken)
         }
     }
+    
+    func refreshOAuthToken() {
+        let getTokenPath = "https://uat.dwolla.com/oauth/v2/token"
+        let tokenParams : [String: String]? = [
+            "client_id": clientID,
+            "client_secret": clientSecret,
+            "refresh_token": self.refreshToken!,
+            "grant_type": "refresh_token",
+        ]
+        Alamofire.request(.POST, getTokenPath, parameters: tokenParams!, encoding: .JSON)
+            .validate()
+            .response { request, response, data, error in
+                if let anError = error {
+                    print(anError)
+                    if let completionHandler = self.OAuthTokenCompletionHandler {
+                        let noOAuthError = NSError(domain: "com.alamofire.error", code: -1, userInfo: [NSLocalizedDescriptionKey: "Could not obtain an OAuth token", NSLocalizedRecoverySuggestionErrorKey: "Please retry your request"])
+                        completionHandler(noOAuthError)
+                    }
+                    return
+                }
+            }
+            .responseData { request in
+                print("request")
+                print(request.result.value)
+                let returnValue = JSON(data: request.result.value!)
+                if let a_token = returnValue["access_token"].string {
+                    self.OAuthToken = a_token
+                } else {
+                    print(returnValue["access_token"])
+                }
+                if let r_token = returnValue["refresh_token"].string {
+                    self.refreshToken = r_token
+                } else {
+                    print(returnValue["refresh_token"])
+                }
+                print(self.OAuthToken)
+                print(self.refreshToken)
+        }
+
+    }
+    
+    func refreshTokenAndCallBack(callback: (Contact, Int, String, String) -> Void) {
+        
+    }
+    
+//    func handleOAuthTokenResponse() {
+//        print("request")
+//        print(request.result.value)
+//        let returnValue = JSON(data: request.result.value!)
+//        if let a_token = returnValue["access_token"].string {
+//            self.OAuthToken = a_token
+//        } else {
+//            print(returnValue["access_token"])
+//        }
+//        if let r_token = returnValue["refresh_token"].string {
+//            self.refreshToken = r_token
+//        } else {
+//            print(returnValue["refresh_token"])
+//        }
+//        print(self.OAuthToken)
+//        print(self.refreshToken)
+//    }
 }

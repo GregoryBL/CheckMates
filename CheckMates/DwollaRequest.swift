@@ -13,7 +13,7 @@ class DwollaRequest {
     
     static let requestURL = "https://uat.dwolla.com/oauth/rest/requests/"
     
-    let headers : [String, String]
+    var headers : [String: String]
     
     init(sourceID: String, sourceType: String, amount: Int, notes: String, token: String) {
         self.sourceID = sourceID // ID of user to request funds from. Probably a phone number or email address

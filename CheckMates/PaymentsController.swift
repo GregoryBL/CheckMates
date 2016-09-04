@@ -19,6 +19,8 @@ class PaymentsController : NSObject {
     func startRequestFrom(contact: Contact, amount: Int, note: String) {
         if apiManager.hasOAuthToken() {
             self.finishRequestFrom(contact, amount: amount, note: note, token: apiManager.OAuthToken!)
+        } else if apiManager.hasRefreshToken() {
+            apiManager.refreshTokenAndCallBack(finishRequestFrom)
         }
         
     }
