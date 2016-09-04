@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2ED6E6F785CD17DEFE5A6A58 /* Pods_CheckMatesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BB260BE7DA72BA1CE84F293 /* Pods_CheckMatesTests.framework */; };
 		379CBB9A1D7CC9A100352669 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379CBB991D7CC9A100352669 /* AppDelegate.swift */; };
 		379CBB9C1D7CC9A100352669 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379CBB9B1D7CC9A100352669 /* ViewController.swift */; };
 		379CBB9F1D7CC9A100352669 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 379CBB9D1D7CC9A100352669 /* Main.storyboard */; };
@@ -14,6 +15,7 @@
 		379CBBA41D7CC9A100352669 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 379CBBA31D7CC9A100352669 /* Assets.xcassets */; };
 		379CBBA71D7CC9A100352669 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 379CBBA51D7CC9A100352669 /* LaunchScreen.storyboard */; };
 		379CBBB21D7CC9A200352669 /* CheckMatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379CBBB11D7CC9A200352669 /* CheckMatesTests.swift */; };
+		71E3B24471B29B53EBAFD2F9 /* Pods_CheckMates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631544A51BE40205E7D54218 /* Pods_CheckMates.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05B5D96BDED7B37A2ECC50E5 /* Pods-CheckMates.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckMates.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CheckMates/Pods-CheckMates.debug.xcconfig"; sourceTree = "<group>"; };
 		379CBB961D7CC9A100352669 /* CheckMates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckMates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		379CBB991D7CC9A100352669 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		379CBB9B1D7CC9A100352669 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +41,11 @@
 		379CBBAD1D7CC9A200352669 /* CheckMatesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CheckMatesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		379CBBB11D7CC9A200352669 /* CheckMatesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMatesTests.swift; sourceTree = "<group>"; };
 		379CBBB31D7CC9A200352669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		631544A51BE40205E7D54218 /* Pods_CheckMates.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckMates.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BB260BE7DA72BA1CE84F293 /* Pods_CheckMatesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckMatesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9577D0ED59AE388982A6C6AE /* Pods-CheckMatesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckMatesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheckMatesTests/Pods-CheckMatesTests.release.xcconfig"; sourceTree = "<group>"; };
+		B4429C8F591B55FDF882555B /* Pods-CheckMatesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckMatesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CheckMatesTests/Pods-CheckMatesTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E59E60D5310226EF27A1A710 /* Pods-CheckMates.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckMates.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheckMates/Pods-CheckMates.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71E3B24471B29B53EBAFD2F9 /* Pods_CheckMates.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,18 +61,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2ED6E6F785CD17DEFE5A6A58 /* Pods_CheckMatesTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F4884C9D8549DB6000C6299 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				631544A51BE40205E7D54218 /* Pods_CheckMates.framework */,
+				6BB260BE7DA72BA1CE84F293 /* Pods_CheckMatesTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		379CBB8D1D7CC9A100352669 = {
 			isa = PBXGroup;
 			children = (
 				379CBB981D7CC9A100352669 /* CheckMates */,
 				379CBBB01D7CC9A200352669 /* CheckMatesTests */,
 				379CBB971D7CC9A100352669 /* Products */,
+				D0A4A6DE5C26E73B4E5482A9 /* Pods */,
+				0F4884C9D8549DB6000C6299 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +120,17 @@
 			path = CheckMatesTests;
 			sourceTree = "<group>";
 		};
+		D0A4A6DE5C26E73B4E5482A9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				05B5D96BDED7B37A2ECC50E5 /* Pods-CheckMates.debug.xcconfig */,
+				E59E60D5310226EF27A1A710 /* Pods-CheckMates.release.xcconfig */,
+				B4429C8F591B55FDF882555B /* Pods-CheckMatesTests.debug.xcconfig */,
+				9577D0ED59AE388982A6C6AE /* Pods-CheckMatesTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +138,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 379CBBB61D7CC9A200352669 /* Build configuration list for PBXNativeTarget "CheckMates" */;
 			buildPhases = (
+				EAE890B04DACC7A09D45457C /* [CP] Check Pods Manifest.lock */,
 				379CBB921D7CC9A100352669 /* Sources */,
 				379CBB931D7CC9A100352669 /* Frameworks */,
 				379CBB941D7CC9A100352669 /* Resources */,
+				45388C22036C1B1118933681 /* [CP] Embed Pods Frameworks */,
+				686CC53F801E672EBE4CB49A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,9 +158,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 379CBBB91D7CC9A200352669 /* Build configuration list for PBXNativeTarget "CheckMatesTests" */;
 			buildPhases = (
+				A142DE70B4506F3E51678F88 /* [CP] Check Pods Manifest.lock */,
 				379CBBA91D7CC9A200352669 /* Sources */,
 				379CBBAA1D7CC9A200352669 /* Frameworks */,
 				379CBBAB1D7CC9A200352669 /* Resources */,
+				A48BC568886B9E53E59D3BF1 /* [CP] Embed Pods Frameworks */,
+				034E7C700DA7EA732B5E1244 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,6 +187,7 @@
 				TargetAttributes = {
 					379CBB951D7CC9A100352669 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = HVV8UXES66;
 					};
 					379CBBAC1D7CC9A200352669 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -194,6 +233,99 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		034E7C700DA7EA732B5E1244 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CheckMatesTests/Pods-CheckMatesTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		45388C22036C1B1118933681 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CheckMates/Pods-CheckMates-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		686CC53F801E672EBE4CB49A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CheckMates/Pods-CheckMates-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A142DE70B4506F3E51678F88 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A48BC568886B9E53E59D3BF1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CheckMatesTests/Pods-CheckMatesTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EAE890B04DACC7A09D45457C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		379CBB921D7CC9A100352669 /* Sources */ = {
@@ -331,8 +463,10 @@
 		};
 		379CBBB71D7CC9A200352669 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05B5D96BDED7B37A2ECC50E5 /* Pods-CheckMates.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = CheckMates/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.checkmatesapp.CheckMates;
@@ -342,8 +476,10 @@
 		};
 		379CBBB81D7CC9A200352669 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E59E60D5310226EF27A1A710 /* Pods-CheckMates.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = CheckMates/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.checkmatesapp.CheckMates;
@@ -353,6 +489,7 @@
 		};
 		379CBBBA1D7CC9A200352669 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4429C8F591B55FDF882555B /* Pods-CheckMatesTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = CheckMatesTests/Info.plist;
@@ -365,6 +502,7 @@
 		};
 		379CBBBB1D7CC9A200352669 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9577D0ED59AE388982A6C6AE /* Pods-CheckMatesTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = CheckMatesTests/Info.plist;
@@ -394,6 +532,7 @@
 				379CBBB81D7CC9A200352669 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		379CBBB91D7CC9A200352669 /* Build configuration list for PBXNativeTarget "CheckMatesTests" */ = {
 			isa = XCConfigurationList;
@@ -402,6 +541,7 @@
 				379CBBBB1D7CC9A200352669 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
