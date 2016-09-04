@@ -13,7 +13,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        DwollaAPIManager.sharedInstance.processOAuthStep1Response(NSURL(string:"https://www.gmail.com")!)
     }
 
     override func didReceiveMemoryWarning() {
