@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DAAE4281D7CD08100CF092E /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAAE4271D7CD08100CF092E /* ColorExtensions.swift */; };
+		0DAAE42A1D7CD12C00CF092E /* AddReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAAE4291D7CD12C00CF092E /* AddReceiptViewController.swift */; };
+		0DAAE42C1D7CD15B00CF092E /* ReceiptsViewConroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAAE42B1D7CD15B00CF092E /* ReceiptsViewConroller.swift */; };
+		0DAAE42E1D7CD17B00CF092E /* SnapReceiptsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAAE42D1D7CD17B00CF092E /* SnapReceiptsViewController.swift */; };
 		2ED6E6F785CD17DEFE5A6A58 /* Pods_CheckMatesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BB260BE7DA72BA1CE84F293 /* Pods_CheckMatesTests.framework */; };
 		372C953B1D7CCE8C00BD0DB0 /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372C953A1D7CCE8B00BD0DB0 /* ApiKeys.swift */; };
 		372C953D1D7CCEB700BD0DB0 /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 372C953C1D7CCEB700BD0DB0 /* APIKeys.plist */; };
 		379CBB9A1D7CC9A100352669 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379CBB991D7CC9A100352669 /* AppDelegate.swift */; };
-		379CBB9C1D7CC9A100352669 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379CBB9B1D7CC9A100352669 /* ViewController.swift */; };
 		379CBB9F1D7CC9A100352669 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 379CBB9D1D7CC9A100352669 /* Main.storyboard */; };
 		379CBBA21D7CC9A100352669 /* CheckMates.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 379CBBA01D7CC9A100352669 /* CheckMates.xcdatamodeld */; };
 		379CBBA41D7CC9A100352669 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 379CBBA31D7CC9A100352669 /* Assets.xcassets */; };
@@ -32,11 +35,14 @@
 
 /* Begin PBXFileReference section */
 		05B5D96BDED7B37A2ECC50E5 /* Pods-CheckMates.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckMates.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CheckMates/Pods-CheckMates.debug.xcconfig"; sourceTree = "<group>"; };
+		0DAAE4271D7CD08100CF092E /* ColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
+		0DAAE4291D7CD12C00CF092E /* AddReceiptViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReceiptViewController.swift; sourceTree = "<group>"; };
+		0DAAE42B1D7CD15B00CF092E /* ReceiptsViewConroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptsViewConroller.swift; sourceTree = "<group>"; };
+		0DAAE42D1D7CD17B00CF092E /* SnapReceiptsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapReceiptsViewController.swift; sourceTree = "<group>"; };
 		372C953A1D7CCE8B00BD0DB0 /* ApiKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
 		372C953C1D7CCEB700BD0DB0 /* APIKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
 		379CBB961D7CC9A100352669 /* CheckMates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckMates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		379CBB991D7CC9A100352669 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		379CBB9B1D7CC9A100352669 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		379CBB9E1D7CC9A100352669 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		379CBBA11D7CC9A100352669 /* CheckMates.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CheckMates.xcdatamodel; sourceTree = "<group>"; };
 		379CBBA31D7CC9A100352669 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -105,7 +111,10 @@
 			isa = PBXGroup;
 			children = (
 				379CBB991D7CC9A100352669 /* AppDelegate.swift */,
-				379CBB9B1D7CC9A100352669 /* ViewController.swift */,
+				0DAAE4291D7CD12C00CF092E /* AddReceiptViewController.swift */,
+				0DAAE42B1D7CD15B00CF092E /* ReceiptsViewConroller.swift */,
+				0DAAE42D1D7CD17B00CF092E /* SnapReceiptsViewController.swift */,
+				0DAAE4271D7CD08100CF092E /* ColorExtensions.swift */,
 				379CBB9D1D7CC9A100352669 /* Main.storyboard */,
 				379CBBA31D7CC9A100352669 /* Assets.xcassets */,
 				379CBBA51D7CC9A100352669 /* LaunchScreen.storyboard */,
@@ -339,10 +348,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				379CBB9C1D7CC9A100352669 /* ViewController.swift in Sources */,
+				0DAAE42C1D7CD15B00CF092E /* ReceiptsViewConroller.swift in Sources */,
 				379CBB9A1D7CC9A100352669 /* AppDelegate.swift in Sources */,
 				372C953B1D7CCE8C00BD0DB0 /* ApiKeys.swift in Sources */,
+				0DAAE42E1D7CD17B00CF092E /* SnapReceiptsViewController.swift in Sources */,
 				379CBBA21D7CC9A100352669 /* CheckMates.xcdatamodeld in Sources */,
+				0DAAE4281D7CD08100CF092E /* ColorExtensions.swift in Sources */,
+				0DAAE42A1D7CD12C00CF092E /* AddReceiptViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +417,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -451,6 +464,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -475,10 +489,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = CheckMates/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.checkmatesapp.CheckMates;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -488,10 +504,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = CheckMates/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.checkmatesapp.CheckMates;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
