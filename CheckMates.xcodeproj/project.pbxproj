@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DAAE4281D7CD08100CF092E /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAAE4271D7CD08100CF092E /* ColorExtensions.swift */; };
 		2ED6E6F785CD17DEFE5A6A58 /* Pods_CheckMatesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BB260BE7DA72BA1CE84F293 /* Pods_CheckMatesTests.framework */; };
 		379CBB9A1D7CC9A100352669 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379CBB991D7CC9A100352669 /* AppDelegate.swift */; };
 		379CBB9C1D7CC9A100352669 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379CBB9B1D7CC9A100352669 /* ViewController.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		05B5D96BDED7B37A2ECC50E5 /* Pods-CheckMates.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckMates.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CheckMates/Pods-CheckMates.debug.xcconfig"; sourceTree = "<group>"; };
+		0DAAE4271D7CD08100CF092E /* ColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		379CBB961D7CC9A100352669 /* CheckMates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckMates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		379CBB991D7CC9A100352669 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		379CBB9B1D7CC9A100352669 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				379CBB991D7CC9A100352669 /* AppDelegate.swift */,
+				0DAAE4271D7CD08100CF092E /* ColorExtensions.swift */,
 				379CBB9B1D7CC9A100352669 /* ViewController.swift */,
 				379CBB9D1D7CC9A100352669 /* Main.storyboard */,
 				379CBBA31D7CC9A100352669 /* Assets.xcassets */,
@@ -335,6 +338,7 @@
 				379CBB9C1D7CC9A100352669 /* ViewController.swift in Sources */,
 				379CBB9A1D7CC9A100352669 /* AppDelegate.swift in Sources */,
 				379CBBA21D7CC9A100352669 /* CheckMates.xcdatamodeld in Sources */,
+				0DAAE4281D7CD08100CF092E /* ColorExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
