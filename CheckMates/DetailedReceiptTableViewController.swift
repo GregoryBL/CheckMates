@@ -79,6 +79,9 @@ class DetailedReceiptTableViewController: UITableViewController {
         let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
         tableView.contentInset = insets
         tableView.scrollIndicatorInsets = insets
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 65
     }
     
     
@@ -86,15 +89,16 @@ class DetailedReceiptTableViewController: UITableViewController {
         return itemStore.allItems.count
     }
     
-    override func tableView(tableView: UITableView,
-                            cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        // Create an instance of UITableViewCell, with default appearance
-        let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath)
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+
+        let cell = tableView.dequeueReusableCellWithIdentifier("ItemCell", forIndexPath: indexPath) as! ItemCell
+        cell.updateLabels()
         
         let item = itemStore.allItems[indexPath.row]
         
-        cell.textLabel?.text = item.title
-        cell.detailTextLabel?.text = "$\(item.price)"
+        cell.itemCount.text = "1"
+        cell.titleLabel.text = item.title
+        cell.priceLabel.text = "$\(item.price)"
         
         return cell
     }
