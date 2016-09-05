@@ -14,6 +14,7 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
     var pickedPhoto = false
     var receiptText = ""
     var itemStore = ItemStore()
+    var activityIndicator:UIActivityIndicatorView!
     
     @IBOutlet var imageView: UIImageView!
     
@@ -41,10 +42,25 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
+    func addActivityIndicator() {
+        activityIndicator = UIActivityIndicatorView(frame: view.bounds)
+        activityIndicator.activityIndicatorViewStyle = .WhiteLarge
+        activityIndicator.backgroundColor = UIColor(white: 0, alpha: 0.25)
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
+    }
+    
+    func removeActivityIndicator() {
+        activityIndicator.removeFromSuperview()
+        activityIndicator = nil
+    }
+    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         // get image
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         let scaledImage = scaleImage(image, maxDimension: 640)
+        
+        addActivityIndicator()
         
         imageView.image = image
         self.pickedPhoto = true
@@ -61,6 +77,7 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
         tesseract.maximumRecognitionTime = 60.0
         tesseract.image = image.g8_blackAndWhite()
         tesseract.recognize()
+        removeActivityIndicator()
         
         // TODO: Parse Data and create items with each line
         self.receiptText = tesseract.recognizedText

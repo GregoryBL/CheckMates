@@ -96,6 +96,9 @@ class DetailedReceiptTableViewController: UITableViewController {
                 
                 // get the item associated with this row
                 let item = itemStore.allItems[row]
+                let backItem = UIBarButtonItem()
+                backItem.title = "save"
+                navigationItem.backBarButtonItem = backItem
                 let detailItemViewController = segue.destinationViewController as! ItemDetailViewController
                 detailItemViewController.item = item
             }
