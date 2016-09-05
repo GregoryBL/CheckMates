@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import TesseractOCR
 
-class SnapReceiptsViewController: UIViewController {
+class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+    
+    @IBOutlet var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,8 +19,75 @@ class SnapReceiptsViewController: UIViewController {
         print("sent off")
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(animated: Bool) {
+        
+        launchCamera()
+        
+    }
+    
+    func launchCamera() {
+        let imagePicker = UIImagePickerController()
+        
+        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
+            imagePicker.sourceType = .Camera
+        }
+        else {
+            imagePicker.sourceType = .PhotoLibrary
+        }
+        
+        imagePicker.delegate = self
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        // get image
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let scaledImage = scaleImage(image, maxDimension: 640)
+        
+        imageView.image = image
+        
+        
+        dismissViewControllerAnimated(true, completion: {
+            self.performImageRecognition(scaledImage)
+        })
+    }
+    
+    func performImageRecognition(image: UIImage) {
+        let tesseract:G8Tesseract = G8Tesseract(language:"eng")
+        tesseract.engineMode = .TesseractCubeCombined
+        tesseract.pageSegmentationMode = .Auto
+        tesseract.maximumRecognitionTime = 60.0
+        tesseract.image = image.g8_blackAndWhite()
+        tesseract.recognize()
+        print(tesseract.recognizedText)
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController)
+    {
+        // picker cancelled, dismiss picker view controller
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    func scaleImage(image: UIImage, maxDimension: CGFloat) -> UIImage {
+        
+        var scaledSize = CGSize(width: maxDimension, height: maxDimension)
+        var scaleFactor: CGFloat
+        
+        if image.size.width > image.size.height {
+            scaleFactor = image.size.height / image.size.width
+            scaledSize.width = maxDimension
+            scaledSize.height = scaledSize.width * scaleFactor
+        } else {
+            scaleFactor = image.size.width / image.size.height
+            scaledSize.height = maxDimension
+            scaledSize.width = scaledSize.height * scaleFactor
+        }
+        
+        UIGraphicsBeginImageContext(scaledSize)
+        image.drawInRect(CGRectMake(0, 0, scaledSize.width, scaledSize.height))
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return scaledImage
     }
 }
