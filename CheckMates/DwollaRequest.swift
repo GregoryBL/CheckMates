@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 class DwollaRequest {
     
@@ -24,7 +25,7 @@ class DwollaRequest {
         self.headers = [
             "Content-Type": "application/json",
             "Accept": "application/vnd.dwolla.v1.hal+json",
-            "Authorization": "Bearer" + token
+            "Authorization": "Bearer " + token
         ]
     }
     
@@ -32,21 +33,32 @@ class DwollaRequest {
     var sourceType : String
     var amount : Int
     var notes : String // 250 char max
+    var response : Response<NSData, NSError>?
     
-    func requestPayment() -> Alamofire.Request {
+    func requestPayment() -> Request {
         return Alamofire.request(.POST, DwollaRequest.requestURL, parameters: [
             "sourceId": sourceID,
             "sourceType": sourceType,
-            "amount": amount,
+            "amount": Double(amount)/100,
             "notes": notes
             ], encoding: .JSON, headers: self.headers)
+            .responseData { response in
+                self.response = response
+        }
     }
     
-    func requestWasSuccessful(request: Alamofire.Request) {
-        request.responseJSON { response in
-            let success = (response.response?.allHeaderFields["Success"] as? BooleanType)!
-            print(success)
+    func responseWasReceived() -> Bool {
+        if self.response != nil {
+            return true
         }
+        return false
+    }
+    
+    func requestWasSuccessful() -> Bool {
+        if let success = JSON(data: response!.result.value!)["Success"].bool {
+            return success
+        }
+        return false
     }
     
     

@@ -7,26 +7,40 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class Contact {
-    let phoneNumber : Int? = nil
+    var phoneNumber : Int = 0
 }
 
 class PaymentsController : NSObject {
     
     let apiManager = DwollaAPIManager.sharedInstance
     
-    func startRequestFrom(contact: Contact, amount: Int, note: String) {
+    func startRequestFrom(contact: Contact, amount: Int, notes: String) {
         if apiManager.hasOAuthToken() {
-            self.finishRequestFrom(contact, amount: amount, note: note, token: apiManager.OAuthToken!)
+            let requestWithToken = finishRequestFrom(contact, amount: amount, notes: notes)
+            print(requestWithToken)
+            requestWithToken(apiManager.OAuthToken!)
         } else if apiManager.hasRefreshToken() {
-            apiManager.refreshTokenAndCallBack(finishRequestFrom)
+            let callback = finishRequestFrom(contact, amount: amount, notes: notes)
+            print(callback)
+            apiManager.refreshTokenAndCallBack(callback)
         }
-        
+        print("startRequest ending")
     }
     
-    func finishRequestFrom(contact: Contact, amount: Int, note: String, token: String) {
-        
+    func finishRequestFrom(contact: Contact, amount: Int, notes: String) -> (String -> Void) {
+        print("called finishRequest")
+        return { token in
+            let request = DwollaRequest.init(sourceID: String(contact.phoneNumber), sourceType: "Phone", amount: amount, notes: notes, token: token)
+            let afRequest = request.requestPayment()
+            afRequest.response { request, response, data, error in
+                print(request?.allHTTPHeaderFields)
+                print(JSON(data: data!))
+            }
+            print("payment requested")
+        }
     }
     
 }

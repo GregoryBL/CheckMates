@@ -15,8 +15,6 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        DwollaAPIManager.sharedInstance.startOAuth2Login()
-        print("sent off")
     }
     
     override func viewDidAppear(animated: Bool) {

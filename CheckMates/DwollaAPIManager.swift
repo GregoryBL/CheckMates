@@ -20,6 +20,7 @@ class DwollaAPIManager {
             NSUserDefaults.standardUserDefaults().setObject(newValue, forKey: "DwollaOAuthToken")
         }
         get {
+            print(NSUserDefaults.standardUserDefaults().stringForKey("DwollaOAuthToken"))
             return NSUserDefaults.standardUserDefaults().stringForKey("DwollaOAuthToken")
         }
     }
@@ -140,8 +141,8 @@ class DwollaAPIManager {
                     return
                 }
             }
-            .responseData { request in
-                self.handleOAuthTokenResponse(request)
+            .responseData { response in
+                self.handleOAuthTokenResponse(response)
         }
     }
     
@@ -165,18 +166,23 @@ class DwollaAPIManager {
                     return
                 }
             }
-            .responseData { request in
-                self.handleOAuthTokenResponse(request)
+            .responseData { response in
+                self.handleOAuthTokenResponse(response)
         }
 
     }
     
-    func refreshTokenAndCallBack(callback: (Contact, Int, String, String) -> Void) {
-        
+    func refreshTokenAndCallBack(callback: (String -> Void)) {
+        self.refreshOAuthToken()
+        print("refresh")
+        while !self.hasOAuthToken() {
+            
+        }
+        callback(self.OAuthToken!)
     }
     
-    func handleOAuthTokenResponse(request: Response<NSData, NSError>) {
-        let returnValue = JSON(data: request.result.value!)
+    func handleOAuthTokenResponse(response: Response<NSData, NSError>) {
+        let returnValue = JSON(data: response.result.value!)
         if let a_token = returnValue["access_token"].string {
             self.OAuthToken = a_token
         } else {
