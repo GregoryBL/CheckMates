@@ -13,6 +13,7 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
     
     var pickedPhoto = false
     var receiptText = ""
+    let itemStore = ItemStore()
     
     @IBOutlet var imageView: UIImageView!
     
@@ -69,6 +70,7 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
     {
         // picker cancelled, dismiss picker view controller
         self.dismissViewControllerAnimated(true, completion: nil)
+        pickedPhoto = true
     }
 
     func scaleImage(image: UIImage, maxDimension: CGFloat) -> UIImage {
