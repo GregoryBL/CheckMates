@@ -11,6 +11,9 @@ import TesseractOCR
 
 class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
+    var pickedPhoto = false
+    var receiptText = ""
+    
     @IBOutlet var imageView: UIImageView!
     
     override func viewDidLoad() {
@@ -18,9 +21,9 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
     }
     
     override func viewDidAppear(animated: Bool) {
-        
-        launchCamera()
-        
+        if(self.pickedPhoto == false) {
+            launchCamera()
+        }
     }
     
     func launchCamera() {
@@ -43,7 +46,7 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
         let scaledImage = scaleImage(image, maxDimension: 640)
         
         imageView.image = image
-        
+        self.pickedPhoto = true
         
         dismissViewControllerAnimated(true, completion: {
             self.performImageRecognition(scaledImage)
@@ -57,7 +60,9 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
         tesseract.maximumRecognitionTime = 60.0
         tesseract.image = image.g8_blackAndWhite()
         tesseract.recognize()
-        print(tesseract.recognizedText)
+        self.receiptText = tesseract.recognizedText
+        
+        self.performSegueWithIdentifier("DisplayItemsSegue", sender: self)
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController)
@@ -88,4 +93,14 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
         
         return scaledImage
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "DisplayItemsSegue"
+        {
+            if let destinationVC = segue.destinationViewController as? DetailedReceiptTableViewController {
+                destinationVC.receiptText = self.receiptText
+            }
+        }
+    }
+    
 }
