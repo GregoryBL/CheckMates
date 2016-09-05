@@ -15,7 +15,11 @@ class ItemDetailViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var priceField: UITextField!
     @IBOutlet var dateField:  UILabel!
     
-    var item: Item!
+    var item: Item! {
+        didSet {
+            navigationItem.title = item.title
+        }
+    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)

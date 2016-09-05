@@ -39,7 +39,7 @@
             </objects>
             <point key="canvasLocation" x="1143" y="-542"/>
         </scene>
-        <!--Snap Receipts View Controller-->
+        <!--CheckMates-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SnapReceiptsViewController" customModule="CheckMates" customModuleProvider="target" sceneMemberID="viewController">
@@ -51,38 +51,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Snap Receipts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6H-vG-QZM">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Snap Receipts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6H-vG-QZM">
                                 <rect key="frame" x="0.0" y="20" width="600" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="09t-n4-yJa">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="09t-n4-yJa" secondAttribute="trailing" constant="-20" id="1pd-g7-2Ib"/>
-                            <constraint firstItem="g6H-vG-QZM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4JP-lO-Gvr"/>
-                            <constraint firstAttribute="trailing" secondItem="g6H-vG-QZM" secondAttribute="trailing" id="Afm-d8-USP"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="09t-n4-yJa" secondAttribute="bottom" id="Fud-Ik-qNj"/>
-                            <constraint firstItem="g6H-vG-QZM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Njb-qc-71E"/>
-                            <constraint firstItem="09t-n4-yJa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="TWm-LO-qwI"/>
-                            <constraint firstItem="09t-n4-yJa" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="cUk-kK-5P1"/>
+                            <constraint firstAttribute="trailing" secondItem="g6H-vG-QZM" secondAttribute="trailing" id="4Tg-Ac-qpt"/>
+                            <constraint firstItem="g6H-vG-QZM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="RZV-wL-FeL"/>
+                            <constraint firstItem="g6H-vG-QZM" firstAttribute="trailing" secondItem="09t-n4-yJa" secondAttribute="trailing" id="SkG-dJ-gsk"/>
+                            <constraint firstItem="09t-n4-yJa" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="e0Q-Od-dmh"/>
+                            <constraint firstItem="g6H-vG-QZM" firstAttribute="leading" secondItem="09t-n4-yJa" secondAttribute="leading" id="h3n-zF-590"/>
+                            <constraint firstItem="09t-n4-yJa" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="sJe-K0-qnu"/>
+                            <constraint firstItem="g6H-vG-QZM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" symbolic="YES" id="xuP-qf-DDf"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="R51-zh-hYc"/>
+                    <navigationItem key="navigationItem" title="CheckMates" id="R51-zh-hYc"/>
                     <connections>
                         <outlet property="imageView" destination="09t-n4-yJa" id="idZ-3x-hUD"/>
-                        <segue destination="GTV-18-SEv" kind="show" identifier="DisplayItemsSegue" id="0zx-nc-Qbr"/>
+                        <segue destination="tg2-Kq-sbr" kind="show" identifier="DisplayItemsSegue" id="0zx-nc-Qbr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1952" y="123"/>
         </scene>
-        <!--Detailed Receipt Table View Controller-->
+        <!--Receipts-->
         <scene sceneID="CZp-7I-yyA">
             <objects>
                 <tableViewController id="GTV-18-SEv" customClass="DetailedReceiptTableViewController" customModule="CheckMates" customModuleProvider="target" sceneMemberID="viewController">
@@ -90,41 +90,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="68h-it-HLM">
-                            <rect key="frame" x="0.0" y="64" width="600" height="60"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nTj-D2-aLG">
-                                    <rect key="frame" x="16" y="15" width="30" height="30"/>
-                                    <state key="normal" title="Edit"/>
-                                    <connections>
-                                        <action selector="toggleEditingMode:" destination="GTV-18-SEv" eventType="touchUpInside" id="YPo-9y-2Mf"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fsB-oK-Hkn">
-                                    <rect key="frame" x="530" y="22" width="62" height="30"/>
-                                    <state key="normal" title="Add Item"/>
-                                    <connections>
-                                        <action selector="addNewItem:" destination="GTV-18-SEv" eventType="touchUpInside" id="nT7-bq-9Wk"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstItem="nTj-D2-aLG" firstAttribute="centerY" secondItem="68h-it-HLM" secondAttribute="centerY" id="YGg-DS-DtN"/>
-                                <constraint firstItem="fsB-oK-Hkn" firstAttribute="trailing" secondItem="68h-it-HLM" secondAttribute="trailingMargin" id="f7t-4p-b8V"/>
-                                <constraint firstItem="nTj-D2-aLG" firstAttribute="leading" secondItem="68h-it-HLM" secondAttribute="leading" constant="16" id="hIk-xG-K4O"/>
-                                <constraint firstItem="fsB-oK-Hkn" firstAttribute="bottom" secondItem="68h-it-HLM" secondAttribute="bottomMargin" id="iNB-Sw-pw3"/>
-                            </constraints>
-                        </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="SIH-ez-1aA">
-                            <rect key="frame" x="0.0" y="217" width="600" height="60"/>
+                            <rect key="frame" x="0.0" y="157" width="600" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="65" id="1iC-yv-xae" customClass="ItemCell" customModule="CheckMates" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="152" width="600" height="65"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1iC-yv-xae" id="46n-XL-45c">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
@@ -181,10 +154,26 @@
                             <outlet property="delegate" destination="GTV-18-SEv" id="QXi-Jm-cT9"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Receipts" id="Uwt-lh-zoh">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="sP3-Rn-d6Q">
+                            <connections>
+                                <action selector="addNewItem:" destination="GTV-18-SEv" id="anj-dq-VDp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="35W-XI-0r2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationBar contentMode="scaleToFill" id="mME-2P-fwC">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <items>
+                        <navigationItem title="Title" id="QQx-eg-npg"/>
+                    </items>
+                </navigationBar>
             </objects>
-            <point key="canvasLocation" x="2643" y="123"/>
+            <point key="canvasLocation" x="3455" y="123"/>
         </scene>
         <!--Item Detail View Controller-->
         <scene sceneID="cwJ-8C-0BF">
@@ -301,7 +290,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3323" y="123"/>
+            <point key="canvasLocation" x="4135" y="123"/>
         </scene>
         <!--Enter Receipt-->
         <scene sceneID="aIh-Vr-pNH">
@@ -373,6 +362,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MwH-G1-cbO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1140" y="123"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hOp-W8-sxp">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vbw-Og-Zk5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tg2-Kq-sbr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ngK-ml-GwN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="GTV-18-SEv" kind="relationship" relationship="rootViewController" id="Y4H-jo-mE2"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="2643" y="123"/>
         </scene>
     </scenes>
     <resources>
