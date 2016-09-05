@@ -47,10 +47,28 @@ class DetailedReceiptTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             let item = itemStore.allItems[indexPath.row]
-            itemStore.removeItem(item)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            
+            
+            let title = "Remove \(item.title)?"
+            let message = "Are you sure you want to delete this item?"
+            
+            let alertController = UIAlertController(title: title,
+                                       message: message,
+                                       preferredStyle: .ActionSheet)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+            alertController.addAction(cancelAction)
+            
+            let deleteAction = UIAlertAction(title: "Delete", style: .Destructive,handler: { (action) -> Void in
+                                                                                                self.itemStore.removeItem(item)
+                                                                                                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            })
+            alertController.addAction(deleteAction)
+            
+            presentViewController(alertController, animated: true, completion: nil)
         }
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
