@@ -15,10 +15,38 @@ import SwiftyJSON
 class DwollaAPIManager {
     static let sharedInstance = DwollaAPIManager()
     
-    var OAuthToken: String?
-    var tokenExpiry: NSDate?
-    var refreshToken: String?
-    var refreshExpiry: NSDate?
+    var OAuthToken: String? {
+        set (newValue) {
+            NSUserDefaults.standardUserDefaults().setObject(newValue, forKey: "DwollaOAuthToken")
+        }
+        get {
+            return NSUserDefaults.standardUserDefaults().stringForKey("DwollaOAuthToken")
+        }
+    }
+    var tokenExpiry: NSDate? {
+        set (newValue) {
+            NSUserDefaults.standardUserDefaults().setDouble((newValue?.timeIntervalSince1970)!, forKey: "DwollaOAuthExpiry")
+        }
+        get {
+            return NSDate(timeIntervalSince1970: NSUserDefaults.standardUserDefaults().doubleForKey("DwollaOAuthExpiry"))
+        }
+    }
+    var refreshToken: String? {
+        set (newValue) {
+            NSUserDefaults.standardUserDefaults().setObject(newValue, forKey: "DwollaOAuthRefreshToken")
+        }
+        get {
+            return NSUserDefaults.standardUserDefaults().stringForKey("DwollaOAuthRefreshToken")
+        }
+    }
+    var refreshExpiry: NSDate? {
+        set (newValue) {
+            NSUserDefaults.standardUserDefaults().setDouble((newValue?.timeIntervalSince1970)!, forKey: "DwollaOAuthRefreshExpiry")
+        }
+        get {
+            return NSDate(timeIntervalSince1970: NSUserDefaults.standardUserDefaults().doubleForKey("DwollaOAuthRefreshExpiry"))
+        }
+    }
     
     let clientID = valueForAPIKey(named: "DWOLLA_APP_ID")
     let clientSecret = valueForAPIKey(named: "DWOLLA_SECRET_KEY")
@@ -57,8 +85,8 @@ class DwollaAPIManager {
     // MARK: - OAuth flow
     
     func startOAuth2Login() {
-        
-        let authPath = "https://uat.dwolla.com/oauth/v2/authenticate?client_id=\(clientID)&response_type=code&redirect_uri=\(redirectURI)&scope=\(scope)"
+        let authPath = "https://uat.dwolla.com/oauth/v2/authenticate?client_id=\(clientID)&response_type=code&redirect_uri=\(redirectURI)&scope=\(scope)&dwolla_landing=login"
+        print(authPath)
         if let authURL = NSURL(string: authPath) {
             print("sending")
             let defaults = NSUserDefaults.standardUserDefaults()
@@ -113,21 +141,7 @@ class DwollaAPIManager {
                 }
             }
             .responseData { request in
-                print("request")
-                print(request)
-                let returnValue = JSON(data: request.result.value!)
-                if let a_token = returnValue["access_token"].string {
-                    self.OAuthToken = a_token
-                } else {
-                    print(returnValue["access_token"])
-                }
-                if let r_token = returnValue["refresh_token"].string {
-                    self.refreshToken = r_token
-                } else {
-                    print(returnValue["refresh_token"])
-                }
-                print(self.OAuthToken)
-                print(self.refreshToken)
+                self.handleOAuthTokenResponse(request)
         }
     }
     
@@ -152,21 +166,7 @@ class DwollaAPIManager {
                 }
             }
             .responseData { request in
-                print("request")
-                print(request.result.value)
-                let returnValue = JSON(data: request.result.value!)
-                if let a_token = returnValue["access_token"].string {
-                    self.OAuthToken = a_token
-                } else {
-                    print(returnValue["access_token"])
-                }
-                if let r_token = returnValue["refresh_token"].string {
-                    self.refreshToken = r_token
-                } else {
-                    print(returnValue["refresh_token"])
-                }
-                print(self.OAuthToken)
-                print(self.refreshToken)
+                self.handleOAuthTokenResponse(request)
         }
 
     }
@@ -175,21 +175,31 @@ class DwollaAPIManager {
         
     }
     
-//    func handleOAuthTokenResponse() {
-//        print("request")
-//        print(request.result.value)
-//        let returnValue = JSON(data: request.result.value!)
-//        if let a_token = returnValue["access_token"].string {
-//            self.OAuthToken = a_token
-//        } else {
-//            print(returnValue["access_token"])
-//        }
-//        if let r_token = returnValue["refresh_token"].string {
-//            self.refreshToken = r_token
-//        } else {
-//            print(returnValue["refresh_token"])
-//        }
-//        print(self.OAuthToken)
-//        print(self.refreshToken)
-//    }
+    func handleOAuthTokenResponse(request: Response<NSData, NSError>) {
+        let returnValue = JSON(data: request.result.value!)
+        if let a_token = returnValue["access_token"].string {
+            self.OAuthToken = a_token
+        } else {
+            print(returnValue["access_token"])
+        }
+        if let a_expiry = returnValue["expires_in"].double {
+            self.tokenExpiry = NSDate(timeIntervalSinceNow: a_expiry)
+        } else {
+            print(returnValue["expires_in"])
+        }
+        if let r_token = returnValue["refresh_token"].string {
+            self.refreshToken = r_token
+        } else {
+            print(returnValue["refresh_token"])
+        }
+        if let r_expiry = returnValue["refresh_expires_in"].double {
+            self.refreshExpiry = NSDate(timeIntervalSinceNow: r_expiry)
+        } else {
+            print(returnValue["refresh_expires_in"])
+        }
+        print(self.OAuthToken)
+        print(self.refreshToken)
+        print(self.refreshExpiry)
+        print(self.tokenExpiry)
+    }
 }

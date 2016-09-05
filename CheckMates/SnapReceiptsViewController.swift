@@ -12,6 +12,8 @@ class SnapReceiptsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        DwollaAPIManager.sharedInstance.startOAuth2Login()
+        print("sent off")
     }
     
     override func didReceiveMemoryWarning() {
