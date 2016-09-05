@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8150" systemVersion="15A204g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8122"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -15,8 +16,25 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmatesLogo" translatesAutoresizingMaskIntoConstraints="NO" id="UrL-45-Jdv">
+                                <rect key="frame" x="0.0" y="452" width="600" height="128"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Launch Image" translatesAutoresizingMaskIntoConstraints="NO" id="0Dg-DC-Y3F">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.45882352941176469" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="0Dg-DC-Y3F" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="5ZI-39-80v"/>
+                            <constraint firstItem="0Dg-DC-Y3F" firstAttribute="trailing" secondItem="UrL-45-Jdv" secondAttribute="trailing" id="GgO-Ty-uaQ"/>
+                            <constraint firstAttribute="bottom" secondItem="UrL-45-Jdv" secondAttribute="bottom" constant="20" symbolic="YES" id="SsM-lR-gNC"/>
+                            <constraint firstItem="0Dg-DC-Y3F" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="UxJ-3J-R8K"/>
+                            <constraint firstItem="0Dg-DC-Y3F" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="dO3-6H-Xgf"/>
+                            <constraint firstAttribute="trailing" secondItem="0Dg-DC-Y3F" secondAttribute="trailing" id="syT-zP-r2Q"/>
+                            <constraint firstItem="UrL-45-Jdv" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="432" id="uIQ-RI-3oS"/>
+                            <constraint firstItem="0Dg-DC-Y3F" firstAttribute="leading" secondItem="UrL-45-Jdv" secondAttribute="leading" id="wJV-6N-GbC"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +42,8 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Launch Image" width="121" height="121"/>
+        <image name="checkmatesLogo" width="250" height="31"/>
+    </resources>
 </document>
