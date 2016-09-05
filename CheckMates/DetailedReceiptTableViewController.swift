@@ -98,9 +98,24 @@ class DetailedReceiptTableViewController: UITableViewController {
         
         cell.itemCount.text = "1"
         cell.titleLabel.text = item.title
-        cell.priceLabel.text = "$\(item.price)"
+        cell.priceLabel.text = item.price.asLocaleCurrency
         
         return cell
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "ShowItem" {
+            
+            // determine which row was selected
+            if let row = tableView.indexPathForSelectedRow?.row {
+                
+                // get the item associated with this row
+                let item = itemStore.allItems[row]
+                let detailItemViewController = segue.destinationViewController as! ItemDetailViewController
+                detailItemViewController.item = item
+            }
+        }
     }
 
 }

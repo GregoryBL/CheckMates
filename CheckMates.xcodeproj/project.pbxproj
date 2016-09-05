@@ -17,6 +17,9 @@
 		0DB4C95D1D7D1E4C00FFDF85 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB4C95C1D7D1E4C00FFDF85 /* Item.swift */; };
 		0DB4C95F1D7D1F7100FFDF85 /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB4C95E1D7D1F7100FFDF85 /* ItemStore.swift */; };
 		0DB4C9611D7DD25800FFDF85 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB4C9601D7DD25800FFDF85 /* ItemCell.swift */; };
+		0DB4C9631D7DE61400FFDF85 /* ItemDetailViewConroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB4C9621D7DE61400FFDF85 /* ItemDetailViewConroller.swift */; };
+		0DB4C9651D7DE8AC00FFDF85 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB4C9641D7DE8AC00FFDF85 /* DateExtensions.swift */; };
+		0DB4C9671D7DE8E100FFDF85 /* NumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB4C9661D7DE8E100FFDF85 /* NumberExtensions.swift */; };
 		2ED6E6F785CD17DEFE5A6A58 /* Pods_CheckMatesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BB260BE7DA72BA1CE84F293 /* Pods_CheckMatesTests.framework */; };
 		372C953B1D7CCE8C00BD0DB0 /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372C953A1D7CCE8B00BD0DB0 /* ApiKeys.swift */; };
 		372C953D1D7CCEB700BD0DB0 /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 372C953C1D7CCEB700BD0DB0 /* APIKeys.plist */; };
@@ -51,6 +54,9 @@
 		0DB4C95C1D7D1E4C00FFDF85 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		0DB4C95E1D7D1F7100FFDF85 /* ItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
 		0DB4C9601D7DD25800FFDF85 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		0DB4C9621D7DE61400FFDF85 /* ItemDetailViewConroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailViewConroller.swift; sourceTree = "<group>"; };
+		0DB4C9641D7DE8AC00FFDF85 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		0DB4C9661D7DE8E100FFDF85 /* NumberExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberExtensions.swift; sourceTree = "<group>"; };
 		372C953A1D7CCE8B00BD0DB0 /* ApiKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
 		372C953C1D7CCEB700BD0DB0 /* APIKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
 		379CBB961D7CC9A100352669 /* CheckMates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckMates.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,7 +139,10 @@
 				0DB4C9601D7DD25800FFDF85 /* ItemCell.swift */,
 				0DB4C95C1D7D1E4C00FFDF85 /* Item.swift */,
 				0DB4C95E1D7D1F7100FFDF85 /* ItemStore.swift */,
+				0DB4C9621D7DE61400FFDF85 /* ItemDetailViewConroller.swift */,
 				0DAAE4271D7CD08100CF092E /* ColorExtensions.swift */,
+				0DB4C9641D7DE8AC00FFDF85 /* DateExtensions.swift */,
+				0DB4C9661D7DE8E100FFDF85 /* NumberExtensions.swift */,
 				379CBB9D1D7CC9A100352669 /* Main.storyboard */,
 				379CBBA31D7CC9A100352669 /* Assets.xcassets */,
 				379CBBA51D7CC9A100352669 /* LaunchScreen.storyboard */,
@@ -374,11 +383,14 @@
 				0DB4C9611D7DD25800FFDF85 /* ItemCell.swift in Sources */,
 				0DB4C95B1D7D0F4200FFDF85 /* DetailedReceiptTableViewController.swift in Sources */,
 				372C953B1D7CCE8C00BD0DB0 /* ApiKeys.swift in Sources */,
+				0DB4C9671D7DE8E100FFDF85 /* NumberExtensions.swift in Sources */,
 				0DAAE42E1D7CD17B00CF092E /* SnapReceiptsViewController.swift in Sources */,
 				379CBBA21D7CC9A100352669 /* CheckMates.xcdatamodeld in Sources */,
 				0DAAE4281D7CD08100CF092E /* ColorExtensions.swift in Sources */,
+				0DB4C9631D7DE61400FFDF85 /* ItemDetailViewConroller.swift in Sources */,
 				0DB4C95F1D7D1F7100FFDF85 /* ItemStore.swift in Sources */,
 				0DAAE42A1D7CD12C00CF092E /* AddReceiptViewController.swift in Sources */,
+				0DB4C9651D7DE8AC00FFDF85 /* DateExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
