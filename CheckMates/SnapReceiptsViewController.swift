@@ -13,7 +13,7 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
     
     var pickedPhoto = false
     var receiptText = ""
-    let itemStore = ItemStore()
+    var itemStore = ItemStore()
     
     @IBOutlet var imageView: UIImageView!
     
@@ -61,7 +61,15 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
         tesseract.maximumRecognitionTime = 60.0
         tesseract.image = image.g8_blackAndWhite()
         tesseract.recognize()
+        
+        // TODO: Parse Data and create items with each line
         self.receiptText = tesseract.recognizedText
+        // var newItem = itemStore.createItem(title: "Item Title", price: 3.49)
+        
+        
+        
+        
+        
         
         self.performSegueWithIdentifier("DisplayItemsSegue", sender: self)
     }
