@@ -12,7 +12,14 @@ extension Float {
     var asLocaleCurrency:String {
         let formatter = NSNumberFormatter()
         formatter.numberStyle = .CurrencyStyle
-        formatter.locale = NSLocale.currentLocale()
+        formatter.currencySymbol = "" 
+        formatter.currencyGroupingSeparator = ""
         return formatter.stringFromNumber(self)!
+    }
+}
+
+extension String {
+    var asFloat: Float {
+        return (self as NSString).floatValue
     }
 }
