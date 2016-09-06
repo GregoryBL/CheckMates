@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G1004" minimumToolsVersion="Automatic">
+    <entity name="Bill" representedClassName=".Bill" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="items" toMany="YES" deletionRule="Nullify" destinationEntity="BillItem" inverseName="bill" inverseEntity="BillItem" syncable="YES"/>
+    </entity>
+    <entity name="BillItem" representedClassName=".BillItem" syncable="YES">
+        <attribute name="itemDescription" attributeType="String" syncable="YES"/>
+        <attribute name="price" attributeType="Integer 64" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="bill" maxCount="1" deletionRule="Nullify" destinationEntity="Bill" inverseName="items" inverseEntity="Bill" syncable="YES"/>
+        <relationship name="mate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Mate" inverseName="item" inverseEntity="Mate" syncable="YES"/>
+    </entity>
+    <entity name="Mate" representedClassName=".Mate" syncable="YES">
+        <attribute name="firstName" attributeType="String" syncable="YES"/>
+        <attribute name="id" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mobileNumber" attributeType="String" syncable="YES"/>
+        <relationship name="item" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BillItem" inverseName="mate" inverseEntity="BillItem" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Bill" positionX="-99" positionY="-126" width="128" height="73"/>
+        <element name="BillItem" positionX="259" positionY="-123" width="128" height="103"/>
+        <element name="Mate" positionX="54" positionY="99" width="128" height="28"/>
+    </elements>
 </model>

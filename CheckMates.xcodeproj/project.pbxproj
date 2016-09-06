@@ -18,6 +18,13 @@
 		379CBBA71D7CC9A100352669 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 379CBBA51D7CC9A100352669 /* LaunchScreen.storyboard */; };
 		379CBBB21D7CC9A200352669 /* CheckMatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379CBBB11D7CC9A200352669 /* CheckMatesTests.swift */; };
 		71E3B24471B29B53EBAFD2F9 /* Pods_CheckMates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631544A51BE40205E7D54218 /* Pods_CheckMates.framework */; };
+		F057D5111D7DBF5C00C8EBD4 /* BillItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F057D50B1D7DBF5C00C8EBD4 /* BillItem+CoreDataProperties.swift */; };
+		F057D5121D7DBF5C00C8EBD4 /* BillItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F057D50C1D7DBF5C00C8EBD4 /* BillItem.swift */; };
+		F057D5131D7DBF5C00C8EBD4 /* Mate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F057D50D1D7DBF5C00C8EBD4 /* Mate+CoreDataProperties.swift */; };
+		F057D5141D7DBF5C00C8EBD4 /* Mate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F057D50E1D7DBF5C00C8EBD4 /* Mate.swift */; };
+		F057D5151D7DBF5C00C8EBD4 /* Bill+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F057D50F1D7DBF5C00C8EBD4 /* Bill+CoreDataProperties.swift */; };
+		F057D5161D7DBF5C00C8EBD4 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = F057D5101D7DBF5C00C8EBD4 /* Bill.swift */; };
+		F057D5181D7DC3F500C8EBD4 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F057D5171D7DC3F500C8EBD4 /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +57,13 @@
 		9577D0ED59AE388982A6C6AE /* Pods-CheckMatesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckMatesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheckMatesTests/Pods-CheckMatesTests.release.xcconfig"; sourceTree = "<group>"; };
 		B4429C8F591B55FDF882555B /* Pods-CheckMatesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckMatesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CheckMatesTests/Pods-CheckMatesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E59E60D5310226EF27A1A710 /* Pods-CheckMates.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckMates.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheckMates/Pods-CheckMates.release.xcconfig"; sourceTree = "<group>"; };
+		F057D50B1D7DBF5C00C8EBD4 /* BillItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BillItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F057D50C1D7DBF5C00C8EBD4 /* BillItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillItem.swift; sourceTree = "<group>"; };
+		F057D50D1D7DBF5C00C8EBD4 /* Mate+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Mate+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F057D50E1D7DBF5C00C8EBD4 /* Mate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mate.swift; sourceTree = "<group>"; };
+		F057D50F1D7DBF5C00C8EBD4 /* Bill+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bill+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F057D5101D7DBF5C00C8EBD4 /* Bill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
+		F057D5171D7DC3F500C8EBD4 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +118,13 @@
 		379CBB981D7CC9A100352669 /* CheckMates */ = {
 			isa = PBXGroup;
 			children = (
+				F057D50B1D7DBF5C00C8EBD4 /* BillItem+CoreDataProperties.swift */,
+				F057D50C1D7DBF5C00C8EBD4 /* BillItem.swift */,
+				F057D50D1D7DBF5C00C8EBD4 /* Mate+CoreDataProperties.swift */,
+				F057D5171D7DC3F500C8EBD4 /* CoreDataStack.swift */,
+				F057D50E1D7DBF5C00C8EBD4 /* Mate.swift */,
+				F057D50F1D7DBF5C00C8EBD4 /* Bill+CoreDataProperties.swift */,
+				F057D5101D7DBF5C00C8EBD4 /* Bill.swift */,
 				379CBB991D7CC9A100352669 /* AppDelegate.swift */,
 				379CBB9B1D7CC9A100352669 /* ViewController.swift */,
 				379CBB9D1D7CC9A100352669 /* Main.storyboard */,
@@ -342,7 +363,14 @@
 				379CBB9C1D7CC9A100352669 /* ViewController.swift in Sources */,
 				379CBB9A1D7CC9A100352669 /* AppDelegate.swift in Sources */,
 				372C953B1D7CCE8C00BD0DB0 /* ApiKeys.swift in Sources */,
+				F057D5131D7DBF5C00C8EBD4 /* Mate+CoreDataProperties.swift in Sources */,
+				F057D5141D7DBF5C00C8EBD4 /* Mate.swift in Sources */,
+				F057D5151D7DBF5C00C8EBD4 /* Bill+CoreDataProperties.swift in Sources */,
+				F057D5181D7DC3F500C8EBD4 /* CoreDataStack.swift in Sources */,
+				F057D5161D7DBF5C00C8EBD4 /* Bill.swift in Sources */,
+				F057D5121D7DBF5C00C8EBD4 /* BillItem.swift in Sources */,
 				379CBBA21D7CC9A100352669 /* CheckMates.xcdatamodeld in Sources */,
+				F057D5111D7DBF5C00C8EBD4 /* BillItem+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
