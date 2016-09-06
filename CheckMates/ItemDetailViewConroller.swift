@@ -24,10 +24,13 @@ class ItemDetailViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        countField.text = "1"
-        titleField.text = item.title
-        priceField.text = item.price.asLocaleCurrency
-        dateField.text = item.created_at.friendlyDate
+        if(item != nil) {
+            countField.text = "1"
+            titleField.text = item.title
+            priceField.text = item.price.asLocaleCurrency
+            dateField.text = item.created_at.friendlyDate
+        }
+       
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -35,10 +38,17 @@ class ItemDetailViewController: UIViewController, UITextFieldDelegate {
         
         // Clear first responder
         view.endEditing(true)
-                
-        // save the changes that were made
-        item.title = titleField.text ?? ""
-        item.price = priceField.text!.asFloat
+        
+        if(item == nil) {
+            // add a new item
+            item = Item(title: titleField.text!, price: priceField.text!.asFloat)
+        }
+        else {
+            // save the changes that were made
+            item.title = titleField.text ?? ""
+            item.price = priceField.text!.asFloat
+        }
+        
     }
     
     @IBAction func backgroundTapped(sender: UITapGestureRecognizer) {

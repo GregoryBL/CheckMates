@@ -134,8 +134,6 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
         if segue.identifier == "DisplayItemsSegue"
         {
             let detailViewController = segue.destinationViewController as? DetailedReceiptTableViewController
-            
-            print(itemStore.allItems.count)
             detailViewController?.itemStore = itemStore
         }
     }

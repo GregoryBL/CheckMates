@@ -90,10 +90,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="SIH-ez-1aA">
-                            <rect key="frame" x="0.0" y="157" width="600" height="60"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="lno-fv-pFM">
+                            <rect key="frame" x="0.0" y="157" width="600" height="65"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GWS-r5-6Ge">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                    <state key="normal" title="Save Receipt"/>
+                                    <connections>
+                                        <segue destination="4LZ-5Z-y71" kind="show" identifier="ShowEvent" id="CZT-N5-Ecg"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.25098040700000002" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="GWS-r5-6Ge" firstAttribute="centerY" secondItem="lno-fv-pFM" secondAttribute="centerY" id="cin-0G-mak"/>
+                                <constraint firstItem="GWS-r5-6Ge" firstAttribute="centerX" secondItem="lno-fv-pFM" secondAttribute="centerX" id="qTf-0A-LdR"/>
+                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="65" id="1iC-yv-xae" customClass="ItemCell" customModule="CheckMates" customModuleProvider="target">
@@ -174,6 +189,37 @@
                 </navigationBar>
             </objects>
             <point key="canvasLocation" x="2647" y="123"/>
+        </scene>
+        <!--Contacts View Controller-->
+        <scene sceneID="U52-Gm-Fke">
+            <objects>
+                <viewController id="4LZ-5Z-y71" customClass="ContactsViewController" customModule="CheckMates" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="N7C-PC-88B"/>
+                        <viewControllerLayoutGuide type="bottom" id="iF3-rq-gfj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Z53-pY-EEM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Event" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQT-k9-YyI">
+                                <rect key="frame" x="20" y="88" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PQT-k9-YyI" firstAttribute="trailing" secondItem="Z53-pY-EEM" secondAttribute="trailingMargin" id="Cl9-84-kI6"/>
+                            <constraint firstItem="PQT-k9-YyI" firstAttribute="top" secondItem="N7C-PC-88B" secondAttribute="bottom" constant="24" id="YkN-9h-ZC7"/>
+                            <constraint firstItem="PQT-k9-YyI" firstAttribute="leading" secondItem="Z53-pY-EEM" secondAttribute="leadingMargin" id="swL-cz-i7b"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z2d-Me-2dn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3002" y="903"/>
         </scene>
         <!--Item Detail View Controller-->
         <scene sceneID="cwJ-8C-0BF">
@@ -344,7 +390,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4135" y="123"/>
+            <point key="canvasLocation" x="3365" y="123"/>
         </scene>
         <!--Enter Receipt-->
         <scene sceneID="aIh-Vr-pNH">
@@ -401,7 +447,6 @@
         <!--Snap Receipt-->
         <scene sceneID="fX4-Tb-49G">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MwH-G1-cbO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pgt-jY-sQP" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Snap Receipt" image="CameraIcon" id="sOf-FE-HZS"/>
                     <toolbarItems/>
@@ -414,8 +459,26 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="xhr-VK-VHM"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MwH-G1-cbO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1140" y="123"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="u3D-f1-kUD">
+            <objects>
+                <viewController id="6ls-8Y-Uxf" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aOc-wr-agT"/>
+                        <viewControllerLayoutGuide type="bottom" id="QUa-7I-EHs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="doM-fd-0TP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I0X-zU-TVF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>
