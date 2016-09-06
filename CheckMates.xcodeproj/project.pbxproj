@@ -7,11 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DAA6BC21D7CF06200D38DFE /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DAA6BC11D7CF06200D38DFE /* libstdc++.6.0.9.tbd */; };
+		0DAAE4281D7CD08100CF092E /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAAE4271D7CD08100CF092E /* ColorExtensions.swift */; };
+		0DAAE42A1D7CD12C00CF092E /* AddReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAAE4291D7CD12C00CF092E /* AddReceiptViewController.swift */; };
+		0DAAE42C1D7CD15B00CF092E /* ReceiptsViewConroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAAE42B1D7CD15B00CF092E /* ReceiptsViewConroller.swift */; };
+		0DAAE42E1D7CD17B00CF092E /* SnapReceiptsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAAE42D1D7CD17B00CF092E /* SnapReceiptsViewController.swift */; };
+		0DB4C9551D7D008900FFDF85 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 0DB4C9541D7D008900FFDF85 /* tessdata */; };
 		2ED6E6F785CD17DEFE5A6A58 /* Pods_CheckMatesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BB260BE7DA72BA1CE84F293 /* Pods_CheckMatesTests.framework */; };
 		372C953B1D7CCE8C00BD0DB0 /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372C953A1D7CCE8B00BD0DB0 /* ApiKeys.swift */; };
 		372C953D1D7CCEB700BD0DB0 /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 372C953C1D7CCEB700BD0DB0 /* APIKeys.plist */; };
+		372C953F1D7CD0A100BD0DB0 /* PaymentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372C953E1D7CD0A100BD0DB0 /* PaymentsController.swift */; };
+		372C95411D7CD41600BD0DB0 /* DwollaAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372C95401D7CD41600BD0DB0 /* DwollaAPIManager.swift */; };
+		372C95431D7CD77200BD0DB0 /* DwollaRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372C95421D7CD77200BD0DB0 /* DwollaRequest.swift */; };
+		372C95441D7CF11600BD0DB0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 379CBBA81D7CC9A100352669 /* Info.plist */; };
 		379CBB9A1D7CC9A100352669 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379CBB991D7CC9A100352669 /* AppDelegate.swift */; };
-		379CBB9C1D7CC9A100352669 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379CBB9B1D7CC9A100352669 /* ViewController.swift */; };
 		379CBB9F1D7CC9A100352669 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 379CBB9D1D7CC9A100352669 /* Main.storyboard */; };
 		379CBBA21D7CC9A100352669 /* CheckMates.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 379CBBA01D7CC9A100352669 /* CheckMates.xcdatamodeld */; };
 		379CBBA41D7CC9A100352669 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 379CBBA31D7CC9A100352669 /* Assets.xcassets */; };
@@ -32,11 +41,19 @@
 
 /* Begin PBXFileReference section */
 		05B5D96BDED7B37A2ECC50E5 /* Pods-CheckMates.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckMates.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CheckMates/Pods-CheckMates.debug.xcconfig"; sourceTree = "<group>"; };
+		0DAA6BC11D7CF06200D38DFE /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		0DAAE4271D7CD08100CF092E /* ColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
+		0DAAE4291D7CD12C00CF092E /* AddReceiptViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReceiptViewController.swift; sourceTree = "<group>"; };
+		0DAAE42B1D7CD15B00CF092E /* ReceiptsViewConroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptsViewConroller.swift; sourceTree = "<group>"; };
+		0DAAE42D1D7CD17B00CF092E /* SnapReceiptsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapReceiptsViewController.swift; sourceTree = "<group>"; };
+		0DB4C9541D7D008900FFDF85 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		372C953A1D7CCE8B00BD0DB0 /* ApiKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
 		372C953C1D7CCEB700BD0DB0 /* APIKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
+		372C953E1D7CD0A100BD0DB0 /* PaymentsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentsController.swift; sourceTree = "<group>"; };
+		372C95401D7CD41600BD0DB0 /* DwollaAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DwollaAPIManager.swift; sourceTree = "<group>"; };
+		372C95421D7CD77200BD0DB0 /* DwollaRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DwollaRequest.swift; sourceTree = "<group>"; };
 		379CBB961D7CC9A100352669 /* CheckMates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckMates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		379CBB991D7CC9A100352669 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		379CBB9B1D7CC9A100352669 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		379CBB9E1D7CC9A100352669 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		379CBBA11D7CC9A100352669 /* CheckMates.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CheckMates.xcdatamodel; sourceTree = "<group>"; };
 		379CBBA31D7CC9A100352669 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DAA6BC21D7CF06200D38DFE /* libstdc++.6.0.9.tbd in Frameworks */,
 				71E3B24471B29B53EBAFD2F9 /* Pods_CheckMates.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -75,6 +93,7 @@
 		0F4884C9D8549DB6000C6299 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0DAA6BC11D7CF06200D38DFE /* libstdc++.6.0.9.tbd */,
 				631544A51BE40205E7D54218 /* Pods_CheckMates.framework */,
 				6BB260BE7DA72BA1CE84F293 /* Pods_CheckMatesTests.framework */,
 			);
@@ -84,6 +103,7 @@
 		379CBB8D1D7CC9A100352669 = {
 			isa = PBXGroup;
 			children = (
+				0DB4C9541D7D008900FFDF85 /* tessdata */,
 				379CBB981D7CC9A100352669 /* CheckMates */,
 				379CBBB01D7CC9A200352669 /* CheckMatesTests */,
 				379CBB971D7CC9A100352669 /* Products */,
@@ -105,7 +125,13 @@
 			isa = PBXGroup;
 			children = (
 				379CBB991D7CC9A100352669 /* AppDelegate.swift */,
-				379CBB9B1D7CC9A100352669 /* ViewController.swift */,
+				372C95401D7CD41600BD0DB0 /* DwollaAPIManager.swift */,
+				372C95421D7CD77200BD0DB0 /* DwollaRequest.swift */,
+				372C953E1D7CD0A100BD0DB0 /* PaymentsController.swift */,
+				0DAAE4291D7CD12C00CF092E /* AddReceiptViewController.swift */,
+				0DAAE42B1D7CD15B00CF092E /* ReceiptsViewConroller.swift */,
+				0DAAE42D1D7CD17B00CF092E /* SnapReceiptsViewController.swift */,
+				0DAAE4271D7CD08100CF092E /* ColorExtensions.swift */,
 				379CBB9D1D7CC9A100352669 /* Main.storyboard */,
 				379CBBA31D7CC9A100352669 /* Assets.xcassets */,
 				379CBBA51D7CC9A100352669 /* LaunchScreen.storyboard */,
@@ -227,7 +253,9 @@
 			files = (
 				379CBBA71D7CC9A100352669 /* LaunchScreen.storyboard in Resources */,
 				372C953D1D7CCEB700BD0DB0 /* APIKeys.plist in Resources */,
+				0DB4C9551D7D008900FFDF85 /* tessdata in Resources */,
 				379CBBA41D7CC9A100352669 /* Assets.xcassets in Resources */,
+				372C95441D7CF11600BD0DB0 /* Info.plist in Resources */,
 				379CBB9F1D7CC9A100352669 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,10 +367,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				379CBB9C1D7CC9A100352669 /* ViewController.swift in Sources */,
+				0DAAE42C1D7CD15B00CF092E /* ReceiptsViewConroller.swift in Sources */,
 				379CBB9A1D7CC9A100352669 /* AppDelegate.swift in Sources */,
+				372C953F1D7CD0A100BD0DB0 /* PaymentsController.swift in Sources */,
 				372C953B1D7CCE8C00BD0DB0 /* ApiKeys.swift in Sources */,
+				0DAAE42E1D7CD17B00CF092E /* SnapReceiptsViewController.swift in Sources */,
 				379CBBA21D7CC9A100352669 /* CheckMates.xcdatamodeld in Sources */,
+				372C95431D7CD77200BD0DB0 /* DwollaRequest.swift in Sources */,
+				372C95411D7CD41600BD0DB0 /* DwollaAPIManager.swift in Sources */,
+				0DAAE4281D7CD08100CF092E /* ColorExtensions.swift in Sources */,
+				0DAAE42A1D7CD12C00CF092E /* AddReceiptViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +439,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -451,6 +486,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -475,10 +511,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = CheckMates/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.checkmatesapp.CheckMates;
+				PRODUCT_BUNDLE_IDENTIFIER = com.checkmatesapp.checkmates;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -488,10 +526,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = CheckMates/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.checkmatesapp.CheckMates;
+				PRODUCT_BUNDLE_IDENTIFIER = com.checkmatesapp.checkmates;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

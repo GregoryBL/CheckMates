@@ -17,6 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let backgroundColor = UIColor(hexString: "#0190FB")
+        
+        UITabBar.appearance().barTintColor = backgroundColor
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState:.Normal)
+        
+        let tabBarConroller = self.window?.rootViewController as! UITabBarController
+        tabBarConroller.selectedIndex = 1
+        
         return true
     }
 
@@ -42,6 +51,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
+    }
+    
+    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool
+    {
+        let urlString = "\(url)"
+        print(urlString)
+        print(url.scheme)
+        if url.scheme == "com.checkmates.checkmates"
+        {
+            print("Sending off step 1")
+            DwollaAPIManager.sharedInstance.processOAuthStep1Response(url)
+            
+        }
+        return true
     }
 
     // MARK: - Core Data stack
