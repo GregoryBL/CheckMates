@@ -16,6 +16,7 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+<<<<<<< HEAD
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmatesLogo" translatesAutoresizingMaskIntoConstraints="NO" id="UrL-45-Jdv">
                                 <rect key="frame" x="0.0" y="452" width="600" height="128"/>
@@ -35,6 +36,9 @@
                             <constraint firstItem="UrL-45-Jdv" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="432" id="uIQ-RI-3oS"/>
                             <constraint firstItem="0Dg-DC-Y3F" firstAttribute="leading" secondItem="UrL-45-Jdv" secondAttribute="leading" id="wJV-6N-GbC"/>
                         </constraints>
+=======
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+>>>>>>> master
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
