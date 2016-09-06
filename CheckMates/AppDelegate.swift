@@ -52,6 +52,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
     }
+    
+    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool
+    {
+        let urlString = "\(url)"
+        print(urlString)
+        print(url.scheme)
+        if url.scheme == "com.checkmates.checkmates"
+        {
+            print("Sending off step 1")
+            DwollaAPIManager.sharedInstance.processOAuthStep1Response(url)
+            
+        }
+        return true
+    }
 
     // MARK: - Core Data stack
 
