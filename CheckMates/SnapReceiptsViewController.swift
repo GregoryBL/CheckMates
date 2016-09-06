@@ -12,7 +12,6 @@ import TesseractOCR
 class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
     var pickedPhoto = false
-    var receiptText = ""
     var itemStore = ItemStore()
     var activityIndicator:UIActivityIndicatorView!
     
@@ -79,9 +78,18 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
         tesseract.recognize()
         removeActivityIndicator()
         
-        // TODO: Parse Data and create items with each line
-        self.receiptText = tesseract.recognizedText
-        // var newItem = itemStore.createItem(title: "Item Title", price: 3.49)
+        let receiptText = tesseract.recognizedText
+        let lines = receiptText.characters.split { $0 == "\n" || $0 == "\r\n" }.map(String.init)
+        
+
+        for item in lines {
+            print(item)
+            // line.split {$0 == " "} - split words by spaces
+            itemStore.createItem(item, price: 0)
+        }
+        
+
+        
         
         
         
@@ -122,11 +130,13 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
         if segue.identifier == "DisplayItemsSegue"
         {
-            if let destinationVC = segue.destinationViewController as? DetailedReceiptTableViewController {
-                destinationVC.receiptText = self.receiptText
-            }
+            let detailViewController = segue.destinationViewController as? DetailedReceiptTableViewController
+            
+            print(itemStore.allItems.count)
+            detailViewController?.itemStore = itemStore
         }
     }
     

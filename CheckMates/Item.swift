@@ -22,19 +22,6 @@ class Item: NSObject {
         super.init()
     }
     
-    convenience init(random: Bool = false) {
-        if random {
-            let itemNames = ["Mini Donut - Espresso", "Mini Donut - Peanut", "Cold Brew", "Americano"]
-            let index = arc4random_uniform(UInt32(itemNames.count))
-            let randomName = itemNames[Int(index)]
-            let randomValue = Float(arc4random_uniform(1000)/100)
-            
-            self.init(title: randomName, price: randomValue)
-        }
-        else {
-            self.init(title: "", price: 0)
-        }
-    }
 }
 
 

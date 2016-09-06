@@ -9,7 +9,7 @@ target 'CheckMates' do
    pod 'Alamofire', '~>3.4'
    pod 'TesseractOCRiOS', '4.0.0'
    pod 'SwiftyJSON'
-   pod ‘AwesomeTextField’
+   pod 'AwesomeTextField'
 
   target 'CheckMatesTests' do
     inherit! :search_paths

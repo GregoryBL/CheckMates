@@ -10,7 +10,7 @@
         <!--Receipts-->
         <scene sceneID="lBc-bA-oOl">
             <objects>
-                <viewController id="5Gh-Nc-Pbt" customClass="ReceiptsViewController" customModule="CheckMates" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="receiptsVC" id="5Gh-Nc-Pbt" customClass="ReceiptsViewController" customModule="CheckMates" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="W9Z-gW-4fk"/>
                         <viewControllerLayoutGuide type="bottom" id="coP-pv-d8X"/>
@@ -42,7 +42,7 @@
         <!--CheckMates-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SnapReceiptsViewController" customModule="CheckMates" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="snapreceiptsVC" id="BYZ-38-t0r" customClass="SnapReceiptsViewController" customModule="CheckMates" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -75,7 +75,7 @@
                     <navigationItem key="navigationItem" title="CheckMates" id="R51-zh-hYc"/>
                     <connections>
                         <outlet property="imageView" destination="09t-n4-yJa" id="idZ-3x-hUD"/>
-                        <segue destination="tg2-Kq-sbr" kind="show" identifier="DisplayItemsSegue" id="0zx-nc-Qbr"/>
+                        <segue destination="GTV-18-SEv" kind="show" identifier="DisplayItemsSegue" id="DEv-pI-B9A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -85,7 +85,7 @@
         <!--Receipts-->
         <scene sceneID="CZp-7I-yyA">
             <objects>
-                <tableViewController id="GTV-18-SEv" customClass="DetailedReceiptTableViewController" customModule="CheckMates" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DetailedReceiptTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GTV-18-SEv" customClass="DetailedReceiptTableViewController" customModule="CheckMates" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ckN-xF-ZMy">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -173,7 +173,7 @@
                     </items>
                 </navigationBar>
             </objects>
-            <point key="canvasLocation" x="3455" y="123"/>
+            <point key="canvasLocation" x="2647" y="123"/>
         </scene>
         <!--Item Detail View Controller-->
         <scene sceneID="cwJ-8C-0BF">
@@ -349,7 +349,7 @@
         <!--Enter Receipt-->
         <scene sceneID="aIh-Vr-pNH">
             <objects>
-                <viewController id="ZsR-Ol-0cW" customClass="AddReceiptsViewController" customModule="CheckMates" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="enterreceiptvc" id="ZsR-Ol-0cW" customClass="AddReceiptsViewController" customModule="CheckMates" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eBT-Cb-cxo"/>
                         <viewControllerLayoutGuide type="bottom" id="azc-XS-LGV"/>
@@ -378,10 +378,10 @@
             </objects>
             <point key="canvasLocation" x="1128" y="903"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Controller-->
         <scene sceneID="d0o-Fv-NkE">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="C5c-Ns-eeS" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="C5c-Ns-eeS" customClass="TabController" customModule="CheckMates" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="mkj-HC-MHt">
                         <autoresizingMask key="autoresizingMask"/>
@@ -401,6 +401,7 @@
         <!--Snap Receipt-->
         <scene sceneID="fX4-Tb-49G">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MwH-G1-cbO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pgt-jY-sQP" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Snap Receipt" image="CameraIcon" id="sOf-FE-HZS"/>
                     <toolbarItems/>
@@ -413,27 +414,8 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="xhr-VK-VHM"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MwH-G1-cbO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1140" y="123"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="hOp-W8-sxp">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tg2-Kq-sbr" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ngK-ml-GwN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="GTV-18-SEv" kind="relationship" relationship="rootViewController" id="Y4H-jo-mE2"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vbw-Og-Zk5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2643" y="123"/>
         </scene>
     </scenes>
     <resources>

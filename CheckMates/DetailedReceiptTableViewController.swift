@@ -10,26 +10,25 @@ import UIKit
 
 class DetailedReceiptTableViewController: UITableViewController {
     
-    var receiptText:String = ""
-    var itemStore = ItemStore()
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         navigationItem.leftBarButtonItem = editButtonItem()
     }
     
+    var itemStore: ItemStore!
+    
     @IBAction func addNewItem(sender: AnyObject) {
         // Create a new Item and add it to the store
-        let newItem = itemStore.createItem()
-        
-        // Figure out where that item is in the array
-        if let index = itemStore.allItems.indexOf(newItem) {
-            let indexPath = NSIndexPath(forRow: index, inSection: 0)
-            
-            // Insert this new row into the table.
-            tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-        }
+//        let newItem = itemStore.createItem()
+//        
+//        // Figure out where that item is in the array
+//        if let index = itemStore.allItems.indexOf(newItem) {
+//            let indexPath = NSIndexPath(forRow: index, inSection: 0)
+//            
+//            // Insert this new row into the table.
+//            tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+//        }
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {

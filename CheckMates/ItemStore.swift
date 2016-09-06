@@ -27,8 +27,8 @@ class ItemStore {
         allItems.insert(movedItem, atIndex: toIndex)
     }
     
-    func createItem() -> Item {
-        let newItem = Item(random: true)
+    func createItem(title: String, price: Float) -> Item {
+        let newItem = Item(title: title, price: price)
         
         allItems.append(newItem)
         
