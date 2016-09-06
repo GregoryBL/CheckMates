@@ -7,11 +7,16 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
-
+    
+    let moc = UIApplication.sharedApplication().delegate!.coreDataStack
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let newBill = NSEntityDescription.insertNewObjectForEntityForName("Bill", inManagedObjectContext: AppDelegate.moc) as! Bill
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -20,7 +25,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
 
 }
 
