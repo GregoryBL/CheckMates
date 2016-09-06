@@ -11,12 +11,13 @@ import Contacts
 import ContactsUI
 import Alamofire
 
-var mates = [Mate]()
+
 
 
 class ContactsViewController: UIViewController, CNContactPickerDelegate {
     
     var itemStore: ItemStore!
+    var mates = [Mate]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
