@@ -15,13 +15,16 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
     var itemStore = ItemStore()
     var activityIndicator:UIActivityIndicatorView!
     
+    
     @IBOutlet var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
+        print("view will appear")
+        
         if(self.pickedPhoto == false) {
             launchCamera()
         }
@@ -62,8 +65,6 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
         addActivityIndicator()
         
         imageView.image = image
-        self.pickedPhoto = true
-        
         dismissViewControllerAnimated(true, completion: {
             self.performImageRecognition(scaledImage)
         })
@@ -83,9 +84,28 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
         
 
         for item in lines {
-            print(item)
-            // line.split {$0 == " "} - split words by spaces
+            // http://nshipster.com/nscharacterset/
+            let digits = NSCharacterSet.decimalDigitCharacterSet()
+            let containsDigits = item.rangeOfCharacterFromSet(digits)
+            
+             print(item)
+            
+            // trim white leading and trailing white space
+            // if item is an empty string, don't add it
+            // if item has digits ....
+                // take the item, split into an array ... last item in array 'should' be the price
+                // first item in the array - test if it is a number - 
+                    // if it is, that becomes the quantity and is entered x number of times
+                    // if not, default quanity to 1
+            
+            if((containsDigits) != nil) {
+                
+                print(containsDigits)
+
+            }
             itemStore.createItem(item, price: 0)
+            // line.split {$0 == " "} - split words by spaces
+            
         }
         
 

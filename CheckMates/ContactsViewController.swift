@@ -48,31 +48,34 @@ class ContactsViewController: UIViewController, CNContactPickerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     
     func contactPicker(picker: CNContactPickerViewController, didSelectContacts contacts: [CNContact]) {
-      
-        var mobilePhone = String()
         
+        var mobilePhone = String()
+        let myMates = dispatch_group_create()
         
         for contact in contacts {
             for num in contact.phoneNumbers {
                 let numVal = (num.value as! CNPhoneNumber).valueForKey("digits") as! String
-                if num.label == CNLabelPhoneNumberMobile {
+                if num.label == CNLabelPhoneNumberMobile || num.label == CNLabelPhoneNumberiPhone {
                     mobilePhone = numVal
                 }
-                
+                dispatch_group_enter(myMates)
                 let firstName = contact.givenName
                 let lastName = contact.familyName
                 let id = contact.identifier
                 let image = (contact.isKeyAvailable(CNContactImageDataKey) && contact.imageDataAvailable) ? UIImage(data: contact.imageData!) : nil
                 let newMate = Mate(firstName: firstName, lastName: lastName, mobileNumber: mobilePhone, id: id, image: image)
                 mates.append(newMate)
-            
+                dispatch_group_leave(myMates)
+                print("\(newMate.firstName)")
+                print("\(newMate.mobileNumber)")
+                
             }
             
         }
-        readyToSend(mates)
+        //        readyToSend(mates)
     }
     
     // Move this method to event controller
@@ -83,7 +86,7 @@ class ContactsViewController: UIViewController, CNContactPickerDelegate {
         let myGroupMates = dispatch_group_create()
         for recipient in collection {
             let data = [
-                "To" : recipient,
+                "To" : recipient.mobileNumber,
                 "From" : "+13059648615",
                 // NEED TO BUILD CUSTOM URL FOR EACH
                 "Body" : "Check out CheckMates http://localhost:3000"
@@ -91,13 +94,15 @@ class ContactsViewController: UIViewController, CNContactPickerDelegate {
             dispatch_group_enter(myGroupMates)
             Alamofire.request(.POST, "https://\(twilloUsername):\(twilloPassword)@api.twilio.com/2010-04-01/Accounts/\(twilloUsername)/Messages", parameters: data).responseJSON { response in
                 dispatch_group_leave(myGroupMates)
+                print("\(collection)")
+                print("Texting \(recipient.mobileNumber)")
             }
             dispatch_group_notify(myGroupMates, dispatch_get_main_queue(), {
                 print("Finished all requests.")
             })
         }
     }
-
+    
 }
 
 class Mate: NSObject {

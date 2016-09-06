@@ -9,12 +9,21 @@
 import UIKit
 
 class AddReceiptsViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    var itemStore = ItemStore()
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        self.performSegueWithIdentifier("AddReceiptManually", sender: self)
+        
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "AddReceiptManually"
+        {
+            let addReceiptManuallyVC = segue.destinationViewController as? DetailedReceiptTableViewController
+            addReceiptManuallyVC!.itemStore = itemStore
+        }
     }
 }
