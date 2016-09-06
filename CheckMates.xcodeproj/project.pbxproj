@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DA243371D7F492300BA021E /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA243361D7F492300BA021E /* ContactsViewController.swift */; };
 		0DAA6BC21D7CF06200D38DFE /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DAA6BC11D7CF06200D38DFE /* libstdc++.6.0.9.tbd */; };
 		0DAAE4281D7CD08100CF092E /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAAE4271D7CD08100CF092E /* ColorExtensions.swift */; };
 		0DAAE42A1D7CD12C00CF092E /* AddReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAAE4291D7CD12C00CF092E /* AddReceiptViewController.swift */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		05B5D96BDED7B37A2ECC50E5 /* Pods-CheckMates.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckMates.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CheckMates/Pods-CheckMates.debug.xcconfig"; sourceTree = "<group>"; };
+		0DA243361D7F492300BA021E /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		0DAA6BC11D7CF06200D38DFE /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		0DAAE4271D7CD08100CF092E /* ColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		0DAAE4291D7CD12C00CF092E /* AddReceiptViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReceiptViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		379CBB981D7CC9A100352669 /* CheckMates */ = {
 			isa = PBXGroup;
 			children = (
+				0DA243361D7F492300BA021E /* ContactsViewController.swift */,
 				379CBB991D7CC9A100352669 /* AppDelegate.swift */,
 				0DE67D1C1D7E75CD00EC777A /* TabController.swift */,
 				372C95401D7CD41600BD0DB0 /* DwollaAPIManager.swift */,
@@ -392,6 +395,7 @@
 				0DAAE42C1D7CD15B00CF092E /* ReceiptsViewConroller.swift in Sources */,
 				0DB4C95D1D7D1E4C00FFDF85 /* Item.swift in Sources */,
 				379CBB9A1D7CC9A100352669 /* AppDelegate.swift in Sources */,
+				0DA243371D7F492300BA021E /* ContactsViewController.swift in Sources */,
 				0DB4C9611D7DD25800FFDF85 /* ItemCell.swift in Sources */,
 				0DB4C95B1D7D0F4200FFDF85 /* DetailedReceiptTableViewController.swift in Sources */,
 				372C953F1D7CD0A100BD0DB0 /* PaymentsController.swift in Sources */,
