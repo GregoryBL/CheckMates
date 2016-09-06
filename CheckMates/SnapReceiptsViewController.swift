@@ -11,6 +11,10 @@ import TesseractOCR
 
 class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
+    var pickedPhoto = false
+    var itemStore = ItemStore()
+    var activityIndicator:UIActivityIndicatorView!
+    
     @IBOutlet var imageView: UIImageView!
     
     override func viewDidLoad() {
@@ -18,9 +22,9 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
     }
     
     override func viewDidAppear(animated: Bool) {
-        
-        launchCamera()
-        
+        if(self.pickedPhoto == false) {
+            launchCamera()
+        }
     }
     
     func launchCamera() {
@@ -37,13 +41,28 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
+    func addActivityIndicator() {
+        activityIndicator = UIActivityIndicatorView(frame: view.bounds)
+        activityIndicator.activityIndicatorViewStyle = .WhiteLarge
+        activityIndicator.backgroundColor = UIColor(white: 0, alpha: 0.25)
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
+    }
+    
+    func removeActivityIndicator() {
+        activityIndicator.removeFromSuperview()
+        activityIndicator = nil
+    }
+    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         // get image
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         let scaledImage = scaleImage(image, maxDimension: 640)
         
-        imageView.image = image
+        addActivityIndicator()
         
+        imageView.image = image
+        self.pickedPhoto = true
         
         dismissViewControllerAnimated(true, completion: {
             self.performImageRecognition(scaledImage)
@@ -57,13 +76,34 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
         tesseract.maximumRecognitionTime = 60.0
         tesseract.image = image.g8_blackAndWhite()
         tesseract.recognize()
-        print(tesseract.recognizedText)
+        removeActivityIndicator()
+        
+        let receiptText = tesseract.recognizedText
+        let lines = receiptText.characters.split { $0 == "\n" || $0 == "\r\n" }.map(String.init)
+        
+
+        for item in lines {
+            print(item)
+            // line.split {$0 == " "} - split words by spaces
+            itemStore.createItem(item, price: 0)
+        }
+        
+
+        
+        
+        
+        
+        
+        
+        
+        self.performSegueWithIdentifier("DisplayItemsSegue", sender: self)
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController)
     {
         // picker cancelled, dismiss picker view controller
         self.dismissViewControllerAnimated(true, completion: nil)
+        pickedPhoto = true
     }
 
     func scaleImage(image: UIImage, maxDimension: CGFloat) -> UIImage {
@@ -88,4 +128,16 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
         
         return scaledImage
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "DisplayItemsSegue"
+        {
+            let detailViewController = segue.destinationViewController as? DetailedReceiptTableViewController
+            
+            print(itemStore.allItems.count)
+            detailViewController?.itemStore = itemStore
+        }
+    }
+    
 }
