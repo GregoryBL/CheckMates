@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0DA243371D7F492300BA021E /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA243361D7F492300BA021E /* ContactsViewController.swift */; };
+		0DA243391D7F64FE00BA021E /* SnapReceiptsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA243381D7F64FE00BA021E /* SnapReceiptsNavigationController.swift */; };
 		0DAA6BC21D7CF06200D38DFE /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DAA6BC11D7CF06200D38DFE /* libstdc++.6.0.9.tbd */; };
 		0DAAE4281D7CD08100CF092E /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAAE4271D7CD08100CF092E /* ColorExtensions.swift */; };
 		0DAAE42A1D7CD12C00CF092E /* AddReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAAE4291D7CD12C00CF092E /* AddReceiptViewController.swift */; };
@@ -50,6 +51,7 @@
 /* Begin PBXFileReference section */
 		05B5D96BDED7B37A2ECC50E5 /* Pods-CheckMates.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckMates.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CheckMates/Pods-CheckMates.debug.xcconfig"; sourceTree = "<group>"; };
 		0DA243361D7F492300BA021E /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		0DA243381D7F64FE00BA021E /* SnapReceiptsNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapReceiptsNavigationController.swift; sourceTree = "<group>"; };
 		0DAA6BC11D7CF06200D38DFE /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		0DAAE4271D7CD08100CF092E /* ColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		0DAAE4291D7CD12C00CF092E /* AddReceiptViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReceiptViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				0DAAE4291D7CD12C00CF092E /* AddReceiptViewController.swift */,
 				0DAAE42B1D7CD15B00CF092E /* ReceiptsViewConroller.swift */,
 				0DAAE42D1D7CD17B00CF092E /* SnapReceiptsViewController.swift */,
+				0DA243381D7F64FE00BA021E /* SnapReceiptsNavigationController.swift */,
 				0DB4C95A1D7D0F4200FFDF85 /* DetailedReceiptTableViewController.swift */,
 				0DB4C9601D7DD25800FFDF85 /* ItemCell.swift */,
 				0DB4C95C1D7D1E4C00FFDF85 /* Item.swift */,
@@ -398,6 +401,7 @@
 				0DA243371D7F492300BA021E /* ContactsViewController.swift in Sources */,
 				0DB4C9611D7DD25800FFDF85 /* ItemCell.swift in Sources */,
 				0DB4C95B1D7D0F4200FFDF85 /* DetailedReceiptTableViewController.swift in Sources */,
+				0DA243391D7F64FE00BA021E /* SnapReceiptsNavigationController.swift in Sources */,
 				372C953F1D7CD0A100BD0DB0 /* PaymentsController.swift in Sources */,
 				372C953B1D7CCE8C00BD0DB0 /* ApiKeys.swift in Sources */,
 				0DB4C9671D7DE8E100FFDF85 /* NumberExtensions.swift in Sources */,

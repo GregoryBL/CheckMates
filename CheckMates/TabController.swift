@@ -8,6 +8,20 @@
 
 import UIKit
 
-class TabController: UITabBarController {
-    let itemStore = ItemStore()
+class TabController: UITabBarController, UITabBarControllerDelegate {
+    
+//    override func viewDidLoad() {
+//        self.delegate = self
+//    }
+//    
+//    override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+//        print(tabBar.selectedItem!.tag)
+//        
+//    }
+//    
+//    // UITabBarControllerDelegate
+//    func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
+//        print(tabBarController.selectedViewController)
+//    }
+    
 }

@@ -76,7 +76,7 @@ class ContactsViewController: UIViewController, CNContactPickerDelegate {
             }
             
         }
-        readyToSend(mates)
+        //        readyToSend(mates)
     }
     
     // Move this method to event controller
