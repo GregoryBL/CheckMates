@@ -95,8 +95,8 @@ class ContactsViewController: UIViewController, CNContactPickerDelegate {
             dispatch_group_enter(myGroupMates)
             Alamofire.request(.POST, "https://\(twilloUsername):\(twilloPassword)@api.twilio.com/2010-04-01/Accounts/\(twilloUsername)/Messages", parameters: data).responseJSON { response in
                 dispatch_group_leave(myGroupMates)
-                print("\(collection)")
-                print("Texting \(recipient.mobileNumber)")
+                
+                print("Twilio send to \(recipient.mobileNumber)")
             }
             dispatch_group_notify(myGroupMates, dispatch_get_main_queue(), {
                 print("Finished all requests.")
