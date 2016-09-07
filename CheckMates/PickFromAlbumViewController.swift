@@ -8,6 +8,7 @@
 
 import UIKit
 import TesseractOCR
+import SwiftSpinner
 
 class PickFromAlbumViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
@@ -50,22 +51,17 @@ class PickFromAlbumViewController: UIViewController, UIImagePickerControllerDele
     }
     
     func addActivityIndicator() {
-        activityIndicator = UIActivityIndicatorView(frame: view.bounds)
-        activityIndicator.activityIndicatorViewStyle = .WhiteLarge
-        activityIndicator.backgroundColor = UIColor(white: 0, alpha: 0.25)
-        activityIndicator.startAnimating()
-        view.addSubview(activityIndicator)
+        SwiftSpinner.show("Processing Receipt")
     }
     
     func removeActivityIndicator() {
-        activityIndicator.removeFromSuperview()
-        activityIndicator = nil
+        SwiftSpinner.hide()
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         // get image
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        let scaledImage = PhotoTakingHelper.scaleImage(image, maxDimension: 2000)
+        let scaledImage = PhotoTakingHelper.scaleImage(image, maxDimension: 640)
 
         addActivityIndicator()
         

@@ -8,6 +8,7 @@
 
 import UIKit
 import TesseractOCR
+import SwiftSpinner
 
 class EventController {
     
@@ -35,7 +36,6 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
         
         if(self.pickedPhoto == false) {
             launchCamera()
-            //photoTakingHelper?.snapPhoto()
         }
     }
     
@@ -58,23 +58,17 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
     }
     
     func addActivityIndicator() {
-        // https://github.com/icanzilb/SwiftSpinner
-        activityIndicator = UIActivityIndicatorView(frame: view.bounds)
-        activityIndicator.activityIndicatorViewStyle = .WhiteLarge
-        activityIndicator.backgroundColor = UIColor(white: 0, alpha: 0.25)
-        activityIndicator.startAnimating()
-        view.addSubview(activityIndicator)
+        SwiftSpinner.show("Processing Receipt")
     }
     
     func removeActivityIndicator() {
-        activityIndicator.removeFromSuperview()
-        activityIndicator = nil
+        SwiftSpinner.hide()
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         // get image
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        let scaledImage = PhotoTakingHelper.scaleImage(image, maxDimension: 2000)
+        let scaledImage = PhotoTakingHelper.scaleImage(image, maxDimension: 1200)
         
         addActivityIndicator()
         

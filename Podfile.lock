@@ -1,21 +1,24 @@
 PODS:
   - Alamofire (3.4.2)
   - AwesomeTextField (0.1.0)
+  - SwiftSpinner (0.9.5)
   - SwiftyJSON (2.3.2)
   - TesseractOCRiOS (4.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 3.4)
   - AwesomeTextField
+  - SwiftSpinner
   - SwiftyJSON
   - TesseractOCRiOS (= 4.0.0)
 
 SPEC CHECKSUMS:
   Alamofire: 6aa33201d20d069e1598891cf928883ff1888c7a
   AwesomeTextField: 9539cb8dfc2741abf624f3e58ee6a151e1aaf670
+  SwiftSpinner: c6585a0ae5c67eb33e737695cce88f0262008cce
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   TesseractOCRiOS: 90638afbe43d082433f2e76b384c7901d23956df
 
-PODFILE CHECKSUM: 5e339bcc49ad19e4c2af120b0758e0f82e81ec41
+PODFILE CHECKSUM: 3b062bfdb1f517991d6b0739370288f53c335c32
 
 COCOAPODS: 1.0.1
