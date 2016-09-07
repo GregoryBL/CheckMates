@@ -75,50 +75,10 @@ class PickFromAlbumViewController: UIViewController, UIImagePickerControllerDele
     }
     
     func performImageRecognition(image: UIImage) {
-        let tesseract:G8Tesseract = G8Tesseract(language:"eng")
-        tesseract.engineMode = .TesseractCubeCombined
-        tesseract.pageSegmentationMode = .Auto
-        tesseract.maximumRecognitionTime = 60.0
-        tesseract.image = image.g8_blackAndWhite()
-        tesseract.recognize()
+        
+        itemStore = PhotoTakingHelper.ocrImage(image)
         removeActivityIndicator()
-        
-        let receiptText = tesseract.recognizedText
-        let lines = receiptText.characters.split { $0 == "\n" || $0 == "\r\n" }.map(String.init)
-        
-        
-        for item in lines {
-            // http://nshipster.com/nscharacterset/
-            let digits = NSCharacterSet.decimalDigitCharacterSet()
-            
-            var lineAsString = item
-            var count = 1
-            var title = ""
-            var price:Float = 0
-            
-            
-            
-            // trim white leading and trailing white space
-            let components = lineAsString.componentsSeparatedByCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).filter { !$0.isEmpty }
-            lineAsString = components.joinWithSeparator(" ")
-            let lineAsArray = lineAsString.componentsSeparatedByString(" ")
-            // add item as long as it is not a blank line
-            if(lineAsString != "") {
-                if((lineAsString.rangeOfCharacterFromSet(digits)) != nil) {
-                    let lastDigits = lineAsArray.last!.stringByTrimmingCharactersInSet(NSCharacterSet.init(charactersInString: "$"))
-                    if(isPhoneNumber(lastDigits) == false) {
-                        price = lastDigits.asFloat
-                    }
-                    if((lineAsArray[0].rangeOfCharacterFromSet(digits)) != nil) {
-                        count = lineAsArray[0].asInteger
-                    }
-                    title = lineAsString
-                    itemStore.createItem(title, price: price)
-                }
-            }
-        }
-        
-        
+
         self.performSegueWithIdentifier("DisplayReceiptFromAlbum", sender: self)
     }
     
