@@ -45,6 +45,7 @@
 		F016F73F1D7FCD5000148FE1 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016F7371D7FCD5000148FE1 /* Receipt.swift */; };
 		F016F7401D7FCD5000148FE1 /* Mates+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016F7381D7FCD5000148FE1 /* Mates+CoreDataProperties.swift */; };
 		F016F7411D7FCD5000148FE1 /* Mates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016F7391D7FCD5000148FE1 /* Mates.swift */; };
+		F016F7431D7FD4FC00148FE1 /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016F7421D7FD4FC00148FE1 /* EventController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		F016F7371D7FCD5000148FE1 /* Receipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
 		F016F7381D7FCD5000148FE1 /* Mates+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Mates+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F016F7391D7FCD5000148FE1 /* Mates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mates.swift; sourceTree = "<group>"; };
+		F016F7421D7FD4FC00148FE1 /* EventController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 				0DB4C95C1D7D1E4C00FFDF85 /* Item.swift */,
 				0DB4C95E1D7D1F7100FFDF85 /* ItemStore.swift */,
 				0DB4C9621D7DE61400FFDF85 /* ItemDetailViewConroller.swift */,
+				F016F7421D7FD4FC00148FE1 /* EventController.swift */,
 				0DAAE4271D7CD08100CF092E /* ColorExtensions.swift */,
 				0DB4C9641D7DE8AC00FFDF85 /* DateExtensions.swift */,
 				0DB4C9661D7DE8E100FFDF85 /* NumberExtensions.swift */,
@@ -424,6 +427,7 @@
 			files = (
 				F016F73A1D7FCD5000148FE1 /* Event+CoreDataProperties.swift in Sources */,
 				F016F73D1D7FCD5000148FE1 /* Items.swift in Sources */,
+				F016F7431D7FD4FC00148FE1 /* EventController.swift in Sources */,
 				F016F7311D7FC99A00148FE1 /* CoreDataStack.swift in Sources */,
 				F016F73F1D7FCD5000148FE1 /* Receipt.swift in Sources */,
 				0DAAE42C1D7CD15B00CF092E /* ReceiptsViewConroller.swift in Sources */,
