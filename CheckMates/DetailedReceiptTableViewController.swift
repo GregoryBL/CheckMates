@@ -18,6 +18,7 @@ class DetailedReceiptTableViewController: UITableViewController {
     }
     
     var itemStore: ItemStore!
+    var eventController: EventController!
     var newItem: Item!
     
     override func viewWillAppear(animated: Bool) {
@@ -39,22 +40,7 @@ class DetailedReceiptTableViewController: UITableViewController {
         newItem = itemStore.createItem("", price: 0)
         self.performSegueWithIdentifier("ShowItem", sender: self)
     }
-    
-    
-//    
-//    @IBAction func addNewItem(sender: AnyObject) {
-//        // Create a new Item and add it to the store
-//        let newItem = itemStore.createItem("", price: 0)
-//        
-//        // Figure out where that item is in the array
-//        if let index = itemStore.allItems.indexOf(newItem) {
-//            let indexPath = NSIndexPath(forRow: index, inSection: 0)
-//            
-//            // Insert this new row into the table.
-//            tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-//        }
-    
-    
+        
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             let item = itemStore.allItems[indexPath.row]
