@@ -14,7 +14,7 @@ import CoreData
 
 extension Receipt {
 
-    @NSManaged var receiptItems: NSSet?
-    @NSManaged var event: Event?
+    @NSManaged var receiptItems: NSSet
+    @NSManaged var event: Event
 
 }
