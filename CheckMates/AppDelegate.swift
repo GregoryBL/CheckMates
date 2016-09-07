@@ -31,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         
         let tabBarConroller = self.window?.rootViewController as! UITabBarController
+        // set which tab is selected first
         tabBarConroller.selectedIndex = 1
         
         return true

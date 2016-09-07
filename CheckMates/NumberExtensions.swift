@@ -22,4 +22,8 @@ extension String {
     var asFloat: Float {
         return (self as NSString).floatValue
     }
+    
+    var asInteger: Int {
+        return (self as NSString).integerValue
+    }
 }
