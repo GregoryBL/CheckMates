@@ -50,13 +50,8 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
     
     func launchCamera() {
         let imagePicker = UIImagePickerController()
-        
-        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
-            imagePicker.sourceType = .Camera
-        }
-        else {
-            imagePicker.sourceType = .PhotoLibrary
-        }
+    
+        PhotoTakingHelper.snapPhoto(imagePicker)
         
         imagePicker.delegate = self
         presentViewController(imagePicker, animated: true, completion: nil)

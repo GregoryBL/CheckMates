@@ -13,14 +13,24 @@ import TesseractOCR
 class PhotoTakingHelper {
     
     
-    class func snapPhoto() {
+    class func snapPhoto(imagePicker: UIImagePickerController) {
+        
+        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
+            imagePicker.sourceType = .Camera
+        }
+        else {
+            imagePicker.sourceType = .PhotoLibrary
+        }
+        
+        
+        
         print("snap photo")
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = .Camera
     }
     
-    class func choosePhoto() {
-        
+    class func choosePhoto(imagePicker: UIImagePickerController) {
+        imagePicker.sourceType = .PhotoLibrary
     }
     
     // create the imageStore based on process the text from the image

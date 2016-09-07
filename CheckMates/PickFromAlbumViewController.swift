@@ -42,7 +42,8 @@ class PickFromAlbumViewController: UIViewController, UIImagePickerControllerDele
     
     func launchCamera() {
         let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = .PhotoLibrary
+        
+        PhotoTakingHelper.choosePhoto(imagePicker)
         
         imagePicker.delegate = self
         presentViewController(imagePicker, animated: true, completion: nil)
