@@ -32,17 +32,16 @@ class EventTableViewController: UITableViewController {
        
     }
    
- 
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Contacts"
+    }
+    
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return mates.count
     }
     
-    
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Contacts"
-    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ContactCell")
@@ -54,9 +53,6 @@ class EventTableViewController: UITableViewController {
        
         return cell!
     }
-    
-    func billHasAtLeastOneClaimed(){
-           }
     
 
 }

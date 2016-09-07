@@ -91,6 +91,7 @@
 		9577D0ED59AE388982A6C6AE /* Pods-CheckMatesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckMatesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheckMatesTests/Pods-CheckMatesTests.release.xcconfig"; sourceTree = "<group>"; };
 		B4429C8F591B55FDF882555B /* Pods-CheckMatesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckMatesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CheckMatesTests/Pods-CheckMatesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E59E60D5310226EF27A1A710 /* Pods-CheckMates.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckMates.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheckMates/Pods-CheckMates.release.xcconfig"; sourceTree = "<group>"; };
+		F126FB841D80C2F00040B195 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		F197DDC81D7FB858008D8F17 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		F197DDCA1D806928008D8F17 /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
 		F197DDCC1D80B4A0008D8F17 /* MessageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageController.swift; sourceTree = "<group>"; };
@@ -138,6 +139,7 @@
 		379CBB8D1D7CC9A100352669 = {
 			isa = PBXGroup;
 			children = (
+				F126FB841D80C2F00040B195 /* EventViewController.swift */,
 				0DB4C9541D7D008900FFDF85 /* tessdata */,
 				379CBB981D7CC9A100352669 /* CheckMates */,
 				379CBBB01D7CC9A200352669 /* CheckMatesTests */,
