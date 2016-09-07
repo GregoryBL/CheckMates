@@ -11,6 +11,7 @@ import Contacts
 
 class EventTableViewController: UITableViewController {
     var mates: [Mate] = []
+    var itemStore: ItemStore!
     
     @IBAction func completeEvent(sender: UIButton) {
         if (sender.titleLabel?.text == "Done") {
@@ -36,6 +37,11 @@ class EventTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return mates.count
+    }
+    
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Contacts"
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

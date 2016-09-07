@@ -78,7 +78,8 @@ class ContactsViewController: UIViewController, CNContactPickerDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ShowEvent" {
             let eventViewController = segue.destinationViewController as! EventTableViewController
-            eventViewController.mates = mates 
+            eventViewController.mates = mates
+            eventViewController.itemStore = itemStore
         }
     }
     
