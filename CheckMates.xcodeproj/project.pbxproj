@@ -39,6 +39,7 @@
 		71E3B24471B29B53EBAFD2F9 /* Pods_CheckMates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631544A51BE40205E7D54218 /* Pods_CheckMates.framework */; };
 		F197DDC91D7FB858008D8F17 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F197DDC81D7FB858008D8F17 /* EventViewController.swift */; };
 		F197DDCB1D806928008D8F17 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F197DDCA1D806928008D8F17 /* EventTableViewController.swift */; };
+		F197DDCD1D80B4A0008D8F17 /* MessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F197DDCC1D80B4A0008D8F17 /* MessageController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		E59E60D5310226EF27A1A710 /* Pods-CheckMates.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckMates.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheckMates/Pods-CheckMates.release.xcconfig"; sourceTree = "<group>"; };
 		F197DDC81D7FB858008D8F17 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		F197DDCA1D806928008D8F17 /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
+		F197DDCC1D80B4A0008D8F17 /* MessageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				0DA243361D7F492300BA021E /* ContactsViewController.swift */,
+				F197DDCC1D80B4A0008D8F17 /* MessageController.swift */,
 				379CBB991D7CC9A100352669 /* AppDelegate.swift */,
 				372C95401D7CD41600BD0DB0 /* DwollaAPIManager.swift */,
 				372C95421D7CD77200BD0DB0 /* DwollaRequest.swift */,
@@ -430,6 +433,7 @@
 				0DEE59771D80A3ED00C08908 /* TabController.swift in Sources */,
 				372C95411D7CD41600BD0DB0 /* DwollaAPIManager.swift in Sources */,
 				0DAAE4281D7CD08100CF092E /* ColorExtensions.swift in Sources */,
+				F197DDCD1D80B4A0008D8F17 /* MessageController.swift in Sources */,
 				0DB4C9631D7DE61400FFDF85 /* ItemDetailViewConroller.swift in Sources */,
 				0DB4C95F1D7D1F7100FFDF85 /* ItemStore.swift in Sources */,
 				0DAAE42A1D7CD12C00CF092E /* AddReceiptViewController.swift in Sources */,
