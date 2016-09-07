@@ -18,7 +18,7 @@ class EventTableViewController: UITableViewController {
             print("sending ...")
             //Event controller receipt is complete
             // Send messges to Contacts
-//        } else if (bill.billItems > 0){
+//        } else if (sender.titleLabel?.text == "Request Payment" && event.receipt.billItems > 0){
             print("Sending payment requests to mates")
             sender.setTitle("Request Payment", forState:  UIControlState.Normal)
         } else {
@@ -54,15 +54,3 @@ class EventTableViewController: UITableViewController {
     
 
 }
-
-//class Bill: NSObject {
-//    var initiator_id: String
-//    var billItems: Int
-//    
-//    init(initiator_id: String, billItems: Int) {
-//        self.initiator_id = initiator_id
-//        self.billItems = billItems
-//        
-//        super.init()
-//    }
-//}
