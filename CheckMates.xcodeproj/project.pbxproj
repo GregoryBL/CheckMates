@@ -175,7 +175,7 @@
 				0DB4C9641D7DE8AC00FFDF85 /* DateExtensions.swift */,
 				0DB4C9661D7DE8E100FFDF85 /* NumberExtensions.swift */,
 				379CBB9D1D7CC9A100352669 /* Main.storyboard */,
-				F197DDC81D7FB858008D8F17 /* EventViewController.swift */,
+				0DEE59761D80A3ED00C08908 /* TabController.swift */,
 				379CBBA31D7CC9A100352669 /* Assets.xcassets */,
 				0D9FE3BB1D803B9C003C5A59 /* Helpers */,
 				379CBBA51D7CC9A100352669 /* LaunchScreen.storyboard */,
