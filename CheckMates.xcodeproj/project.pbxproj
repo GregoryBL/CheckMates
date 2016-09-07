@@ -36,6 +36,7 @@
 		379CBBA71D7CC9A100352669 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 379CBBA51D7CC9A100352669 /* LaunchScreen.storyboard */; };
 		379CBBB21D7CC9A200352669 /* CheckMatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379CBBB11D7CC9A200352669 /* CheckMatesTests.swift */; };
 		71E3B24471B29B53EBAFD2F9 /* Pods_CheckMates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631544A51BE40205E7D54218 /* Pods_CheckMates.framework */; };
+		F197DDC91D7FB858008D8F17 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F197DDC81D7FB858008D8F17 /* EventViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		9577D0ED59AE388982A6C6AE /* Pods-CheckMatesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckMatesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheckMatesTests/Pods-CheckMatesTests.release.xcconfig"; sourceTree = "<group>"; };
 		B4429C8F591B55FDF882555B /* Pods-CheckMatesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckMatesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CheckMatesTests/Pods-CheckMatesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E59E60D5310226EF27A1A710 /* Pods-CheckMates.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckMates.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheckMates/Pods-CheckMates.release.xcconfig"; sourceTree = "<group>"; };
+		F197DDC81D7FB858008D8F17 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 				0DB4C9641D7DE8AC00FFDF85 /* DateExtensions.swift */,
 				0DB4C9661D7DE8E100FFDF85 /* NumberExtensions.swift */,
 				379CBB9D1D7CC9A100352669 /* Main.storyboard */,
+				F197DDC81D7FB858008D8F17 /* EventViewController.swift */,
 				379CBBA31D7CC9A100352669 /* Assets.xcassets */,
 				379CBBA51D7CC9A100352669 /* LaunchScreen.storyboard */,
 				379CBBA81D7CC9A100352669 /* Info.plist */,
@@ -397,6 +400,7 @@
 			files = (
 				0DAAE42C1D7CD15B00CF092E /* ReceiptsViewConroller.swift in Sources */,
 				0DB4C95D1D7D1E4C00FFDF85 /* Item.swift in Sources */,
+				F197DDC91D7FB858008D8F17 /* EventViewController.swift in Sources */,
 				379CBB9A1D7CC9A100352669 /* AppDelegate.swift in Sources */,
 				0DA243371D7F492300BA021E /* ContactsViewController.swift in Sources */,
 				0DB4C9611D7DD25800FFDF85 /* ItemCell.swift in Sources */,
