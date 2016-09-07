@@ -54,7 +54,7 @@ class ContactsViewController: UIViewController, CNContactPickerDelegate {
     func contactPicker(picker: CNContactPickerViewController, didSelectContacts contacts: [CNContact]) {
         
         var mobilePhone = String()
-        let myMates = dispatch_group_create()
+//        let myMates = dispatch_group_create()
         
         for contact in contacts {
             for num in contact.phoneNumbers {
@@ -62,20 +62,23 @@ class ContactsViewController: UIViewController, CNContactPickerDelegate {
                 if num.label == CNLabelPhoneNumberMobile || num.label == CNLabelPhoneNumberiPhone {
                     mobilePhone = numVal
                 }
-                dispatch_group_enter(myMates)
+//                dispatch_group_enter(myMates)
                 let firstName = contact.givenName
                 let lastName = contact.familyName
                 let id = contact.identifier
                 let image = (contact.isKeyAvailable(CNContactImageDataKey) && contact.imageDataAvailable) ? UIImage(data: contact.imageData!) : nil
                 let newMate = Mate(firstName: firstName, lastName: lastName, mobileNumber: mobilePhone, id: id, image: image)
                 mates.append(newMate)
-                dispatch_group_leave(myMates)
+//                dispatch_group_leave(myMates)
                 print("\(newMate.firstName)")
                 print("\(newMate.mobileNumber)")
+                print(mates.count)
                 
             }
             
         }
+        
+        self.performSegueWithIdentifier("ShowEvent", sender: self)
         //        readyToSend(mates)
     }
     
@@ -101,6 +104,13 @@ class ContactsViewController: UIViewController, CNContactPickerDelegate {
             dispatch_group_notify(myGroupMates, dispatch_get_main_queue(), {
                 print("Finished all requests.")
             })
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowEvent" {
+            let eventViewController = segue.destinationViewController as! EventTableViewController
+            eventViewController.mates = mates 
         }
     }
     

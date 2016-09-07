@@ -39,6 +39,7 @@
 		379CBBB21D7CC9A200352669 /* CheckMatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379CBBB11D7CC9A200352669 /* CheckMatesTests.swift */; };
 		71E3B24471B29B53EBAFD2F9 /* Pods_CheckMates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631544A51BE40205E7D54218 /* Pods_CheckMates.framework */; };
 		F197DDC91D7FB858008D8F17 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F197DDC81D7FB858008D8F17 /* EventViewController.swift */; };
+		F197DDCB1D806928008D8F17 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F197DDCA1D806928008D8F17 /* EventTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		B4429C8F591B55FDF882555B /* Pods-CheckMatesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckMatesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CheckMatesTests/Pods-CheckMatesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E59E60D5310226EF27A1A710 /* Pods-CheckMates.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckMates.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheckMates/Pods-CheckMates.release.xcconfig"; sourceTree = "<group>"; };
 		F197DDC81D7FB858008D8F17 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		F197DDCA1D806928008D8F17 /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 				379CBBA01D7CC9A100352669 /* CheckMates.xcdatamodeld */,
 				372C953C1D7CCEB700BD0DB0 /* APIKeys.plist */,
 				372C953A1D7CCE8B00BD0DB0 /* ApiKeys.swift */,
+				F197DDCA1D806928008D8F17 /* EventTableViewController.swift */,
 			);
 			path = CheckMates;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				0DB4C95B1D7D0F4200FFDF85 /* DetailedReceiptTableViewController.swift in Sources */,
 				0DA243391D7F64FE00BA021E /* SnapReceiptsNavigationController.swift in Sources */,
 				372C953F1D7CD0A100BD0DB0 /* PaymentsController.swift in Sources */,
+				F197DDCB1D806928008D8F17 /* EventTableViewController.swift in Sources */,
 				372C953B1D7CCE8C00BD0DB0 /* ApiKeys.swift in Sources */,
 				0DB4C9671D7DE8E100FFDF85 /* NumberExtensions.swift in Sources */,
 				0DAAE42E1D7CD17B00CF092E /* SnapReceiptsViewController.swift in Sources */,
