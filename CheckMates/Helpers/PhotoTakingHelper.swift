@@ -33,6 +33,30 @@ class PhotoTakingHelper {
         imagePicker.sourceType = .PhotoLibrary
     }
     
+    
+    class func scaleImage(image: UIImage, maxDimension: CGFloat) -> UIImage {
+        
+        var scaledSize = CGSize(width: maxDimension, height: maxDimension)
+        var scaleFactor: CGFloat
+        
+        if image.size.width > image.size.height {
+            scaleFactor = image.size.height / image.size.width
+            scaledSize.width = maxDimension
+            scaledSize.height = scaledSize.width * scaleFactor
+        } else {
+            scaleFactor = image.size.width / image.size.height
+            scaledSize.height = maxDimension
+            scaledSize.width = scaledSize.height * scaleFactor
+        }
+        
+        UIGraphicsBeginImageContext(scaledSize)
+        image.drawInRect(CGRectMake(0, 0, scaledSize.width, scaledSize.height))
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return scaledImage
+    }
+    
     // create the imageStore based on process the text from the image
     
     class func ocrImage(image: UIImage) -> ItemStore {
@@ -49,44 +73,49 @@ class PhotoTakingHelper {
         let receiptText = tesseract.recognizedText
         let lines = receiptText.characters.split { $0 == "\n" || $0 == "\r\n" }.map(String.init)
         
-        func isPhoneNumber(value: String) -> Bool {
-            let PHONE_REGEX = "^\\d{3}-\\d{3}-\\d{4}$"
-            let phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
-            if(phoneTest.evaluateWithObject(value)) {
-                return true
-            }
-            else {
-                return false
-            }
-        }
-        
+    
         for item in lines {
             // http://nshipster.com/nscharacterset/
             let digits = NSCharacterSet.decimalDigitCharacterSet()
-            
             var lineAsString = item
-            var count = 1
             var title = ""
             var price:Float = 0
-            
-            
             
             // trim white leading and trailing white space
             let components = lineAsString.componentsSeparatedByCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).filter { !$0.isEmpty }
             lineAsString = components.joinWithSeparator(" ")
             let lineAsArray = lineAsString.componentsSeparatedByString(" ")
+            
             // add item as long as it is not a blank line
-            if(lineAsString != "") {
+            if(lineAsString != "" && lineAsString.rangeOfString("Suite") == nil) {
                 if((lineAsString.rangeOfCharacterFromSet(digits)) != nil) {
+                    
+                    // determine the price assigned to that line
                     let lastDigits = lineAsArray.last!.stringByTrimmingCharactersInSet(NSCharacterSet.init(charactersInString: "$"))
-                    if(isPhoneNumber(lastDigits) == false) {
+                    if(lastDigits.asFloat < 999) {
                         price = lastDigits.asFloat
+                        
+                        // if the first item in the array is not a number, there is probably only one of them
+                        if((lineAsArray[0].rangeOfCharacterFromSet(digits)) != nil) {
+                            
+                            // either the firstValue represents the quantity or an address
+                            let components = lineAsArray[0].componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
+                            let firstNumber = components.joinWithSeparator("").asInteger
+                            if(firstNumber < 10) {
+                                // the first number is probably the item count, so create the appropriate numbe of items
+                                var i = 1
+                                while i <= firstNumber {
+                                    title = lineAsString
+                                    itemStore.createItem(title, price: price)
+                                    i += 1
+                                }
+                            }
+                        }
+                        else {
+                            title = lineAsString
+                            itemStore.createItem(title, price: price)
+                        }
                     }
-                    if((lineAsArray[0].rangeOfCharacterFromSet(digits)) != nil) {
-                        count = lineAsArray[0].asInteger
-                    }
-                    title = lineAsString
-                    itemStore.createItem(title, price: price)
                 }
             }
         }
