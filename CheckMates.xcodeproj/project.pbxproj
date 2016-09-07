@@ -37,6 +37,14 @@
 		379CBBA71D7CC9A100352669 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 379CBBA51D7CC9A100352669 /* LaunchScreen.storyboard */; };
 		379CBBB21D7CC9A200352669 /* CheckMatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379CBBB11D7CC9A200352669 /* CheckMatesTests.swift */; };
 		71E3B24471B29B53EBAFD2F9 /* Pods_CheckMates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631544A51BE40205E7D54218 /* Pods_CheckMates.framework */; };
+		F0EA6F9F1D80C2910035E13A /* Receipt+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA6F971D80C2910035E13A /* Receipt+CoreDataProperties.swift */; };
+		F0EA6FA01D80C2910035E13A /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA6F981D80C2910035E13A /* Receipt.swift */; };
+		F0EA6FA11D80C2910035E13A /* ReceiptItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA6F991D80C2910035E13A /* ReceiptItem+CoreDataProperties.swift */; };
+		F0EA6FA21D80C2910035E13A /* ReceiptItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA6F9A1D80C2910035E13A /* ReceiptItem.swift */; };
+		F0EA6FA31D80C2910035E13A /* Contact+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA6F9B1D80C2910035E13A /* Contact+CoreDataProperties.swift */; };
+		F0EA6FA41D80C2910035E13A /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA6F9C1D80C2910035E13A /* Contact.swift */; };
+		F0EA6FA51D80C2910035E13A /* Event+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA6F9D1D80C2910035E13A /* Event+CoreDataProperties.swift */; };
+		F0EA6FA61D80C2910035E13A /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA6F9E1D80C2910035E13A /* Event.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +96,14 @@
 		9577D0ED59AE388982A6C6AE /* Pods-CheckMatesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckMatesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheckMatesTests/Pods-CheckMatesTests.release.xcconfig"; sourceTree = "<group>"; };
 		B4429C8F591B55FDF882555B /* Pods-CheckMatesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckMatesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CheckMatesTests/Pods-CheckMatesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E59E60D5310226EF27A1A710 /* Pods-CheckMates.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckMates.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheckMates/Pods-CheckMates.release.xcconfig"; sourceTree = "<group>"; };
+		F0EA6F971D80C2910035E13A /* Receipt+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Receipt+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F0EA6F981D80C2910035E13A /* Receipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
+		F0EA6F991D80C2910035E13A /* ReceiptItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReceiptItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F0EA6F9A1D80C2910035E13A /* ReceiptItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptItem.swift; sourceTree = "<group>"; };
+		F0EA6F9B1D80C2910035E13A /* Contact+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Contact+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F0EA6F9C1D80C2910035E13A /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		F0EA6F9D1D80C2910035E13A /* Event+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F0EA6F9E1D80C2910035E13A /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +169,14 @@
 		379CBB981D7CC9A100352669 /* CheckMates */ = {
 			isa = PBXGroup;
 			children = (
+				F0EA6F971D80C2910035E13A /* Receipt+CoreDataProperties.swift */,
+				F0EA6F981D80C2910035E13A /* Receipt.swift */,
+				F0EA6F991D80C2910035E13A /* ReceiptItem+CoreDataProperties.swift */,
+				F0EA6F9A1D80C2910035E13A /* ReceiptItem.swift */,
+				F0EA6F9B1D80C2910035E13A /* Contact+CoreDataProperties.swift */,
+				F0EA6F9C1D80C2910035E13A /* Contact.swift */,
+				F0EA6F9D1D80C2910035E13A /* Event+CoreDataProperties.swift */,
+				F0EA6F9E1D80C2910035E13A /* Event.swift */,
 				0DA243361D7F492300BA021E /* ContactsViewController.swift */,
 				379CBB991D7CC9A100352669 /* AppDelegate.swift */,
 				372C95401D7CD41600BD0DB0 /* DwollaAPIManager.swift */,
@@ -406,6 +430,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0EA6FA41D80C2910035E13A /* Contact.swift in Sources */,
 				0DAAE42C1D7CD15B00CF092E /* ReceiptsViewConroller.swift in Sources */,
 				0DB4C95D1D7D1E4C00FFDF85 /* Item.swift in Sources */,
 				379CBB9A1D7CC9A100352669 /* AppDelegate.swift in Sources */,
@@ -415,16 +440,23 @@
 				0DB4C95B1D7D0F4200FFDF85 /* DetailedReceiptTableViewController.swift in Sources */,
 				372C953F1D7CD0A100BD0DB0 /* PaymentsController.swift in Sources */,
 				372C953B1D7CCE8C00BD0DB0 /* ApiKeys.swift in Sources */,
+				F0EA6FA51D80C2910035E13A /* Event+CoreDataProperties.swift in Sources */,
 				0DB4C9671D7DE8E100FFDF85 /* NumberExtensions.swift in Sources */,
 				0DAAE42E1D7CD17B00CF092E /* SnapReceiptsViewController.swift in Sources */,
+				F0EA6FA01D80C2910035E13A /* Receipt.swift in Sources */,
 				379CBBA21D7CC9A100352669 /* CheckMates.xcdatamodeld in Sources */,
+				F0EA6F9F1D80C2910035E13A /* Receipt+CoreDataProperties.swift in Sources */,
 				372C95431D7CD77200BD0DB0 /* DwollaRequest.swift in Sources */,
 				0D9FE3BD1D803C0F003C5A59 /* PhotoTakingHelper.swift in Sources */,
 				0DEE59771D80A3ED00C08908 /* TabController.swift in Sources */,
+				F0EA6FA61D80C2910035E13A /* Event.swift in Sources */,
 				372C95411D7CD41600BD0DB0 /* DwollaAPIManager.swift in Sources */,
+				F0EA6FA21D80C2910035E13A /* ReceiptItem.swift in Sources */,
 				0DAAE4281D7CD08100CF092E /* ColorExtensions.swift in Sources */,
+				F0EA6FA31D80C2910035E13A /* Contact+CoreDataProperties.swift in Sources */,
 				0DB4C9631D7DE61400FFDF85 /* ItemDetailViewConroller.swift in Sources */,
 				0DB4C95F1D7D1F7100FFDF85 /* ItemStore.swift in Sources */,
+				F0EA6FA11D80C2910035E13A /* ReceiptItem+CoreDataProperties.swift in Sources */,
 				0DAAE42A1D7CD12C00CF092E /* AddReceiptViewController.swift in Sources */,
 				0DB4C9651D7DE8AC00FFDF85 /* DateExtensions.swift in Sources */,
 			);
