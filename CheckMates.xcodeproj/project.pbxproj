@@ -37,15 +37,15 @@
 		379CBBB21D7CC9A200352669 /* CheckMatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379CBBB11D7CC9A200352669 /* CheckMatesTests.swift */; };
 		71E3B24471B29B53EBAFD2F9 /* Pods_CheckMates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631544A51BE40205E7D54218 /* Pods_CheckMates.framework */; };
 		F016F7311D7FC99A00148FE1 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016F7301D7FC99A00148FE1 /* CoreDataStack.swift */; };
-		F016F73A1D7FCD5000148FE1 /* Event+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016F7321D7FCD5000148FE1 /* Event+CoreDataProperties.swift */; };
-		F016F73B1D7FCD5000148FE1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016F7331D7FCD5000148FE1 /* Event.swift */; };
-		F016F73C1D7FCD5000148FE1 /* Items+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016F7341D7FCD5000148FE1 /* Items+CoreDataProperties.swift */; };
-		F016F73D1D7FCD5000148FE1 /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016F7351D7FCD5000148FE1 /* Items.swift */; };
-		F016F73E1D7FCD5000148FE1 /* Receipt+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016F7361D7FCD5000148FE1 /* Receipt+CoreDataProperties.swift */; };
-		F016F73F1D7FCD5000148FE1 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016F7371D7FCD5000148FE1 /* Receipt.swift */; };
-		F016F7401D7FCD5000148FE1 /* Mates+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016F7381D7FCD5000148FE1 /* Mates+CoreDataProperties.swift */; };
-		F016F7411D7FCD5000148FE1 /* Mates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016F7391D7FCD5000148FE1 /* Mates.swift */; };
 		F016F7431D7FD4FC00148FE1 /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016F7421D7FD4FC00148FE1 /* EventController.swift */; };
+		F01997FE1D8058D800F6C8A3 /* Items+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01997F61D8058D800F6C8A3 /* Items+CoreDataProperties.swift */; };
+		F01997FF1D8058D800F6C8A3 /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01997F71D8058D800F6C8A3 /* Items.swift */; };
+		F01998001D8058D800F6C8A3 /* Event+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01997F81D8058D800F6C8A3 /* Event+CoreDataProperties.swift */; };
+		F01998011D8058D800F6C8A3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01997F91D8058D800F6C8A3 /* Event.swift */; };
+		F01998021D8058D800F6C8A3 /* Mates+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01997FA1D8058D800F6C8A3 /* Mates+CoreDataProperties.swift */; };
+		F01998031D8058D800F6C8A3 /* Mates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01997FB1D8058D800F6C8A3 /* Mates.swift */; };
+		F01998041D8058D800F6C8A3 /* Receipt+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01997FC1D8058D800F6C8A3 /* Receipt+CoreDataProperties.swift */; };
+		F01998051D8058D800F6C8A3 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01997FD1D8058D800F6C8A3 /* Receipt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,15 +97,15 @@
 		B4429C8F591B55FDF882555B /* Pods-CheckMatesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckMatesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CheckMatesTests/Pods-CheckMatesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E59E60D5310226EF27A1A710 /* Pods-CheckMates.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckMates.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheckMates/Pods-CheckMates.release.xcconfig"; sourceTree = "<group>"; };
 		F016F7301D7FC99A00148FE1 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
-		F016F7321D7FCD5000148FE1 /* Event+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		F016F7331D7FCD5000148FE1 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		F016F7341D7FCD5000148FE1 /* Items+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Items+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		F016F7351D7FCD5000148FE1 /* Items.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
-		F016F7361D7FCD5000148FE1 /* Receipt+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Receipt+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		F016F7371D7FCD5000148FE1 /* Receipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
-		F016F7381D7FCD5000148FE1 /* Mates+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Mates+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		F016F7391D7FCD5000148FE1 /* Mates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mates.swift; sourceTree = "<group>"; };
 		F016F7421D7FD4FC00148FE1 /* EventController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
+		F01997F61D8058D800F6C8A3 /* Items+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Items+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F01997F71D8058D800F6C8A3 /* Items.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
+		F01997F81D8058D800F6C8A3 /* Event+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F01997F91D8058D800F6C8A3 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		F01997FA1D8058D800F6C8A3 /* Mates+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Mates+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F01997FB1D8058D800F6C8A3 /* Mates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mates.swift; sourceTree = "<group>"; };
+		F01997FC1D8058D800F6C8A3 /* Receipt+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Receipt+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F01997FD1D8058D800F6C8A3 /* Receipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,14 +163,14 @@
 		379CBB981D7CC9A100352669 /* CheckMates */ = {
 			isa = PBXGroup;
 			children = (
-				F016F7321D7FCD5000148FE1 /* Event+CoreDataProperties.swift */,
-				F016F7331D7FCD5000148FE1 /* Event.swift */,
-				F016F7341D7FCD5000148FE1 /* Items+CoreDataProperties.swift */,
-				F016F7351D7FCD5000148FE1 /* Items.swift */,
-				F016F7361D7FCD5000148FE1 /* Receipt+CoreDataProperties.swift */,
-				F016F7371D7FCD5000148FE1 /* Receipt.swift */,
-				F016F7381D7FCD5000148FE1 /* Mates+CoreDataProperties.swift */,
-				F016F7391D7FCD5000148FE1 /* Mates.swift */,
+				F01997F61D8058D800F6C8A3 /* Items+CoreDataProperties.swift */,
+				F01997F71D8058D800F6C8A3 /* Items.swift */,
+				F01997F81D8058D800F6C8A3 /* Event+CoreDataProperties.swift */,
+				F01997F91D8058D800F6C8A3 /* Event.swift */,
+				F01997FA1D8058D800F6C8A3 /* Mates+CoreDataProperties.swift */,
+				F01997FB1D8058D800F6C8A3 /* Mates.swift */,
+				F01997FC1D8058D800F6C8A3 /* Receipt+CoreDataProperties.swift */,
+				F01997FD1D8058D800F6C8A3 /* Receipt.swift */,
 				0DA243361D7F492300BA021E /* ContactsViewController.swift */,
 				379CBB991D7CC9A100352669 /* AppDelegate.swift */,
 				F016F7301D7FC99A00148FE1 /* CoreDataStack.swift */,
@@ -425,35 +425,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F016F73A1D7FCD5000148FE1 /* Event+CoreDataProperties.swift in Sources */,
-				F016F73D1D7FCD5000148FE1 /* Items.swift in Sources */,
+				F01998051D8058D800F6C8A3 /* Receipt.swift in Sources */,
 				F016F7431D7FD4FC00148FE1 /* EventController.swift in Sources */,
 				F016F7311D7FC99A00148FE1 /* CoreDataStack.swift in Sources */,
-				F016F73F1D7FCD5000148FE1 /* Receipt.swift in Sources */,
+				F01997FE1D8058D800F6C8A3 /* Items+CoreDataProperties.swift in Sources */,
 				0DAAE42C1D7CD15B00CF092E /* ReceiptsViewConroller.swift in Sources */,
+				F01998031D8058D800F6C8A3 /* Mates.swift in Sources */,
+				F01998021D8058D800F6C8A3 /* Mates+CoreDataProperties.swift in Sources */,
 				0DB4C95D1D7D1E4C00FFDF85 /* Item.swift in Sources */,
+				F01998001D8058D800F6C8A3 /* Event+CoreDataProperties.swift in Sources */,
 				379CBB9A1D7CC9A100352669 /* AppDelegate.swift in Sources */,
 				0DA243371D7F492300BA021E /* ContactsViewController.swift in Sources */,
-				F016F73C1D7FCD5000148FE1 /* Items+CoreDataProperties.swift in Sources */,
 				0DB4C9611D7DD25800FFDF85 /* ItemCell.swift in Sources */,
 				0DB4C95B1D7D0F4200FFDF85 /* DetailedReceiptTableViewController.swift in Sources */,
-				F016F73B1D7FCD5000148FE1 /* Event.swift in Sources */,
 				0DA243391D7F64FE00BA021E /* SnapReceiptsNavigationController.swift in Sources */,
-				F016F73E1D7FCD5000148FE1 /* Receipt+CoreDataProperties.swift in Sources */,
 				372C953F1D7CD0A100BD0DB0 /* PaymentsController.swift in Sources */,
+				F01998011D8058D800F6C8A3 /* Event.swift in Sources */,
 				372C953B1D7CCE8C00BD0DB0 /* ApiKeys.swift in Sources */,
 				0DB4C9671D7DE8E100FFDF85 /* NumberExtensions.swift in Sources */,
 				0DAAE42E1D7CD17B00CF092E /* SnapReceiptsViewController.swift in Sources */,
 				379CBBA21D7CC9A100352669 /* CheckMates.xcdatamodeld in Sources */,
 				372C95431D7CD77200BD0DB0 /* DwollaRequest.swift in Sources */,
+				F01997FF1D8058D800F6C8A3 /* Items.swift in Sources */,
+				F01998041D8058D800F6C8A3 /* Receipt+CoreDataProperties.swift in Sources */,
 				372C95411D7CD41600BD0DB0 /* DwollaAPIManager.swift in Sources */,
 				0DAAE4281D7CD08100CF092E /* ColorExtensions.swift in Sources */,
 				0DE67D1D1D7E75CD00EC777A /* TabController.swift in Sources */,
 				0DB4C9631D7DE61400FFDF85 /* ItemDetailViewConroller.swift in Sources */,
 				0DB4C95F1D7D1F7100FFDF85 /* ItemStore.swift in Sources */,
-				F016F7411D7FCD5000148FE1 /* Mates.swift in Sources */,
 				0DAAE42A1D7CD12C00CF092E /* AddReceiptViewController.swift in Sources */,
-				F016F7401D7FCD5000148FE1 /* Mates+CoreDataProperties.swift in Sources */,
 				0DB4C9651D7DE8AC00FFDF85 /* DateExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

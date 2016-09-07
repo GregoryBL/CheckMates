@@ -2,7 +2,7 @@
 //  Event+CoreDataProperties.swift
 //  CheckMates
 //
-//  Created by Keith Pilson on 9/6/16.
+//  Created by Keith Pilson on 9/7/16.
 //  Copyright © 2016 checkMates. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -15,7 +15,7 @@ import CoreData
 extension Event {
 
     @NSManaged var createdAt: NSTimeInterval
-    @NSManaged var receipt: NSManagedObject
     @NSManaged var mates: NSSet
+    @NSManaged var receipt: Receipt
 
 }

@@ -2,7 +2,7 @@
 //  Receipt+CoreDataProperties.swift
 //  CheckMates
 //
-//  Created by Keith Pilson on 9/6/16.
+//  Created by Keith Pilson on 9/7/16.
 //  Copyright © 2016 checkMates. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -14,7 +14,9 @@ import CoreData
 
 extension Receipt {
 
-    @NSManaged var receiptItems: NSSet
+    @NSManaged var tax: Int64
+    @NSManaged var tip: Int64
     @NSManaged var event: Event
+    @NSManaged var receiptItems: NSSet
 
 }

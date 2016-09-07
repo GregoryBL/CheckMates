@@ -2,7 +2,7 @@
 //  Items+CoreDataProperties.swift
 //  CheckMates
 //
-//  Created by Keith Pilson on 9/6/16.
+//  Created by Keith Pilson on 9/7/16.
 //  Copyright © 2016 checkMates. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -16,6 +16,7 @@ extension Items {
 
     @NSManaged var itemDescription: String
     @NSManaged var price: Int64
-    @NSManaged var receipt: NSManagedObject
+    @NSManaged var receipt: Receipt
+    @NSManaged var mate: Mates?
 
 }
