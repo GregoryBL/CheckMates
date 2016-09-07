@@ -38,14 +38,14 @@
 		71E3B24471B29B53EBAFD2F9 /* Pods_CheckMates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631544A51BE40205E7D54218 /* Pods_CheckMates.framework */; };
 		F016F7311D7FC99A00148FE1 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016F7301D7FC99A00148FE1 /* CoreDataStack.swift */; };
 		F016F7431D7FD4FC00148FE1 /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016F7421D7FD4FC00148FE1 /* EventController.swift */; };
-		F01997FE1D8058D800F6C8A3 /* Items+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01997F61D8058D800F6C8A3 /* Items+CoreDataProperties.swift */; };
-		F01997FF1D8058D800F6C8A3 /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01997F71D8058D800F6C8A3 /* Items.swift */; };
-		F01998001D8058D800F6C8A3 /* Event+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01997F81D8058D800F6C8A3 /* Event+CoreDataProperties.swift */; };
-		F01998011D8058D800F6C8A3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01997F91D8058D800F6C8A3 /* Event.swift */; };
-		F01998021D8058D800F6C8A3 /* Mates+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01997FA1D8058D800F6C8A3 /* Mates+CoreDataProperties.swift */; };
-		F01998031D8058D800F6C8A3 /* Mates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01997FB1D8058D800F6C8A3 /* Mates.swift */; };
-		F01998041D8058D800F6C8A3 /* Receipt+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01997FC1D8058D800F6C8A3 /* Receipt+CoreDataProperties.swift */; };
-		F01998051D8058D800F6C8A3 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01997FD1D8058D800F6C8A3 /* Receipt.swift */; };
+		F019984A1D80631E00F6C8A3 /* Event+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01998421D80631E00F6C8A3 /* Event+CoreDataProperties.swift */; };
+		F019984B1D80631E00F6C8A3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01998431D80631E00F6C8A3 /* Event.swift */; };
+		F019984C1D80631E00F6C8A3 /* ReceiptItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01998441D80631E00F6C8A3 /* ReceiptItem+CoreDataProperties.swift */; };
+		F019984D1D80631E00F6C8A3 /* ReceiptItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01998451D80631E00F6C8A3 /* ReceiptItem.swift */; };
+		F019984E1D80631E00F6C8A3 /* Receipt+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01998461D80631E00F6C8A3 /* Receipt+CoreDataProperties.swift */; };
+		F019984F1D80631E00F6C8A3 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01998471D80631E00F6C8A3 /* Receipt.swift */; };
+		F01998501D80631E00F6C8A3 /* Contact+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01998481D80631E00F6C8A3 /* Contact+CoreDataProperties.swift */; };
+		F01998511D80631E00F6C8A3 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01998491D80631E00F6C8A3 /* Contact.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,14 +98,14 @@
 		E59E60D5310226EF27A1A710 /* Pods-CheckMates.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckMates.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheckMates/Pods-CheckMates.release.xcconfig"; sourceTree = "<group>"; };
 		F016F7301D7FC99A00148FE1 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		F016F7421D7FD4FC00148FE1 /* EventController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
-		F01997F61D8058D800F6C8A3 /* Items+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Items+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		F01997F71D8058D800F6C8A3 /* Items.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
-		F01997F81D8058D800F6C8A3 /* Event+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		F01997F91D8058D800F6C8A3 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		F01997FA1D8058D800F6C8A3 /* Mates+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Mates+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		F01997FB1D8058D800F6C8A3 /* Mates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mates.swift; sourceTree = "<group>"; };
-		F01997FC1D8058D800F6C8A3 /* Receipt+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Receipt+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		F01997FD1D8058D800F6C8A3 /* Receipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
+		F01998421D80631E00F6C8A3 /* Event+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F01998431D80631E00F6C8A3 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		F01998441D80631E00F6C8A3 /* ReceiptItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReceiptItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F01998451D80631E00F6C8A3 /* ReceiptItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptItem.swift; sourceTree = "<group>"; };
+		F01998461D80631E00F6C8A3 /* Receipt+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Receipt+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F01998471D80631E00F6C8A3 /* Receipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
+		F01998481D80631E00F6C8A3 /* Contact+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Contact+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F01998491D80631E00F6C8A3 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,14 +163,14 @@
 		379CBB981D7CC9A100352669 /* CheckMates */ = {
 			isa = PBXGroup;
 			children = (
-				F01997F61D8058D800F6C8A3 /* Items+CoreDataProperties.swift */,
-				F01997F71D8058D800F6C8A3 /* Items.swift */,
-				F01997F81D8058D800F6C8A3 /* Event+CoreDataProperties.swift */,
-				F01997F91D8058D800F6C8A3 /* Event.swift */,
-				F01997FA1D8058D800F6C8A3 /* Mates+CoreDataProperties.swift */,
-				F01997FB1D8058D800F6C8A3 /* Mates.swift */,
-				F01997FC1D8058D800F6C8A3 /* Receipt+CoreDataProperties.swift */,
-				F01997FD1D8058D800F6C8A3 /* Receipt.swift */,
+				F01998421D80631E00F6C8A3 /* Event+CoreDataProperties.swift */,
+				F01998431D80631E00F6C8A3 /* Event.swift */,
+				F01998441D80631E00F6C8A3 /* ReceiptItem+CoreDataProperties.swift */,
+				F01998451D80631E00F6C8A3 /* ReceiptItem.swift */,
+				F01998461D80631E00F6C8A3 /* Receipt+CoreDataProperties.swift */,
+				F01998471D80631E00F6C8A3 /* Receipt.swift */,
+				F01998481D80631E00F6C8A3 /* Contact+CoreDataProperties.swift */,
+				F01998491D80631E00F6C8A3 /* Contact.swift */,
 				0DA243361D7F492300BA021E /* ContactsViewController.swift */,
 				379CBB991D7CC9A100352669 /* AppDelegate.swift */,
 				F016F7301D7FC99A00148FE1 /* CoreDataStack.swift */,
@@ -425,29 +425,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F01998051D8058D800F6C8A3 /* Receipt.swift in Sources */,
 				F016F7431D7FD4FC00148FE1 /* EventController.swift in Sources */,
 				F016F7311D7FC99A00148FE1 /* CoreDataStack.swift in Sources */,
-				F01997FE1D8058D800F6C8A3 /* Items+CoreDataProperties.swift in Sources */,
 				0DAAE42C1D7CD15B00CF092E /* ReceiptsViewConroller.swift in Sources */,
-				F01998031D8058D800F6C8A3 /* Mates.swift in Sources */,
-				F01998021D8058D800F6C8A3 /* Mates+CoreDataProperties.swift in Sources */,
 				0DB4C95D1D7D1E4C00FFDF85 /* Item.swift in Sources */,
-				F01998001D8058D800F6C8A3 /* Event+CoreDataProperties.swift in Sources */,
+				F01998501D80631E00F6C8A3 /* Contact+CoreDataProperties.swift in Sources */,
 				379CBB9A1D7CC9A100352669 /* AppDelegate.swift in Sources */,
+				F019984C1D80631E00F6C8A3 /* ReceiptItem+CoreDataProperties.swift in Sources */,
 				0DA243371D7F492300BA021E /* ContactsViewController.swift in Sources */,
 				0DB4C9611D7DD25800FFDF85 /* ItemCell.swift in Sources */,
+				F019984E1D80631E00F6C8A3 /* Receipt+CoreDataProperties.swift in Sources */,
 				0DB4C95B1D7D0F4200FFDF85 /* DetailedReceiptTableViewController.swift in Sources */,
 				0DA243391D7F64FE00BA021E /* SnapReceiptsNavigationController.swift in Sources */,
+				F01998511D80631E00F6C8A3 /* Contact.swift in Sources */,
 				372C953F1D7CD0A100BD0DB0 /* PaymentsController.swift in Sources */,
-				F01998011D8058D800F6C8A3 /* Event.swift in Sources */,
 				372C953B1D7CCE8C00BD0DB0 /* ApiKeys.swift in Sources */,
 				0DB4C9671D7DE8E100FFDF85 /* NumberExtensions.swift in Sources */,
 				0DAAE42E1D7CD17B00CF092E /* SnapReceiptsViewController.swift in Sources */,
 				379CBBA21D7CC9A100352669 /* CheckMates.xcdatamodeld in Sources */,
+				F019984F1D80631E00F6C8A3 /* Receipt.swift in Sources */,
+				F019984D1D80631E00F6C8A3 /* ReceiptItem.swift in Sources */,
+				F019984A1D80631E00F6C8A3 /* Event+CoreDataProperties.swift in Sources */,
 				372C95431D7CD77200BD0DB0 /* DwollaRequest.swift in Sources */,
-				F01997FF1D8058D800F6C8A3 /* Items.swift in Sources */,
-				F01998041D8058D800F6C8A3 /* Receipt+CoreDataProperties.swift in Sources */,
+				F019984B1D80631E00F6C8A3 /* Event.swift in Sources */,
 				372C95411D7CD41600BD0DB0 /* DwollaAPIManager.swift in Sources */,
 				0DAAE4281D7CD08100CF092E /* ColorExtensions.swift in Sources */,
 				0DE67D1D1D7E75CD00EC777A /* TabController.swift in Sources */,

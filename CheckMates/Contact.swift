@@ -1,5 +1,5 @@
 //
-//  Items.swift
+//  Contact.swift
 //  CheckMates
 //
 //  Created by Keith Pilson on 9/7/16.
@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 
-class Items: NSManagedObject {
+class Contact: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
 

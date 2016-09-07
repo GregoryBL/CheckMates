@@ -1,5 +1,5 @@
 //
-//  Mates+CoreDataProperties.swift
+//  ReceiptItem+CoreDataProperties.swift
 //  CheckMates
 //
 //  Created by Keith Pilson on 9/7/16.
@@ -12,14 +12,11 @@
 import Foundation
 import CoreData
 
-extension Mates {
+extension ReceiptItem {
 
-    @NSManaged var firstName: String
-    @NSManaged var id: String
-    @NSManaged var lastName: String?
-    @NSManaged var mobileNumber: String
-    @NSManaged var uiimage: NSData
-    @NSManaged var event: Event
-    @NSManaged var items: Items?
+    @NSManaged var itemDescription: String
+    @NSManaged var price: Int64
+    @NSManaged var receipt: Receipt
+    @NSManaged var contact: Contact?
 
 }

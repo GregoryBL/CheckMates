@@ -9,9 +9,9 @@
 import Foundation
 import SwiftyJSON
 
-class Contact {
-    var phoneNumber : Int = 0
-}
+//class Contact {
+//    var phoneNumber : Int = 0
+//}
 
 class PaymentsController : NSObject {
     
@@ -33,7 +33,7 @@ class PaymentsController : NSObject {
     func finishRequestFrom(contact: Contact, amount: Int, notes: String) -> (String -> Void) {
         print("called finishRequest")
         return { token in
-            let request = DwollaRequest.init(sourceID: String(contact.phoneNumber), sourceType: "Phone", amount: amount, notes: notes, token: token)
+            let request = DwollaRequest.init(sourceID: String(contact.mobileNumber), sourceType: "Phone", amount: amount, notes: notes, token: token)
             let afRequest = request.requestPayment()
             afRequest.response { request, response, data, error in
                 print(request?.allHTTPHeaderFields)

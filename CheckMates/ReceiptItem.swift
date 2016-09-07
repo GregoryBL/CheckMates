@@ -1,5 +1,5 @@
 //
-//  Mates.swift
+//  ReceiptItem.swift
 //  CheckMates
 //
 //  Created by Keith Pilson on 9/7/16.
@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 
-class Mates: NSManagedObject {
+class ReceiptItem: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
 

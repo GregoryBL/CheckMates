@@ -15,7 +15,7 @@ import CoreData
 extension Event {
 
     @NSManaged var createdAt: NSTimeInterval
-    @NSManaged var mates: NSSet
+    @NSManaged var contacts: NSSet
     @NSManaged var receipt: Receipt
 
 }
