@@ -241,10 +241,9 @@
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44X-Ns-P3f">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
-                                    <state key="normal" title="Share Receipt"/>
+                                    <state key="normal" title="Done"/>
                                     <connections>
-                                        <action selector="sendReceipt" destination="NJu-NL-CXP" eventType="touchUpInside" id="rlF-LI-noL"/>
-                                        <segue destination="VWL-WR-EWk" kind="show" identifier="ShowReceipts" id="eJK-bH-UEJ"/>
+                                        <action selector="completeEvent:" destination="NJu-NL-CXP" eventType="touchUpInside" id="sX0-YK-akV"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -661,6 +660,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Zmn-gq-eIc"/>
-        <segue reference="eJK-bH-UEJ"/>
     </inferredMetricsTieBreakers>
 </document>

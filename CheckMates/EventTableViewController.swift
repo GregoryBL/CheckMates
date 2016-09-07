@@ -12,10 +12,25 @@ import Contacts
 class EventTableViewController: UITableViewController {
     var mates: [Mate] = []
     
-    @IBAction func sendReceipt() {
-        print("sending ...")
-        performSegueWithIdentifier("ShowReceipts", sender: nil)
+    @IBAction func completeEvent(sender: UIButton) {
+        if (sender.titleLabel?.text == "Done") {
+            sender.setTitle("Request Payment", forState:  UIControlState.Normal)
+            print("sending ...")
+            //Event controller receipt is complete
+            // Send messges to Contacts
+//        } else if (bill.billItems > 0){
+            print("Sending payment requests to mates")
+            sender.setTitle("Request Payment", forState:  UIControlState.Normal)
+        } else {
+            sender.setTitle("Event Closed", forState:  UIControlState.Normal)
+            sender.userInteractionEnabled = false
+        }
+
+        
+        
+       
     }
+   
  
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,5 +49,20 @@ class EventTableViewController: UITableViewController {
         return cell!
     }
     
+    func billHasAtLeastOneClaimed(){
+           }
+    
 
 }
+
+//class Bill: NSObject {
+//    var initiator_id: String
+//    var billItems: Int
+//    
+//    init(initiator_id: String, billItems: Int) {
+//        self.initiator_id = initiator_id
+//        self.billItems = billItems
+//        
+//        super.init()
+//    }
+//}
