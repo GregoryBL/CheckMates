@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D9FE3BD1D803C0F003C5A59 /* PhotoTakingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9FE3BC1D803C0F003C5A59 /* PhotoTakingHelper.swift */; };
 		0DA243371D7F492300BA021E /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA243361D7F492300BA021E /* ContactsViewController.swift */; };
 		0DA243391D7F64FE00BA021E /* SnapReceiptsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA243381D7F64FE00BA021E /* SnapReceiptsNavigationController.swift */; };
 		0DAA6BC21D7CF06200D38DFE /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DAA6BC11D7CF06200D38DFE /* libstdc++.6.0.9.tbd */; };
@@ -22,6 +23,7 @@
 		0DB4C9631D7DE61400FFDF85 /* ItemDetailViewConroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB4C9621D7DE61400FFDF85 /* ItemDetailViewConroller.swift */; };
 		0DB4C9651D7DE8AC00FFDF85 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB4C9641D7DE8AC00FFDF85 /* DateExtensions.swift */; };
 		0DB4C9671D7DE8E100FFDF85 /* NumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB4C9661D7DE8E100FFDF85 /* NumberExtensions.swift */; };
+		0DE3FABD1D7FCA27005E5D9F /* PickFromAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE3FABC1D7FCA27005E5D9F /* PickFromAlbumViewController.swift */; };
 		0DE67D1D1D7E75CD00EC777A /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE67D1C1D7E75CD00EC777A /* TabController.swift */; };
 		2ED6E6F785CD17DEFE5A6A58 /* Pods_CheckMatesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BB260BE7DA72BA1CE84F293 /* Pods_CheckMatesTests.framework */; };
 		372C953B1D7CCE8C00BD0DB0 /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372C953A1D7CCE8B00BD0DB0 /* ApiKeys.swift */; };
@@ -51,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		05B5D96BDED7B37A2ECC50E5 /* Pods-CheckMates.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckMates.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CheckMates/Pods-CheckMates.debug.xcconfig"; sourceTree = "<group>"; };
+		0D9FE3BC1D803C0F003C5A59 /* PhotoTakingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTakingHelper.swift; sourceTree = "<group>"; };
 		0DA243361D7F492300BA021E /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		0DA243381D7F64FE00BA021E /* SnapReceiptsNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapReceiptsNavigationController.swift; sourceTree = "<group>"; };
 		0DAA6BC11D7CF06200D38DFE /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
@@ -66,6 +69,7 @@
 		0DB4C9621D7DE61400FFDF85 /* ItemDetailViewConroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailViewConroller.swift; sourceTree = "<group>"; };
 		0DB4C9641D7DE8AC00FFDF85 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		0DB4C9661D7DE8E100FFDF85 /* NumberExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberExtensions.swift; sourceTree = "<group>"; };
+		0DE3FABC1D7FCA27005E5D9F /* PickFromAlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickFromAlbumViewController.swift; sourceTree = "<group>"; };
 		0DE67D1C1D7E75CD00EC777A /* TabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		372C953A1D7CCE8B00BD0DB0 /* ApiKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
 		372C953C1D7CCEB700BD0DB0 /* APIKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
@@ -111,6 +115,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D9FE3BB1D803B9C003C5A59 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0D9FE3BC1D803C0F003C5A59 /* PhotoTakingHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		0F4884C9D8549DB6000C6299 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +166,7 @@
 				0DAAE4291D7CD12C00CF092E /* AddReceiptViewController.swift */,
 				0DAAE42B1D7CD15B00CF092E /* ReceiptsViewConroller.swift */,
 				0DAAE42D1D7CD17B00CF092E /* SnapReceiptsViewController.swift */,
+				0DE3FABC1D7FCA27005E5D9F /* PickFromAlbumViewController.swift */,
 				0DA243381D7F64FE00BA021E /* SnapReceiptsNavigationController.swift */,
 				0DB4C95A1D7D0F4200FFDF85 /* DetailedReceiptTableViewController.swift */,
 				0DB4C9601D7DD25800FFDF85 /* ItemCell.swift */,
@@ -166,6 +179,7 @@
 				379CBB9D1D7CC9A100352669 /* Main.storyboard */,
 				F197DDC81D7FB858008D8F17 /* EventViewController.swift */,
 				379CBBA31D7CC9A100352669 /* Assets.xcassets */,
+				0D9FE3BB1D803B9C003C5A59 /* Helpers */,
 				379CBBA51D7CC9A100352669 /* LaunchScreen.storyboard */,
 				379CBBA81D7CC9A100352669 /* Info.plist */,
 				379CBBA01D7CC9A100352669 /* CheckMates.xcdatamodeld */,
@@ -404,6 +418,7 @@
 				379CBB9A1D7CC9A100352669 /* AppDelegate.swift in Sources */,
 				0DA243371D7F492300BA021E /* ContactsViewController.swift in Sources */,
 				0DB4C9611D7DD25800FFDF85 /* ItemCell.swift in Sources */,
+				0DE3FABD1D7FCA27005E5D9F /* PickFromAlbumViewController.swift in Sources */,
 				0DB4C95B1D7D0F4200FFDF85 /* DetailedReceiptTableViewController.swift in Sources */,
 				0DA243391D7F64FE00BA021E /* SnapReceiptsNavigationController.swift in Sources */,
 				372C953F1D7CD0A100BD0DB0 /* PaymentsController.swift in Sources */,
@@ -412,6 +427,7 @@
 				0DAAE42E1D7CD17B00CF092E /* SnapReceiptsViewController.swift in Sources */,
 				379CBBA21D7CC9A100352669 /* CheckMates.xcdatamodeld in Sources */,
 				372C95431D7CD77200BD0DB0 /* DwollaRequest.swift in Sources */,
+				0D9FE3BD1D803C0F003C5A59 /* PhotoTakingHelper.swift in Sources */,
 				372C95411D7CD41600BD0DB0 /* DwollaAPIManager.swift in Sources */,
 				0DAAE4281D7CD08100CF092E /* ColorExtensions.swift in Sources */,
 				0DE67D1D1D7E75CD00EC777A /* TabController.swift in Sources */,

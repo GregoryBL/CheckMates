@@ -7,7 +7,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--CheckMates-->
+        <!--Snap Receipt-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="snapreceiptsVC" id="BYZ-38-t0r" customClass="SnapReceiptsViewController" customModule="CheckMates" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,28 +19,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Snap Receipts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6H-vG-QZM">
-                                <rect key="frame" x="0.0" y="20" width="600" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="09t-n4-yJa">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="09t-n4-yJa">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OL2-2g-Yc1">
+                                <rect key="frame" x="261" y="295" width="79" height="25"/>
+                                <state key="normal" image="CameraIcon"/>
+                                <connections>
+                                    <action selector="snapReceipt:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WgF-4h-Je6"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="g6H-vG-QZM" secondAttribute="trailing" id="4Tg-Ac-qpt"/>
-                            <constraint firstItem="g6H-vG-QZM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="RZV-wL-FeL"/>
-                            <constraint firstItem="g6H-vG-QZM" firstAttribute="trailing" secondItem="09t-n4-yJa" secondAttribute="trailing" id="SkG-dJ-gsk"/>
                             <constraint firstItem="09t-n4-yJa" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="e0Q-Od-dmh"/>
-                            <constraint firstItem="g6H-vG-QZM" firstAttribute="leading" secondItem="09t-n4-yJa" secondAttribute="leading" id="h3n-zF-590"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OL2-2g-Yc1" secondAttribute="bottom" id="e1Q-RY-iJz"/>
+                            <constraint firstItem="OL2-2g-Yc1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ikg-il-UvE"/>
+                            <constraint firstItem="OL2-2g-Yc1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="qGS-aQ-phY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OL2-2g-Yc1" secondAttribute="trailing" constant="-20" id="qdJ-gx-sbl"/>
                             <constraint firstItem="09t-n4-yJa" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="sJe-K0-qnu"/>
-                            <constraint firstItem="g6H-vG-QZM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" symbolic="YES" id="xuP-qf-DDf"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="CheckMates" id="R51-zh-hYc"/>
+                    <navigationItem key="navigationItem" title="Snap Receipt" id="R51-zh-hYc"/>
                     <connections>
                         <outlet property="imageView" destination="09t-n4-yJa" id="idZ-3x-hUD"/>
                         <segue destination="GTV-18-SEv" kind="show" identifier="DisplayItemsSegue" id="DEv-pI-B9A"/>
@@ -63,7 +63,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CIN-6a-Ar0" id="YhT-SA-kS9">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -111,7 +111,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1iC-yv-xae" id="46n-XL-45c">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="64.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yib-Vd-FI1">
@@ -215,7 +215,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z2d-Me-2dn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3459" y="881"/>
+            <point key="canvasLocation" x="4271" y="881"/>
         </scene>
         <!--Event View Controller-->
         <scene sceneID="aTe-gO-ctc">
@@ -432,7 +432,7 @@
             </objects>
             <point key="canvasLocation" x="3365" y="123"/>
         </scene>
-        <!--Add Receipts View Controller-->
+        <!--Enter Receipt-->
         <scene sceneID="aIh-Vr-pNH">
             <objects>
                 <viewController storyboardIdentifier="enterreceiptvc" id="ZsR-Ol-0cW" customClass="AddReceiptsViewController" customModule="CheckMates" customModuleProvider="target" sceneMemberID="viewController">
@@ -468,14 +468,14 @@
                             <constraint firstAttribute="bottom" secondItem="MNB-Cl-86E" secondAttribute="bottom" id="dat-0Q-XeT"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="AZC-yP-k03"/>
+                    <navigationItem key="navigationItem" title="Enter Receipt" id="AZC-yP-k03"/>
                     <connections>
                         <segue destination="GTV-18-SEv" kind="show" identifier="AddReceiptManually" id="Zmn-gq-eIc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tpq-V2-dKk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1940" y="903"/>
+            <point key="canvasLocation" x="1952" y="903"/>
         </scene>
         <!--Tab Controller-->
         <scene sceneID="d0o-Fv-NkE">
@@ -490,12 +490,59 @@
                     <connections>
                         <segue destination="TnY-6o-2O7" kind="relationship" relationship="viewControllers" id="cgf-0p-MO5"/>
                         <segue destination="pgt-jY-sQP" kind="relationship" relationship="viewControllers" id="XVf-Cu-H7Y"/>
+                        <segue destination="dbh-oE-qEE" kind="relationship" relationship="viewControllers" id="xOv-vy-V0e"/>
                         <segue destination="u2v-Nf-W0c" kind="relationship" relationship="viewControllers" id="2tB-df-Dml"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ddQ-Q6-eVm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="328" y="123"/>
+            <point key="canvasLocation" x="226" y="123"/>
+        </scene>
+        <!--Pick Receipt-->
+        <scene sceneID="RM3-fG-6ID">
+            <objects>
+                <viewController id="dTK-8p-MaY" customClass="PickFromAlbumViewController" customModule="CheckMates" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="02y-BX-7XN"/>
+                        <viewControllerLayoutGuide type="bottom" id="zGm-Ne-XxA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4RF-2Z-viZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D3Q-QP-PAY">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fd-e6-ibL">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <state key="normal" image="PhotoAlbum"/>
+                                <connections>
+                                    <action selector="snapReceipt:" destination="dTK-8p-MaY" eventType="touchUpInside" id="qg3-pj-qSn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="D3Q-QP-PAY" secondAttribute="trailing" constant="-20" id="1Uw-cu-JTv"/>
+                            <constraint firstItem="D3Q-QP-PAY" firstAttribute="leading" secondItem="4RF-2Z-viZ" secondAttribute="leadingMargin" constant="-20" id="NUl-qN-74r"/>
+                            <constraint firstItem="D3Q-QP-PAY" firstAttribute="top" secondItem="02y-BX-7XN" secondAttribute="bottom" id="SZX-Y6-yVp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3fd-e6-ibL" secondAttribute="trailing" constant="-20" id="VIa-jv-mOo"/>
+                            <constraint firstItem="3fd-e6-ibL" firstAttribute="top" secondItem="02y-BX-7XN" secondAttribute="bottom" id="cD2-V3-qY5"/>
+                            <constraint firstItem="zGm-Ne-XxA" firstAttribute="top" secondItem="D3Q-QP-PAY" secondAttribute="bottom" id="gA4-ci-aVB"/>
+                            <constraint firstItem="3fd-e6-ibL" firstAttribute="leading" secondItem="4RF-2Z-viZ" secondAttribute="leadingMargin" constant="-20" id="uyB-fm-E4p"/>
+                            <constraint firstItem="zGm-Ne-XxA" firstAttribute="top" secondItem="3fd-e6-ibL" secondAttribute="bottom" id="xn1-ah-9v4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Pick Receipt" id="Qcz-UT-dwN"/>
+                    <connections>
+                        <outlet property="imageView" destination="D3Q-QP-PAY" id="xr4-MN-Tkz"/>
+                        <segue destination="GTV-18-SEv" kind="show" identifier="DisplayReceiptFromAlbum" id="bDr-21-ad2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E3f-Ki-gcs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1952" y="1655"/>
         </scene>
         <!--Snap Receipt-->
         <scene sceneID="fX4-Tb-49G">
@@ -533,7 +580,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="toI-aQ-vNC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1140" y="903"/>
+            <point key="canvasLocation" x="1152" y="903"/>
         </scene>
         <!--Receipts-->
         <scene sceneID="aXv-oj-Uvs">
@@ -554,14 +601,34 @@
             </objects>
             <point key="canvasLocation" x="1140" y="-547"/>
         </scene>
+        <!--Album-->
+        <scene sceneID="wd0-uA-T9K">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dbh-oE-qEE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Album" image="PhotoAlbum" id="phM-FT-sKx"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BnO-T0-Niv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dTK-8p-MaY" kind="relationship" relationship="rootViewController" id="id5-19-ExE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ft7-xF-ZQt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1140" y="1655"/>
+        </scene>
     </scenes>
     <resources>
         <image name="CameraIcon" width="25" height="25"/>
         <image name="Launch Image" width="121" height="121"/>
+        <image name="PhotoAlbum" width="25" height="25"/>
         <image name="PointerIcon" width="25" height="25"/>
         <image name="ReceiptIcon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Zmn-gq-eIc"/>
+        <segue reference="bDr-21-ad2"/>
     </inferredMetricsTieBreakers>
 </document>
