@@ -9,7 +9,7 @@
 import UIKit
 import TesseractOCR
 
-class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+class PickFromAlbumViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
     var pickedPhoto = false
     var itemStore = ItemStore()
@@ -17,8 +17,6 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
     
     
     @IBOutlet var imageView: UIImageView!
-    
-    var photoTakingHelper: PhotoTakingHelper?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,28 +27,22 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
         
         if(self.pickedPhoto == false) {
             launchCamera()
-            //photoTakingHelper?.snapPhoto()
         }
     }
     
-    override func viewDidDisappear(animated: Bool) {
-        self.pickedPhoto = false
-    }
     
     @IBAction func snapReceipt(sender:UIButton!)
     {
         launchCamera()
     }
     
+    override func viewDidDisappear(animated: Bool) {
+        self.pickedPhoto = false
+    }
+    
     func launchCamera() {
         let imagePicker = UIImagePickerController()
-        
-        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
-            imagePicker.sourceType = .Camera
-        }
-        else {
-            imagePicker.sourceType = .PhotoLibrary
-        }
+        imagePicker.sourceType = .PhotoLibrary
         
         imagePicker.delegate = self
         presentViewController(imagePicker, animated: true, completion: nil)
@@ -126,7 +118,8 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
             }
         }
         
-        self.performSegueWithIdentifier("DisplayItemsSegue", sender: self)
+        
+        self.performSegueWithIdentifier("DisplayReceiptFromAlbum", sender: self)
     }
     
     func isPhoneNumber(value: String) -> Bool {
@@ -140,14 +133,13 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
         }
     }
 
-    
     func imagePickerControllerDidCancel(picker: UIImagePickerController)
     {
         // picker cancelled, dismiss picker view controller
         self.dismissViewControllerAnimated(true, completion: nil)
         pickedPhoto = true
     }
-
+    
     func scaleImage(image: UIImage, maxDimension: CGFloat) -> UIImage {
         
         var scaledSize = CGSize(width: maxDimension, height: maxDimension)
@@ -173,7 +165,7 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if segue.identifier == "DisplayItemsSegue"
+        if segue.identifier == "DisplayReceiptFromAlbum"
         {
             let detailViewController = segue.destinationViewController as? DetailedReceiptTableViewController
             detailViewController?.itemStore = itemStore
