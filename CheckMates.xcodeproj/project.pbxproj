@@ -45,6 +45,7 @@
 		F0EA6FA41D80C2910035E13A /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA6F9C1D80C2910035E13A /* Contact.swift */; };
 		F0EA6FA51D80C2910035E13A /* Event+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA6F9D1D80C2910035E13A /* Event+CoreDataProperties.swift */; };
 		F0EA6FA61D80C2910035E13A /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA6F9E1D80C2910035E13A /* Event.swift */; };
+		F0EA6FAA1D80D15F0035E13A /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA6FA91D80D15F0035E13A /* EventController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		F0EA6F9C1D80C2910035E13A /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		F0EA6F9D1D80C2910035E13A /* Event+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F0EA6F9E1D80C2910035E13A /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		F0EA6FA91D80D15F0035E13A /* EventController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 				0DAAE4291D7CD12C00CF092E /* AddReceiptViewController.swift */,
 				0DAAE42B1D7CD15B00CF092E /* ReceiptsViewConroller.swift */,
 				0DAAE42D1D7CD17B00CF092E /* SnapReceiptsViewController.swift */,
+				F0EA6FA91D80D15F0035E13A /* EventController.swift */,
 				0DE3FABC1D7FCA27005E5D9F /* PickFromAlbumViewController.swift */,
 				0DB4C95A1D7D0F4200FFDF85 /* DetailedReceiptTableViewController.swift */,
 				0DB4C9601D7DD25800FFDF85 /* ItemCell.swift */,
@@ -432,6 +435,7 @@
 			files = (
 				F0EA6FA41D80C2910035E13A /* Contact.swift in Sources */,
 				0DAAE42C1D7CD15B00CF092E /* ReceiptsViewConroller.swift in Sources */,
+				F0EA6FAA1D80D15F0035E13A /* EventController.swift in Sources */,
 				0DB4C95D1D7D1E4C00FFDF85 /* Item.swift in Sources */,
 				379CBB9A1D7CC9A100352669 /* AppDelegate.swift in Sources */,
 				0DA243371D7F492300BA021E /* ContactsViewController.swift in Sources */,
