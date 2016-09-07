@@ -9,12 +9,16 @@
 import UIKit
 import TesseractOCR
 
-class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+class EventController {
+    
+}
+
+class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var pickedPhoto = false
     var itemStore = ItemStore()
     var activityIndicator:UIActivityIndicatorView!
-    
+    var eventController:EventController? = nil
     
     @IBOutlet var imageView: UIImageView!
     
@@ -22,6 +26,8 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        eventController = EventController()
         
     }
     
@@ -138,6 +144,7 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
         {
             let detailViewController = segue.destinationViewController as? DetailedReceiptTableViewController
             detailViewController?.itemStore = itemStore
+            detailViewController?.eventController = eventController
         }
     }
     

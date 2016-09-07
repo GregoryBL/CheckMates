@@ -18,6 +18,7 @@ class DetailedReceiptTableViewController: UITableViewController {
     }
     
     var itemStore: ItemStore!
+    var eventController: EventController!
     var newItem: Item!
     
     override func viewWillAppear(animated: Bool) {
