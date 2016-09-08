@@ -12,7 +12,7 @@ import ContactsUI
 
 class ContactsViewController: UIViewController, CNContactPickerDelegate {
     
-    var itemStore: ItemStore!
+    var eventController: EventController? = nil
     var mates = [Mate]()
     
     override func viewDidLoad() {
@@ -78,13 +78,12 @@ class ContactsViewController: UIViewController, CNContactPickerDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ShowEvent" {
             let eventViewController = segue.destinationViewController as! EventTableViewController
-            eventViewController.mates = mates 
+            self.eventController?.addContacts(mates)
+            eventViewController.eventController = eventController
         }
     }
     
 }
-
-// TODO -- NEED TO DELETE
 
 class Mate: NSObject {
     var firstName: String
