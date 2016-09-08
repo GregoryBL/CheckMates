@@ -9,19 +9,13 @@
 import UIKit
 import Contacts
 import ContactsUI
-import Alamofire
-
-
-
 
 class ContactsViewController: UIViewController, CNContactPickerDelegate {
     
-    var itemStore: ItemStore!
+    var eventController: EventController? = nil
     var mates = [Mate]()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    override func viewWillAppear(animated: Bool) {
         
         if CNContactStore.authorizationStatusForEntityType(.Contacts) == .NotDetermined {
             CNContactStore().requestAccessForEntityType(.Contacts, completionHandler: { (authorized: Bool, error: NSError?) -> Void in
@@ -43,6 +37,11 @@ class ContactsViewController: UIViewController, CNContactPickerDelegate {
         }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -54,53 +53,38 @@ class ContactsViewController: UIViewController, CNContactPickerDelegate {
     func contactPicker(picker: CNContactPickerViewController, didSelectContacts contacts: [CNContact]) {
         
         var mobilePhone = String()
-        let myMates = dispatch_group_create()
+        mates = []
         
         for contact in contacts {
+           
             for num in contact.phoneNumbers {
                 let numVal = (num.value as! CNPhoneNumber).valueForKey("digits") as! String
                 if num.label == CNLabelPhoneNumberMobile || num.label == CNLabelPhoneNumberiPhone {
                     mobilePhone = numVal
                 }
-                dispatch_group_enter(myMates)
+
                 let firstName = contact.givenName
                 let lastName = contact.familyName
                 let id = contact.identifier
                 let image = (contact.isKeyAvailable(CNContactImageDataKey) && contact.imageDataAvailable) ? UIImage(data: contact.imageData!) : nil
                 let newMate = Mate(firstName: firstName, lastName: lastName, mobileNumber: mobilePhone, id: id, image: image)
                 mates.append(newMate)
-                dispatch_group_leave(myMates)
-                print("\(newMate.firstName)")
-                print("\(newMate.mobileNumber)")
+
                 
             }
             
         }
-        //        readyToSend(mates)
+        
+        self.performSegueWithIdentifier("ShowEvent", sender: self)
+
     }
     
-    // Move this method to event controller
     
-    func readyToSend(collection: [Mate]) {
-        let twilloUsername = valueForAPIKey(named: "TWILIO_ACCT_SID")
-        let twilloPassword = valueForAPIKey(named: "TWILIO_AUTH_TOKEN")
-        let myGroupMates = dispatch_group_create()
-        for recipient in collection {
-            let data = [
-                "To" : recipient.mobileNumber,
-                "From" : "+13059648615",
-                // NEED TO BUILD CUSTOM URL FOR EACH
-                "Body" : "Check out CheckMates http://localhost:3000"
-            ]
-            dispatch_group_enter(myGroupMates)
-            Alamofire.request(.POST, "https://\(twilloUsername):\(twilloPassword)@api.twilio.com/2010-04-01/Accounts/\(twilloUsername)/Messages", parameters: data).responseJSON { response in
-                dispatch_group_leave(myGroupMates)
-                
-                print("Twilio send to \(recipient.mobileNumber)")
-            }
-            dispatch_group_notify(myGroupMates, dispatch_get_main_queue(), {
-                print("Finished all requests.")
-            })
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowEvent" {
+            let eventViewController = segue.destinationViewController as! EventTableViewController
+            self.eventController?.addContacts(mates)
+            eventViewController.eventController = eventController
         }
     }
     
