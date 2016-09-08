@@ -10,9 +10,6 @@ import UIKit
 import TesseractOCR
 import SwiftSpinner
 
-class EventController {
-    
-}
 
 class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -28,8 +25,25 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        eventController = EventController()
-        
+//        let eventController = EventController()
+//        eventController.createNewEvent()
+//        let itemStore = ItemStore()
+//        itemStore.createItem("Doodie", price: 33.22)
+//        itemStore.createItem("Fartjuice", price: 199.00)
+//        itemStore.createItem("Tax three two", price: 3.99)
+//        itemStore.createItem("my TIP", price: 9)
+//        
+//        eventController.addBillItems(itemStore)
+//        
+//        let mate1 = Mate(firstName: "Charles", lastName: "Bruckenheiser", mobileNumber: "9993232244", id: "9439j34", image: nil)
+//        let mate2 = Mate(firstName: "Camden", lastName: "Parker", mobileNumber: "2881234432", id: "9i24jt", image: nil)
+//        let mate3 = Mate(firstName: "Eric", lastName: "Scantinopolos", mobileNumber: "5554556554", id: "39uhgdw2", image: nil)
+//        var mates = [Mate]()
+//        mates += [mate1, mate2, mate3]
+//        eventController.addContacts(mates)
+//        eventController.saveEvent()
+//        
+//        print(eventController.fetchAllEvents())
     }
     
     override func viewWillAppear(animated: Bool) {
