@@ -15,9 +15,7 @@ class ContactsViewController: UIViewController, CNContactPickerDelegate {
     var eventController: EventController? = nil
     var mates = [Mate]()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    override func viewWillAppear(animated: Bool) {
         
         if CNContactStore.authorizationStatusForEntityType(.Contacts) == .NotDetermined {
             CNContactStore().requestAccessForEntityType(.Contacts, completionHandler: { (authorized: Bool, error: NSError?) -> Void in
@@ -39,6 +37,11 @@ class ContactsViewController: UIViewController, CNContactPickerDelegate {
         }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -50,8 +53,10 @@ class ContactsViewController: UIViewController, CNContactPickerDelegate {
     func contactPicker(picker: CNContactPickerViewController, didSelectContacts contacts: [CNContact]) {
         
         var mobilePhone = String()
+        mates = []
         
         for contact in contacts {
+           
             for num in contact.phoneNumbers {
                 let numVal = (num.value as! CNPhoneNumber).valueForKey("digits") as! String
                 if num.label == CNLabelPhoneNumberMobile || num.label == CNLabelPhoneNumberiPhone {

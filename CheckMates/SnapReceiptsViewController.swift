@@ -24,30 +24,6 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let eventController = EventController()
-        eventController.createNewEvent()
-        let itemStore = ItemStore()
-        itemStore.createItem("Cheese", price: 33.22)
-        itemStore.createItem("Meat", price: 199.00)
-        itemStore.createItem("Other food", price: 323.00)
-        itemStore.createItem("Tax three two", price: 3.99)
-        itemStore.createItem("my TIP", price: 9)
-        
-        eventController.addBillItems(itemStore)
-        
-        let mate1 = Mate(firstName: "Charles", lastName: "Bruckenheiser", mobileNumber: "3126131481", id: "9439j34", image: nil)
-        var mates = [Mate]()
-        mates += [mate1]
-        eventController.addContacts(mates)
-        let contacts = eventController.newEvent?.contacts?.allObjects as! [Contact]
-        let items = eventController.newEvent?.receipt?.items?.allObjects as! [ReceiptItem]
-        for item in items {
-            item.contact = contacts[0]
-        }
-        eventController.saveEvent()
-        
-        PaymentsController().createRequestsForEvent(eventController.newEvent!)
     }
     
     override func viewWillAppear(animated: Bool) {
