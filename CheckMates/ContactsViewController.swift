@@ -85,8 +85,6 @@ class ContactsViewController: UIViewController, CNContactPickerDelegate {
     
 }
 
-// TODO -- NEED TO DELETE
-
 class Mate: NSObject {
     var firstName: String
     var lastName: String

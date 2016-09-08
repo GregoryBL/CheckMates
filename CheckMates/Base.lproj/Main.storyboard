@@ -254,6 +254,32 @@
                                 <constraint firstItem="44X-Ns-P3f" firstAttribute="top" secondItem="Kaf-jW-9T8" secondAttribute="top" id="k1m-1E-5Pc"/>
                             </constraints>
                         </view>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="4gK-xX-yup">
+                            <rect key="frame" x="0.0" y="201" width="600" height="65"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57M-Ba-nOI">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
+                                    <state key="normal" title="Edit Receipt">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="editReceiptButton:" destination="NJu-NL-CXP" eventType="touchUpInside" id="wu9-uV-dro"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="57M-Ba-nOI" secondAttribute="bottom" id="1qh-WS-GVO"/>
+                                <constraint firstItem="57M-Ba-nOI" firstAttribute="top" secondItem="4gK-xX-yup" secondAttribute="top" id="Fsw-AJ-aE3"/>
+                                <constraint firstAttribute="bottom" secondItem="57M-Ba-nOI" secondAttribute="bottom" id="OOO-vN-8sm"/>
+                                <constraint firstItem="57M-Ba-nOI" firstAttribute="leading" secondItem="4gK-xX-yup" secondAttribute="leading" id="Oyx-2S-0Xk"/>
+                                <constraint firstItem="57M-Ba-nOI" firstAttribute="leading" secondItem="4gK-xX-yup" secondAttribute="leading" id="XlV-Dd-c8N"/>
+                                <constraint firstAttribute="trailing" secondItem="57M-Ba-nOI" secondAttribute="trailing" id="fhy-ZP-MCE"/>
+                                <constraint firstAttribute="trailing" secondItem="57M-Ba-nOI" secondAttribute="trailing" id="gYr-Fn-Cdf"/>
+                                <constraint firstItem="57M-Ba-nOI" firstAttribute="top" secondItem="4gK-xX-yup" secondAttribute="top" id="y7c-Kv-cNZ"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" textLabel="pAk-dh-uer" detailTextLabel="8K4-v9-N9G" style="IBUITableViewCellStyleValue1" id="h54-3D-ddc">
                                 <rect key="frame" x="0.0" y="157" width="600" height="44"/>

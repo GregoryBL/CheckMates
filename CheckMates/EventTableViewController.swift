@@ -14,30 +14,33 @@ import Contacts
 class EventTableViewController: UITableViewController {
     var eventController: EventController?
     
+   
+    
     @IBAction func completeEvent(sender: UIButton) {
         if (sender.titleLabel?.text == "Done") {
             sender.setTitle("Request Payment", forState:  UIControlState.Normal)
-            print("sending ...")
-            //Event controller receipt is complete
-            // Send messges to Contacts
+            print("Bill ready to be saved")
+            eventController?.billIsComplete()           
         } else if (sender.titleLabel?.text == "Request Payment"){
             print("Sending payment requests to mates")
-            sender.setTitle("Request Payment", forState:  UIControlState.Normal)
         } else {
             sender.setTitle("Event Closed", forState:  UIControlState.Normal)
             sender.userInteractionEnabled = false
         }
-
-        
         
        
     }
    
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Contacts"
+    @IBAction func editReceiptButton(sender: UIButton) {
+         // Inactive for demo
+        sender.userInteractionEnabled = false
     }
     
     
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Contacts"
+    }
+
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return (eventController?.newEvent!.contacts!.count)!
