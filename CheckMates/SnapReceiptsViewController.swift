@@ -8,13 +8,15 @@
 
 import UIKit
 import TesseractOCR
+import SwiftSpinner
 
-class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+
+class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var pickedPhoto = false
     var itemStore = ItemStore()
     var activityIndicator:UIActivityIndicatorView!
-    
+    var eventController:EventController? = nil
     
     @IBOutlet var imageView: UIImageView!
     
@@ -23,13 +25,31 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        let eventController = EventController()
+//        eventController.createNewEvent()
+//        let itemStore = ItemStore()
+//        itemStore.createItem("Doodie", price: 33.22)
+//        itemStore.createItem("Fartjuice", price: 199.00)
+//        itemStore.createItem("Tax three two", price: 3.99)
+//        itemStore.createItem("my TIP", price: 9)
+//        
+//        eventController.addBillItems(itemStore)
+//        
+//        let mate1 = Mate(firstName: "Charles", lastName: "Bruckenheiser", mobileNumber: "9993232244", id: "9439j34", image: nil)
+//        let mate2 = Mate(firstName: "Camden", lastName: "Parker", mobileNumber: "2881234432", id: "9i24jt", image: nil)
+//        let mate3 = Mate(firstName: "Eric", lastName: "Scantinopolos", mobileNumber: "5554556554", id: "39uhgdw2", image: nil)
+//        var mates = [Mate]()
+//        mates += [mate1, mate2, mate3]
+//        eventController.addContacts(mates)
+//        eventController.saveEvent()
+//        
+//        print(eventController.fetchAllEvents())
     }
     
     override func viewWillAppear(animated: Bool) {
         
         if(self.pickedPhoto == false) {
             launchCamera()
-            //photoTakingHelper?.snapPhoto()
         }
     }
     
@@ -44,102 +64,41 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
     
     func launchCamera() {
         let imagePicker = UIImagePickerController()
-        
-        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
-            imagePicker.sourceType = .Camera
-        }
-        else {
-            imagePicker.sourceType = .PhotoLibrary
-        }
+    
+        PhotoTakingHelper.snapPhoto(imagePicker)
         
         imagePicker.delegate = self
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
     func addActivityIndicator() {
-        activityIndicator = UIActivityIndicatorView(frame: view.bounds)
-        activityIndicator.activityIndicatorViewStyle = .WhiteLarge
-        activityIndicator.backgroundColor = UIColor(white: 0, alpha: 0.25)
-        activityIndicator.startAnimating()
-        view.addSubview(activityIndicator)
+        SwiftSpinner.show("Processing Receipt")
     }
     
     func removeActivityIndicator() {
-        activityIndicator.removeFromSuperview()
-        activityIndicator = nil
+        SwiftSpinner.hide()
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         // get image
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        let scaledImage = scaleImage(image, maxDimension: 640)
+        let scaledImage = PhotoTakingHelper.scaleImage(image, maxDimension: 1200)
         
         addActivityIndicator()
         
-        imageView.image = image
+        imageView.image = scaledImage
         dismissViewControllerAnimated(true, completion: {
             self.performImageRecognition(scaledImage)
         })
     }
     
     func performImageRecognition(image: UIImage) {
-        let tesseract:G8Tesseract = G8Tesseract(language:"eng")
-        tesseract.engineMode = .TesseractCubeCombined
-        tesseract.pageSegmentationMode = .Auto
-        tesseract.maximumRecognitionTime = 60.0
-        tesseract.image = image.g8_blackAndWhite()
-        tesseract.recognize()
+        itemStore = PhotoTakingHelper.ocrImage(image)
+    
         removeActivityIndicator()
-        
-        let receiptText = tesseract.recognizedText
-        let lines = receiptText.characters.split { $0 == "\n" || $0 == "\r\n" }.map(String.init)
-        
-        
-        for item in lines {
-            // http://nshipster.com/nscharacterset/
-            let digits = NSCharacterSet.decimalDigitCharacterSet()
-            
-            var lineAsString = item
-            var count = 1
-            var title = ""
-            var price:Float = 0
-            
-            
-            
-            // trim white leading and trailing white space
-            let components = lineAsString.componentsSeparatedByCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).filter { !$0.isEmpty }
-            lineAsString = components.joinWithSeparator(" ")
-            let lineAsArray = lineAsString.componentsSeparatedByString(" ")
-            // add item as long as it is not a blank line
-            if(lineAsString != "") {
-                if((lineAsString.rangeOfCharacterFromSet(digits)) != nil) {
-                    let lastDigits = lineAsArray.last!.stringByTrimmingCharactersInSet(NSCharacterSet.init(charactersInString: "$"))
-                    if(isPhoneNumber(lastDigits) == false) {
-                        price = lastDigits.asFloat
-                    }
-                    if((lineAsArray[0].rangeOfCharacterFromSet(digits)) != nil) {
-                        count = lineAsArray[0].asInteger
-                    }
-                    title = lineAsString
-                    itemStore.createItem(title, price: price)
-                }
-            }
-        }
-        
+
         self.performSegueWithIdentifier("DisplayItemsSegue", sender: self)
     }
-    
-    func isPhoneNumber(value: String) -> Bool {
-        let PHONE_REGEX = "^\\d{3}-\\d{3}-\\d{4}$"
-        let phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
-        if(phoneTest.evaluateWithObject(value)) {
-            return true
-        }
-        else {
-            return false
-        }
-    }
-
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController)
     {
@@ -148,28 +107,6 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
         pickedPhoto = true
     }
 
-    func scaleImage(image: UIImage, maxDimension: CGFloat) -> UIImage {
-        
-        var scaledSize = CGSize(width: maxDimension, height: maxDimension)
-        var scaleFactor: CGFloat
-        
-        if image.size.width > image.size.height {
-            scaleFactor = image.size.height / image.size.width
-            scaledSize.width = maxDimension
-            scaledSize.height = scaledSize.width * scaleFactor
-        } else {
-            scaleFactor = image.size.width / image.size.height
-            scaledSize.height = maxDimension
-            scaledSize.width = scaledSize.height * scaleFactor
-        }
-        
-        UIGraphicsBeginImageContext(scaledSize)
-        image.drawInRect(CGRectMake(0, 0, scaledSize.width, scaledSize.height))
-        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return scaledImage
-    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
@@ -177,6 +114,7 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
         {
             let detailViewController = segue.destinationViewController as? DetailedReceiptTableViewController
             detailViewController?.itemStore = itemStore
+            detailViewController?.eventController = eventController
         }
     }
     

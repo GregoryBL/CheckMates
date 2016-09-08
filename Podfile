@@ -10,6 +10,7 @@ target 'CheckMates' do
    pod 'TesseractOCRiOS', '4.0.0'
    pod 'SwiftyJSON'
    pod 'AwesomeTextField'
+   pod 'SwiftSpinner'
 
   target 'CheckMatesTests' do
     inherit! :search_paths
