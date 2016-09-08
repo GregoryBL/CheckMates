@@ -99,9 +99,45 @@ class EventController {
         mc.textContacts(self.newEvent!.contacts?.allObjects as! [Contact], billId: (self.newEvent?.receipt?.backEndID)!)
     }
     
-    func parseJSON(data: NSData) {
-        print("Parse JSON")
-        print(JSON(data: data))
+    func parseJSON(data: NSData){
+
+        let json = JSON(data: data)
+        
+        let id = (String(json["id"]))
+        newEvent?.receipt!.setValue(id, forKey: "backEndID")
+        
+        let itemArray = (json["items"].array)!
+
+        for item in itemArray {
+            if let contact = userIDHasMatch(item["user_id"].string!) {
+                if let item = receiptItemHasMatch(item["item_description"].string!) {
+                            item.contact = contact
+                            print(item)
+                            print(item.contact)
+                        }
+                }
+            }
+        
+    }
+    
+    private func userIDHasMatch(userID: String) -> Contact? {
+        let contacts = newEvent?.contacts?.allObjects as! [Contact]
+        for contact in contacts {
+            if contact.uuid == userID {
+                return contact
+            }
+        }
+        return nil
+    }
+    
+    private func receiptItemHasMatch(itemDescription : String) -> ReceiptItem? {
+        let receiptItems = newEvent?.receipt?.items!.allObjects as! [ReceiptItem]
+        for receiptItem in receiptItems{
+            if receiptItem.itemDescription == itemDescription {
+                return receiptItem
+            }
+        }
+        return nil
     }
     
     func userDidRequestPayment() {
