@@ -10,22 +10,6 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-class Receipt {
-    var items : [ReceiptItem]?
-}
-
-class ReceiptItem {
-    var itemDescription: String
-    var price: Int64
-    var receipt: Receipt
-    var contact: Contact?
-    
-    init(itemDescription: String, price: Int, receipt: Receipt) {
-        self.itemDescription = itemDescription
-        self.price = Int64(price)
-        self.receipt = receipt
-    }
-}
 
 class ServerController {
     
@@ -35,7 +19,7 @@ class ServerController {
     func sendNewReceiptToServer(receipt : Receipt) {
         let itemsArray : NSMutableArray = []
         for item in receipt.items! {
-            itemsArray.addObject(itemToItemDict(item))
+            itemsArray.addObject(itemToItemDict(item as! ReceiptItem))
         }
         let itemsDict : [String: AnyObject] = ["items": itemsArray]
         let toSend : [String: AnyObject]? = ["bill": itemsDict]
@@ -61,7 +45,7 @@ class ServerController {
     
     func itemToItemDict(item : ReceiptItem) -> [String: AnyObject] {
         return [
-            "item_description": item.itemDescription,
+            "item_description": item.itemDescription!,
             "price": String(item.price)
         ]
     }
