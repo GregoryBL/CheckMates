@@ -206,25 +206,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Show Event" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQT-k9-YyI">
-                                <rect key="frame" x="20" y="88" width="560" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Launch Image" translatesAutoresizingMaskIntoConstraints="NO" id="XD1-Nx-Zvb">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="PQT-k9-YyI" firstAttribute="trailing" secondItem="Z53-pY-EEM" secondAttribute="trailingMargin" id="Cl9-84-kI6"/>
                             <constraint firstItem="XD1-Nx-Zvb" firstAttribute="leading" secondItem="Z53-pY-EEM" secondAttribute="leadingMargin" constant="-20" id="N0x-jF-a1J"/>
                             <constraint firstItem="XD1-Nx-Zvb" firstAttribute="top" secondItem="Z53-pY-EEM" secondAttribute="topMargin" id="SQr-a0-q2g"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XD1-Nx-Zvb" secondAttribute="trailing" constant="-20" id="SmP-bG-W4s"/>
-                            <constraint firstItem="PQT-k9-YyI" firstAttribute="top" secondItem="N7C-PC-88B" secondAttribute="bottom" constant="24" id="YkN-9h-ZC7"/>
                             <constraint firstItem="XD1-Nx-Zvb" firstAttribute="bottom" secondItem="Z53-pY-EEM" secondAttribute="bottomMargin" id="fg7-5w-ahF"/>
-                            <constraint firstItem="PQT-k9-YyI" firstAttribute="leading" secondItem="Z53-pY-EEM" secondAttribute="leadingMargin" id="swL-cz-i7b"/>
                         </constraints>
                     </view>
                     <connections>
@@ -233,7 +224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z2d-Me-2dn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4271" y="881"/>
+            <point key="canvasLocation" x="4265" y="926"/>
         </scene>
         <!--Event Table View Controller-->
         <scene sceneID="0eh-LY-euE">
