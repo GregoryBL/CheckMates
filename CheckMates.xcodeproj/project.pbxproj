@@ -205,6 +205,7 @@
 				0DB4C95C1D7D1E4C00FFDF85 /* Item.swift */,
 				0DB4C95E1D7D1F7100FFDF85 /* ItemStore.swift */,
 				0DB4C9621D7DE61400FFDF85 /* ItemDetailViewConroller.swift */,
+				F197DDCA1D806928008D8F17 /* EventTableViewController.swift */,
 				0DAAE4271D7CD08100CF092E /* ColorExtensions.swift */,
 				0DB4C9641D7DE8AC00FFDF85 /* DateExtensions.swift */,
 				0DB4C9661D7DE8E100FFDF85 /* NumberExtensions.swift */,
@@ -217,7 +218,6 @@
 				379CBBA01D7CC9A100352669 /* CheckMates.xcdatamodeld */,
 				372C953C1D7CCEB700BD0DB0 /* APIKeys.plist */,
 				372C953A1D7CCE8B00BD0DB0 /* ApiKeys.swift */,
-				F197DDCA1D806928008D8F17 /* EventTableViewController.swift */,
 			);
 			path = CheckMates;
 			sourceTree = "<group>";

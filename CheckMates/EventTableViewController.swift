@@ -9,7 +9,7 @@
 import UIKit
 import Contacts
 
-// NOT READY YET
+
 
 class EventTableViewController: UITableViewController {
     var eventController: EventController?
@@ -21,11 +21,12 @@ class EventTableViewController: UITableViewController {
             sender.setTitle("Request Payment", forState:  UIControlState.Normal)
             print("Bill ready to be saved")
             eventController?.billIsComplete()           
-        } else if (sender.titleLabel?.text == "Request Payment"){
-            print("Sending payment requests to mates")
         } else {
+            eventController?.userRequestsPayment()
+            print("Sending payment requests to mates")
             sender.setTitle("Event Closed", forState:  UIControlState.Normal)
             sender.userInteractionEnabled = false
+            
         }
         
        
