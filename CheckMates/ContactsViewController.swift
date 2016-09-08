@@ -12,7 +12,7 @@ import ContactsUI
 
 class ContactsViewController: UIViewController, CNContactPickerDelegate {
     
-    var eventController: EventController? = nil
+    var eventController: EventController?
     var mates = [Mate]()
     
     override func viewWillAppear(animated: Bool) {
@@ -84,7 +84,7 @@ class ContactsViewController: UIViewController, CNContactPickerDelegate {
         if segue.identifier == "ShowEvent" {
             let eventViewController = segue.destinationViewController as! EventTableViewController
             self.eventController?.addContacts(mates)
-            eventViewController.eventController = eventController
+            eventViewController.eventController = self.eventController
         }
     }
     

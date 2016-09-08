@@ -14,8 +14,6 @@ import Contacts
 class EventTableViewController: UITableViewController {
     var eventController: EventController?
     
-   
-    
     @IBAction func completeEvent(sender: UIButton) {
         if (sender.titleLabel?.text == "Done") {
             sender.setTitle("Request Payment", forState:  UIControlState.Normal)

@@ -25,10 +25,12 @@ class ServerController {
         let toSend : [String: AnyObject]? = ["bill": itemsDict]
 
         Alamofire.request(.POST, serverURL + "/bills", parameters: toSend, encoding: .JSON)
-            .responseJSON { response in
+            .responseData { response in
+                print(response.result.value)
                 print(response)
-                print(JSON((response.request?.HTTPBody!)!))
-                sender.parseJSON(response.result.value! as! NSData)
+                
+                print(JSON(data: response.result.value!))
+                sender.parseOriginalResponse(response.result.value!)
                 sender.sendMessages()
         }
     }

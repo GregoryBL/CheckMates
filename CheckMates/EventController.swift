@@ -23,7 +23,7 @@ class EventController {
     }
     
     func addBillItems(items: ItemStore){
-        if newEvent != nil &&  newEvent?.receipt == nil {
+        if newEvent != nil && newEvent?.receipt == nil {
             newEvent!.receipt = NSEntityDescription.insertNewObjectForEntityForName("Receipt", inManagedObjectContext: cds.mainQueueContext) as? Receipt
         }
         for item in items.allItems{
@@ -89,35 +89,55 @@ class EventController {
     }
     
     func billIsComplete() {
+        print(self.newEvent)
         self.saveEvent()
         let serverController = ServerController()
         serverController.sendNewReceiptToServer((self.newEvent?.receipt!)!, sender: self) // pass in self to get sendMessages called when it completes
     }
     
     func sendMessages() {
+        print("starting to send messages")
         let mc = MessageController()
+        print(self.newEvent?.receipt?.backEndID)
         mc.textContacts(self.newEvent!.contacts?.allObjects as! [Contact], billId: (self.newEvent?.receipt?.backEndID)!)
     }
     
-    func parseJSON(data: NSData){
 
+    
+//    func parseJSON(data: NSData){
+//
+//        let json = JSON(data: data)
+//        
+//        let items = json["items"]
+//        print(items)
+//        
+//        if let itemArray = (json["items"].array) {
+//            for item in itemArray {
+//                if let contact = userIDHasMatch(item["user_id"].string!) {
+//                    if let item = receiptItemHasMatch(item["item_description"].string!) {
+//                        item.contact = contact
+//                        print(item)
+//                        print(item.contact)
+//                    }
+//                }
+//            }
+//        }
+//    }
+    
+    func parseOriginalResponse(data: NSData) {
         let json = JSON(data: data)
-        
-        let id = (String(json["id"]))
-        newEvent?.receipt!.setValue(id, forKey: "backEndID")
-        
-        let itemArray = (json["items"].array)!
-
-        for item in itemArray {
-            if let contact = userIDHasMatch(item["user_id"].string!) {
-                if let item = receiptItemHasMatch(item["item_description"].string!) {
-                            item.contact = contact
-                            print(item)
-                            print(item.contact)
-                        }
-                }
-            }
-        
+        print(json)
+        if json["bill"] != nil {
+            print(json["bill"])
+            print(json["bill"]["id"])
+            print(json["bill"]["id"].string)
+            print(json["bill"]["id"].int)
+            let id = (String(json["bill"]["id"].int!))
+            print(id)
+            newEvent?.receipt!.backEndID = id
+        }
+        print(self.newEvent?.receipt?.backEndID!)
+        print("finish parsing original response")
     }
     
     private func userIDHasMatch(userID: String) -> Contact? {
