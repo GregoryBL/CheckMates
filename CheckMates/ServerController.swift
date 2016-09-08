@@ -16,7 +16,7 @@ class ServerController {
     let serverURL = "http://checkmatesapp.herokuapp.com"
     var newBill : Receipt?
     
-    func sendNewReceiptToServer(receipt : Receipt) {
+    func sendNewReceiptToServer(receipt : Receipt, sender: EventController) {
         let itemsArray : NSMutableArray = []
         for item in receipt.items! {
             itemsArray.addObject(itemToItemDict(item as! ReceiptItem))
@@ -28,12 +28,9 @@ class ServerController {
             .responseJSON { response in
                 print(response)
                 print(JSON((response.request?.HTTPBody!)!))
+                sender.parseJSON(response.result.value! as! NSData)
+                sender.sendMessages()
         }
-        
-    }
-    
-    func updateReceiptAtServer(receipt : Receipt) {
-        
     }
     
     func retrieveReceiptFromServer(billID: Int) {

@@ -87,4 +87,23 @@ class EventController {
         return []
     }
     
+    func billIsComplete() {
+        self.saveEvent()
+        let serverController = ServerController()
+        serverController.sendNewReceiptToServer((self.newEvent?.receipt!)!, sender: self) // pass in self to get sendMessages called when it completes
+    }
+    
+    func sendMessages() {
+        let mc = MessageController()
+        mc.textContacts(self.newEvent!.contacts?.allObjects as! [Contact], billID: (self.newEvent?.receipt?.backEndID)!)
+    }
+    
+    func parseJSON(data: NSData) {
+        
+    }
+    
+    func userDidRequestPayment() {
+        let pc = PaymentsController()
+        pc.createRequestsForEvent(self.newEvent!)
+    }
 }

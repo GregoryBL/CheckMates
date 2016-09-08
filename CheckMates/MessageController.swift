@@ -14,15 +14,15 @@ class MessageController {
     var eventController = ""
 //    eventController.event.receipt.sender_id
     
-    func textContacts(collection: [Mate]) {
+    func textContacts(collection: [Contact], billID : String) {
         let twilloUsername = valueForAPIKey(named: "TWILIO_ACCT_SID")
         let twilloPassword = valueForAPIKey(named: "TWILIO_AUTH_TOKEN")
         let myGroupMates = dispatch_group_create()
         for recipient in collection {
             let data = [
-                "To" : recipient.mobileNumber,
+                "To" : recipient.mobileNumber!,
                 "From" : "+13059648615",
-                "Body" : "Spilting the bill is easy with CheckMates http://www.checkmatesapp.com/\(eventController)/\(recipient.id)"
+                "Body" : "Spilting the bill is easy with CheckMates http://www.checkmatesapp.com/bills/\(billID)/users/\(recipient.uuid)"
             ]
             dispatch_group_enter(myGroupMates)
             Alamofire.request(.POST, "https://\(twilloUsername):\(twilloPassword)@api.twilio.com/2010-04-01/Accounts/\(twilloUsername)/Messages", parameters: data).responseJSON { response in
