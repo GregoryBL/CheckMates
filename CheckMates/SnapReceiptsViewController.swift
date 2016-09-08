@@ -16,7 +16,7 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
     var pickedPhoto = false
     var itemStore = ItemStore()
     var activityIndicator:UIActivityIndicatorView!
-    var eventController:EventController? = nil
+    var eventController:EventController = EventController()
     
     @IBOutlet var imageView: UIImageView!
     
@@ -112,6 +112,7 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
         
         if segue.identifier == "DisplayItemsSegue"
         {
+            eventController.createNewEvent()
             let detailViewController = segue.destinationViewController as? DetailedReceiptTableViewController
             detailViewController?.itemStore = itemStore
             detailViewController?.eventController = eventController
