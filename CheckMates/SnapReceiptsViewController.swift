@@ -24,7 +24,7 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        
 //        let eventController = EventController()
 //        eventController.createNewEvent()
 //        let itemStore = ItemStore()
@@ -42,8 +42,9 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
 //        mates += [mate1, mate2, mate3]
 //        eventController.addContacts(mates)
 //        eventController.saveEvent()
-//        
-//        print(eventController.fetchAllEvents())
+//
+//        eventController.parseJSON()
+//        eventController.updateReceipt("", updateAttr: <#T##AnyObject#>)
     }
     
     override func viewWillAppear(animated: Bool) {
