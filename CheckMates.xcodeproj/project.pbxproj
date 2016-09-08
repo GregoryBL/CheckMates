@@ -47,7 +47,6 @@
 		F0EA6FBC1D80D2EA0035E13A /* ReceiptItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA6FB41D80D2EA0035E13A /* ReceiptItem.swift */; };
 		F0EA6FBD1D80D2EA0035E13A /* Receipt+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA6FB51D80D2EA0035E13A /* Receipt+CoreDataProperties.swift */; };
 		F0EA6FBE1D80D2EA0035E13A /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA6FB61D80D2EA0035E13A /* Receipt.swift */; };
-		F197DDC91D7FB858008D8F17 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F197DDC81D7FB858008D8F17 /* EventViewController.swift */; };
 		F197DDCB1D806928008D8F17 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F197DDCA1D806928008D8F17 /* EventTableViewController.swift */; };
 		F197DDCD1D80B4A0008D8F17 /* MessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F197DDCC1D80B4A0008D8F17 /* MessageController.swift */; };
 /* End PBXBuildFile section */
@@ -111,7 +110,6 @@
 		F0EA6FB41D80D2EA0035E13A /* ReceiptItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptItem.swift; sourceTree = "<group>"; };
 		F0EA6FB51D80D2EA0035E13A /* Receipt+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Receipt+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F0EA6FB61D80D2EA0035E13A /* Receipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
-		F197DDC81D7FB858008D8F17 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		F197DDCA1D806928008D8F17 /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
 		F197DDCC1D80B4A0008D8F17 /* MessageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -448,7 +446,6 @@
 				0DAAE42C1D7CD15B00CF092E /* ReceiptsViewConroller.swift in Sources */,
 				F0EA6FAA1D80D15F0035E13A /* EventController.swift in Sources */,
 				0DB4C95D1D7D1E4C00FFDF85 /* Item.swift in Sources */,
-				F197DDC91D7FB858008D8F17 /* EventViewController.swift in Sources */,
 				379CBB9A1D7CC9A100352669 /* AppDelegate.swift in Sources */,
 				0DA243371D7F492300BA021E /* ContactsViewController.swift in Sources */,
 				0DB4C9611D7DD25800FFDF85 /* ItemCell.swift in Sources */,
