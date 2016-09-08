@@ -26,17 +26,20 @@ class EventController {
             newEvent!.receipt = NSEntityDescription.insertNewObjectForEntityForName("Receipt", inManagedObjectContext: cds.mainQueueContext) as? Receipt
         }
         for item in items.allItems{
-            let itemToSplit = item
-            let itemArr = itemToSplit.title.componentsSeparatedByString(" ")
-            if itemArr.contains("tax") || checkForTipAndTax("tax", text: item.title){
-                newEvent!.receipt!.tax = Int64(item.price)
-            } else if itemArr.contains("tip") || checkForTipAndTax("tip", text: item.title){
-                newEvent!.receipt!.tip = Int64(item.price)
+            let itemToSplit = item.title.lowercaseString
+            let itemArr = itemToSplit.componentsSeparatedByString(" ")
+            if itemArr.contains("tax") || checkForTipAndTax("tax", text: item.title.lowercaseString){
+                newEvent!.receipt!.tax = Int64(item.price * 100)
+                print(newEvent?.receipt)
+            } else if itemArr.contains("tip") || checkForTipAndTax("tip", text: item.title.lowercaseString){
+                newEvent!.receipt!.tip = Int64(item.price * 100)
+                print(newEvent?.receipt)
             } else {
                 let newItem = NSEntityDescription.insertNewObjectForEntityForName("ReceiptItem", inManagedObjectContext: cds.mainQueueContext) as? ReceiptItem
                 newItem?.itemDescription = item.title
-                newItem?.price = Int64(item.price)
+                newItem?.price = Int64(item.price * 100)
                 newItem?.receipt = (newEvent?.receipt)!
+                print(newItem)
             }
         }
     }
@@ -48,6 +51,7 @@ class EventController {
             newContact?.lastName = mate.lastName
             newContact?.mobileNumber = mate.mobileNumber
             newContact?.uuid = mate.id
+            newContact?.event = newEvent
         }
     }
     
@@ -69,42 +73,18 @@ class EventController {
     
     
     func saveEvent(){
-        
-//        let newEvent = NSEntityDescription.insertNewObjectForEntityForName("Event", inManagedObjectContext: cds.mainQueueContext) as! Event
-//        
-//        let date = NSDate()
-//        newEvent.createdAt = date.timeIntervalSinceReferenceDate
-//        
-//        let newReceipt = NSEntityDescription.insertNewObjectForEntityForName("Receipt", inManagedObjectContext: cds.mainQueueContext) as! Receipt
-//        
-//        newReceipt.tax = 932
-//        newReceipt.tip = 1880
-//        newReceipt.event = newEvent
-//        
-//        let salad = NSEntityDescription.insertNewObjectForEntityForName("ReceiptItem", inManagedObjectContext: cds.mainQueueContext) as! ReceiptItem
-//        salad.price = 1299
-//        salad.itemDescription = "Salad with green beans and tomatoes"
-//        salad.receipt = newReceipt
-//        
-//        let bjork = NSEntityDescription.insertNewObjectForEntityForName("Contact", inManagedObjectContext: cds.mainQueueContext) as! Contact
-//        bjork.firstName = "bjork"
-//        bjork.uuid = "8rw8w4890w089"
-//        bjork.mobileNumber = "7892225551"
-//        bjork.event = newEvent
-        do {
-            try cds.saveChanges()
-        } catch let error as NSError  {
-            print(error)
-        }
+        cds.saveChanges()
     }
     
-    func receivedData(){
+    func fetchAllEvents() -> [Event]{
         let fetchRequest = NSFetchRequest(entityName: "Event")
         do {
             let fetchResults = try cds.mainQueueContext.executeFetchRequest(fetchRequest) as? [Event]
-            print(fetchResults![0].contacts!.allObjects[0])
+            return (fetchResults!)
         } catch let error as NSError {
             print(error)
         }
+        return []
     }
+    
 }
