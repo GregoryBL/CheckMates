@@ -30,13 +30,14 @@ class PaymentsController : NSObject {
     func finishRequestFrom(contact: Contact, amount: Int, notes: String) -> (String -> Void) {
         print("called finishRequest")
         return { token in
-            let request = DwollaRequest.init(sourceID: String(contact.mobileNumber), sourceType: "Phone", amount: amount, notes: notes, token: token)
+            let request = DwollaRequest.init(sourceID: contact.mobileNumber!, sourceType: "Phone", amount: amount, notes: notes, token: token)
             let afRequest = request.requestPayment()
             afRequest.response { request, response, data, error in
                 print(request?.allHTTPHeaderFields)
                 print(JSON(data: data!))
+                print("payment requested")
             }
-            print("payment requested")
+            
         }
     }
     
@@ -79,10 +80,12 @@ class PaymentsController : NSObject {
         // Now the unanswered ones
         
         let numUnanswered = unansweredContacts.count
-        let unansweredContactsTotal = Int(unpaidPortion + unpaidTaxAndTip) / numUnanswered // self
-        
-        for contact in unansweredContacts {
-            startRequestFrom(contact as! Contact, amount: unansweredContactsTotal, notes: "CheckMates Payment Request")
+        if numUnanswered > 0 {
+            let unansweredContactsTotal = Int(unpaidPortion + unpaidTaxAndTip) / numUnanswered // self
+            
+            for contact in unansweredContacts {
+                startRequestFrom(contact as! Contact, amount: unansweredContactsTotal, notes: "CheckMates Payment Request")
+            }
         }
     }
 }

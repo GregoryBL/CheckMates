@@ -20,7 +20,7 @@ class DwollaAPIManager {
             NSUserDefaults.standardUserDefaults().setObject(newValue, forKey: "DwollaOAuthToken")
         }
         get {
-            print(NSUserDefaults.standardUserDefaults().stringForKey("DwollaOAuthToken"))
+            // print(NSUserDefaults.standardUserDefaults().stringForKey("DwollaOAuthToken"))
             return NSUserDefaults.standardUserDefaults().stringForKey("DwollaOAuthToken")
         }
     }
@@ -154,9 +154,11 @@ class DwollaAPIManager {
             "refresh_token": self.refreshToken!,
             "grant_type": "refresh_token",
         ]
+        print("refreshing token")
         Alamofire.request(.POST, getTokenPath, parameters: tokenParams!, encoding: .JSON)
             .validate()
             .response { request, response, data, error in
+                print("received refresh response")
                 if let anError = error {
                     print(anError)
                     if let completionHandler = self.OAuthTokenCompletionHandler {
@@ -167,18 +169,39 @@ class DwollaAPIManager {
                 }
             }
             .responseData { response in
+                print("handling response")
                 self.handleOAuthTokenResponse(response)
         }
 
     }
     
     func refreshTokenAndCallBack(callback: (String -> Void)) {
-        self.refreshOAuthToken()
-        print("refresh")
-        while !self.hasOAuthToken() {
-            
+        let getTokenPath = "https://uat.dwolla.com/oauth/v2/token"
+        let tokenParams : [String: String]? = [
+            "client_id": clientID,
+            "client_secret": clientSecret,
+            "refresh_token": self.refreshToken!,
+            "grant_type": "refresh_token",
+            ]
+        print("refreshing token")
+        Alamofire.request(.POST, getTokenPath, parameters: tokenParams!, encoding: .JSON)
+            .validate()
+            .response { request, response, data, error in
+                print("received refresh response")
+                if let anError = error {
+                    print(anError)
+                    if let completionHandler = self.OAuthTokenCompletionHandler {
+                        let noOAuthError = NSError(domain: "com.alamofire.error", code: -1, userInfo: [NSLocalizedDescriptionKey: "Could not obtain an OAuth token", NSLocalizedRecoverySuggestionErrorKey: "Please retry your request"])
+                        completionHandler(noOAuthError)
+                    }
+                    return
+                }
+            }
+            .responseData { response in
+                print("handling response")
+                self.handleOAuthTokenResponse(response)
+                callback(self.OAuthToken!)
         }
-        callback(self.OAuthToken!)
     }
     
     func handleOAuthTokenResponse(response: Response<NSData, NSError>) {
