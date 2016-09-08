@@ -37,6 +37,7 @@
 		379CBBA41D7CC9A100352669 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 379CBBA31D7CC9A100352669 /* Assets.xcassets */; };
 		379CBBA71D7CC9A100352669 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 379CBBA51D7CC9A100352669 /* LaunchScreen.storyboard */; };
 		379CBBB21D7CC9A200352669 /* CheckMatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379CBBB11D7CC9A200352669 /* CheckMatesTests.swift */; };
+		37EAAECB1D80815B0039064B /* ServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EAAECA1D80815B0039064B /* ServerController.swift */; };
 		71E3B24471B29B53EBAFD2F9 /* Pods_CheckMates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631544A51BE40205E7D54218 /* Pods_CheckMates.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +86,7 @@
 		379CBBAD1D7CC9A200352669 /* CheckMatesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CheckMatesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		379CBBB11D7CC9A200352669 /* CheckMatesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMatesTests.swift; sourceTree = "<group>"; };
 		379CBBB31D7CC9A200352669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37EAAECA1D80815B0039064B /* ServerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerController.swift; sourceTree = "<group>"; };
 		631544A51BE40205E7D54218 /* Pods_CheckMates.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckMates.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BB260BE7DA72BA1CE84F293 /* Pods_CheckMatesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckMatesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9577D0ED59AE388982A6C6AE /* Pods-CheckMatesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckMatesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheckMatesTests/Pods-CheckMatesTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				0DA243361D7F492300BA021E /* ContactsViewController.swift */,
+				37EAAECA1D80815B0039064B /* ServerController.swift */,
 				379CBB991D7CC9A100352669 /* AppDelegate.swift */,
 				0DE67D1C1D7E75CD00EC777A /* TabController.swift */,
 				372C95401D7CD41600BD0DB0 /* DwollaAPIManager.swift */,
@@ -425,6 +428,7 @@
 				372C95431D7CD77200BD0DB0 /* DwollaRequest.swift in Sources */,
 				0D9FE3BD1D803C0F003C5A59 /* PhotoTakingHelper.swift in Sources */,
 				372C95411D7CD41600BD0DB0 /* DwollaAPIManager.swift in Sources */,
+				37EAAECB1D80815B0039064B /* ServerController.swift in Sources */,
 				0DAAE4281D7CD08100CF092E /* ColorExtensions.swift in Sources */,
 				0DE67D1D1D7E75CD00EC777A /* TabController.swift in Sources */,
 				0DB4C9631D7DE61400FFDF85 /* ItemDetailViewConroller.swift in Sources */,
