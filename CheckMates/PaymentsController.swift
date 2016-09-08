@@ -40,4 +40,49 @@ class PaymentsController : NSObject {
         }
     }
     
+    func createRequestsForEvent(event: Event) {
+        let billItems = event.receipt!.items!.allObjects as! [ReceiptItem]
+        
+        var billTotal = 0
+        for item in billItems {
+            billTotal = billTotal + Int(item.price)
+        }
+        let tax = event.receipt!.tax
+        let tip = event.receipt!.tip
+        
+        let taxAndTip = tax + tip
+        
+        let contacts = event.contacts?.allObjects as! [Contact]
+        
+        var unpaidPortion = billTotal
+        var unpaidTaxAndTip = taxAndTip
+        
+        let unansweredContacts : NSMutableArray = []
+        
+        for contact in contacts {
+            let contactItems = contact.items!
+            if contactItems.count == 0 {
+                unansweredContacts.addObject(contact)
+            } else {
+                var contactSubtotal = 0
+                for item in contactItems {
+                    contactSubtotal = contactSubtotal + Int(item.price)
+                }
+                let contactTaxAndTip = (contactSubtotal / billTotal) * Int(taxAndTip)
+                let contactTotal = contactSubtotal + contactTaxAndTip
+                unpaidPortion = unpaidPortion - contactSubtotal
+                unpaidTaxAndTip = unpaidTaxAndTip - contactTaxAndTip
+                startRequestFrom(contact, amount: contactTotal, notes: "CheckMates Payment Request")
+            }
+        }
+        
+        // Now the unanswered ones
+        
+        let numUnanswered = unansweredContacts.count
+        let unansweredContactsTotal = Int(unpaidPortion + unpaidTaxAndTip) / numUnanswered // self
+        
+        for contact in unansweredContacts {
+            startRequestFrom(contact as! Contact, amount: unansweredContactsTotal, notes: "CheckMates Payment Request")
+        }
+    }
 }
