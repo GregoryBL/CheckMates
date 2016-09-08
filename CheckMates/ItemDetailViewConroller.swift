@@ -10,7 +10,6 @@ import UIKit
 
 class ItemDetailViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet var countField: UITextField!
     @IBOutlet var titleField: UITextField!
     @IBOutlet var priceField: UITextField!
     @IBOutlet var dateField:  UILabel!
@@ -25,7 +24,6 @@ class ItemDetailViewController: UIViewController, UITextFieldDelegate {
         super.viewWillAppear(animated)
         
         if(item != nil) {
-            countField.text = "1"
             titleField.text = item.title
             priceField.text = item.price.asLocaleCurrency
             dateField.text = item.created_at.friendlyDate
