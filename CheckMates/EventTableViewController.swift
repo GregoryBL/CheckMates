@@ -9,6 +9,8 @@
 import UIKit
 import Contacts
 
+// NOT READY YET
+
 class EventTableViewController: UITableViewController {
     var mates: [Mate] = []
     var itemStore: ItemStore!
@@ -19,7 +21,7 @@ class EventTableViewController: UITableViewController {
             print("sending ...")
             //Event controller receipt is complete
             // Send messges to Contacts
-//        } else if (sender.titleLabel?.text == "Request Payment" && event.receipt.billItems > 0){
+        } else if (sender.titleLabel?.text == "Request Payment"){
             print("Sending payment requests to mates")
             sender.setTitle("Request Payment", forState:  UIControlState.Normal)
         } else {
