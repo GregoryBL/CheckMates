@@ -122,22 +122,13 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yib-Vd-FI1">
-                                            <rect key="frame" x="8" y="21" width="39" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="39" id="n3o-4E-VHU"/>
-                                            </constraints>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Item Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Jd-4g-xoL">
+                                            <rect key="frame" x="21" y="21" width="465" height="21"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Jd-4g-xoL">
-                                            <rect key="frame" x="60" y="21" width="426" height="21"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdo-LJ-hLW">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdo-LJ-hLW">
                                             <rect key="frame" x="508" y="21" width="84" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="84" id="g9d-G1-nQu"/>
@@ -149,19 +140,12 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Wdo-LJ-hLW" firstAttribute="trailing" secondItem="46n-XL-45c" secondAttribute="trailingMargin" id="6ED-hF-ld0"/>
-                                        <constraint firstItem="Yib-Vd-FI1" firstAttribute="baseline" secondItem="2Jd-4g-xoL" secondAttribute="baseline" id="9Ji-0H-VEu"/>
                                         <constraint firstItem="Wdo-LJ-hLW" firstAttribute="leading" secondItem="2Jd-4g-xoL" secondAttribute="trailing" constant="22" id="DeP-Lg-wJd"/>
                                         <constraint firstItem="2Jd-4g-xoL" firstAttribute="firstBaseline" secondItem="Wdo-LJ-hLW" secondAttribute="firstBaseline" id="FQf-yU-6F3"/>
                                         <constraint firstItem="2Jd-4g-xoL" firstAttribute="baseline" secondItem="Wdo-LJ-hLW" secondAttribute="baseline" id="Utv-RF-ATN"/>
-                                        <constraint firstItem="Yib-Vd-FI1" firstAttribute="centerY" secondItem="46n-XL-45c" secondAttribute="centerY" id="d1E-fP-dgz"/>
-                                        <constraint firstItem="Yib-Vd-FI1" firstAttribute="firstBaseline" secondItem="2Jd-4g-xoL" secondAttribute="firstBaseline" id="lFQ-pL-zdu"/>
-                                        <constraint firstItem="Yib-Vd-FI1" firstAttribute="top" secondItem="46n-XL-45c" secondAttribute="topMargin" constant="13" id="lX7-Oq-KS1"/>
-                                        <constraint firstItem="2Jd-4g-xoL" firstAttribute="leading" secondItem="Yib-Vd-FI1" secondAttribute="trailing" constant="13" id="mML-6E-5U3"/>
-                                        <constraint firstItem="Yib-Vd-FI1" firstAttribute="leading" secondItem="46n-XL-45c" secondAttribute="leadingMargin" id="w87-Bg-5pw"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="itemCount" destination="Yib-Vd-FI1" id="QLr-6C-Rxz"/>
                                     <outlet property="priceLabel" destination="Wdo-LJ-hLW" id="WTE-hR-DrN"/>
                                     <outlet property="titleLabel" destination="2Jd-4g-xoL" id="kp0-N4-DAq"/>
                                     <segue destination="YDR-ZZ-2PO" kind="show" identifier="ShowItem" id="0Ij-NG-foQ"/>
@@ -474,7 +458,6 @@
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="countField" destination="OlI-Mw-6C3" id="Elg-uw-Yj4"/>
                         <outlet property="dateField" destination="g7M-yy-H7B" id="B4R-n2-RNA"/>
                         <outlet property="priceField" destination="xra-cP-ZIx" id="y8v-0f-Rqp"/>
                         <outlet property="titleField" destination="ykm-Oy-Rle" id="DqX-7v-7VO"/>
