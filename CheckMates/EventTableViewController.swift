@@ -22,7 +22,7 @@ class EventTableViewController: UITableViewController {
             print("Bill ready to be saved")
             eventController?.billIsComplete()           
         } else {
-            eventController?.userRequestsPayment()
+            eventController?.userDidRequestPayment()
             print("Sending payment requests to mates")
             sender.setTitle("Event Closed", forState:  UIControlState.Normal)
             sender.userInteractionEnabled = false

@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SwiftyJSON
 
 class EventController {
     
@@ -95,11 +96,12 @@ class EventController {
     
     func sendMessages() {
         let mc = MessageController()
-        mc.textContacts(self.newEvent!.contacts?.allObjects as! [Contact], billID: (self.newEvent?.receipt?.backEndID)!)
+        mc.textContacts(self.newEvent!.contacts?.allObjects as! [Contact], billId: (self.newEvent?.receipt?.backEndID)!)
     }
     
     func parseJSON(data: NSData) {
-        
+        print("Parse JSON")
+        print(JSON(data: data))
     }
     
     func userDidRequestPayment() {
