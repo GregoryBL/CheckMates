@@ -87,4 +87,14 @@ class EventController {
         return []
     }
     
+    func billIsComplete() {
+        // Ready to Save bill to CoreData
+        // After stored in Postgres DB -- Send messges to Contacts
+    }
+    
+    
+    func userRequestsPayment() {
+        // Launch payment controller
+    }
+    
 }

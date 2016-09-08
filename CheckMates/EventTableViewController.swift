@@ -9,48 +9,50 @@
 import UIKit
 import Contacts
 
-// NOT READY YET
+
 
 class EventTableViewController: UITableViewController {
-    var mates: [Mate] = []
-    var itemStore: ItemStore!
+    var eventController: EventController?
+    
+   
     
     @IBAction func completeEvent(sender: UIButton) {
         if (sender.titleLabel?.text == "Done") {
             sender.setTitle("Request Payment", forState:  UIControlState.Normal)
-            print("sending ...")
-            //Event controller receipt is complete
-            // Send messges to Contacts
-        } else if (sender.titleLabel?.text == "Request Payment"){
-            print("Sending payment requests to mates")
-            sender.setTitle("Request Payment", forState:  UIControlState.Normal)
+            print("Bill ready to be saved")
+            eventController?.billIsComplete()           
         } else {
+            eventController?.userRequestsPayment()
+            print("Sending payment requests to mates")
             sender.setTitle("Event Closed", forState:  UIControlState.Normal)
             sender.userInteractionEnabled = false
+            
         }
-
-        
         
        
     }
    
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Contacts"
+    @IBAction func editReceiptButton(sender: UIButton) {
+         // Inactive for demo
+        sender.userInteractionEnabled = false
     }
     
     
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Contacts"
+    }
+
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return mates.count
+        return (eventController?.newEvent!.contacts!.count)!
     }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ContactCell")
-        let currentMate = mates[indexPath.row]
-       
-        cell?.textLabel!.text = "\(currentMate.firstName) \(currentMate.lastName)"
-        cell?.detailTextLabel!.text = "\(currentMate.mobileNumber)"
+        let currentMate = eventController?.newEvent!.contacts!.allObjects[indexPath.row] as! Contact!
+        cell?.textLabel!.text = "\(currentMate.firstName!) \(currentMate.lastName!)"
+        cell?.detailTextLabel!.text = "\(currentMate.mobileNumber!)"
         
        
         return cell!

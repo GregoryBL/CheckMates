@@ -18,7 +18,7 @@ class DetailedReceiptTableViewController: UITableViewController {
     }
     
     var itemStore: ItemStore!
-    var eventController: EventController!
+    var eventController: EventController?
     var newItem: Item!
     
     override func viewWillAppear(animated: Bool) {
@@ -110,7 +110,8 @@ class DetailedReceiptTableViewController: UITableViewController {
         }
         else if segue.identifier == "ShowEvent"{
             let contactsViewController = segue.destinationViewController as! ContactsViewController
-            contactsViewController.itemStore = itemStore
+            self.eventController!.addBillItems(itemStore)
+            contactsViewController.eventController = eventController
         }
     }
 }
