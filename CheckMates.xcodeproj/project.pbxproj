@@ -161,6 +161,15 @@
 		379CBB981D7CC9A100352669 /* CheckMates */ = {
 			isa = PBXGroup;
 			children = (
+				F0EA6FAF1D80D2EA0035E13A /* Event+CoreDataProperties.swift */,
+				F0EA6FB01D80D2EA0035E13A /* Event.swift */,
+				F0EA6FB11D80D2EA0035E13A /* Contact+CoreDataProperties.swift */,
+				F0EA6FB21D80D2EA0035E13A /* Contact.swift */,
+				F0EA6FB31D80D2EA0035E13A /* ReceiptItem+CoreDataProperties.swift */,
+				F0EA6FB41D80D2EA0035E13A /* ReceiptItem.swift */,
+				F0EA6FB51D80D2EA0035E13A /* Receipt+CoreDataProperties.swift */,
+				F0EA6FB61D80D2EA0035E13A /* Receipt.swift */,
+				F0EA6FAD1D80D2170035E13A /* CoreDataStack.swift */,
 				0DA243361D7F492300BA021E /* ContactsViewController.swift */,
 				F197DDCC1D80B4A0008D8F17 /* MessageController.swift */,
 				379CBB991D7CC9A100352669 /* AppDelegate.swift */,
@@ -170,6 +179,7 @@
 				0DAAE4291D7CD12C00CF092E /* AddReceiptViewController.swift */,
 				0DAAE42B1D7CD15B00CF092E /* ReceiptsViewConroller.swift */,
 				0DAAE42D1D7CD17B00CF092E /* SnapReceiptsViewController.swift */,
+				F0EA6FA91D80D15F0035E13A /* EventController.swift */,
 				0DE3FABC1D7FCA27005E5D9F /* PickFromAlbumViewController.swift */,
 				0DB4C95A1D7D0F4200FFDF85 /* DetailedReceiptTableViewController.swift */,
 				0DB4C9601D7DD25800FFDF85 /* ItemCell.swift */,
@@ -416,22 +426,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0EA6FBA1D80D2EA0035E13A /* Contact.swift in Sources */,
 				0DAAE42C1D7CD15B00CF092E /* ReceiptsViewConroller.swift in Sources */,
+				F0EA6FAA1D80D15F0035E13A /* EventController.swift in Sources */,
 				0DB4C95D1D7D1E4C00FFDF85 /* Item.swift in Sources */,
 				F197DDC91D7FB858008D8F17 /* EventViewController.swift in Sources */,
 				379CBB9A1D7CC9A100352669 /* AppDelegate.swift in Sources */,
 				0DA243371D7F492300BA021E /* ContactsViewController.swift in Sources */,
 				0DB4C9611D7DD25800FFDF85 /* ItemCell.swift in Sources */,
+				F0EA6FB71D80D2EA0035E13A /* Event+CoreDataProperties.swift in Sources */,
 				0DE3FABD1D7FCA27005E5D9F /* PickFromAlbumViewController.swift in Sources */,
 				0DB4C95B1D7D0F4200FFDF85 /* DetailedReceiptTableViewController.swift in Sources */,
+				F0EA6FAE1D80D2170035E13A /* CoreDataStack.swift in Sources */,
+				F0EA6FBC1D80D2EA0035E13A /* ReceiptItem.swift in Sources */,
 				372C953F1D7CD0A100BD0DB0 /* PaymentsController.swift in Sources */,
 				F197DDCB1D806928008D8F17 /* EventTableViewController.swift in Sources */,
 				372C953B1D7CCE8C00BD0DB0 /* ApiKeys.swift in Sources */,
+				F0EA6FBB1D80D2EA0035E13A /* ReceiptItem+CoreDataProperties.swift in Sources */,
 				0DB4C9671D7DE8E100FFDF85 /* NumberExtensions.swift in Sources */,
 				0DAAE42E1D7CD17B00CF092E /* SnapReceiptsViewController.swift in Sources */,
 				379CBBA21D7CC9A100352669 /* CheckMates.xcdatamodeld in Sources */,
 				372C95431D7CD77200BD0DB0 /* DwollaRequest.swift in Sources */,
 				0D9FE3BD1D803C0F003C5A59 /* PhotoTakingHelper.swift in Sources */,
+				F0EA6FBE1D80D2EA0035E13A /* Receipt.swift in Sources */,
+				F0EA6FBD1D80D2EA0035E13A /* Receipt+CoreDataProperties.swift in Sources */,
 				0DEE59771D80A3ED00C08908 /* TabController.swift in Sources */,
 				372C95411D7CD41600BD0DB0 /* DwollaAPIManager.swift in Sources */,
 				0DAAE4281D7CD08100CF092E /* ColorExtensions.swift in Sources */,
@@ -440,6 +458,7 @@
 				0DB4C95F1D7D1F7100FFDF85 /* ItemStore.swift in Sources */,
 				0DAAE42A1D7CD12C00CF092E /* AddReceiptViewController.swift in Sources */,
 				0DB4C9651D7DE8AC00FFDF85 /* DateExtensions.swift in Sources */,
+				F0EA6FB81D80D2EA0035E13A /* Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
