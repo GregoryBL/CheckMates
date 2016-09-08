@@ -189,6 +189,7 @@
 				F0EA6FB61D80D2EA0035E13A /* Receipt.swift */,
 				F0EA6FAD1D80D2170035E13A /* CoreDataStack.swift */,
 				0DA243361D7F492300BA021E /* ContactsViewController.swift */,
+				F197DDCC1D80B4A0008D8F17 /* MessageController.swift */,
 				37EAAECA1D80815B0039064B /* ServerController.swift */,
 				379CBB991D7CC9A100352669 /* AppDelegate.swift */,
 				372C95401D7CD41600BD0DB0 /* DwollaAPIManager.swift */,
