@@ -16,7 +16,7 @@ extension ReceiptItem {
 
     @NSManaged var itemDescription: String?
     @NSManaged var price: Int64
-    @NSManaged var contact: NSManagedObject?
+    @NSManaged var contact: Contact?
     @NSManaged var receipt: Receipt?
 
 }

@@ -14,10 +14,10 @@ import CoreData
 
 extension Receipt {
 
-    @NSManaged var tip: Int64
-    @NSManaged var tax: Int64
     @NSManaged var backEndID: String?
-    @NSManaged var event: NSManagedObject?
+    @NSManaged var tax: Int64
+    @NSManaged var tip: Int64
+    @NSManaged var event: Event?
     @NSManaged var items: NSSet?
 
 }

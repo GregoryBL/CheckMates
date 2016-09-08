@@ -16,10 +16,10 @@ extension Contact {
 
     @NSManaged var firstName: String?
     @NSManaged var lastName: String?
-    @NSManaged var uuid: String?
-    @NSManaged var uiimage: NSData?
     @NSManaged var mobileNumber: String?
-    @NSManaged var event: NSManagedObject?
+    @NSManaged var uiimage: NSData?
+    @NSManaged var uuid: String?
+    @NSManaged var event: Event?
     @NSManaged var items: NSSet?
 
 }

@@ -10,7 +10,7 @@
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ReceiptItem" inverseName="contact" inverseEntity="ReceiptItem" syncable="YES"/>
     </entity>
     <entity name="Event" representedClassName=".Event" syncable="YES">
-        <attribute name="createdAt" attributeType="String" syncable="YES"/>
+        <attribute name="createdAt" attributeType="Date" syncable="YES"/>
         <relationship name="contacts" toMany="YES" deletionRule="Nullify" destinationEntity="Contact" inverseName="event" inverseEntity="Contact" syncable="YES"/>
         <relationship name="receipt" maxCount="1" deletionRule="Nullify" destinationEntity="Receipt" inverseName="event" inverseEntity="Receipt" syncable="YES"/>
     </entity>
@@ -28,9 +28,9 @@
         <relationship name="receipt" maxCount="1" deletionRule="Nullify" destinationEntity="Receipt" inverseName="items" inverseEntity="Receipt" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Contact" positionX="-18" positionY="27" width="128" height="150"/>
+        <element name="Event" positionX="-36" positionY="9" width="128" height="90"/>
         <element name="Receipt" positionX="-63" positionY="-18" width="128" height="120"/>
         <element name="ReceiptItem" positionX="-54" positionY="-9" width="128" height="105"/>
-        <element name="Event" positionX="-36" positionY="9" width="128" height="90"/>
-        <element name="Contact" positionX="-18" positionY="27" width="128" height="150"/>
     </elements>
 </model>

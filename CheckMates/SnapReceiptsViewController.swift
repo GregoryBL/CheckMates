@@ -10,9 +10,6 @@ import UIKit
 import TesseractOCR
 import SwiftSpinner
 
-class EventController {
-    
-}
 
 class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -28,7 +25,15 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        eventController = EventController()
+        var eventController = EventController()
+        eventController.createNewEvent()
+        var itemStore = ItemStore()
+        itemStore.createItem("Doodie", price: 33.22)
+        itemStore.createItem("Fartjuice", price: 199.00)
+        itemStore.createItem("tax three two", price: 3.99)
+        itemStore.createItem("my tip", price: 9)
+        
+        eventController.addBillItems(itemStore)
         
     }
     
