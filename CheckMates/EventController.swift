@@ -41,8 +41,14 @@ class EventController {
         }
     }
     
-    func addContacts(){
-        
+    func addContacts(mates: [Mate]){
+        for mate in mates{
+            let newContact = NSEntityDescription.insertNewObjectForEntityForName("Contact", inManagedObjectContext: cds.mainQueueContext) as? Contact
+            newContact?.firstName = mate.firstName
+            newContact?.lastName = mate.lastName
+            newContact?.mobileNumber = mate.mobileNumber
+            newContact?.uuid = mate.id
+        }
     }
     
     private func checkForTipAndTax(regex: String, text: String) -> Bool {
@@ -85,6 +91,7 @@ class EventController {
 //        bjork.uuid = "8rw8w4890w089"
 //        bjork.mobileNumber = "7892225551"
 //        bjork.event = newEvent
+        
         cds.saveChanges()
     }
     
