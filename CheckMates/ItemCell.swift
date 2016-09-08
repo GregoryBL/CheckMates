@@ -10,7 +10,6 @@ import UIKit
 
 class ItemCell: UITableViewCell {
     
-    @IBOutlet var itemCount: UILabel!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!
     
@@ -18,7 +17,6 @@ class ItemCell: UITableViewCell {
         let bodyFont = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
         titleLabel.font = bodyFont
         priceLabel.font = bodyFont
-        itemCount.font = bodyFont
     }
     
 }

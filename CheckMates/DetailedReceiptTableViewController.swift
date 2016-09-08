@@ -81,7 +81,6 @@ class DetailedReceiptTableViewController: UITableViewController {
         
         let item = itemStore.allItems[indexPath.row]
         
-        cell.itemCount.text = "1"
         cell.titleLabel.text = item.title
         cell.priceLabel.text = item.price.asLocaleCurrency
         
