@@ -91,8 +91,11 @@ class EventController {
 //        bjork.uuid = "8rw8w4890w089"
 //        bjork.mobileNumber = "7892225551"
 //        bjork.event = newEvent
-        
-        cds.saveChanges()
+        do {
+            try cds.saveChanges()
+        } catch let error as NSError  {
+            print(error)
+        }
     }
     
     func receivedData(){
