@@ -14,15 +14,13 @@ import Contacts
 class EventTableViewController: UITableViewController {
     var eventController: EventController?
     
-   
-    
     @IBAction func completeEvent(sender: UIButton) {
         if (sender.titleLabel?.text == "Done") {
             sender.setTitle("Request Payment", forState:  UIControlState.Normal)
             print("Bill ready to be saved")
             eventController?.billIsComplete()           
         } else {
-            eventController?.userRequestsPayment()
+            eventController?.userDidRequestPayment()
             print("Sending payment requests to mates")
             sender.setTitle("Event Closed", forState:  UIControlState.Normal)
             sender.userInteractionEnabled = false

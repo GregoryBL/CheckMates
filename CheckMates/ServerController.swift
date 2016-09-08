@@ -16,7 +16,7 @@ class ServerController {
     let serverURL = "http://checkmatesapp.herokuapp.com"
     var newBill : Receipt?
     
-    func sendNewReceiptToServer(receipt : Receipt) {
+    func sendNewReceiptToServer(receipt : Receipt, sender: EventController) {
         let itemsArray : NSMutableArray = []
         for item in receipt.items! {
             itemsArray.addObject(itemToItemDict(item as! ReceiptItem))
@@ -25,15 +25,14 @@ class ServerController {
         let toSend : [String: AnyObject]? = ["bill": itemsDict]
 
         Alamofire.request(.POST, serverURL + "/bills", parameters: toSend, encoding: .JSON)
-            .responseJSON { response in
+            .responseData { response in
+                print(response.result.value)
                 print(response)
-                print(JSON((response.request?.HTTPBody!)!))
+                
+                print(JSON(data: response.result.value!))
+                sender.parseOriginalResponse(response.result.value!)
+                sender.sendMessages()
         }
-        
-    }
-    
-    func updateReceiptAtServer(receipt : Receipt) {
-        
     }
     
     func retrieveReceiptFromServer(billID: Int) {
