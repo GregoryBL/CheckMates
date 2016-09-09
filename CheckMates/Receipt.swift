@@ -13,5 +13,18 @@ import CoreData
 class Receipt: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
+    
+    func receiptTotal(event:Event) -> Int {
+        
+        let receiptItems = event.receipt!.items!.allObjects as! [ReceiptItem]
+        
+        var receiptTotal = 0
+        
+        for item in receiptItems {
+            receiptTotal = receiptTotal + Int(item.price)
+        }
+        
+        return receiptTotal
+    }
 
 }
