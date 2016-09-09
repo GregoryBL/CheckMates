@@ -49,8 +49,13 @@ class ReceiptsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ReceiptCell")
         let currentEvent = events![indexPath.row] as Event!
-        cell?.textLabel!.text = "\(currentEvent.createdAt)"
-        cell?.detailTextLabel!.text = "\(currentEvent.receipt?.receiptTotal(currentEvent))"
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy"
+        
+        cell?.textLabel!.text = "\(dateFormatter.stringFromDate(NSDate(timeIntervalSince1970:currentEvent.createdAt)))"
+        let receiptTotal: Int = (currentEvent.receipt?.receiptTotal(currentEvent))!
+        let formatted = Float(receiptTotal) / 100
+        cell?.detailTextLabel!.text = "$" + String(formatted)
 
         return cell!
     }
