@@ -19,7 +19,7 @@ class MessageController {
             let data = [
                 "To" : recipient.mobileNumber!,
                 "From" : "+13059648615",
-                "Body" : "Spilting the bill is easy with CheckMates http://checkmatesapp.heroku.com/bills/\(billId)/users/\(recipient.uuid!)"
+                "Body" : "Spilting the bill is easy with CheckMates http://checkmatesapp.com/bills/\(billId)/users/\(recipient.uuid!)"
             ]
             dispatch_group_enter(myGroupMates)
             Alamofire.request(.POST, "https://\(twilloUsername):\(twilloPassword)@api.twilio.com/2010-04-01/Accounts/\(twilloUsername)/Messages", parameters: data).responseJSON { response in
