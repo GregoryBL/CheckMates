@@ -32,6 +32,11 @@ class EventTableViewController: UITableViewController {
     override func viewDidLoad() {
         if let buttonTitle = titleForCERPButton {
             completeEventRequestPaymentButton.setTitle(buttonTitle, forState:  UIControlState.Normal)
+            ServerController().retrieveReceiptFromServer((eventController?.newEvent?.receipt?.backEndID!)!, eventController!)
+            let apiManager = DwollaAPIManager.sharedInstance
+            if !apiManager.hasOAuthToken() {
+                apiManager.refreshOAuthToken()
+            }
         }
     }
     

@@ -72,6 +72,11 @@ class ReceiptsTableViewController: UITableViewController {
                 let eventTableViewController = segue.destinationViewController as! EventTableViewController
                 eventTableViewController.eventController = self.eventController
                 eventTableViewController.titleForCERPButton = "Request Payment"
+                
+                let apiManager = DwollaAPIManager.sharedInstance
+                if !apiManager.hasOAuthToken() && !apiManager.hasRefreshToken() {
+                    apiManager.startOAuth2Login()
+                }
             }
         
         }

@@ -35,10 +35,10 @@ class ServerController {
         }
     }
     
-    func retrieveReceiptFromServer(billID: Int) {
-        Alamofire.request(.GET, serverURL + "/bills/" + String(billID))
-            .responseJSON { response in
-                print(response)
+    func retrieveReceiptFromServer(billID: String, target: EventController) {
+        Alamofire.request(.GET, serverURL + "/bills/" + billID)
+            .responseData { response in
+                target.parseJSON(response.result.value!)
         }
     }
     
