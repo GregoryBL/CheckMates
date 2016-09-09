@@ -34,7 +34,7 @@ class EventTableViewController: UITableViewController {
             completeEventRequestPaymentButton.setTitle(buttonTitle, forState:  UIControlState.Normal)
             ServerController().retrieveReceiptFromServer((eventController?.newEvent?.receipt?.backEndID!)!, target: eventController!)
             let apiManager = DwollaAPIManager.sharedInstance
-            if !apiManager.hasOAuthToken() {
+            if !apiManager.hasOAuthToken() && apiManager.hasRefreshToken() {
                 apiManager.refreshOAuthToken()
             }
         }

@@ -107,12 +107,14 @@ class EventController {
         let json = JSON(data: data)
         
         let items = json["items"]
+        print("hello")
         print(items)
         
         if let itemArray = (json["items"].array) {
             print(itemArray)
             for item in itemArray {
-                if let contact = userIDHasMatch(item["user_id"].string?) {
+                if let contact = userIDHasMatch((item["user_id"].stringValue)) {
+                    print(contact)
                     if let item = receiptItemHasMatch(item["item_description"].string!) {
                         item.contact = contact
                         print(item)
