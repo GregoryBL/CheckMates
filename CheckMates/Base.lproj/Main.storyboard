@@ -267,10 +267,13 @@
                             <outlet property="delegate" destination="NJu-NL-CXP" id="U0Q-tZ-4K5"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="completeEventRequestPaymentButton" destination="44X-Ns-P3f" id="1pj-oq-jrT"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zu6-xJ-XRP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4948" y="881"/>
+            <point key="canvasLocation" x="4998" y="926"/>
         </scene>
         <!--Item Detail View Controller-->
         <scene sceneID="cwJ-8C-0BF">
@@ -584,6 +587,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="NJu-NL-CXP" kind="show" identifier="ShowEventFromReceiptSummary" id="iLn-Va-yZm"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -647,7 +653,7 @@
         <image name="ReceiptIcon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="C9d-DO-uto"/>
         <segue reference="DEv-pI-B9A"/>
+        <segue reference="iLn-Va-yZm"/>
     </inferredMetricsTieBreakers>
 </document>
