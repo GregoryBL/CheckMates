@@ -285,52 +285,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Blm-dz-fPM">
-                                <rect key="frame" x="20" y="86" width="560" height="119"/>
+                                <rect key="frame" x="20" y="86" width="560" height="85"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="G41-b9-yVq">
-                                        <rect key="frame" x="0.0" y="0.0" width="560" height="26"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="zpN-3g-eoa">
-                                                <rect key="frame" x="0.0" y="0.0" width="560" height="26"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7T-YJ-Aey">
-                                                        <rect key="frame" x="0.0" y="0.0" width="65" height="26"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OlI-Mw-6C3" customClass="AwesomeTextField" customModule="AwesomeTextField">
-                                                        <rect key="frame" x="77" y="0.0" width="483" height="26"/>
-                                                        <color key="textColor" red="0.058823529409999999" green="0.47450980390000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="underLineColor">
-                                                                <color key="value" red="0.058823529409999999" green="0.47450980390000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="underLineWidth">
-                                                                <real key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="underLineAlphaBefore">
-                                                                <real key="value" value="0.29999999999999999"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderTextColor">
-                                                                <color key="value" red="0.058823529409999999" green="0.47450980390000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="underLineAlphaAfter">
-                                                                <real key="value" value="0.90000000000000002"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="YDR-ZZ-2PO" id="ynd-AY-wev"/>
-                                                        </connections>
-                                                    </textField>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="rBx-0B-h2P">
-                                        <rect key="frame" x="0.0" y="34" width="560" height="26"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="26"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYo-kf-go7">
                                                 <rect key="frame" x="0.0" y="0.0" width="62" height="26"/>
@@ -370,7 +328,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Z5r-R3-F0V">
-                                        <rect key="frame" x="0.0" y="68" width="560" height="26"/>
+                                        <rect key="frame" x="0.0" y="34" width="560" height="26"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKA-9p-yiY">
                                                 <rect key="frame" x="0.0" y="0.0" width="62" height="26"/>
@@ -410,7 +368,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7M-yy-H7B">
-                                        <rect key="frame" x="0.0" y="102" width="560" height="17"/>
+                                        <rect key="frame" x="0.0" y="68" width="560" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -503,7 +461,7 @@
                         <segue destination="TnY-6o-2O7" kind="relationship" relationship="viewControllers" id="cgf-0p-MO5"/>
                         <segue destination="pgt-jY-sQP" kind="relationship" relationship="viewControllers" id="XVf-Cu-H7Y"/>
                         <segue destination="dbh-oE-qEE" kind="relationship" relationship="viewControllers" id="xOv-vy-V0e"/>
-                        <segue destination="u2v-Nf-W0c" kind="relationship" relationship="viewControllers" id="2tB-df-Dml"/>
+                        <segue destination="UFA-RV-Qe5" kind="relationship" relationship="viewControllers" id="qgp-TY-Wtn"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ddQ-Q6-eVm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -595,25 +553,6 @@
             <point key="canvasLocation" x="1152" y="903"/>
         </scene>
         <!--Receipts-->
-        <scene sceneID="aXv-oj-Uvs">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="u2v-Nf-W0c" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="3" title="Receipts" image="ReceiptIcon" id="P4H-4C-EBR"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GQ8-wE-Ja6">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="RGC-Ex-NoD" kind="show" id="Kj4-y7-deM"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Rrd-7i-v6k" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1140" y="-547"/>
-        </scene>
-        <!--Receipts Table View Controller-->
         <scene sceneID="vNB-ar-9ml">
             <objects>
                 <tableViewController id="RGC-Ex-NoD" customClass="ReceiptsTableViewController" customModule="CheckMates" customModuleProvider="target" sceneMemberID="viewController">
@@ -622,7 +561,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReceiptsCell" textLabel="CHi-Kk-VDb" detailTextLabel="7QK-0K-mOE" style="IBUITableViewCellStyleValue1" id="ZnM-eh-CzB">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReceiptCell" textLabel="CHi-Kk-VDb" detailTextLabel="7QK-0K-mOE" style="IBUITableViewCellStyleValue1" id="ZnM-eh-CzB">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZnM-eh-CzB" id="tbn-3o-nGc">
@@ -652,10 +591,14 @@
                             <outlet property="delegate" destination="RGC-Ex-NoD" id="Z2a-KF-xup"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Receipts" id="MN0-dL-caL"/>
+                    <connections>
+                        <segue destination="NJu-NL-CXP" kind="show" id="C9d-DO-uto"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gim-5Z-tfI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1831" y="-547"/>
+            <point key="canvasLocation" x="2294" y="-598"/>
         </scene>
         <!--Album-->
         <scene sceneID="wd0-uA-T9K">
@@ -676,6 +619,25 @@
             </objects>
             <point key="canvasLocation" x="1140" y="1655"/>
         </scene>
+        <!--Receipts-->
+        <scene sceneID="w5g-p5-wLX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UFA-RV-Qe5" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Receipts" image="ReceiptIcon" selectedImage="ReceiptIcon" id="zMX-NQ-gff"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iki-36-nks">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="RGC-Ex-NoD" kind="relationship" relationship="rootViewController" id="isZ-6Y-5Dv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gs8-pf-xG7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1308" y="-598"/>
+        </scene>
     </scenes>
     <resources>
         <image name="CameraIcon" width="25" height="25"/>
@@ -685,6 +647,7 @@
         <image name="ReceiptIcon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Zmn-gq-eIc"/>
+        <segue reference="C9d-DO-uto"/>
+        <segue reference="DEv-pI-B9A"/>
     </inferredMetricsTieBreakers>
 </document>

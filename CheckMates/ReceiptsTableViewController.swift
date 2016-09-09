@@ -10,22 +10,41 @@ import UIKit
 
 class ReceiptsTableViewController: UITableViewController {
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        navigationItem.leftBarButtonItem = editButtonItem()
+    }
+    
+    var itemStore: ItemStore!
     var eventController: EventController = EventController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.reloadData()
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 65
+        
     }
     
     override func viewWillAppear(animated: Bool) {
         print("View Will Appear")
         eventController.fetchAllEvents()
-        view.setNeedsDisplay()
+        tableView.reloadData()
     }
     
+    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         

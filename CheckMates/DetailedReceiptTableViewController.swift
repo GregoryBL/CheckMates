@@ -22,6 +22,7 @@ class DetailedReceiptTableViewController: UITableViewController {
     var newItem: Item!
     
     override func viewWillAppear(animated: Bool) {
+        print("view will appear")
         tableView.reloadData()
     }
     
