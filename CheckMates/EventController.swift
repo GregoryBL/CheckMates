@@ -102,27 +102,28 @@ class EventController {
         mc.textContacts(self.newEvent!.contacts?.allObjects as! [Contact], billId: (self.newEvent?.receipt?.backEndID)!)
     }
     
+    func parseJSON(data: NSData){
 
-    
-//    func parseJSON(data: NSData){
-//
-//        let json = JSON(data: data)
-//        
-//        let items = json["items"]
-//        print(items)
-//        
-//        if let itemArray = (json["items"].array) {
-//            for item in itemArray {
-//                if let contact = userIDHasMatch(item["user_id"].string!) {
-//                    if let item = receiptItemHasMatch(item["item_description"].string!) {
-//                        item.contact = contact
-//                        print(item)
-//                        print(item.contact)
-//                    }
-//                }
-//            }
-//        }
-//    }
+        let json = JSON(data: data)
+        
+        let items = json["items"]
+        print("hello")
+        print(items)
+        
+        if let itemArray = (json["items"].array) {
+            print(itemArray)
+            for item in itemArray {
+                if let contact = userIDHasMatch((item["user_id"].stringValue)) {
+                    print(contact)
+                    if let item = receiptItemHasMatch(item["item_description"].string!) {
+                        item.contact = contact
+                        print(item)
+                        print(item.contact)
+                    }
+                }
+            }
+        }
+    }
     
     func parseOriginalResponse(data: NSData) {
         let json = JSON(data: data)
