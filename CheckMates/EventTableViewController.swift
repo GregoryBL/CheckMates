@@ -13,12 +13,13 @@ import Contacts
 
 class EventTableViewController: UITableViewController {
     var eventController: EventController?
+    var titleForCERPButton : String?
     
     @IBAction func completeEvent(sender: UIButton) {
         if (sender.titleLabel?.text == "Done") {
             sender.setTitle("Request Payment", forState:  UIControlState.Normal)
             print("Bill ready to be saved")
-            eventController?.billIsComplete()           
+            eventController?.billIsComplete()
         } else {
             eventController?.userDidRequestPayment()
             print("Sending payment requests to mates")
@@ -26,9 +27,15 @@ class EventTableViewController: UITableViewController {
             sender.userInteractionEnabled = false
             
         }
-        
-       
     }
+    
+    override func viewDidLoad() {
+        if let buttonTitle = titleForCERPButton {
+            completeEventRequestPaymentButton.setTitle(buttonTitle, forState:  UIControlState.Normal)
+        }
+    }
+    
+    @IBOutlet weak var completeEventRequestPaymentButton: UIButton!
    
     @IBAction func editReceiptButton(sender: UIButton) {
          // Inactive for demo

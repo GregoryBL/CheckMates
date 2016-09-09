@@ -12,7 +12,6 @@
 		0DAA6BC21D7CF06200D38DFE /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DAA6BC11D7CF06200D38DFE /* libstdc++.6.0.9.tbd */; };
 		0DAAE4281D7CD08100CF092E /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAAE4271D7CD08100CF092E /* ColorExtensions.swift */; };
 		0DAAE42A1D7CD12C00CF092E /* AddReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAAE4291D7CD12C00CF092E /* AddReceiptViewController.swift */; };
-		0DAAE42C1D7CD15B00CF092E /* ReceiptsViewConroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAAE42B1D7CD15B00CF092E /* ReceiptsViewConroller.swift */; };
 		0DAAE42E1D7CD17B00CF092E /* SnapReceiptsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAAE42D1D7CD17B00CF092E /* SnapReceiptsViewController.swift */; };
 		0DB4C9551D7D008900FFDF85 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 0DB4C9541D7D008900FFDF85 /* tessdata */; };
 		0DB4C95B1D7D0F4200FFDF85 /* DetailedReceiptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB4C95A1D7D0F4200FFDF85 /* DetailedReceiptTableViewController.swift */; };
@@ -30,6 +29,7 @@
 		372C953F1D7CD0A100BD0DB0 /* PaymentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372C953E1D7CD0A100BD0DB0 /* PaymentsController.swift */; };
 		372C95411D7CD41600BD0DB0 /* DwollaAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372C95401D7CD41600BD0DB0 /* DwollaAPIManager.swift */; };
 		372C95431D7CD77200BD0DB0 /* DwollaRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372C95421D7CD77200BD0DB0 /* DwollaRequest.swift */; };
+		37425FAB1D823AE6008A3C74 /* ReceiptsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37425FAA1D823AE6008A3C74 /* ReceiptsTableViewController.swift */; };
 		379CBB9A1D7CC9A100352669 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379CBB991D7CC9A100352669 /* AppDelegate.swift */; };
 		379CBB9F1D7CC9A100352669 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 379CBB9D1D7CC9A100352669 /* Main.storyboard */; };
 		379CBBA21D7CC9A100352669 /* CheckMates.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 379CBBA01D7CC9A100352669 /* CheckMates.xcdatamodeld */; };
@@ -69,7 +69,6 @@
 		0DAA6BC11D7CF06200D38DFE /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		0DAAE4271D7CD08100CF092E /* ColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		0DAAE4291D7CD12C00CF092E /* AddReceiptViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReceiptViewController.swift; sourceTree = "<group>"; };
-		0DAAE42B1D7CD15B00CF092E /* ReceiptsViewConroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptsViewConroller.swift; sourceTree = "<group>"; };
 		0DAAE42D1D7CD17B00CF092E /* SnapReceiptsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapReceiptsViewController.swift; sourceTree = "<group>"; };
 		0DB4C9541D7D008900FFDF85 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		0DB4C95A1D7D0F4200FFDF85 /* DetailedReceiptTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedReceiptTableViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +85,7 @@
 		372C953E1D7CD0A100BD0DB0 /* PaymentsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentsController.swift; sourceTree = "<group>"; };
 		372C95401D7CD41600BD0DB0 /* DwollaAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DwollaAPIManager.swift; sourceTree = "<group>"; };
 		372C95421D7CD77200BD0DB0 /* DwollaRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DwollaRequest.swift; sourceTree = "<group>"; };
+		37425FAA1D823AE6008A3C74 /* ReceiptsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptsTableViewController.swift; sourceTree = "<group>"; };
 		379CBB961D7CC9A100352669 /* CheckMates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckMates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		379CBB991D7CC9A100352669 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		379CBB9E1D7CC9A100352669 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -196,8 +196,8 @@
 				372C95421D7CD77200BD0DB0 /* DwollaRequest.swift */,
 				372C953E1D7CD0A100BD0DB0 /* PaymentsController.swift */,
 				0DAAE4291D7CD12C00CF092E /* AddReceiptViewController.swift */,
-				0DAAE42B1D7CD15B00CF092E /* ReceiptsViewConroller.swift */,
 				0DAAE42D1D7CD17B00CF092E /* SnapReceiptsViewController.swift */,
+				37425FAA1D823AE6008A3C74 /* ReceiptsTableViewController.swift */,
 				F0EA6FA91D80D15F0035E13A /* EventController.swift */,
 				0DE3FABC1D7FCA27005E5D9F /* PickFromAlbumViewController.swift */,
 				0DB4C95A1D7D0F4200FFDF85 /* DetailedReceiptTableViewController.swift */,
@@ -446,7 +446,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0EA6FBA1D80D2EA0035E13A /* Contact.swift in Sources */,
-				0DAAE42C1D7CD15B00CF092E /* ReceiptsViewConroller.swift in Sources */,
 				F0EA6FAA1D80D15F0035E13A /* EventController.swift in Sources */,
 				0DB4C95D1D7D1E4C00FFDF85 /* Item.swift in Sources */,
 				379CBB9A1D7CC9A100352669 /* AppDelegate.swift in Sources */,
@@ -455,6 +454,7 @@
 				F0EA6FB71D80D2EA0035E13A /* Event+CoreDataProperties.swift in Sources */,
 				0DE3FABD1D7FCA27005E5D9F /* PickFromAlbumViewController.swift in Sources */,
 				0DB4C95B1D7D0F4200FFDF85 /* DetailedReceiptTableViewController.swift in Sources */,
+				37425FAB1D823AE6008A3C74 /* ReceiptsTableViewController.swift in Sources */,
 				F0EA6FAE1D80D2170035E13A /* CoreDataStack.swift in Sources */,
 				F0EA6FBC1D80D2EA0035E13A /* ReceiptItem.swift in Sources */,
 				372C953F1D7CD0A100BD0DB0 /* PaymentsController.swift in Sources */,
