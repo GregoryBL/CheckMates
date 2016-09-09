@@ -1,3 +1,4 @@
+
 //
 //  SnapReceiptsViewController.swift
 //  CheckMates
@@ -15,6 +16,7 @@ class PickFromAlbumViewController: UIViewController, UIImagePickerControllerDele
     var pickedPhoto = false
     var itemStore = ItemStore()
     var activityIndicator:UIActivityIndicatorView!
+    var eventController:EventController = EventController()
     
     
     @IBOutlet var imageView: UIImageView!
@@ -91,8 +93,10 @@ class PickFromAlbumViewController: UIViewController, UIImagePickerControllerDele
         
         if segue.identifier == "DisplayReceiptFromAlbum"
         {
+            eventController.createNewEvent()
             let detailViewController = segue.destinationViewController as? DetailedReceiptTableViewController
             detailViewController?.itemStore = itemStore
+            detailViewController?.eventController = eventController
         }
     }
     
