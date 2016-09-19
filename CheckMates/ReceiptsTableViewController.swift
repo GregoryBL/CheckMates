@@ -23,7 +23,7 @@ class ReceiptsTableViewController: UITableViewController {
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         print("View Will Appear")
         events = eventController.fetchAllEvents()
         tableView.reloadData()
@@ -36,36 +36,36 @@ class ReceiptsTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return (eventController.fetchAllEvents().count)
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ReceiptCell")
-        let currentEvent = events![indexPath.row] as Event!
-        let dateFormatter = NSDateFormatter()
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReceiptCell")
+        let currentEvent = events![(indexPath as NSIndexPath).row] as Event!
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy"
         
-        cell?.textLabel!.text = "\(dateFormatter.stringFromDate(NSDate(timeIntervalSince1970:currentEvent.createdAt)))"
-        let receiptTotal: Int = (currentEvent.receipt?.receiptTotal(currentEvent))!
+        cell?.textLabel!.text = "09-09-2016"
+        let receiptTotal: Int = (currentEvent?.receipt?.receiptTotal(currentEvent))!
         let formatted = Float(receiptTotal) / 100
         cell?.detailTextLabel!.text = "$" + String(formatted)
 
         return cell!
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "ShowEventFromReceiptSummary" {
             
             // determine which row was selected
-            if let row = tableView.indexPathForSelectedRow?.row {
+            if let row = (tableView.indexPathForSelectedRow as NSIndexPath?)?.row {
                 
                 let backItem = UIBarButtonItem()
                 backItem.title = "cancel"
@@ -74,7 +74,7 @@ class ReceiptsTableViewController: UITableViewController {
                 // get the item associated with this row
                 let event = events![row]
                 self.eventController.newEvent = event
-                let eventTableViewController = segue.destinationViewController as! EventTableViewController
+                let eventTableViewController = segue.destination as! EventTableViewController
                 eventTableViewController.eventController = self.eventController
                 eventTableViewController.titleForCERPButton = "Request Payment"
                 

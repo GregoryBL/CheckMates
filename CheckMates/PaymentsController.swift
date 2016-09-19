@@ -14,7 +14,7 @@ class PaymentsController : NSObject {
     
     let apiManager = DwollaAPIManager.sharedInstance
     
-    func startRequestFrom(contact: Contact, amount: Int, notes: String) {
+    func startRequestFrom(_ contact: Contact, amount: Int, notes: String) {
         if apiManager.hasOAuthToken() {
             let requestWithToken = finishRequestFrom(contact, amount: amount, notes: notes)
             print(requestWithToken)
@@ -27,7 +27,7 @@ class PaymentsController : NSObject {
         print("startRequest ending")
     }
     
-    func finishRequestFrom(contact: Contact, amount: Int, notes: String) -> (String -> Void) {
+    func finishRequestFrom(_ contact: Contact, amount: Int, notes: String) -> ((String) -> Void) {
         print("called finishRequest")
         return { token in
             let request = DwollaRequest.init(sourceID: contact.mobileNumber!, sourceType: "Phone", amount: amount, notes: notes, token: token)
@@ -41,7 +41,7 @@ class PaymentsController : NSObject {
         }
     }
     
-    func createRequestsForEvent(event: Event) {
+    func createRequestsForEvent(_ event: Event) {
         let billItems = event.receipt!.items!.allObjects as! [ReceiptItem]
         
         var billTotal = 0
@@ -63,11 +63,11 @@ class PaymentsController : NSObject {
         for contact in contacts {
             let contactItems = contact.items!
             if contactItems.count == 0 {
-                unansweredContacts.addObject(contact)
+                unansweredContacts.add(contact)
             } else {
                 var contactSubtotal = 0
                 for item in contactItems {
-                    contactSubtotal = contactSubtotal + Int(item.price)
+                    contactSubtotal = contactSubtotal + Int((item as AnyObject).price)
                 }
                 let contactTaxAndTip = (contactSubtotal / billTotal) * Int(taxAndTip)
                 let contactTotal = contactSubtotal + contactTaxAndTip

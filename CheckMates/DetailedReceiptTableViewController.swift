@@ -14,14 +14,14 @@ class DetailedReceiptTableViewController: UITableViewController {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        navigationItem.leftBarButtonItem = editButtonItem()
+        navigationItem.leftBarButtonItem = editButtonItem
     }
     
     var itemStore: ItemStore!
     var eventController: EventController?
     var newItem: Item!
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
     
@@ -34,16 +34,16 @@ class DetailedReceiptTableViewController: UITableViewController {
 
     }
     
-    @IBAction func addNewItem(sender: AnyObject) {
+    @IBAction func addNewItem(_ sender: AnyObject) {
         // Create a new Item and add it to the store
         
         newItem = itemStore.createItem("", price: 0)
-        self.performSegueWithIdentifier("ShowItem", sender: self)
+        self.performSegue(withIdentifier: "ShowItem", sender: self)
     }
         
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            let item = itemStore.allItems[indexPath.row]
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let item = itemStore.allItems[(indexPath as NSIndexPath).row]
             
             
             let title = "Remove \(item.title)?"
@@ -51,35 +51,35 @@ class DetailedReceiptTableViewController: UITableViewController {
             
             let alertController = UIAlertController(title: title,
                                        message: message,
-                                       preferredStyle: .ActionSheet)
+                                       preferredStyle: .actionSheet)
             
-            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             alertController.addAction(cancelAction)
             
-            let deleteAction = UIAlertAction(title: "Delete", style: .Destructive,handler: { (action) -> Void in
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive,handler: { (action) -> Void in
                                                                                                 self.itemStore.removeItem(item)
-                                                                                                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                                                                                                self.tableView.deleteRows(at: [indexPath], with: .automatic)
             })
             alertController.addAction(deleteAction)
             
-            presentViewController(alertController, animated: true, completion: nil)
+            present(alertController, animated: true, completion: nil)
         }
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemStore.allItems.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCellWithIdentifier("ItemCell", forIndexPath: indexPath) as! ItemCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
         cell.updateLabels()
         
-        let item = itemStore.allItems[indexPath.row]
+        let item = itemStore.allItems[(indexPath as NSIndexPath).row]
         
         cell.titleLabel.text = item.title
         cell.priceLabel.text = item.price.asLocaleCurrency
@@ -87,29 +87,29 @@ class DetailedReceiptTableViewController: UITableViewController {
         return cell
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "ShowItem" {
             
             // determine which row was selected
-            if let row = tableView.indexPathForSelectedRow?.row {
+            if let row = (tableView.indexPathForSelectedRow as NSIndexPath?)?.row {
                 
                 // get the item associated with this row
                 let item = itemStore.allItems[row]
                 let backItem = UIBarButtonItem()
                 backItem.title = "save"
                 navigationItem.backBarButtonItem = backItem
-                let detailItemViewController = segue.destinationViewController as! ItemDetailViewController
+                let detailItemViewController = segue.destination as! ItemDetailViewController
                 detailItemViewController.item = item
             }
             else {
-                let detailItemViewController = segue.destinationViewController as! ItemDetailViewController
+                let detailItemViewController = segue.destination as! ItemDetailViewController
                 detailItemViewController.item = newItem
                 
             }
         }
         else if segue.identifier == "ShowEvent"{
-            let contactsViewController = segue.destinationViewController as! ContactsViewController
+            let contactsViewController = segue.destination as! ContactsViewController
             self.eventController!.addBillItems(itemStore)
             contactsViewController.eventController = eventController
         }

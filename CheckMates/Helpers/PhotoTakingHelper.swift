@@ -13,28 +13,28 @@ import TesseractOCR
 class PhotoTakingHelper {
     
     
-    class func snapPhoto(imagePicker: UIImagePickerController) {
+    class func snapPhoto(_ imagePicker: UIImagePickerController) {
         
-        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
-            imagePicker.sourceType = .Camera
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            imagePicker.sourceType = .camera
         }
         else {
-            imagePicker.sourceType = .PhotoLibrary
+            imagePicker.sourceType = .photoLibrary
         }
         
         
         
         print("snap photo")
         let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = .Camera
+        imagePicker.sourceType = .camera
     }
     
-    class func choosePhoto(imagePicker: UIImagePickerController) {
-        imagePicker.sourceType = .PhotoLibrary
+    class func choosePhoto(_ imagePicker: UIImagePickerController) {
+        imagePicker.sourceType = .photoLibrary
     }
     
     
-    class func scaleImage(image: UIImage, maxDimension: CGFloat) -> UIImage {
+    class func scaleImage(_ image: UIImage, maxDimension: CGFloat) -> UIImage {
         
         var scaledSize = CGSize(width: maxDimension, height: maxDimension)
         var scaleFactor: CGFloat
@@ -50,57 +50,57 @@ class PhotoTakingHelper {
         }
         
         UIGraphicsBeginImageContext(scaledSize)
-        image.drawInRect(CGRectMake(0, 0, scaledSize.width, scaledSize.height))
+        image.draw(in: CGRect(x: 0, y: 0, width: scaledSize.width, height: scaledSize.height))
         let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        return scaledImage
+        return scaledImage!
     }
     
     // create the imageStore based on process the text from the image
     
-    class func ocrImage(image: UIImage) -> ItemStore {
+    class func ocrImage(_ image: UIImage) -> ItemStore {
         
         let itemStore = ItemStore()
         
         let tesseract:G8Tesseract = G8Tesseract(language:"eng")
-        tesseract.engineMode = .TesseractCubeCombined
-        tesseract.pageSegmentationMode = .Auto
+        tesseract.engineMode = .tesseractCubeCombined
+        tesseract.pageSegmentationMode = .auto
         tesseract.maximumRecognitionTime = 60.0
         tesseract.image = image.g8_blackAndWhite()
         tesseract.recognize()
         
         let receiptText = tesseract.recognizedText
-        let lines = receiptText.characters.split { $0 == "\n" || $0 == "\r\n" }.map(String.init)
+        let lines = receiptText?.characters.split { $0 == "\n" || $0 == "\r\n" }.map(String.init)
         
     
-        for item in lines {
+        for item in lines! {
             // http://nshipster.com/nscharacterset/
-            let digits = NSCharacterSet.decimalDigitCharacterSet()
+            let digits = CharacterSet.decimalDigits
             var lineAsString = item
             var title = ""
             var price:Float = 0
             
             // trim white leading and trailing white space
-            let components = lineAsString.componentsSeparatedByCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).filter { !$0.isEmpty }
-            lineAsString = components.joinWithSeparator(" ")
-            let lineAsArray = lineAsString.componentsSeparatedByString(" ")
+            let components = lineAsString.components(separatedBy: CharacterSet.whitespaces).filter { !$0.isEmpty }
+            lineAsString = components.joined(separator: " ")
+            let lineAsArray = lineAsString.components(separatedBy: " ")
             
             // add item as long as it is not a blank line
-            if(lineAsString != "" && lineAsString.rangeOfString("Suite") == nil) {
-                if((lineAsString.rangeOfCharacterFromSet(digits)) != nil) {
+            if(lineAsString != "" && lineAsString.range(of: "Suite") == nil) {
+                if((lineAsString.rangeOfCharacter(from: digits)) != nil) {
                     
                     // determine the price assigned to that line
-                    let lastDigits = lineAsArray.last!.stringByTrimmingCharactersInSet(NSCharacterSet.init(charactersInString: "$"))
+                    let lastDigits = lineAsArray.last!.trimmingCharacters(in: CharacterSet.init(charactersIn: "$"))
                     if(lastDigits.asFloat < 999) {
                         price = lastDigits.asFloat
                         
                         // if the first item in the array is not a number, there is probably only one of them
-                        if((lineAsArray[0].rangeOfCharacterFromSet(digits)) != nil) {
+                        if((lineAsArray[0].rangeOfCharacter(from: digits)) != nil) {
                             
                             // either the firstValue represents the quantity or an address
-                            let components = lineAsArray[0].componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
-                            let firstNumber = components.joinWithSeparator("").asInteger
+                            let components = lineAsArray[0].components(separatedBy: CharacterSet.decimalDigits.inverted)
+                            let firstNumber = components.joined(separator: "").asInteger
                             if(firstNumber < 10) {
                                 // the first number is probably the item count, so create the appropriate numbe of items
                                 var i = 1

@@ -6,9 +6,8 @@ target 'CheckMates' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
 
   # Pods for CheckMates
-   pod 'Alamofire', '~>3.4'
+   pod 'Alamofire', '~>4.0'
    pod 'TesseractOCRiOS', '4.0.0'
-   pod 'SwiftyJSON'
    pod 'AwesomeTextField'
    pod 'SwiftSpinner'
 

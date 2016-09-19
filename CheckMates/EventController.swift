@@ -12,31 +12,31 @@ import SwiftyJSON
 
 class EventController {
     
-    let cds = (UIApplication.sharedApplication().delegate as! AppDelegate).coreDataStack
+    let cds = (UIApplication.shared.delegate as! AppDelegate).coreDataStack
     var newEvent : Event?
     
     func createNewEvent(){
-        newEvent = NSEntityDescription.insertNewObjectForEntityForName("Event", inManagedObjectContext: cds.mainQueueContext) as? Event
-        let date = NSDate()
+        newEvent = NSEntityDescription.insertNewObject(forEntityName: "Event", into: cds.mainQueueContext) as? Event
+        let date = Date()
         newEvent!.createdAt = date.timeIntervalSinceReferenceDate
         
     }
     
-    func addBillItems(items: ItemStore){
+    func addBillItems(_ items: ItemStore){
         if newEvent != nil && newEvent?.receipt == nil {
-            newEvent!.receipt = NSEntityDescription.insertNewObjectForEntityForName("Receipt", inManagedObjectContext: cds.mainQueueContext) as? Receipt
+            newEvent!.receipt = NSEntityDescription.insertNewObject(forEntityName: "Receipt", into: cds.mainQueueContext) as? Receipt
         }
         for item in items.allItems{
-            let itemToSplit = item.title.lowercaseString
-            let itemArr = itemToSplit.componentsSeparatedByString(" ")
-            if itemArr.contains("tax") || checkForTipAndTax("tax", text: item.title.lowercaseString){
+            let itemToSplit = item.title.lowercased()
+            let itemArr = itemToSplit.components(separatedBy: " ")
+            if itemArr.contains("tax") || checkForTipAndTax("tax", text: item.title.lowercased()){
                 newEvent!.receipt!.tax = Int64(item.price * 100)
                 print(newEvent?.receipt)
-            } else if itemArr.contains("tip") || checkForTipAndTax("tip", text: item.title.lowercaseString){
+            } else if itemArr.contains("tip") || checkForTipAndTax("tip", text: item.title.lowercased()){
                 newEvent!.receipt!.tip = Int64(item.price * 100)
                 print(newEvent?.receipt)
             } else {
-                let newItem = NSEntityDescription.insertNewObjectForEntityForName("ReceiptItem", inManagedObjectContext: cds.mainQueueContext) as? ReceiptItem
+                let newItem = NSEntityDescription.insertNewObject(forEntityName: "ReceiptItem", into: cds.mainQueueContext) as? ReceiptItem
                 newItem?.itemDescription = item.title
                 newItem?.price = Int64(item.price * 100)
                 newItem?.receipt = (newEvent?.receipt)!
@@ -45,9 +45,9 @@ class EventController {
         }
     }
     
-    func addContacts(mates: [Mate]){
+    func addContacts(_ mates: [Mate]){
         for mate in mates{
-            let newContact = NSEntityDescription.insertNewObjectForEntityForName("Contact", inManagedObjectContext: cds.mainQueueContext) as? Contact
+            let newContact = NSEntityDescription.insertNewObject(forEntityName: "Contact", into: cds.mainQueueContext) as? Contact
             newContact?.firstName = mate.firstName
             newContact?.lastName = mate.lastName
             newContact?.mobileNumber = mate.mobileNumber
@@ -56,12 +56,12 @@ class EventController {
         }
     }
     
-    private func checkForTipAndTax(regex: String, text: String) -> Bool {
+    fileprivate func checkForTipAndTax(_ regex: String, text: String) -> Bool {
         var results = []
         do {
             let regex = try NSRegularExpression(pattern: regex, options: [])
             let nsString = text as NSString
-            results = regex.matchesInString(text,
+            results = regex.matches(in: text,
                                             options: [], range: NSMakeRange(0, nsString.length))
             print(results)
         } catch let error as NSError {
@@ -80,7 +80,7 @@ class EventController {
     func fetchAllEvents() -> [Event]{
         let fetchRequest = NSFetchRequest(entityName: "Event")
         do {
-            let fetchResults = try cds.mainQueueContext.executeFetchRequest(fetchRequest) as? [Event]
+            let fetchResults = try cds.mainQueueContext.fetch(fetchRequest) as? [Event]
             return (fetchResults!)
         } catch let error as NSError {
             print(error)
@@ -102,7 +102,7 @@ class EventController {
         mc.textContacts(self.newEvent!.contacts?.allObjects as! [Contact], billId: (self.newEvent?.receipt?.backEndID)!)
     }
     
-    func parseJSON(data: NSData){
+    func parseJSON(_ data: Data){
 
         let json = JSON(data: data)
         
@@ -125,7 +125,7 @@ class EventController {
         }
     }
     
-    func parseOriginalResponse(data: NSData) {
+    func parseOriginalResponse(_ data: Data) {
         let json = JSON(data: data)
         print(json)
         if json["bill"] != nil {
@@ -141,7 +141,7 @@ class EventController {
         print("finish parsing original response")
     }
     
-    private func userIDHasMatch(userID: String) -> Contact? {
+    fileprivate func userIDHasMatch(_ userID: String) -> Contact? {
         let contacts = newEvent?.contacts?.allObjects as! [Contact]
         for contact in contacts {
             if contact.uuid == userID {
@@ -151,7 +151,7 @@ class EventController {
         return nil
     }
     
-    private func receiptItemHasMatch(itemDescription : String) -> ReceiptItem? {
+    fileprivate func receiptItemHasMatch(_ itemDescription : String) -> ReceiptItem? {
         let receiptItems = newEvent?.receipt?.items!.allObjects as! [ReceiptItem]
         for receiptItem in receiptItems{
             if receiptItem.itemDescription == itemDescription {

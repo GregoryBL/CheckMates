@@ -12,12 +12,12 @@ class Item: NSObject {
     
     var title: String
     var price: Float
-    var created_at: NSDate
+    var created_at: Date
     
     init(title: String, price: Float) {
         self.title = title
         self.price = price
-        self.created_at = NSDate()
+        self.created_at = Date()
         
         super.init()
     }

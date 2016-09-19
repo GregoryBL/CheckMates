@@ -8,10 +8,10 @@
 
 import UIKit
 
-extension NSDate {
+extension Date {
     var friendlyDate: String {
-        let formatter = NSDateFormatter()
-        formatter.dateStyle = .LongStyle
-        return formatter.stringFromDate(self)
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        return formatter.string(from: self)
     }
 }

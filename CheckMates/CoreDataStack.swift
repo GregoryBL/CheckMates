@@ -17,32 +17,32 @@ class CoreDataStack {
         managedObjectModelName = modelName
     }
     
-    private lazy var managedObjectModel: NSManagedObjectModel = {
+    fileprivate lazy var managedObjectModel: NSManagedObjectModel = {
         let modelURL =
-            NSBundle.mainBundle().URLForResource(self.managedObjectModelName, withExtension: "momd")!
-        return NSManagedObjectModel(contentsOfURL: modelURL)!
+            Bundle.main.url(forResource: self.managedObjectModelName, withExtension: "momd")!
+        return NSManagedObjectModel(contentsOf: modelURL)!
     }()
     
-    private var applicationDocumentsDirectory: NSURL = {
-        let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+    fileprivate var applicationDocumentsDirectory: URL = {
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return urls.first!
     }()
     
-    private lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
+    fileprivate lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
         var coordinator =
             NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
         let pathComponent = "\(self.managedObjectModelName).sqlite"
-        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent(pathComponent)
+        let url = self.applicationDocumentsDirectory.appendingPathComponent(pathComponent)
         
-        let store = try! coordinator.addPersistentStoreWithType(NSSQLiteStoreType,
-                                                                configuration: nil,
-                                                                URL: url,
+        let store = try! coordinator.addPersistentStore(ofType: NSSQLiteStoreType,
+                                                                configurationName: nil,
+                                                                at: url,
                                                                 options: nil)
         return coordinator
     }()
     
     lazy var mainQueueContext: NSManagedObjectContext = {
-        let moc = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+        let moc = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         moc.persistentStoreCoordinator = self.persistentStoreCoordinator
         moc.name = "Main Queue Context (UI Context)"
         

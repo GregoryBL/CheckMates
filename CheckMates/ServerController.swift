@@ -16,13 +16,13 @@ class ServerController {
     let serverURL = "http://checkmatesapp.herokuapp.com"
     var newBill : Receipt?
     
-    func sendNewReceiptToServer(receipt : Receipt, sender: EventController) {
+    func sendNewReceiptToServer(_ receipt : Receipt, sender: EventController) {
         let itemsArray : NSMutableArray = []
         for item in receipt.items! {
-            itemsArray.addObject(itemToItemDict(item as! ReceiptItem))
+            itemsArray.add(itemToItemDict(item as! ReceiptItem))
         }
         let itemsDict : [String: AnyObject] = ["items": itemsArray]
-        let toSend : [String: AnyObject]? = ["bill": itemsDict]
+        let toSend : [String: AnyObject]? = ["bill": itemsDict as AnyObject]
 
         Alamofire.request(.POST, serverURL + "/bills", parameters: toSend, encoding: .JSON)
             .responseData { response in
@@ -35,17 +35,17 @@ class ServerController {
         }
     }
     
-    func retrieveReceiptFromServer(billID: String, target: EventController) {
+    func retrieveReceiptFromServer(_ billID: String, target: EventController) {
         Alamofire.request(.GET, serverURL + "/bills/" + billID)
             .responseData { response in
                 target.parseJSON(response.result.value!)
         }
     }
     
-    func itemToItemDict(item : ReceiptItem) -> [String: AnyObject] {
+    func itemToItemDict(_ item : ReceiptItem) -> [String: AnyObject] {
         return [
-            "item_description": item.itemDescription!,
-            "price": String(item.price)
+            "item_description": item.itemDescription! as AnyObject,
+            "price": String(item.price) as AnyObject
         ]
     }
 }

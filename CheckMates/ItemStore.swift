@@ -12,7 +12,7 @@ class ItemStore {
     
     var allItems: [Item] = []
     
-    func moveItemAtIndex(fromIndex: Int, toIndex: Int) {
+    func moveItemAtIndex(_ fromIndex: Int, toIndex: Int) {
         if fromIndex == toIndex {
             return
         }
@@ -21,13 +21,13 @@ class ItemStore {
         let movedItem = allItems[fromIndex]
         
         // Remove item from array
-        allItems.removeAtIndex(fromIndex)
+        allItems.remove(at: fromIndex)
         
         // Insert item in array at new location
-        allItems.insert(movedItem, atIndex: toIndex)
+        allItems.insert(movedItem, at: toIndex)
     }
     
-    func createItem(title: String, price: Float) -> Item {
+    func createItem(_ title: String, price: Float) -> Item {
         let newItem = Item(title: title, price: price)
         
         allItems.append(newItem)
@@ -35,9 +35,9 @@ class ItemStore {
         return newItem
     }
     
-    func removeItem(item: Item) {
-        if let index = allItems.indexOf(item) {
-            allItems.removeAtIndex(index)
+    func removeItem(_ item: Item) {
+        if let index = allItems.index(of: item) {
+            allItems.remove(at: index)
         }
     }
 }

@@ -10,11 +10,11 @@ import UIKit
 
 extension Float {
     var asLocaleCurrency:String {
-        let formatter = NSNumberFormatter()
-        formatter.numberStyle = .CurrencyStyle
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
         formatter.currencySymbol = "" 
         formatter.currencyGroupingSeparator = ""
-        return formatter.stringFromNumber(self)!
+        return formatter.string(from: NSNumber(self))!
     }
 }
 
