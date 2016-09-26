@@ -64,5 +64,11 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>&quot;CheckMates uses the camera to read data from your receipt&quot;</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>&quot;CheckMates uses your photos to read data from your receipt&quot;</string>
+	<key>NSContactsUsageDescription</key>
+	<string>&quot;CheckMates uses your contacts to send messages to your friends so they can choose their items from the bill&quot;</string>
 </dict>
 </plist>

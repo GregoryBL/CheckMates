@@ -15,25 +15,25 @@ class ContactsViewController: UIViewController, CNContactPickerDelegate {
     var eventController: EventController?
     var mates = [Mate]()
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         
-        if CNContactStore.authorizationStatusForEntityType(.Contacts) == .NotDetermined {
-            CNContactStore().requestAccessForEntityType(.Contacts, completionHandler: { (authorized: Bool, error: NSError?) -> Void in
+        if CNContactStore.authorizationStatus(for: .contacts) == .notDetermined {
+            CNContactStore().requestAccess(for: .contacts, completionHandler: { (authorized: Bool, error: Error?) -> Swift.Void in
                 if authorized {
                     let contactPicker = CNContactPickerViewController()
                     contactPicker.delegate = self
                     contactPicker.displayedPropertyKeys = [CNContactPhoneNumbersKey]
                     
-                    self.presentViewController(contactPicker, animated: true, completion: nil)
+                    self.present(contactPicker, animated: true, completion: nil)
                 }
             })
             
-        } else if CNContactStore.authorizationStatusForEntityType(.Contacts) == .Authorized {
+        } else if CNContactStore.authorizationStatus(for: .contacts) == .authorized {
             let contactPicker = CNContactPickerViewController()
             contactPicker.delegate = self
             contactPicker.displayedPropertyKeys = [CNContactPhoneNumbersKey]
             
-            self.presentViewController(contactPicker, animated: true, completion: nil)
+            self.present(contactPicker, animated: true, completion: nil)
         }
     }
     
@@ -50,7 +50,7 @@ class ContactsViewController: UIViewController, CNContactPickerDelegate {
     
     
     
-    func contactPicker(picker: CNContactPickerViewController, didSelectContacts contacts: [CNContact]) {
+    func contactPicker(_ picker: CNContactPickerViewController, didSelect contacts: [CNContact]) {
         
         var mobilePhone = String()
         mates = []
@@ -58,7 +58,7 @@ class ContactsViewController: UIViewController, CNContactPickerDelegate {
         for contact in contacts {
            
             for num in contact.phoneNumbers {
-                let numVal = (num.value as! CNPhoneNumber).valueForKey("digits") as! String
+                let numVal = (num.value ).value(forKey: "digits") as! String
                 if num.label == CNLabelPhoneNumberMobile || num.label == CNLabelPhoneNumberiPhone {
                     mobilePhone = numVal
                 }
@@ -75,15 +75,15 @@ class ContactsViewController: UIViewController, CNContactPickerDelegate {
             
         }
         
-        self.performSegueWithIdentifier("ShowEvent", sender: self)
+        self.performSegue(withIdentifier: "ShowEvent", sender: self)
 
     }
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowEvent" {
-            let eventViewController = segue.destinationViewController as! EventTableViewController
-            self.eventController?.addContacts(mates)
+            let eventViewController = segue.destination as! EventTableViewController
+            self.eventController!.addContacts(mates)
             eventViewController.eventController = self.eventController
         }
     }

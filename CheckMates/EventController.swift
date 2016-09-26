@@ -8,35 +8,37 @@
 
 import UIKit
 import CoreData
-import SwiftyJSON
 
 class EventController {
     
-    let cds = (UIApplication.sharedApplication().delegate as! AppDelegate).coreDataStack
+    let cds = (UIApplication.shared.delegate as! AppDelegate).coreDataStack
     var newEvent : Event?
     
     func createNewEvent(){
-        newEvent = NSEntityDescription.insertNewObjectForEntityForName("Event", inManagedObjectContext: cds.mainQueueContext) as? Event
-        let date = NSDate()
+        newEvent = NSEntityDescription.insertNewObject(forEntityName: "Event", into: cds.mainQueueContext) as? Event
+        let date = Date()
         newEvent!.createdAt = date.timeIntervalSinceReferenceDate
         
     }
     
-    func addBillItems(items: ItemStore){
-        if newEvent != nil && newEvent?.receipt == nil {
-            newEvent!.receipt = NSEntityDescription.insertNewObjectForEntityForName("Receipt", inManagedObjectContext: cds.mainQueueContext) as? Receipt
+    func addBillItems(_ items: ItemStore){
+        if newEvent == nil {
+            createNewEvent()
+        }
+        if newEvent?.receipt == nil {
+            newEvent!.receipt = NSEntityDescription.insertNewObject(forEntityName: "Receipt", into: cds.mainQueueContext) as? Receipt
         }
         for item in items.allItems{
-            let itemToSplit = item.title.lowercaseString
-            let itemArr = itemToSplit.componentsSeparatedByString(" ")
-            if itemArr.contains("tax") || checkForTipAndTax("tax", text: item.title.lowercaseString){
+            let itemToSplit = item.title.lowercased()
+            let itemArr = itemToSplit.components(separatedBy: " ")
+            if itemArr.contains("tax") || checkForTipAndTax("tax", text: item.title.lowercased()){
                 newEvent!.receipt!.tax = Int64(item.price * 100)
                 print(newEvent?.receipt)
-            } else if itemArr.contains("tip") || checkForTipAndTax("tip", text: item.title.lowercaseString){
+            } else if itemArr.contains("tip") || checkForTipAndTax("tip", text: item.title.lowercased()){
                 newEvent!.receipt!.tip = Int64(item.price * 100)
                 print(newEvent?.receipt)
             } else {
-                let newItem = NSEntityDescription.insertNewObjectForEntityForName("ReceiptItem", inManagedObjectContext: cds.mainQueueContext) as? ReceiptItem
+                let newItem = NSEntityDescription.insertNewObject(forEntityName: "ReceiptItem", into: cds.mainQueueContext) as? ReceiptItem
                 newItem?.itemDescription = item.title
                 newItem?.price = Int64(item.price * 100)
                 newItem?.receipt = (newEvent?.receipt)!
@@ -45,9 +47,9 @@ class EventController {
         }
     }
     
-    func addContacts(mates: [Mate]){
+    func addContacts(_ mates: [Mate]){
         for mate in mates{
-            let newContact = NSEntityDescription.insertNewObjectForEntityForName("Contact", inManagedObjectContext: cds.mainQueueContext) as? Contact
+            let newContact = NSEntityDescription.insertNewObject(forEntityName: "Contact", into: cds.mainQueueContext) as? Contact
             newContact?.firstName = mate.firstName
             newContact?.lastName = mate.lastName
             newContact?.mobileNumber = mate.mobileNumber
@@ -56,12 +58,12 @@ class EventController {
         }
     }
     
-    private func checkForTipAndTax(regex: String, text: String) -> Bool {
-        var results = []
+    fileprivate func checkForTipAndTax(_ regex: String, text: String) -> Bool {
+        var results : [NSTextCheckingResult] = []
         do {
             let regex = try NSRegularExpression(pattern: regex, options: [])
             let nsString = text as NSString
-            results = regex.matchesInString(text,
+            results = regex.matches(in: text,
                                             options: [], range: NSMakeRange(0, nsString.length))
             print(results)
         } catch let error as NSError {
@@ -77,11 +79,11 @@ class EventController {
         cds.saveChanges()
     }
     
-    func fetchAllEvents() -> [Event]{
-        let fetchRequest = NSFetchRequest(entityName: "Event")
+    func fetchAllEvents() -> [Event] {
+        let fetchRequest : NSFetchRequest<Event> = NSFetchRequest(entityName: "Event")
         do {
-            let fetchResults = try cds.mainQueueContext.executeFetchRequest(fetchRequest) as? [Event]
-            return (fetchResults!)
+            let fetchResults = try cds.mainQueueContext.fetch(fetchRequest)
+            return (fetchResults)
         } catch let error as NSError {
             print(error)
         }
@@ -102,46 +104,46 @@ class EventController {
         mc.textContacts(self.newEvent!.contacts?.allObjects as! [Contact], billId: (self.newEvent?.receipt?.backEndID)!)
     }
     
-    func parseJSON(data: NSData){
+    func parseJSON(_ data: Data){
 
-        let json = JSON(data: data)
+        let json = try? JSONSerialization.jsonObject(with: data, options: [])
         
-        let items = json["items"]
-        print("hello")
-        print(items)
-        
-        if let itemArray = (json["items"].array) {
-            print(itemArray)
-            for item in itemArray {
-                if let contact = userIDHasMatch((item["user_id"].stringValue)) {
-                    print(contact)
-                    if let item = receiptItemHasMatch(item["item_description"].string!) {
-                        item.contact = contact
-                        print(item)
-                        print(item.contact)
+        if let dictionary = json as? [String: Any] {
+            
+            if let itemArray = dictionary["items"] as? [Any] {
+                print(itemArray)
+                for thing in itemArray {
+                    if let item = thing as? [String: Any] {
+                        if let contactName = item["user_id"] as? String, let itemString = item["item_description"] as? String {
+                            print(contactName)
+                            let contact = userIDHasMatch(contactName)
+                            if let item = receiptItemHasMatch(itemString) {
+                                item.contact = contact
+                                print(item)
+                                print(item.contact)
+                            }
+                        }
                     }
                 }
             }
         }
     }
     
-    func parseOriginalResponse(data: NSData) {
-        let json = JSON(data: data)
+    func parseOriginalResponse(_ data: Data) {
+        let json = try? JSONSerialization.jsonObject(with: data, options: [])
         print(json)
-        if json["bill"] != nil {
-            print(json["bill"])
-            print(json["bill"]["id"])
-            print(json["bill"]["id"].string)
-            print(json["bill"]["id"].int)
-            let id = (String(json["bill"]["id"].int!))
-            print(id)
-            newEvent?.receipt!.backEndID = id
+        
+        if let dictionary = json as? [String: Any] {
+            if let bill = dictionary["bill"] as? [String: Any], let id = bill["id"] as? String? {
+                print(id)
+                newEvent?.receipt!.backEndID = id
+            }
+            print(self.newEvent?.receipt?.backEndID!)
+            print("finish parsing original response")
         }
-        print(self.newEvent?.receipt?.backEndID!)
-        print("finish parsing original response")
     }
     
-    private func userIDHasMatch(userID: String) -> Contact? {
+    fileprivate func userIDHasMatch(_ userID: String) -> Contact? {
         let contacts = newEvent?.contacts?.allObjects as! [Contact]
         for contact in contacts {
             if contact.uuid == userID {
@@ -151,7 +153,7 @@ class EventController {
         return nil
     }
     
-    private func receiptItemHasMatch(itemDescription : String) -> ReceiptItem? {
+    fileprivate func receiptItemHasMatch(_ itemDescription : String) -> ReceiptItem? {
         let receiptItems = newEvent?.receipt?.items!.allObjects as! [ReceiptItem]
         for receiptItem in receiptItems{
             if receiptItem.itemDescription == itemDescription {

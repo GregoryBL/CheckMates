@@ -14,7 +14,7 @@ class ItemCell: UITableViewCell {
     @IBOutlet var priceLabel: UILabel!
     
     func updateLabels() {
-        let bodyFont = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+        let bodyFont = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
         titleLabel.font = bodyFont
         priceLabel.font = bodyFont
     }

@@ -12,17 +12,17 @@ class AddReceiptsViewController: UIViewController {
     
     var itemStore = ItemStore()
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         
-        self.performSegueWithIdentifier("AddReceiptManually", sender: self)
+        self.performSegue(withIdentifier: "AddReceiptManually", sender: self)
         
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "AddReceiptManually"
         {
-            let addReceiptManuallyVC = segue.destinationViewController as? DetailedReceiptTableViewController
+            let addReceiptManuallyVC = segue.destination as? DetailedReceiptTableViewController
             addReceiptManuallyVC!.itemStore = itemStore
         }
     }

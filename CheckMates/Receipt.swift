@@ -14,7 +14,7 @@ class Receipt: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
     
-    func receiptTotal(event:Event) -> Int {
+    func receiptTotal(_ event:Event) -> Int {
         
         let receiptItems = event.receipt!.items!.allObjects as! [ReceiptItem]
         

@@ -11,23 +11,24 @@ import Alamofire
 
 class MessageController {
 
-    func textContacts(collection: [Contact], billId: String) {
+    func textContacts(_ collection: [Contact], billId: String) {
         let twilloUsername = valueForAPIKey(named: "TWILIO_ACCT_SID")
         let twilloPassword = valueForAPIKey(named: "TWILIO_AUTH_TOKEN")
-        let myGroupMates = dispatch_group_create()
+        let myGroupMates = DispatchGroup()
         for recipient in collection {
             let data = [
                 "To" : recipient.mobileNumber!,
                 "From" : "+13059648615",
                 "Body" : "Spilting the bill is easy with CheckMates http://checkmatesapp.com/bills/\(billId)/users/\(recipient.uuid!)"
             ]
-            dispatch_group_enter(myGroupMates)
-            Alamofire.request(.POST, "https://\(twilloUsername):\(twilloPassword)@api.twilio.com/2010-04-01/Accounts/\(twilloUsername)/Messages", parameters: data).responseJSON { response in
-                dispatch_group_leave(myGroupMates)
+            myGroupMates.enter()
+            Alamofire.request("https://\(twilloUsername):\(twilloPassword)@api.twilio.com/2010-04-01/Accounts/\(twilloUsername)/Messages", method: .post, parameters: data)
+                .responseJSON { response in
+                myGroupMates.leave()
                 
                 print("Twilio send to \(recipient.mobileNumber!)")
             }
-            dispatch_group_notify(myGroupMates, dispatch_get_main_queue(), {
+            myGroupMates.notify(queue: DispatchQueue.main, execute: {
                 print("Finished all requests.")
             })
         }

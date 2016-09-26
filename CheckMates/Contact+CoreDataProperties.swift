@@ -17,7 +17,7 @@ extension Contact {
     @NSManaged var firstName: String?
     @NSManaged var lastName: String?
     @NSManaged var mobileNumber: String?
-    @NSManaged var uiimage: NSData?
+    @NSManaged var uiimage: Data?
     @NSManaged var uuid: String?
     @NSManaged var event: Event?
     @NSManaged var items: NSSet?

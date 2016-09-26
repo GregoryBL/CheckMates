@@ -22,7 +22,6 @@
 		0DB4C9651D7DE8AC00FFDF85 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB4C9641D7DE8AC00FFDF85 /* DateExtensions.swift */; };
 		0DB4C9671D7DE8E100FFDF85 /* NumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB4C9661D7DE8E100FFDF85 /* NumberExtensions.swift */; };
 		0DE3FABD1D7FCA27005E5D9F /* PickFromAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE3FABC1D7FCA27005E5D9F /* PickFromAlbumViewController.swift */; };
-		0DEE59771D80A3ED00C08908 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEE59761D80A3ED00C08908 /* TabController.swift */; };
 		2ED6E6F785CD17DEFE5A6A58 /* Pods_CheckMatesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BB260BE7DA72BA1CE84F293 /* Pods_CheckMatesTests.framework */; };
 		372C953B1D7CCE8C00BD0DB0 /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372C953A1D7CCE8B00BD0DB0 /* ApiKeys.swift */; };
 		372C953D1D7CCEB700BD0DB0 /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 372C953C1D7CCEB700BD0DB0 /* APIKeys.plist */; };
@@ -67,7 +66,7 @@
 		0D9FE3BC1D803C0F003C5A59 /* PhotoTakingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTakingHelper.swift; sourceTree = "<group>"; };
 		0DA243361D7F492300BA021E /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		0DAA6BC11D7CF06200D38DFE /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
-		0DAAE4271D7CD08100CF092E /* ColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
+		0DAAE4271D7CD08100CF092E /* ColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorExtensions.swift; path = ../ColorExtensions.swift; sourceTree = "<group>"; };
 		0DAAE4291D7CD12C00CF092E /* AddReceiptViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReceiptViewController.swift; sourceTree = "<group>"; };
 		0DAAE42D1D7CD17B00CF092E /* SnapReceiptsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapReceiptsViewController.swift; sourceTree = "<group>"; };
 		0DB4C9541D7D008900FFDF85 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
@@ -76,11 +75,10 @@
 		0DB4C95E1D7D1F7100FFDF85 /* ItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
 		0DB4C9601D7DD25800FFDF85 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		0DB4C9621D7DE61400FFDF85 /* ItemDetailViewConroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailViewConroller.swift; sourceTree = "<group>"; };
-		0DB4C9641D7DE8AC00FFDF85 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
-		0DB4C9661D7DE8E100FFDF85 /* NumberExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberExtensions.swift; sourceTree = "<group>"; };
+		0DB4C9641D7DE8AC00FFDF85 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateExtensions.swift; path = ../DateExtensions.swift; sourceTree = "<group>"; };
+		0DB4C9661D7DE8E100FFDF85 /* NumberExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NumberExtensions.swift; path = ../NumberExtensions.swift; sourceTree = "<group>"; };
 		0DE3FABC1D7FCA27005E5D9F /* PickFromAlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickFromAlbumViewController.swift; sourceTree = "<group>"; };
-		0DEE59761D80A3ED00C08908 /* TabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
-		372C953A1D7CCE8B00BD0DB0 /* ApiKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
+		372C953A1D7CCE8B00BD0DB0 /* ApiKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiKeys.swift; path = ../ApiKeys.swift; sourceTree = "<group>"; };
 		372C953C1D7CCEB700BD0DB0 /* APIKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
 		372C953E1D7CD0A100BD0DB0 /* PaymentsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentsController.swift; sourceTree = "<group>"; };
 		372C95401D7CD41600BD0DB0 /* DwollaAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DwollaAPIManager.swift; sourceTree = "<group>"; };
@@ -140,6 +138,10 @@
 		0D9FE3BB1D803B9C003C5A59 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				372C953A1D7CCE8B00BD0DB0 /* ApiKeys.swift */,
+				0DAAE4271D7CD08100CF092E /* ColorExtensions.swift */,
+				0DB4C9641D7DE8AC00FFDF85 /* DateExtensions.swift */,
+				0DB4C9661D7DE8E100FFDF85 /* NumberExtensions.swift */,
 				0D9FE3BC1D803C0F003C5A59 /* PhotoTakingHelper.swift */,
 			);
 			path = Helpers;
@@ -153,6 +155,69 @@
 				6BB260BE7DA72BA1CE84F293 /* Pods_CheckMatesTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		371544EE1D99CCBA007CA55D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F0EA6FAF1D80D2EA0035E13A /* Event+CoreDataProperties.swift */,
+				F0EA6FB01D80D2EA0035E13A /* Event.swift */,
+				F0EA6FB11D80D2EA0035E13A /* Contact+CoreDataProperties.swift */,
+				F0EA6FB21D80D2EA0035E13A /* Contact.swift */,
+				F0EA6FB31D80D2EA0035E13A /* ReceiptItem+CoreDataProperties.swift */,
+				F0EA6FB41D80D2EA0035E13A /* ReceiptItem.swift */,
+				F0EA6FB51D80D2EA0035E13A /* Receipt+CoreDataProperties.swift */,
+				F0EA6FB61D80D2EA0035E13A /* Receipt.swift */,
+				F0EA6FAD1D80D2170035E13A /* CoreDataStack.swift */,
+				0DB4C95C1D7D1E4C00FFDF85 /* Item.swift */,
+				0DB4C95E1D7D1F7100FFDF85 /* ItemStore.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		371544EF1D99CCF3007CA55D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0DA243361D7F492300BA021E /* ContactsViewController.swift */,
+				0DAAE4291D7CD12C00CF092E /* AddReceiptViewController.swift */,
+				0DAAE42D1D7CD17B00CF092E /* SnapReceiptsViewController.swift */,
+				37425FAA1D823AE6008A3C74 /* ReceiptsTableViewController.swift */,
+				0DE3FABC1D7FCA27005E5D9F /* PickFromAlbumViewController.swift */,
+				0DB4C95A1D7D0F4200FFDF85 /* DetailedReceiptTableViewController.swift */,
+				0DB4C9621D7DE61400FFDF85 /* ItemDetailViewConroller.swift */,
+				F197DDCA1D806928008D8F17 /* EventTableViewController.swift */,
+				379CBBA01D7CC9A100352669 /* CheckMates.xcdatamodeld */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		371544F01D99CD89007CA55D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				371544F21D99CDC6007CA55D /* Dwolla */,
+				37EAAECA1D80815B0039064B /* ServerController.swift */,
+				F197DDCC1D80B4A0008D8F17 /* MessageController.swift */,
+				372C953E1D7CD0A100BD0DB0 /* PaymentsController.swift */,
+				F0EA6FA91D80D15F0035E13A /* EventController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		371544F11D99CDA5007CA55D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0DB4C9601D7DD25800FFDF85 /* ItemCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		371544F21D99CDC6007CA55D /* Dwolla */ = {
+			isa = PBXGroup;
+			children = (
+				372C95401D7CD41600BD0DB0 /* DwollaAPIManager.swift */,
+				372C95421D7CD77200BD0DB0 /* DwollaRequest.swift */,
+			);
+			name = Dwolla;
 			sourceTree = "<group>";
 		};
 		379CBB8D1D7CC9A100352669 = {
@@ -179,45 +244,17 @@
 		379CBB981D7CC9A100352669 /* CheckMates */ = {
 			isa = PBXGroup;
 			children = (
-				F0EA6FAF1D80D2EA0035E13A /* Event+CoreDataProperties.swift */,
-				F0EA6FB01D80D2EA0035E13A /* Event.swift */,
-				F0EA6FB11D80D2EA0035E13A /* Contact+CoreDataProperties.swift */,
-				F0EA6FB21D80D2EA0035E13A /* Contact.swift */,
-				F0EA6FB31D80D2EA0035E13A /* ReceiptItem+CoreDataProperties.swift */,
-				F0EA6FB41D80D2EA0035E13A /* ReceiptItem.swift */,
-				F0EA6FB51D80D2EA0035E13A /* Receipt+CoreDataProperties.swift */,
-				F0EA6FB61D80D2EA0035E13A /* Receipt.swift */,
-				F0EA6FAD1D80D2170035E13A /* CoreDataStack.swift */,
-				0DA243361D7F492300BA021E /* ContactsViewController.swift */,
-				F197DDCC1D80B4A0008D8F17 /* MessageController.swift */,
-				37EAAECA1D80815B0039064B /* ServerController.swift */,
-				379CBB991D7CC9A100352669 /* AppDelegate.swift */,
-				372C95401D7CD41600BD0DB0 /* DwollaAPIManager.swift */,
-				372C95421D7CD77200BD0DB0 /* DwollaRequest.swift */,
-				372C953E1D7CD0A100BD0DB0 /* PaymentsController.swift */,
-				0DAAE4291D7CD12C00CF092E /* AddReceiptViewController.swift */,
-				0DAAE42D1D7CD17B00CF092E /* SnapReceiptsViewController.swift */,
-				37425FAA1D823AE6008A3C74 /* ReceiptsTableViewController.swift */,
-				F0EA6FA91D80D15F0035E13A /* EventController.swift */,
-				0DE3FABC1D7FCA27005E5D9F /* PickFromAlbumViewController.swift */,
-				0DB4C95A1D7D0F4200FFDF85 /* DetailedReceiptTableViewController.swift */,
-				0DB4C9601D7DD25800FFDF85 /* ItemCell.swift */,
-				0DB4C95C1D7D1E4C00FFDF85 /* Item.swift */,
-				0DB4C95E1D7D1F7100FFDF85 /* ItemStore.swift */,
-				0DB4C9621D7DE61400FFDF85 /* ItemDetailViewConroller.swift */,
-				F197DDCA1D806928008D8F17 /* EventTableViewController.swift */,
-				0DAAE4271D7CD08100CF092E /* ColorExtensions.swift */,
-				0DB4C9641D7DE8AC00FFDF85 /* DateExtensions.swift */,
-				0DB4C9661D7DE8E100FFDF85 /* NumberExtensions.swift */,
-				379CBB9D1D7CC9A100352669 /* Main.storyboard */,
-				0DEE59761D80A3ED00C08908 /* TabController.swift */,
-				379CBBA31D7CC9A100352669 /* Assets.xcassets */,
+				371544EE1D99CCBA007CA55D /* Models */,
+				371544F11D99CDA5007CA55D /* Views */,
+				371544EF1D99CCF3007CA55D /* ViewControllers */,
+				371544F01D99CD89007CA55D /* Controllers */,
 				0D9FE3BB1D803B9C003C5A59 /* Helpers */,
+				379CBB9D1D7CC9A100352669 /* Main.storyboard */,
 				379CBBA51D7CC9A100352669 /* LaunchScreen.storyboard */,
+				379CBB991D7CC9A100352669 /* AppDelegate.swift */,
 				379CBBA81D7CC9A100352669 /* Info.plist */,
-				379CBBA01D7CC9A100352669 /* CheckMates.xcdatamodeld */,
 				372C953C1D7CCEB700BD0DB0 /* APIKeys.plist */,
-				372C953A1D7CCE8B00BD0DB0 /* ApiKeys.swift */,
+				379CBBA31D7CC9A100352669 /* Assets.xcassets */,
 			);
 			path = CheckMates;
 			sourceTree = "<group>";
@@ -293,12 +330,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = checkMates;
 				TargetAttributes = {
 					379CBB951D7CC9A100352669 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = HVV8UXES66;
+						LastSwiftMigration = 0800;
 					};
 					379CBBAC1D7CC9A200352669 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -468,7 +506,6 @@
 				0D9FE3BD1D803C0F003C5A59 /* PhotoTakingHelper.swift in Sources */,
 				F0EA6FBE1D80D2EA0035E13A /* Receipt.swift in Sources */,
 				F0EA6FBD1D80D2EA0035E13A /* Receipt+CoreDataProperties.swift in Sources */,
-				0DEE59771D80A3ED00C08908 /* TabController.swift in Sources */,
 				372C95411D7CD41600BD0DB0 /* DwollaAPIManager.swift in Sources */,
 				37EAAECB1D80815B0039064B /* ServerController.swift in Sources */,
 				0DAAE4281D7CD08100CF092E /* ColorExtensions.swift in Sources */,
@@ -534,8 +571,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -581,8 +620,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -602,6 +643,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -611,6 +653,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 05B5D96BDED7B37A2ECC50E5 /* Pods-CheckMates.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -618,6 +661,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.checkmatesapp.checkmates;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -626,6 +670,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E59E60D5310226EF27A1A710 /* Pods-CheckMates.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -633,6 +678,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.checkmatesapp.checkmates;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

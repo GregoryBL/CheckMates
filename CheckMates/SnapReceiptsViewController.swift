@@ -47,18 +47,18 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
 //        eventController.updateReceipt("", updateAttr: <#T##AnyObject#>)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         
-        if(self.pickedPhoto == false) {
+        if(UIImagePickerController.isSourceTypeAvailable(.camera) && self.pickedPhoto == false) {
             launchCamera()
         }
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         self.pickedPhoto = false
     }
     
-    @IBAction func snapReceipt(sender:UIButton!)
+    @IBAction func snapReceipt(_ sender:UIButton!)
     {
         launchCamera()
     }
@@ -69,7 +69,7 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
         PhotoTakingHelper.snapPhoto(imagePicker)
         
         imagePicker.delegate = self
-        presentViewController(imagePicker, animated: true, completion: nil)
+        present(imagePicker, animated: true, completion: nil)
     }
     
     func addActivityIndicator() {
@@ -80,7 +80,9 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
         SwiftSpinner.hide()
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        self.pickedPhoto = true
         // get image
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         let scaledImage = PhotoTakingHelper.scaleImage(image, maxDimension: 1200)
@@ -88,33 +90,33 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
         addActivityIndicator()
         
         imageView.image = scaledImage
-        dismissViewControllerAnimated(true, completion: {
+        dismiss(animated: true, completion: {
             self.performImageRecognition(scaledImage)
         })
     }
     
-    func performImageRecognition(image: UIImage) {
+    func performImageRecognition(_ image: UIImage) {
         itemStore = PhotoTakingHelper.ocrImage(image)
     
         removeActivityIndicator()
 
-        self.performSegueWithIdentifier("DisplayItemsSegue", sender: self)
+        self.performSegue(withIdentifier: "DisplayItemsSegue", sender: self)
     }
     
-    func imagePickerControllerDidCancel(picker: UIImagePickerController)
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
     {
         // picker cancelled, dismiss picker view controller
-        self.dismissViewControllerAnimated(true, completion: nil)
-        pickedPhoto = true
+        self.dismiss(animated: true, completion: nil)
+        pickedPhoto = false
     }
 
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "DisplayItemsSegue"
         {
             eventController.createNewEvent()
-            let detailViewController = segue.destinationViewController as? DetailedReceiptTableViewController
+            let detailViewController = segue.destination as? DetailedReceiptTableViewController
             detailViewController?.itemStore = itemStore
             detailViewController?.eventController = eventController
         }

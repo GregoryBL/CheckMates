@@ -10,42 +10,41 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
 
 class DwollaAPIManager {
     static let sharedInstance = DwollaAPIManager()
     
     var OAuthToken: String? {
         set (newValue) {
-            NSUserDefaults.standardUserDefaults().setObject(newValue, forKey: "DwollaOAuthToken")
+            UserDefaults.standard.set(newValue, forKey: "DwollaOAuthToken")
         }
         get {
             // print(NSUserDefaults.standardUserDefaults().stringForKey("DwollaOAuthToken"))
-            return NSUserDefaults.standardUserDefaults().stringForKey("DwollaOAuthToken")
+            return UserDefaults.standard.string(forKey: "DwollaOAuthToken")
         }
     }
-    var tokenExpiry: NSDate? {
+    var tokenExpiry: Date? {
         set (newValue) {
-            NSUserDefaults.standardUserDefaults().setDouble((newValue?.timeIntervalSince1970)!, forKey: "DwollaOAuthExpiry")
+            UserDefaults.standard.set((newValue?.timeIntervalSince1970)!, forKey: "DwollaOAuthExpiry")
         }
         get {
-            return NSDate(timeIntervalSince1970: NSUserDefaults.standardUserDefaults().doubleForKey("DwollaOAuthExpiry"))
+            return Date(timeIntervalSince1970: UserDefaults.standard.double(forKey: "DwollaOAuthExpiry"))
         }
     }
     var refreshToken: String? {
         set (newValue) {
-            NSUserDefaults.standardUserDefaults().setObject(newValue, forKey: "DwollaOAuthRefreshToken")
+            UserDefaults.standard.set(newValue, forKey: "DwollaOAuthRefreshToken")
         }
         get {
-            return NSUserDefaults.standardUserDefaults().stringForKey("DwollaOAuthRefreshToken")
+            return UserDefaults.standard.string(forKey: "DwollaOAuthRefreshToken")
         }
     }
-    var refreshExpiry: NSDate? {
+    var refreshExpiry: Date? {
         set (newValue) {
-            NSUserDefaults.standardUserDefaults().setDouble((newValue?.timeIntervalSince1970)!, forKey: "DwollaOAuthRefreshExpiry")
+            UserDefaults.standard.set((newValue?.timeIntervalSince1970)!, forKey: "DwollaOAuthRefreshExpiry")
         }
         get {
-            return NSDate(timeIntervalSince1970: NSUserDefaults.standardUserDefaults().doubleForKey("DwollaOAuthRefreshExpiry"))
+            return Date(timeIntervalSince1970: UserDefaults.standard.double(forKey: "DwollaOAuthRefreshExpiry"))
         }
     }
     
@@ -57,7 +56,7 @@ class DwollaAPIManager {
     // handlers for the OAuth process
     // stored as vars since sometimes it requires a round trip to safari which
     // makes it hard to just keep a reference to it
-    var OAuthTokenCompletionHandler : (NSError? -> Void)?
+    var OAuthTokenCompletionHandler : ((NSError?) -> Void)?
     
     func hasOAuthToken() -> Bool {
         // TODO: implement
@@ -88,12 +87,12 @@ class DwollaAPIManager {
     func startOAuth2Login() {
         let authPath = "https://uat.dwolla.com/oauth/v2/authenticate?client_id=\(clientID)&response_type=code&redirect_uri=\(redirectURI)&scope=\(scope)&dwolla_landing=login"
         print(authPath)
-        if let authURL = NSURL(string: authPath) {
+        if let authURL = URL(string: authPath) {
             print("sending")
-            let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setBool(true, forKey: "loadingOAuthToken")
+            let defaults = UserDefaults.standard
+            defaults.set(true, forKey: "loadingOAuthToken")
             
-            UIApplication.sharedApplication().openURL(authURL)
+            UIApplication.shared.openURL(authURL)
         }
         
         if self.hasOAuthToken() {
@@ -108,14 +107,14 @@ class DwollaAPIManager {
         }
     }
     
-    func processOAuthStep1Response(url: NSURL) {
+    func processOAuthStep1Response(_ url: URL) {
         print(url)
         
-        let components = NSURLComponents(URL: url, resolvingAgainstBaseURL: false)
+        let components = URLComponents(url: url, resolvingAgainstBaseURL: false)
         var code : String?
         if let queryItems = components?.queryItems {
             for queryItem in queryItems {
-                if queryItem.name.lowercaseString == "code" {
+                if queryItem.name.lowercased() == "code" {
                     code = queryItem.value
                     break
                 }
@@ -129,10 +128,10 @@ class DwollaAPIManager {
             "grant_type": "authorization_code",
             "redirect_uri": redirectURI
         ]
-        Alamofire.request(.POST, getTokenPath, parameters: tokenParams!, encoding: .JSON)
+        Alamofire.request(getTokenPath, method: .post, parameters: tokenParams!, encoding: JSONEncoding.default)
             .validate()
-            .response { request, response, data, error in
-                if let anError = error {
+            .response { response in
+                if let anError = response.error {
                     print(anError)
                     if let completionHandler = self.OAuthTokenCompletionHandler {
                         let noOAuthError = NSError(domain: "com.alamofire.error", code: -1, userInfo: [NSLocalizedDescriptionKey: "Could not obtain an OAuth token", NSLocalizedRecoverySuggestionErrorKey: "Please retry your request"])
@@ -148,18 +147,18 @@ class DwollaAPIManager {
     
     func refreshOAuthToken() {
         let getTokenPath = "https://uat.dwolla.com/oauth/v2/token"
-        let tokenParams : [String: String]? = [
+        let tokenParams : [String: String] = [
             "client_id": clientID,
             "client_secret": clientSecret,
             "refresh_token": self.refreshToken!,
             "grant_type": "refresh_token",
         ]
         print("refreshing token")
-        Alamofire.request(.POST, getTokenPath, parameters: tokenParams!, encoding: .JSON)
+        Alamofire.request(getTokenPath, method: .post, parameters: tokenParams, encoding: JSONEncoding.default)
             .validate()
-            .response { request, response, data, error in
+            .response { response in
                 print("received refresh response")
-                if let anError = error {
+                if let anError = response.error {
                     print(anError)
                     if let completionHandler = self.OAuthTokenCompletionHandler {
                         let noOAuthError = NSError(domain: "com.alamofire.error", code: -1, userInfo: [NSLocalizedDescriptionKey: "Could not obtain an OAuth token", NSLocalizedRecoverySuggestionErrorKey: "Please retry your request"])
@@ -175,7 +174,7 @@ class DwollaAPIManager {
 
     }
     
-    func refreshTokenAndCallBack(callback: (String -> Void)) {
+    func refreshTokenAndCallBack(_ callback: @escaping ((String) -> Void)) {
         let getTokenPath = "https://uat.dwolla.com/oauth/v2/token"
         let tokenParams : [String: String]? = [
             "client_id": clientID,
@@ -184,11 +183,11 @@ class DwollaAPIManager {
             "grant_type": "refresh_token",
             ]
         print("refreshing token")
-        Alamofire.request(.POST, getTokenPath, parameters: tokenParams!, encoding: .JSON)
+        Alamofire.request(getTokenPath, method: .post, parameters: tokenParams!, encoding: JSONEncoding.default)
             .validate()
-            .response { request, response, data, error in
+            .response { response in
                 print("received refresh response")
-                if let anError = error {
+                if let anError = response.error {
                     print(anError)
                     if let completionHandler = self.OAuthTokenCompletionHandler {
                         let noOAuthError = NSError(domain: "com.alamofire.error", code: -1, userInfo: [NSLocalizedDescriptionKey: "Could not obtain an OAuth token", NSLocalizedRecoverySuggestionErrorKey: "Please retry your request"])
@@ -204,31 +203,33 @@ class DwollaAPIManager {
         }
     }
     
-    func handleOAuthTokenResponse(response: Response<NSData, NSError>) {
-        let returnValue = JSON(data: response.result.value!)
-        if let a_token = returnValue["access_token"].string {
-            self.OAuthToken = a_token
-        } else {
-            print(returnValue["access_token"])
+    func handleOAuthTokenResponse(_ response: DataResponse<Data>) {
+        let json = try? JSONSerialization.jsonObject(with: response.result.value!, options: [])
+        if let returnValue = json as? [String: Any] {
+            if let a_token = returnValue["access_token"] as? String {
+                self.OAuthToken = a_token
+            } else {
+                print(returnValue["access_token"])
+            }
+            if let a_expiry = returnValue["expires_in"] as? Double {
+                self.tokenExpiry = Date(timeIntervalSinceNow: a_expiry)
+            } else {
+                print(returnValue["expires_in"])
+            }
+            if let r_token = returnValue["refresh_token"] as? String {
+                self.refreshToken = r_token
+            } else {
+                print(returnValue["refresh_token"])
+            }
+            if let r_expiry = returnValue["refresh_expires_in"] as? Double {
+                self.refreshExpiry = Date(timeIntervalSinceNow: r_expiry)
+            } else {
+                print(returnValue["refresh_expires_in"])
+            }
+            print(self.OAuthToken)
+            print(self.refreshToken)
+            print(self.refreshExpiry)
+            print(self.tokenExpiry)
         }
-        if let a_expiry = returnValue["expires_in"].double {
-            self.tokenExpiry = NSDate(timeIntervalSinceNow: a_expiry)
-        } else {
-            print(returnValue["expires_in"])
-        }
-        if let r_token = returnValue["refresh_token"].string {
-            self.refreshToken = r_token
-        } else {
-            print(returnValue["refresh_token"])
-        }
-        if let r_expiry = returnValue["refresh_expires_in"].double {
-            self.refreshExpiry = NSDate(timeIntervalSinceNow: r_expiry)
-        } else {
-            print(returnValue["refresh_expires_in"])
-        }
-        print(self.OAuthToken)
-        print(self.refreshToken)
-        print(self.refreshExpiry)
-        print(self.tokenExpiry)
     }
 }

@@ -20,7 +20,7 @@ class ItemDetailViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         if(item != nil) {
@@ -31,7 +31,7 @@ class ItemDetailViewController: UIViewController, UITextFieldDelegate {
        
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         // Clear first responder
@@ -49,11 +49,11 @@ class ItemDetailViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    @IBAction func backgroundTapped(sender: UITapGestureRecognizer) {
+    @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
