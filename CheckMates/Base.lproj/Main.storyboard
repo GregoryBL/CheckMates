@@ -430,10 +430,10 @@
             </objects>
             <point key="canvasLocation" x="1952" y="903"/>
         </scene>
-        <!--Tab Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="d0o-Fv-NkE">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="C5c-Ns-eeS" customClass="TabController" customModule="CheckMates" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="C5c-Ns-eeS" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" tag="10" contentMode="scaleToFill" id="mkj-HC-MHt">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -498,7 +498,7 @@
         <!--Snap Receipt-->
         <scene sceneID="fX4-Tb-49G">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pgt-jY-sQP" customClass="SnapReceiptsNavigationController" customModule="CheckMates" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pgt-jY-sQP" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="2" title="Snap Receipt" image="CameraIcon" id="sOf-FE-HZS"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qKX-aB-znU">

@@ -18,7 +18,7 @@ class ContactsViewController: UIViewController, CNContactPickerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         
         if CNContactStore.authorizationStatus(for: .contacts) == .notDetermined {
-            CNContactStore().requestAccess(for: .contacts, completionHandler: { (authorized: Bool, error: NSError?) -> Void in
+            CNContactStore().requestAccess(for: .contacts, completionHandler: { (authorized: Bool, error: Error?) -> Swift.Void in
                 if authorized {
                     let contactPicker = CNContactPickerViewController()
                     contactPicker.delegate = self
@@ -26,7 +26,7 @@ class ContactsViewController: UIViewController, CNContactPickerDelegate {
                     
                     self.present(contactPicker, animated: true, completion: nil)
                 }
-            } as! (Bool, Error?) -> Void)
+            })
             
         } else if CNContactStore.authorizationStatus(for: .contacts) == .authorized {
             let contactPicker = CNContactPickerViewController()
@@ -83,7 +83,7 @@ class ContactsViewController: UIViewController, CNContactPickerDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowEvent" {
             let eventViewController = segue.destination as! EventTableViewController
-            self.eventController?.addContacts(mates)
+            self.eventController!.addContacts(mates)
             eventViewController.eventController = self.eventController
         }
     }

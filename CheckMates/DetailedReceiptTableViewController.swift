@@ -17,9 +17,8 @@ class DetailedReceiptTableViewController: UITableViewController {
         navigationItem.leftBarButtonItem = editButtonItem
     }
     
-    var itemStore: ItemStore!
+    var itemStore = ItemStore()
     var eventController: EventController?
-    var newItem: Item!
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
@@ -35,9 +34,6 @@ class DetailedReceiptTableViewController: UITableViewController {
     }
     
     @IBAction func addNewItem(_ sender: AnyObject) {
-        // Create a new Item and add it to the store
-        
-        newItem = itemStore.createItem("", price: 0)
         self.performSegue(withIdentifier: "ShowItem", sender: self)
     }
         
@@ -104,12 +100,15 @@ class DetailedReceiptTableViewController: UITableViewController {
             }
             else {
                 let detailItemViewController = segue.destination as! ItemDetailViewController
-                detailItemViewController.item = newItem
+                detailItemViewController.item = itemStore.createItem("", price: 0)
                 
             }
         }
         else if segue.identifier == "ShowEvent"{
             let contactsViewController = segue.destination as! ContactsViewController
+            if self.eventController == nil {
+                self.eventController = EventController()
+            }
             self.eventController!.addBillItems(itemStore)
             contactsViewController.eventController = eventController
         }

@@ -22,7 +22,10 @@ class EventController {
     }
     
     func addBillItems(_ items: ItemStore){
-        if newEvent != nil && newEvent?.receipt == nil {
+        if newEvent == nil {
+            createNewEvent()
+        }
+        if newEvent?.receipt == nil {
             newEvent!.receipt = NSEntityDescription.insertNewObject(forEntityName: "Receipt", into: cds.mainQueueContext) as? Receipt
         }
         for item in items.allItems{
