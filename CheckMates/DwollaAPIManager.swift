@@ -10,7 +10,6 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
 
 class DwollaAPIManager {
     static let sharedInstance = DwollaAPIManager()
@@ -93,7 +92,7 @@ class DwollaAPIManager {
             let defaults = UserDefaults.standard
             defaults.set(true, forKey: "loadingOAuthToken")
             
-            UIApplication.sharedApplication().openURL(authURL)
+            UIApplication.shared.openURL(authURL)
         }
         
         if self.hasOAuthToken() {
@@ -129,10 +128,10 @@ class DwollaAPIManager {
             "grant_type": "authorization_code",
             "redirect_uri": redirectURI
         ]
-        Alamofire.request(.POST, getTokenPath, parameters: tokenParams!, encoding: .JSON)
+        Alamofire.request(getTokenPath, method: .post, parameters: tokenParams!, encoding: JSONEncoding.default)
             .validate()
-            .response { request, response, data, error in
-                if let anError = error {
+            .response { response in
+                if let anError = response.error {
                     print(anError)
                     if let completionHandler = self.OAuthTokenCompletionHandler {
                         let noOAuthError = NSError(domain: "com.alamofire.error", code: -1, userInfo: [NSLocalizedDescriptionKey: "Could not obtain an OAuth token", NSLocalizedRecoverySuggestionErrorKey: "Please retry your request"])
@@ -148,18 +147,18 @@ class DwollaAPIManager {
     
     func refreshOAuthToken() {
         let getTokenPath = "https://uat.dwolla.com/oauth/v2/token"
-        let tokenParams : [String: String]? = [
+        let tokenParams : [String: String] = [
             "client_id": clientID,
             "client_secret": clientSecret,
             "refresh_token": self.refreshToken!,
             "grant_type": "refresh_token",
         ]
         print("refreshing token")
-        Alamofire.request(.POST, getTokenPath, parameters: tokenParams!, encoding: .JSON)
+        Alamofire.request(getTokenPath, method: .post, parameters: tokenParams, encoding: JSONEncoding.default)
             .validate()
-            .response { request, response, data, error in
+            .response { response in
                 print("received refresh response")
-                if let anError = error {
+                if let anError = response.error {
                     print(anError)
                     if let completionHandler = self.OAuthTokenCompletionHandler {
                         let noOAuthError = NSError(domain: "com.alamofire.error", code: -1, userInfo: [NSLocalizedDescriptionKey: "Could not obtain an OAuth token", NSLocalizedRecoverySuggestionErrorKey: "Please retry your request"])
@@ -184,11 +183,11 @@ class DwollaAPIManager {
             "grant_type": "refresh_token",
             ]
         print("refreshing token")
-        Alamofire.request(.POST, getTokenPath, parameters: tokenParams!, encoding: .JSON)
+        Alamofire.request(getTokenPath, method: .post, parameters: tokenParams!, encoding: JSONEncoding.default)
             .validate()
-            .response { request, response, data, error in
+            .response { response in
                 print("received refresh response")
-                if let anError = error {
+                if let anError = response.error {
                     print(anError)
                     if let completionHandler = self.OAuthTokenCompletionHandler {
                         let noOAuthError = NSError(domain: "com.alamofire.error", code: -1, userInfo: [NSLocalizedDescriptionKey: "Could not obtain an OAuth token", NSLocalizedRecoverySuggestionErrorKey: "Please retry your request"])
@@ -204,7 +203,7 @@ class DwollaAPIManager {
         }
     }
     
-    func handleOAuthTokenResponse(_ response: Response<NSData, NSError>) {
+    func handleOAuthTokenResponse(_ response: DataResponse<Data>) {
         let returnValue = JSON(data: response.result.value!)
         if let a_token = returnValue["access_token"].string {
             self.OAuthToken = a_token

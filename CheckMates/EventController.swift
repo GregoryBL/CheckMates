@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-import SwiftyJSON
 
 class EventController {
     
@@ -57,7 +56,7 @@ class EventController {
     }
     
     fileprivate func checkForTipAndTax(_ regex: String, text: String) -> Bool {
-        var results = []
+        var results : [NSTextCheckingResult] = []
         do {
             let regex = try NSRegularExpression(pattern: regex, options: [])
             let nsString = text as NSString
@@ -77,11 +76,11 @@ class EventController {
         cds.saveChanges()
     }
     
-    func fetchAllEvents() -> [Event]{
-        let fetchRequest = NSFetchRequest(entityName: "Event")
+    func fetchAllEvents() -> [Event] {
+        let fetchRequest : NSFetchRequest<Event> = NSFetchRequest(entityName: "Event")
         do {
-            let fetchResults = try cds.mainQueueContext.fetch(fetchRequest) as? [Event]
-            return (fetchResults!)
+            let fetchResults = try cds.mainQueueContext.fetch(fetchRequest)
+            return (fetchResults)
         } catch let error as NSError {
             print(error)
         }

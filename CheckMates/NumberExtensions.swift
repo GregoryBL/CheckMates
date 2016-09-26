@@ -14,7 +14,7 @@ extension Float {
         formatter.numberStyle = .currency
         formatter.currencySymbol = "" 
         formatter.currencyGroupingSeparator = ""
-        return formatter.string(from: NSNumber(self))!
+        return formatter.string(from: NSNumber(value: self))!
     }
 }
 

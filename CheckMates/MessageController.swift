@@ -22,8 +22,9 @@ class MessageController {
                 "Body" : "Spilting the bill is easy with CheckMates http://checkmatesapp.com/bills/\(billId)/users/\(recipient.uuid!)"
             ]
             myGroupMates.enter()
-            Alamofire.request(.POST, "https://\(twilloUsername):\(twilloPassword)@api.twilio.com/2010-04-01/Accounts/\(twilloUsername)/Messages", parameters: data).responseJSON { response in
-                dispatch_group_leave(myGroupMates)
+            Alamofire.request("https://\(twilloUsername):\(twilloPassword)@api.twilio.com/2010-04-01/Accounts/\(twilloUsername)/Messages", method: .post, parameters: data)
+                .responseJSON { response in
+                myGroupMates.leave()
                 
                 print("Twilio send to \(recipient.mobileNumber!)")
             }

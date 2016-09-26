@@ -8,7 +8,6 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
 
 class DwollaRequest {
     
@@ -33,15 +32,15 @@ class DwollaRequest {
     var sourceType : String
     var amount : Int
     var notes : String // 250 char max
-    var response : Response<NSData, NSError>?
+    var response : DataResponse<Data>?
     
     func requestPayment() -> Request {
-        return Alamofire.request(.POST, DwollaRequest.requestURL, parameters: [
+        return Alamofire.request(DwollaRequest.requestURL, method: .post, parameters: [
             "sourceId": sourceID,
             "sourceType": sourceType,
             "amount": Double(amount)/100,
             "notes": notes
-            ], encoding: .JSON, headers: self.headers)
+            ], encoding: JSONEncoding.default, headers: self.headers)
             .responseData { response in
                 self.response = response
         }

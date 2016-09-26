@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftyJSON
 
 
 class PaymentsController : NSObject {
@@ -31,12 +30,12 @@ class PaymentsController : NSObject {
         print("called finishRequest")
         return { token in
             let request = DwollaRequest.init(sourceID: contact.mobileNumber!, sourceType: "Phone", amount: amount, notes: notes, token: token)
-            let afRequest = request.requestPayment()
-            afRequest.response { request, response, data, error in
-                print(request?.allHTTPHeaderFields)
-                print(JSON(data: data!))
-                print("payment requested")
-            }
+            request.requestPayment() // let afRequest =
+//            afRequest.response { response in
+//                print(response.request?.allHTTPHeaderFields)
+//                print(JSON(data: data!))
+//                print("payment requested")
+//            }
             
         }
     }

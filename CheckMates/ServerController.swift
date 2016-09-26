@@ -8,7 +8,6 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
 
 
 class ServerController {
@@ -24,7 +23,7 @@ class ServerController {
         let itemsDict : [String: AnyObject] = ["items": itemsArray]
         let toSend : [String: AnyObject]? = ["bill": itemsDict as AnyObject]
 
-        Alamofire.request(.POST, serverURL + "/bills", parameters: toSend, encoding: .JSON)
+        Alamofire.request(serverURL + "/bills", method: .post, parameters: toSend, encoding: JSONEncoding.default)
             .responseData { response in
                 print(response.result.value)
                 print(response)
@@ -36,7 +35,7 @@ class ServerController {
     }
     
     func retrieveReceiptFromServer(_ billID: String, target: EventController) {
-        Alamofire.request(.GET, serverURL + "/bills/" + billID)
+        Alamofire.request(serverURL + "/bills/" + billID)
             .responseData { response in
                 target.parseJSON(response.result.value!)
         }
