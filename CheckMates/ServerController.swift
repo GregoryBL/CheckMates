@@ -28,7 +28,7 @@ class ServerController {
                 print(response.result.value)
                 print(response)
                 
-                print(JSON(data: response.result.value!))
+//                print(JSON(data: response.result.value!))
                 sender.parseOriginalResponse(response.result.value!)
                 sender.sendMessages()
         }

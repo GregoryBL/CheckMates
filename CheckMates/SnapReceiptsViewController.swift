@@ -49,7 +49,7 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
     
     override func viewWillAppear(_ animated: Bool) {
         
-        if(self.pickedPhoto == false) {
+        if(UIImagePickerController.isSourceTypeAvailable(.camera) && self.pickedPhoto == false) {
             launchCamera()
         }
     }
@@ -81,6 +81,8 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        self.pickedPhoto = true
         // get image
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         let scaledImage = PhotoTakingHelper.scaleImage(image, maxDimension: 1200)
@@ -105,7 +107,7 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
     {
         // picker cancelled, dismiss picker view controller
         self.dismiss(animated: true, completion: nil)
-        pickedPhoto = true
+        pickedPhoto = false
     }
 
     

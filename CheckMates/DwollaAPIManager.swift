@@ -204,30 +204,32 @@ class DwollaAPIManager {
     }
     
     func handleOAuthTokenResponse(_ response: DataResponse<Data>) {
-        let returnValue = JSON(data: response.result.value!)
-        if let a_token = returnValue["access_token"].string {
-            self.OAuthToken = a_token
-        } else {
-            print(returnValue["access_token"])
+        let json = try? JSONSerialization.jsonObject(with: response.result.value!, options: [])
+        if let returnValue = json as? [String: Any] {
+            if let a_token = returnValue["access_token"] as? String {
+                self.OAuthToken = a_token
+            } else {
+                print(returnValue["access_token"])
+            }
+            if let a_expiry = returnValue["expires_in"] as? Double {
+                self.tokenExpiry = Date(timeIntervalSinceNow: a_expiry)
+            } else {
+                print(returnValue["expires_in"])
+            }
+            if let r_token = returnValue["refresh_token"] as? String {
+                self.refreshToken = r_token
+            } else {
+                print(returnValue["refresh_token"])
+            }
+            if let r_expiry = returnValue["refresh_expires_in"] as? Double {
+                self.refreshExpiry = Date(timeIntervalSinceNow: r_expiry)
+            } else {
+                print(returnValue["refresh_expires_in"])
+            }
+            print(self.OAuthToken)
+            print(self.refreshToken)
+            print(self.refreshExpiry)
+            print(self.tokenExpiry)
         }
-        if let a_expiry = returnValue["expires_in"].double {
-            self.tokenExpiry = Date(timeIntervalSinceNow: a_expiry)
-        } else {
-            print(returnValue["expires_in"])
-        }
-        if let r_token = returnValue["refresh_token"].string {
-            self.refreshToken = r_token
-        } else {
-            print(returnValue["refresh_token"])
-        }
-        if let r_expiry = returnValue["refresh_expires_in"].double {
-            self.refreshExpiry = Date(timeIntervalSinceNow: r_expiry)
-        } else {
-            print(returnValue["refresh_expires_in"])
-        }
-        print(self.OAuthToken)
-        print(self.refreshToken)
-        print(self.refreshExpiry)
-        print(self.tokenExpiry)
     }
 }

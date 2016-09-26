@@ -103,21 +103,23 @@ class EventController {
     
     func parseJSON(_ data: Data){
 
-        let json = JSON(data: data)
+        let json = try? JSONSerialization.jsonObject(with: data, options: [])
         
-        let items = json["items"]
-        print("hello")
-        print(items)
-        
-        if let itemArray = (json["items"].array) {
-            print(itemArray)
-            for item in itemArray {
-                if let contact = userIDHasMatch((item["user_id"].stringValue)) {
-                    print(contact)
-                    if let item = receiptItemHasMatch(item["item_description"].string!) {
-                        item.contact = contact
-                        print(item)
-                        print(item.contact)
+        if let dictionary = json as? [String: Any] {
+            
+            if let itemArray = dictionary["items"] as? [Any] {
+                print(itemArray)
+                for thing in itemArray {
+                    if let item = thing as? [String: Any] {
+                        if let contactName = item["user_id"] as? String, let itemString = item["item_description"] as? String {
+                            print(contactName)
+                            let contact = userIDHasMatch(contactName)
+                            if let item = receiptItemHasMatch(itemString) {
+                                item.contact = contact
+                                print(item)
+                                print(item.contact)
+                            }
+                        }
                     }
                 }
             }
@@ -125,19 +127,17 @@ class EventController {
     }
     
     func parseOriginalResponse(_ data: Data) {
-        let json = JSON(data: data)
+        let json = try? JSONSerialization.jsonObject(with: data, options: [])
         print(json)
-        if json["bill"] != nil {
-            print(json["bill"])
-            print(json["bill"]["id"])
-            print(json["bill"]["id"].string)
-            print(json["bill"]["id"].int)
-            let id = (String(json["bill"]["id"].int!))
-            print(id)
-            newEvent?.receipt!.backEndID = id
+        
+        if let dictionary = json as? [String: Any] {
+            if let bill = dictionary["bill"] as? [String: Any], let id = bill["id"] as? String? {
+                print(id)
+                newEvent?.receipt!.backEndID = id
+            }
+            print(self.newEvent?.receipt?.backEndID!)
+            print("finish parsing original response")
         }
-        print(self.newEvent?.receipt?.backEndID!)
-        print("finish parsing original response")
     }
     
     fileprivate func userIDHasMatch(_ userID: String) -> Contact? {

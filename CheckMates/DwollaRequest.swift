@@ -52,13 +52,13 @@ class DwollaRequest {
         }
         return false
     }
-    
-    func requestWasSuccessful() -> Bool {
-        if let success = JSON(data: response!.result.value!)["Success"].bool {
-            return success
-        }
-        return false
-    }
+//    
+//    func requestWasSuccessful() -> Bool {
+//        if let success = JSON(data: response!.result.value!)["Success"].bool {
+//            return success
+//        }
+//        return false
+//    }
     
     
 }
