@@ -18,7 +18,6 @@ class EventController {
         newEvent = NSEntityDescription.insertNewObject(forEntityName: "Event", into: cds.mainQueueContext) as? Event
         let date = Date()
         newEvent!.createdAt = date.timeIntervalSinceReferenceDate
-        
     }
     
     func addBillItems(_ items: ItemStore){

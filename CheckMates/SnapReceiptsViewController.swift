@@ -22,40 +22,13 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
     
     var photoTakingHelper: PhotoTakingHelper?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//        
-//        let eventController = EventController()
-//        eventController.createNewEvent()
-//        let itemStore = ItemStore()
-//        itemStore.createItem("Doodie", price: 33.22)
-//        itemStore.createItem("Fartjuice", price: 199.00)
-//        itemStore.createItem("Tax three two", price: 3.99)
-//        itemStore.createItem("my TIP", price: 9)
-//        
-//        eventController.addBillItems(itemStore)
-//        
-//        let mate1 = Mate(firstName: "Charles", lastName: "Bruckenheiser", mobileNumber: "9993232244", id: "9439j34", image: nil)
-//        let mate2 = Mate(firstName: "Camden", lastName: "Parker", mobileNumber: "2881234432", id: "9i24jt", image: nil)
-//        let mate3 = Mate(firstName: "Eric", lastName: "Scantinopolos", mobileNumber: "5554556554", id: "39uhgdw2", image: nil)
-//        var mates = [Mate]()
-//        mates += [mate1, mate2, mate3]
-//        eventController.addContacts(mates)
-//        eventController.saveEvent()
-//
-//        eventController.parseJSON()
-//        eventController.updateReceipt("", updateAttr: <#T##AnyObject#>)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         if(UIImagePickerController.isSourceTypeAvailable(.camera) && self.pickedPhoto == false) {
             launchCamera()
+            self.pickedPhoto = true
         }
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        self.pickedPhoto = false
     }
     
     @IBAction func snapReceipt(_ sender:UIButton!)
@@ -87,7 +60,7 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         let scaledImage = PhotoTakingHelper.scaleImage(image, maxDimension: 1200)
         
-        addActivityIndicator()
+        DispatchQueue.global(qos: .background).async { self.addActivityIndicator() }
         
         imageView.image = scaledImage
         dismiss(animated: true, completion: {
@@ -107,7 +80,6 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
     {
         // picker cancelled, dismiss picker view controller
         self.dismiss(animated: true, completion: nil)
-        pickedPhoto = false
     }
 
     

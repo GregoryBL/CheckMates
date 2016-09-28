@@ -9,16 +9,16 @@
 import UIKit
 
 
-class DetailedReceiptTableViewController: UITableViewController {
+class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewControllerDelegate {
+    
+    var itemStore = ItemStore()
+    var eventController: EventController?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         navigationItem.leftBarButtonItem = editButtonItem
     }
-    
-    var itemStore = ItemStore()
-    var eventController: EventController?
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
@@ -41,7 +41,6 @@ class DetailedReceiptTableViewController: UITableViewController {
         if editingStyle == .delete {
             let item = itemStore.allItems[(indexPath as NSIndexPath).row]
             
-            
             let title = "Remove \(item.title)?"
             let message = "Are you sure you want to delete this item?"
             
@@ -52,10 +51,10 @@ class DetailedReceiptTableViewController: UITableViewController {
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             alertController.addAction(cancelAction)
             
-            let deleteAction = UIAlertAction(title: "Delete", style: .destructive,handler: { (action) -> Void in
-                                                                                                self.itemStore.removeItem(item)
-                                                                                                self.tableView.deleteRows(at: [indexPath], with: .automatic)
-            })
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { action in
+                self.itemStore.removeItem(item)
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
             alertController.addAction(deleteAction)
             
             present(alertController, animated: true, completion: nil)
@@ -86,23 +85,9 @@ class DetailedReceiptTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "ShowItem" {
-            
-            // determine which row was selected
-            if let row = (tableView.indexPathForSelectedRow as NSIndexPath?)?.row {
-                
-                // get the item associated with this row
-                let item = itemStore.allItems[row]
-                let backItem = UIBarButtonItem()
-                backItem.title = "save"
-                navigationItem.backBarButtonItem = backItem
-                let detailItemViewController = segue.destination as! ItemDetailViewController
-                detailItemViewController.item = item
-            }
-            else {
-                let detailItemViewController = segue.destination as! ItemDetailViewController
-                detailItemViewController.item = itemStore.createItem("", price: 0)
-                
-            }
+            let detailItemViewController = segue.destination as! ItemDetailViewController
+            detailItemViewController.delegate = self
+            detailItemViewController.indexPath = tableView.indexPathForSelectedRow
         }
         else if segue.identifier == "ShowEvent"{
             let contactsViewController = segue.destination as! ContactsViewController
@@ -111,6 +96,30 @@ class DetailedReceiptTableViewController: UITableViewController {
             }
             self.eventController!.addBillItems(itemStore)
             contactsViewController.eventController = eventController
+        }
+    }
+    
+    // MARK: ItemDetailViewControllerDelegate
+    
+    func itemDetailViewControllerDidCompleteEditingItem(_ item : Item, new: Bool, sender: ItemDetailViewController) {
+        if (new) {
+            if (item.title == "" || item.price == 0.0) {
+                return
+            }
+            self.itemStore.createItem(item.title, price: item.price)
+        }
+        sender.dismiss(animated: true, completion: nil)
+    }
+    
+    func itemDetailViewControllerDidCancel(_ sender: ItemDetailViewController) {
+        sender.dismiss(animated: true, completion: nil)
+    }
+    
+    func existingItemForIndexPath(_ indexPath : IndexPath?) -> Item? {
+        if let row = (tableView.indexPathForSelectedRow as NSIndexPath?)?.row {
+            return itemStore.allItems[row]
+        } else {
+            return nil
         }
     }
 }
