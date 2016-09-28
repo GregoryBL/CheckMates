@@ -102,11 +102,11 @@ class PhotoTakingHelper {
                             let components = lineAsArray[0].components(separatedBy: CharacterSet.decimalDigits.inverted)
                             let firstNumber = components.joined(separator: "").asInteger
                             if(firstNumber < 10) {
-                                // the first number is probably the item count, so create the appropriate numbe of items
+                                // the first number is probably the item count, so create the appropriate number of items
                                 var i = 1
                                 while i <= firstNumber {
                                     title = lineAsString
-                                    itemStore.createItem(title, price: price)
+                                    itemStore.createItem(title, price: price/Float(firstNumber))
                                     i += 1
                                 }
                             }

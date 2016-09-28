@@ -14,6 +14,22 @@ class ItemDetailViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var priceField: UITextField!
     @IBOutlet var dateField:  UILabel!
     
+    @IBAction func doneEditing(_ sender: UIBarButtonItem) {
+        view.endEditing(true)
+        
+        if(item == nil) {
+            item = Item(title: titleField.text!, price: priceField.text!.asFloat)
+        } else {
+            item.title = titleField.text ?? ""
+            item.price = priceField.text!.asFloat
+        }
+        self.dismiss(animated:true, completion: nil)
+    }
+    
+    @IBAction func cancelEditing(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     var item: Item! {
         didSet {
             navigationItem.title = item.title
@@ -29,24 +45,6 @@ class ItemDetailViewController: UIViewController, UITextFieldDelegate {
             dateField.text = item.created_at.friendlyDate
         }
        
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        // Clear first responder
-        view.endEditing(true)
-        
-        if(item == nil) {
-            // add a new item
-            item = Item(title: titleField.text!, price: priceField.text!.asFloat)
-        }
-        else {
-            // save the changes that were made
-            item.title = titleField.text ?? ""
-            item.price = priceField.text!.asFloat
-        }
-        
     }
     
     @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {

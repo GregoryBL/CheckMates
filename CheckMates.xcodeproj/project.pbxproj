@@ -160,6 +160,7 @@
 		371544EE1D99CCBA007CA55D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				379CBBA01D7CC9A100352669 /* CheckMates.xcdatamodeld */,
 				F0EA6FAF1D80D2EA0035E13A /* Event+CoreDataProperties.swift */,
 				F0EA6FB01D80D2EA0035E13A /* Event.swift */,
 				F0EA6FB11D80D2EA0035E13A /* Contact+CoreDataProperties.swift */,
@@ -186,7 +187,6 @@
 				0DB4C95A1D7D0F4200FFDF85 /* DetailedReceiptTableViewController.swift */,
 				0DB4C9621D7DE61400FFDF85 /* ItemDetailViewConroller.swift */,
 				F197DDCA1D806928008D8F17 /* EventTableViewController.swift */,
-				379CBBA01D7CC9A100352669 /* CheckMates.xcdatamodeld */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -656,6 +656,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = HVV8UXES66;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = CheckMates/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -673,6 +674,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = HVV8UXES66;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = CheckMates/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
