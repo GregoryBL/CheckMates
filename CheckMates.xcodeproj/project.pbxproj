@@ -28,6 +28,7 @@
 		372C953F1D7CD0A100BD0DB0 /* PaymentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372C953E1D7CD0A100BD0DB0 /* PaymentsController.swift */; };
 		372C95411D7CD41600BD0DB0 /* DwollaAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372C95401D7CD41600BD0DB0 /* DwollaAPIManager.swift */; };
 		372C95431D7CD77200BD0DB0 /* DwollaRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372C95421D7CD77200BD0DB0 /* DwollaRequest.swift */; };
+		372D26DA1D9C43740072E299 /* ItemDetailViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372D26D91D9C43740072E299 /* ItemDetailViewControllerDelegate.swift */; };
 		37425FAB1D823AE6008A3C74 /* ReceiptsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37425FAA1D823AE6008A3C74 /* ReceiptsTableViewController.swift */; };
 		379CBB9A1D7CC9A100352669 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379CBB991D7CC9A100352669 /* AppDelegate.swift */; };
 		379CBB9F1D7CC9A100352669 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 379CBB9D1D7CC9A100352669 /* Main.storyboard */; };
@@ -83,6 +84,7 @@
 		372C953E1D7CD0A100BD0DB0 /* PaymentsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentsController.swift; sourceTree = "<group>"; };
 		372C95401D7CD41600BD0DB0 /* DwollaAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DwollaAPIManager.swift; sourceTree = "<group>"; };
 		372C95421D7CD77200BD0DB0 /* DwollaRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DwollaRequest.swift; sourceTree = "<group>"; };
+		372D26D91D9C43740072E299 /* ItemDetailViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailViewControllerDelegate.swift; sourceTree = "<group>"; };
 		37425FAA1D823AE6008A3C74 /* ReceiptsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptsTableViewController.swift; sourceTree = "<group>"; };
 		379CBB961D7CC9A100352669 /* CheckMates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckMates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		379CBB991D7CC9A100352669 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				37425FAA1D823AE6008A3C74 /* ReceiptsTableViewController.swift */,
 				0DE3FABC1D7FCA27005E5D9F /* PickFromAlbumViewController.swift */,
 				0DB4C95A1D7D0F4200FFDF85 /* DetailedReceiptTableViewController.swift */,
+				372D26D91D9C43740072E299 /* ItemDetailViewControllerDelegate.swift */,
 				0DB4C9621D7DE61400FFDF85 /* ItemDetailViewConroller.swift */,
 				F197DDCA1D806928008D8F17 /* EventTableViewController.swift */,
 			);
@@ -330,7 +333,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = checkMates;
 				TargetAttributes = {
 					379CBB951D7CC9A100352669 = {
@@ -496,6 +499,7 @@
 				F0EA6FAE1D80D2170035E13A /* CoreDataStack.swift in Sources */,
 				F0EA6FBC1D80D2EA0035E13A /* ReceiptItem.swift in Sources */,
 				372C953F1D7CD0A100BD0DB0 /* PaymentsController.swift in Sources */,
+				372D26DA1D9C43740072E299 /* ItemDetailViewControllerDelegate.swift in Sources */,
 				F197DDCB1D806928008D8F17 /* EventTableViewController.swift in Sources */,
 				372C953B1D7CCE8C00BD0DB0 /* ApiKeys.swift in Sources */,
 				F0EA6FBB1D80D2EA0035E13A /* ReceiptItem+CoreDataProperties.swift in Sources */,
