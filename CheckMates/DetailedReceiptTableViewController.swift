@@ -106,7 +106,7 @@ class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewC
             if (item.title == "" || item.price == 0.0) {
                 return
             }
-            self.itemStore.createItem(item.title, price: item.price)
+            _ = self.itemStore.createItem(item.title, price: item.price)
         }
         sender.dismiss(animated: true, completion: nil)
     }

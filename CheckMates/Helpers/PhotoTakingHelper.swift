@@ -106,14 +106,14 @@ class PhotoTakingHelper {
                                 var i = 1
                                 while i <= firstNumber {
                                     title = lineAsString
-                                    itemStore.createItem(title, price: price/Float(firstNumber))
+                                    _ = itemStore.createItem(title, price: price/Float(firstNumber))
                                     i += 1
                                 }
                             }
                         }
                         else {
                             title = lineAsString
-                            itemStore.createItem(title, price: price)
+                            _ = itemStore.createItem(title, price: price)
                         }
                     }
                 }
