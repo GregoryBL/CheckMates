@@ -32,7 +32,13 @@ class EventTableViewController: UITableViewController {
     override func viewDidLoad() {
         if let buttonTitle = titleForCERPButton {
             completeEventRequestPaymentButton.setTitle(buttonTitle, for:  UIControlState())
-            ServerController().retrieveReceiptFromServer((eventController?.newEvent?.receipt?.backEndID!)!, target: eventController!)
+            if let backEndID = eventController?.newEvent?.receipt?.backEndID {
+                print("had backendID")
+                ServerController().retrieveReceiptFromServer(backEndID, target: eventController!)
+            } else {
+                print("sent off new bill")
+                eventController?.billIsComplete()
+            }
             let apiManager = DwollaAPIManager.sharedInstance
             if !apiManager.hasOAuthToken() && apiManager.hasRefreshToken() {
                 apiManager.refreshOAuthToken()
@@ -54,15 +60,15 @@ class EventTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return (eventController?.newEvent!.contacts!.count)!
+        return eventController!.newEvent!.contacts!.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell")
-        let currentMate = eventController?.newEvent!.contacts!.allObjects[(indexPath as NSIndexPath).row] as! Contact!
-        cell?.textLabel!.text = "\(currentMate?.firstName!) \(currentMate?.lastName!)"
-        cell?.detailTextLabel!.text = "\(currentMate?.mobileNumber!)"
+        let currentMate = eventController!.newEvent!.contacts!.allObjects[(indexPath as NSIndexPath).row] as! Contact
+        cell?.textLabel!.text = "\(currentMate.firstName!) \(currentMate.lastName!)"
+        cell?.detailTextLabel!.text = "\(currentMate.mobileNumber!)"
         
        
         return cell!
