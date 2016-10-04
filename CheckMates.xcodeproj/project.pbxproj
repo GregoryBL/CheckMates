@@ -36,6 +36,7 @@
 		379CBBA41D7CC9A100352669 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 379CBBA31D7CC9A100352669 /* Assets.xcassets */; };
 		379CBBA71D7CC9A100352669 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 379CBBA51D7CC9A100352669 /* LaunchScreen.storyboard */; };
 		379CBBB21D7CC9A200352669 /* CheckMatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379CBBB11D7CC9A200352669 /* CheckMatesTests.swift */; };
+		37DE4F5A1DA3F63500A2BC60 /* NewReceipt.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37DE4F591DA3F63500A2BC60 /* NewReceipt.storyboard */; };
 		37EAAECB1D80815B0039064B /* ServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EAAECA1D80815B0039064B /* ServerController.swift */; };
 		71E3B24471B29B53EBAFD2F9 /* Pods_CheckMates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631544A51BE40205E7D54218 /* Pods_CheckMates.framework */; };
 		F0EA6FAA1D80D15F0035E13A /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA6FA91D80D15F0035E13A /* EventController.swift */; };
@@ -96,6 +97,7 @@
 		379CBBAD1D7CC9A200352669 /* CheckMatesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CheckMatesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		379CBBB11D7CC9A200352669 /* CheckMatesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMatesTests.swift; sourceTree = "<group>"; };
 		379CBBB31D7CC9A200352669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37DE4F591DA3F63500A2BC60 /* NewReceipt.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewReceipt.storyboard; sourceTree = "<group>"; };
 		37EAAECA1D80815B0039064B /* ServerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerController.swift; sourceTree = "<group>"; };
 		631544A51BE40205E7D54218 /* Pods_CheckMates.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckMates.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BB260BE7DA72BA1CE84F293 /* Pods_CheckMatesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckMatesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -253,6 +255,7 @@
 				371544F01D99CD89007CA55D /* Controllers */,
 				0D9FE3BB1D803B9C003C5A59 /* Helpers */,
 				379CBB9D1D7CC9A100352669 /* Main.storyboard */,
+				37DE4F591DA3F63500A2BC60 /* NewReceipt.storyboard */,
 				379CBBA51D7CC9A100352669 /* LaunchScreen.storyboard */,
 				379CBB991D7CC9A100352669 /* AppDelegate.swift */,
 				379CBBA81D7CC9A100352669 /* Info.plist */,
@@ -375,6 +378,7 @@
 				372C953D1D7CCEB700BD0DB0 /* APIKeys.plist in Resources */,
 				0DB4C9551D7D008900FFDF85 /* tessdata in Resources */,
 				379CBBA41D7CC9A100352669 /* Assets.xcassets in Resources */,
+				37DE4F5A1DA3F63500A2BC60 /* NewReceipt.storyboard in Resources */,
 				379CBB9F1D7CC9A100352669 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,12 +14,6 @@ class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewC
     var itemStore = ItemStore()
     var eventController: EventController?
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-        navigationItem.leftBarButtonItem = editButtonItem
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
@@ -31,10 +25,6 @@ class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewC
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 65
 
-    }
-    
-    @IBAction func addNewItem(_ sender: AnyObject) {
-        self.performSegue(withIdentifier: "ShowItem", sender: self)
     }
         
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -89,7 +79,7 @@ class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewC
             detailItemViewController.delegate = self
             detailItemViewController.indexPath = tableView.indexPathForSelectedRow
         }
-        else if segue.identifier == "ShowEvent"{
+        else if segue.identifier == "ChooseContacts"{
             let contactsViewController = segue.destination as! ContactsViewController
             if self.eventController == nil {
                 self.eventController = EventController()

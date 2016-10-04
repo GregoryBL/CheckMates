@@ -90,17 +90,20 @@ class EventController {
     }
     
     func billIsComplete() {
-        print(self.newEvent)
+        print(self.newEvent!.receipt!)
         self.saveEvent()
         let serverController = ServerController()
-        serverController.sendNewReceiptToServer((self.newEvent?.receipt!)!, sender: self) // pass in self to get sendMessages called when it completes
+        serverController.sendNewReceiptToServer((self.newEvent!.receipt!), sender: self) // pass in self to get sendMessages called when it completes
     }
     
     func sendMessages() {
         print("starting to send messages")
         let mc = MessageController()
-        print(self.newEvent?.receipt?.backEndID)
-        mc.textContacts(self.newEvent!.contacts?.allObjects as! [Contact], billId: (self.newEvent?.receipt?.backEndID)!)
+        let backEndID = self.newEvent!.receipt!.backEndID!
+        print(backEndID)
+        let contacts = self.newEvent!.contacts!.allObjects as! [Contact]
+        print(contacts)
+        mc.textContacts(contacts, billId: backEndID)
     }
     
     func parseJSON(_ data: Data){
@@ -132,12 +135,18 @@ class EventController {
         let json = try? JSONSerialization.jsonObject(with: data, options: [])
         print(json)
         
-        if let dictionary = json as? [String: Any] {
-            if let bill = dictionary["bill"] as? [String: Any], let id = bill["id"] as? String? {
-                print(id)
-                newEvent?.receipt!.backEndID = id
+        if let dictionary = (json as? [String: Any]) {
+            print("dictionary: \(dictionary)")
+            if let bill = dictionary["bill"] as? [String: Any] {
+                print("bill: \(bill)")
+                if let id = (bill["id"] as? Int) {
+                    print("id: \(id)")
+                    newEvent?.receipt!.backEndID = String(id)
+                    saveEvent()
+                }
+                print(bill)
             }
-            print(self.newEvent?.receipt?.backEndID!)
+            print(self.newEvent!.receipt!.backEndID)
             print("finish parsing original response")
         }
     }

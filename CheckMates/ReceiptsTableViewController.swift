@@ -24,16 +24,10 @@ class ReceiptsTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         print("View Will Appear")
         events = eventController.fetchAllEvents()
         tableView.reloadData()
-    }
-    
-    
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -42,7 +36,6 @@ class ReceiptsTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return (eventController.fetchAllEvents().count)
     }
     
@@ -66,10 +59,7 @@ class ReceiptsTableViewController: UITableViewController {
             
             // determine which row was selected
             if let row = (tableView.indexPathForSelectedRow as NSIndexPath?)?.row {
-                
-                let backItem = UIBarButtonItem()
-                backItem.title = "cancel"
-                navigationItem.backBarButtonItem = backItem
+                print(row)
                 
                 // get the item associated with this row
                 let event = events![row]
@@ -85,6 +75,10 @@ class ReceiptsTableViewController: UITableViewController {
             }
         
         }
+        
+    }
+    
+    @IBAction func cancelToReceiptsTableViewController(segue:UIStoryboardSegue) {
         
     }
 
