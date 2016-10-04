@@ -30,7 +30,7 @@ class PaymentsController : NSObject {
         print("called finishRequest")
         return { token in
             let request = DwollaRequest.init(sourceID: contact.mobileNumber!, sourceType: "Phone", amount: amount, notes: notes, token: token)
-            request.requestPayment() // let afRequest =
+            _ = request.requestPayment() // let afRequest =
 //            afRequest.response { response in
 //                print(response.request?.allHTTPHeaderFields)
 //                print(JSON(data: data!))
