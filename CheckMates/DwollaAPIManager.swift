@@ -86,9 +86,9 @@ class DwollaAPIManager {
     
     func startOAuth2Login() {
         let authPath = "https://uat.dwolla.com/oauth/v2/authenticate?client_id=\(clientID)&response_type=code&redirect_uri=\(redirectURI)&scope=\(scope)&dwolla_landing=login"
-        print(authPath)
+//        print(authPath)
         if let authURL = URL(string: authPath) {
-            print("sending")
+//            print("sending")
             let defaults = UserDefaults.standard
             defaults.set(true, forKey: "loadingOAuthToken")
             
@@ -108,7 +108,7 @@ class DwollaAPIManager {
     }
     
     func processOAuthStep1Response(_ url: URL) {
-        print(url)
+//        print(url)
         
         let components = URLComponents(url: url, resolvingAgainstBaseURL: false)
         var code : String?
@@ -226,10 +226,10 @@ class DwollaAPIManager {
             } else {
                 print(returnValue["refresh_expires_in"])
             }
-            print(self.OAuthToken)
-            print(self.refreshToken)
-            print(self.refreshExpiry)
-            print(self.tokenExpiry)
+//            print(self.OAuthToken)
+//            print(self.refreshToken)
+//            print(self.refreshExpiry)
+//            print(self.tokenExpiry)
         }
     }
 }

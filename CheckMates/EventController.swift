@@ -32,16 +32,16 @@ class EventController {
             let itemArr = itemToSplit.components(separatedBy: " ")
             if itemArr.contains("tax") || checkForTipAndTax("tax", text: item.title.lowercased()){
                 newEvent!.receipt!.tax = Int64(item.price * 100)
-                print(newEvent?.receipt)
+//                print(newEvent?.receipt)
             } else if itemArr.contains("tip") || checkForTipAndTax("tip", text: item.title.lowercased()){
                 newEvent!.receipt!.tip = Int64(item.price * 100)
-                print(newEvent?.receipt)
+//                print(newEvent?.receipt)
             } else {
                 let newItem = NSEntityDescription.insertNewObject(forEntityName: "ReceiptItem", into: cds.mainQueueContext) as? ReceiptItem
                 newItem?.itemDescription = item.title
                 newItem?.price = Int64(item.price * 100)
                 newItem?.receipt = (newEvent?.receipt)!
-                print(newItem)
+//                print(newItem)
             }
         }
     }
@@ -64,7 +64,7 @@ class EventController {
             let nsString = text as NSString
             results = regex.matches(in: text,
                                             options: [], range: NSMakeRange(0, nsString.length))
-            print(results)
+//            print(results)
         } catch let error as NSError {
             print("invalid regex: \(error.localizedDescription)")
             
@@ -90,7 +90,7 @@ class EventController {
     }
     
     func billIsComplete() {
-        print(self.newEvent!.receipt!)
+//        print(self.newEvent!.receipt!)
         self.saveEvent()
         let serverController = ServerController()
         serverController.sendNewReceiptToServer((self.newEvent!.receipt!), sender: self) // pass in self to get sendMessages called when it completes
@@ -100,9 +100,9 @@ class EventController {
         print("starting to send messages")
         let mc = MessageController()
         let backEndID = self.newEvent!.receipt!.backEndID!
-        print(backEndID)
+//        print(backEndID)
         let contacts = self.newEvent!.contacts!.allObjects as! [Contact]
-        print(contacts)
+//        print(contacts)
         mc.textContacts(contacts, billId: backEndID)
     }
     
@@ -113,16 +113,16 @@ class EventController {
         if let dictionary = json as? [String: Any] {
             
             if let itemArray = dictionary["items"] as? [Any] {
-                print(itemArray)
+//                print(itemArray)
                 for thing in itemArray {
                     if let item = thing as? [String: Any] {
                         if let contactName = item["user_id"] as? String, let itemString = item["item_description"] as? String {
-                            print(contactName)
+//                            print(contactName)
                             let contact = userIDHasMatch(contactName)
                             if let item = receiptItemHasMatch(itemString) {
                                 item.contact = contact
-                                print(item)
-                                print(item.contact)
+//                                print(item)
+//                                print(item.contact)
                             }
                         }
                     }
@@ -133,21 +133,21 @@ class EventController {
     
     func parseOriginalResponse(_ data: Data) {
         let json = try? JSONSerialization.jsonObject(with: data, options: [])
-        print(json)
+//        print(json)
         
         if let dictionary = (json as? [String: Any]) {
-            print("dictionary: \(dictionary)")
+//            print("dictionary: \(dictionary)")
             if let bill = dictionary["bill"] as? [String: Any] {
-                print("bill: \(bill)")
+//                print("bill: \(bill)")
                 if let id = (bill["id"] as? Int) {
-                    print("id: \(id)")
+//                    print("id: \(id)")
                     newEvent?.receipt!.backEndID = String(id)
                     saveEvent()
                 }
-                print(bill)
+//                print(bill)
             }
-            print(self.newEvent!.receipt!.backEndID)
-            print("finish parsing original response")
+//            print(self.newEvent!.receipt!.backEndID)
+//            print("finish parsing original response")
         }
     }
     

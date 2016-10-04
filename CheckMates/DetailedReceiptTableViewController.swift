@@ -94,6 +94,7 @@ class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewC
     func itemDetailViewControllerDidCompleteEditingItem(_ item : Item, new: Bool, sender: ItemDetailViewController) {
         if (new) {
             if (item.title == "" || item.price == 0.0) {
+                print("received blank item")
                 return
             }
             _ = self.itemStore.createItem(item.title, price: item.price)

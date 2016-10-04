@@ -25,7 +25,7 @@ class ReceiptsTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("View Will Appear")
+//        print("View Will Appear")
         events = eventController.fetchAllEvents()
         tableView.reloadData()
     }
@@ -59,7 +59,7 @@ class ReceiptsTableViewController: UITableViewController {
             
             // determine which row was selected
             if let row = (tableView.indexPathForSelectedRow as NSIndexPath?)?.row {
-                print(row)
+//                print(row)
                 
                 // get the item associated with this row
                 let event = events![row]

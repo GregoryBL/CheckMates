@@ -316,10 +316,9 @@
         <!--Navigation Controller-->
         <scene sceneID="OVW-D3-iTE">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iAn-pi-bzN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="NewReceiptNavController" automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="tUS-5A-XnX" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gmk-7o-kdq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gmk-7o-kdq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -332,6 +331,7 @@
                         <segue destination="5cr-DO-1zb" kind="relationship" relationship="rootViewController" id="21l-sY-Bww"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iAn-pi-bzN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1996" y="-447"/>
         </scene>
