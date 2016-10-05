@@ -32,7 +32,15 @@ class ItemDetailViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
+    @IBAction func cancelPressed(_ sender: UIBarButtonItem) {
+        delegate?.itemDetailViewControllerDidCancel(self)
+    }
+    
+    @IBAction func savePressed(_ sender: UIBarButtonItem) {
         view.endEditing(true)
         
         var isNew = false
@@ -44,10 +52,6 @@ class ItemDetailViewController: UIViewController, UITextFieldDelegate {
             item!.price = priceField.text!.asFloat
         }
         delegate?.itemDetailViewControllerDidCompleteEditingItem(item!, new: isNew, sender: self)
-    }
-    
-    @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
-        view.endEditing(true)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

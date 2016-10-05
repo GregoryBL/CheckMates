@@ -16,18 +16,18 @@ class PaymentsController : NSObject {
     func startRequestFrom(_ contact: Contact, amount: Int, notes: String) {
         if apiManager.hasOAuthToken() {
             let requestWithToken = finishRequestFrom(contact, amount: amount, notes: notes)
-            print(requestWithToken)
+//            print(requestWithToken)
             requestWithToken(apiManager.OAuthToken!)
         } else if apiManager.hasRefreshToken() {
             let callback = finishRequestFrom(contact, amount: amount, notes: notes)
-            print(callback)
+//            print(callback)
             apiManager.refreshTokenAndCallBack(callback)
         }
-        print("startRequest ending")
+//        print("startRequest ending")
     }
     
     func finishRequestFrom(_ contact: Contact, amount: Int, notes: String) -> ((String) -> Void) {
-        print("called finishRequest")
+//        print("called finishRequest")
         return { token in
             let request = DwollaRequest.init(sourceID: contact.mobileNumber!, sourceType: "Phone", amount: amount, notes: notes, token: token)
             _ = request.requestPayment() // let afRequest =

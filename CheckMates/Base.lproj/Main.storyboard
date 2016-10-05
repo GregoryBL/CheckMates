@@ -1,180 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11521.1" systemVersion="16B2333a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="C5c-Ns-eeS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11521.1" systemVersion="16B2333a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UFA-RV-Qe5">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11517.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Snap Receipt-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController storyboardIdentifier="snapreceiptsVC" id="BYZ-38-t0r" customClass="SnapReceiptsViewController" customModule="CheckMates" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="09t-n4-yJa"/>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OL2-2g-Yc1">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="79" id="YTX-p8-S7C"/>
-                                </constraints>
-                                <state key="normal" image="CameraIcon"/>
-                                <connections>
-                                    <action selector="snapReceipt:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WgF-4h-Je6"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="09t-n4-yJa" secondAttribute="trailing" id="CNV-cv-6Eh"/>
-                            <constraint firstItem="09t-n4-yJa" firstAttribute="centerX" secondItem="OL2-2g-Yc1" secondAttribute="centerX" id="NUC-9n-4LL"/>
-                            <constraint firstItem="09t-n4-yJa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Nbw-2c-YdH"/>
-                            <constraint firstItem="09t-n4-yJa" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="Og6-jE-OFS"/>
-                            <constraint firstItem="09t-n4-yJa" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="agQ-7o-VF2"/>
-                            <constraint firstItem="09t-n4-yJa" firstAttribute="centerY" secondItem="OL2-2g-Yc1" secondAttribute="centerY" id="baD-PO-Bga"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Snap Receipt" id="R51-zh-hYc"/>
-                    <connections>
-                        <outlet property="imageView" destination="09t-n4-yJa" id="HoQ-mA-eA2"/>
-                        <segue destination="GTV-18-SEv" kind="show" identifier="DisplayItemsSegue" id="DEv-pI-B9A"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1951" y="190"/>
-        </scene>
-        <!--Receipts-->
-        <scene sceneID="CZp-7I-yyA">
-            <objects>
-                <tableViewController storyboardIdentifier="DetailedReceiptTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GTV-18-SEv" customClass="DetailedReceiptTableViewController" customModule="CheckMates" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ckN-xF-ZMy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" restorationIdentifier="d" id="lno-fv-pFM">
-                            <rect key="frame" x="0.0" y="157" width="375" height="65"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GWS-r5-6Ge">
-                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                    <state key="normal" title="Save Receipt"/>
-                                    <connections>
-                                        <segue destination="4LZ-5Z-y71" kind="show" identifier="ShowEvent" id="CZT-N5-Ecg"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" red="0.25098040700000002" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <accessibility key="accessibilityConfiguration" label="Save Receipt">
-                                <bool key="isElement" value="YES"/>
-                            </accessibility>
-                            <constraints>
-                                <constraint firstItem="GWS-r5-6Ge" firstAttribute="leading" secondItem="lno-fv-pFM" secondAttribute="leading" id="1bz-gD-q1C"/>
-                                <constraint firstAttribute="trailing" secondItem="GWS-r5-6Ge" secondAttribute="trailing" id="6wb-tX-SJY"/>
-                                <constraint firstAttribute="bottom" secondItem="GWS-r5-6Ge" secondAttribute="bottom" id="9PC-LV-Xt2"/>
-                                <constraint firstItem="GWS-r5-6Ge" firstAttribute="top" secondItem="lno-fv-pFM" secondAttribute="top" id="qLy-0b-bmc"/>
-                            </constraints>
-                        </view>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="65" id="1iC-yv-xae" customClass="ItemCell" customModule="CheckMates" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="65"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1iC-yv-xae" id="46n-XL-45c">
-                                    <frame key="frameInset" width="375" height="64"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Jd-4g-xoL">
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdo-LJ-hLW">
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="84" id="tKn-ks-weN"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="2Jd-4g-xoL" firstAttribute="leading" secondItem="46n-XL-45c" secondAttribute="leadingMargin" constant="10" id="258-oU-E6J"/>
-                                        <constraint firstItem="2Jd-4g-xoL" firstAttribute="centerY" secondItem="46n-XL-45c" secondAttribute="centerY" id="6vj-tL-DTa"/>
-                                        <constraint firstItem="Wdo-LJ-hLW" firstAttribute="trailing" secondItem="46n-XL-45c" secondAttribute="trailingMargin" id="MOH-8r-reK"/>
-                                        <constraint firstItem="Wdo-LJ-hLW" firstAttribute="leading" secondItem="2Jd-4g-xoL" secondAttribute="trailing" constant="8" symbolic="YES" id="asR-PU-Qmi"/>
-                                        <constraint firstItem="2Jd-4g-xoL" firstAttribute="baseline" secondItem="Wdo-LJ-hLW" secondAttribute="baseline" id="p7L-ro-peq"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="priceLabel" destination="Wdo-LJ-hLW" id="WTE-hR-DrN"/>
-                                    <outlet property="titleLabel" destination="2Jd-4g-xoL" id="kp0-N4-DAq"/>
-                                    <segue destination="YDR-ZZ-2PO" kind="showDetail" identifier="ShowItem" action="showViewController:sender:" id="0Ij-NG-foQ"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="GTV-18-SEv" id="xHI-56-zME"/>
-                            <outlet property="delegate" destination="GTV-18-SEv" id="QXi-Jm-cT9"/>
-                        </connections>
-                    </tableView>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Receipts" id="Uwt-lh-zoh">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="sP3-Rn-d6Q">
-                            <connections>
-                                <action selector="addNewItem:" destination="GTV-18-SEv" id="anj-dq-VDp"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="35W-XI-0r2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationBar contentMode="scaleToFill" id="mME-2P-fwC">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <items>
-                        <navigationItem title="Title" id="QQx-eg-npg"/>
-                    </items>
-                </navigationBar>
-            </objects>
-            <point key="canvasLocation" x="3321" y="903"/>
-        </scene>
-        <!--Contacts View Controller-->
-        <scene sceneID="U52-Gm-Fke">
-            <objects>
-                <viewController id="4LZ-5Z-y71" customClass="ContactsViewController" customModule="CheckMates" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="N7C-PC-88B"/>
-                        <viewControllerLayoutGuide type="bottom" id="iF3-rq-gfj"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Z53-pY-EEM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Launch Image" translatesAutoresizingMaskIntoConstraints="NO" id="XD1-Nx-Zvb"/>
-                        </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="XD1-Nx-Zvb" firstAttribute="leading" secondItem="Z53-pY-EEM" secondAttribute="leadingMargin" constant="-20" id="N0x-jF-a1J"/>
-                            <constraint firstItem="XD1-Nx-Zvb" firstAttribute="top" secondItem="Z53-pY-EEM" secondAttribute="topMargin" id="SQr-a0-q2g"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="XD1-Nx-Zvb" secondAttribute="trailing" constant="-20" id="SmP-bG-W4s"/>
-                            <constraint firstItem="XD1-Nx-Zvb" firstAttribute="bottom" secondItem="Z53-pY-EEM" secondAttribute="bottomMargin" id="fg7-5w-ahF"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <segue destination="NJu-NL-CXP" kind="show" identifier="ShowEvent" id="hRE-6p-Yss"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Z2d-Me-2dn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4156" y="903"/>
-        </scene>
         <!--Event Table View Controller-->
         <scene sceneID="0eh-LY-euE">
             <objects>
@@ -184,7 +15,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="Kaf-jW-9T8">
-                            <rect key="frame" x="0.0" y="64" width="375" height="65"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44X-Ns-P3f">
@@ -203,7 +34,7 @@
                             </constraints>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="4gK-xX-yup">
-                            <rect key="frame" x="0.0" y="201" width="375" height="65"/>
+                            <rect key="frame" x="0.0" y="137" width="375" height="65"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57M-Ba-nOI">
@@ -229,7 +60,7 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" textLabel="pAk-dh-uer" detailTextLabel="8K4-v9-N9G" style="IBUITableViewCellStyleValue1" id="h54-3D-ddc">
-                                <rect key="frame" x="0.0" y="157" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="93" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h54-3D-ddc" id="mzY-Qa-57A">
                                     <frame key="frameInset" width="375" height="43"/>
@@ -264,274 +95,23 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zu6-xJ-XRP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5020" y="903"/>
+            <point key="canvasLocation" x="3274" y="1027"/>
         </scene>
-        <!--Item Detail View Controller-->
-        <scene sceneID="cwJ-8C-0BF">
+        <!--NewReceiptNavController-->
+        <scene sceneID="1yE-WO-Rfs">
             <objects>
-                <viewController id="YDR-ZZ-2PO" customClass="ItemDetailViewController" customModule="CheckMates" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="KOs-kT-GNN"/>
-                        <viewControllerLayoutGuide type="bottom" id="pXA-7S-Onb"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="yKs-2H-ISr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Blm-dz-fPM">
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="rBx-0B-h2P">
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYo-kf-go7">
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="62" id="mgZ-tA-DVZ"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ykm-Oy-Rle" customClass="AwesomeTextField" customModule="AwesomeTextField">
-                                                <color key="textColor" red="0.058823529409999999" green="0.47450980390000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="underLineColor">
-                                                        <color key="value" red="0.058823529409999999" green="0.47450980390000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderTextColor">
-                                                        <color key="value" red="0.058823529409999999" green="0.47450980390000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="underLineWidth">
-                                                        <real key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="underLineAlphaBefore">
-                                                        <real key="value" value="0.29999999999999999"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="underLineAlphaAfter">
-                                                        <real key="value" value="0.90000000000000002"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <outlet property="delegate" destination="YDR-ZZ-2PO" id="KNr-ah-XdZ"/>
-                                                </connections>
-                                            </textField>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Z5r-R3-F0V">
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKA-9p-yiY">
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="62" id="61M-if-lQl"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xra-cP-ZIx" customClass="AwesomeTextField" customModule="AwesomeTextField">
-                                                <color key="textColor" red="0.058823529409999999" green="0.47450980390000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="underLineColor">
-                                                        <color key="value" red="0.058823529409999999" green="0.47450980390000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderTextColor">
-                                                        <color key="value" red="0.058823529409999999" green="0.47450980390000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="underLineWidth">
-                                                        <real key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="underLineAlphaBefore">
-                                                        <real key="value" value="0.29999999999999999"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="underLineAlphaAfter">
-                                                        <real key="value" value="0.90000000000000002"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <outlet property="delegate" destination="YDR-ZZ-2PO" id="ovD-tH-Vox"/>
-                                                </connections>
-                                            </textField>
-                                        </subviews>
-                                    </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7M-yy-H7B">
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <gestureRecognizers/>
-                        <constraints>
-                            <constraint firstItem="Blm-dz-fPM" firstAttribute="leading" secondItem="yKs-2H-ISr" secondAttribute="leadingMargin" id="7ss-Ms-bzb"/>
-                            <constraint firstItem="Blm-dz-fPM" firstAttribute="trailing" secondItem="yKs-2H-ISr" secondAttribute="trailingMargin" id="8RD-75-91u"/>
-                            <constraint firstItem="Blm-dz-fPM" firstAttribute="top" secondItem="KOs-kT-GNN" secondAttribute="bottom" constant="8" id="hs6-dO-sbg"/>
-                        </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="eVG-U8-8PQ" appends="YES" id="Dgn-Tz-qLU"/>
-                        </connections>
-                    </view>
-                    <connections>
-                        <outlet property="dateField" destination="g7M-yy-H7B" id="B4R-n2-RNA"/>
-                        <outlet property="priceField" destination="xra-cP-ZIx" id="y8v-0f-Rqp"/>
-                        <outlet property="titleField" destination="ykm-Oy-Rle" id="DqX-7v-7VO"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WoS-ua-6e3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="eVG-U8-8PQ">
-                    <connections>
-                        <action selector="backgroundTapped:" destination="YDR-ZZ-2PO" id="H29-lY-r6J"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <viewControllerPlaceholder storyboardIdentifier="NewReceiptNavController" storyboardName="NewReceipt" referencedIdentifier="NewReceiptNavController" id="dfr-oB-LeJ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6PX-Bs-iCM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3321" y="1695"/>
+            <point key="canvasLocation" x="2606" y="140"/>
         </scene>
-        <!--Enter Receipt-->
-        <scene sceneID="aIh-Vr-pNH">
+        <!--Event-->
+        <scene sceneID="spv-II-HDG">
             <objects>
-                <viewController storyboardIdentifier="enterreceiptvc" id="ZsR-Ol-0cW" customClass="AddReceiptsViewController" customModule="CheckMates" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="eBT-Cb-cxo"/>
-                        <viewControllerLayoutGuide type="bottom" id="azc-XS-LGV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="nCV-tK-Wcg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MNB-Cl-86E">
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Launch Image" translatesAutoresizingMaskIntoConstraints="NO" id="Es1-Ix-ZSe"/>
-                                </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.45882352939999999" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Es1-Ix-ZSe" secondAttribute="trailing" id="0te-ut-13R"/>
-                                    <constraint firstItem="Es1-Ix-ZSe" firstAttribute="top" secondItem="MNB-Cl-86E" secondAttribute="top" id="3n2-pW-f1o"/>
-                                    <constraint firstAttribute="bottom" secondItem="Es1-Ix-ZSe" secondAttribute="bottom" id="8S2-bS-AQc"/>
-                                    <constraint firstItem="Es1-Ix-ZSe" firstAttribute="leading" secondItem="MNB-Cl-86E" secondAttribute="leading" id="h84-Vc-yXS"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="0.058823529409999999" green="0.47450980390000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="MNB-Cl-86E" secondAttribute="trailing" id="8Vi-yP-ahy"/>
-                            <constraint firstItem="MNB-Cl-86E" firstAttribute="leading" secondItem="nCV-tK-Wcg" secondAttribute="leading" id="9PS-bG-ITf"/>
-                            <constraint firstItem="MNB-Cl-86E" firstAttribute="top" secondItem="nCV-tK-Wcg" secondAttribute="top" id="TEj-jq-HQj"/>
-                            <constraint firstAttribute="bottom" secondItem="MNB-Cl-86E" secondAttribute="bottom" id="dat-0Q-XeT"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Enter Receipt" id="AZC-yP-k03"/>
-                    <connections>
-                        <segue destination="GTV-18-SEv" kind="show" identifier="AddReceiptManually" id="Zmn-gq-eIc"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tpq-V2-dKk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="ViewEvent" referencedIdentifier="Event" id="duU-CB-COy" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4j9-rg-gDK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1952" y="903"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="d0o-Fv-NkE">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="C5c-Ns-eeS" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" tag="10" contentMode="scaleToFill" id="mkj-HC-MHt">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="selectedImageTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="TnY-6o-2O7" kind="relationship" relationship="viewControllers" id="cgf-0p-MO5"/>
-                        <segue destination="pgt-jY-sQP" kind="relationship" relationship="viewControllers" id="XVf-Cu-H7Y"/>
-                        <segue destination="dbh-oE-qEE" kind="relationship" relationship="viewControllers" id="xOv-vy-V0e"/>
-                        <segue destination="UFA-RV-Qe5" kind="relationship" relationship="viewControllers" id="qgp-TY-Wtn"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ddQ-Q6-eVm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="310" y="903"/>
-        </scene>
-        <!--Pick Receipt-->
-        <scene sceneID="RM3-fG-6ID">
-            <objects>
-                <viewController id="dTK-8p-MaY" customClass="PickFromAlbumViewController" customModule="CheckMates" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="02y-BX-7XN"/>
-                        <viewControllerLayoutGuide type="bottom" id="zGm-Ne-XxA"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="4RF-2Z-viZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D3Q-QP-PAY"/>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fd-e6-ibL">
-                                <state key="normal" image="PhotoAlbum"/>
-                                <connections>
-                                    <action selector="snapReceipt:" destination="dTK-8p-MaY" eventType="touchUpInside" id="qg3-pj-qSn"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="D3Q-QP-PAY" secondAttribute="trailing" constant="-20" id="1Uw-cu-JTv"/>
-                            <constraint firstItem="D3Q-QP-PAY" firstAttribute="leading" secondItem="4RF-2Z-viZ" secondAttribute="leadingMargin" constant="-20" id="NUl-qN-74r"/>
-                            <constraint firstItem="D3Q-QP-PAY" firstAttribute="top" secondItem="02y-BX-7XN" secondAttribute="bottom" id="SZX-Y6-yVp"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="3fd-e6-ibL" secondAttribute="trailing" constant="-20" id="VIa-jv-mOo"/>
-                            <constraint firstItem="3fd-e6-ibL" firstAttribute="top" secondItem="02y-BX-7XN" secondAttribute="bottom" id="cD2-V3-qY5"/>
-                            <constraint firstItem="zGm-Ne-XxA" firstAttribute="top" secondItem="D3Q-QP-PAY" secondAttribute="bottom" id="gA4-ci-aVB"/>
-                            <constraint firstItem="3fd-e6-ibL" firstAttribute="leading" secondItem="4RF-2Z-viZ" secondAttribute="leadingMargin" constant="-20" id="uyB-fm-E4p"/>
-                            <constraint firstItem="zGm-Ne-XxA" firstAttribute="top" secondItem="3fd-e6-ibL" secondAttribute="bottom" id="xn1-ah-9v4"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Pick Receipt" id="Qcz-UT-dwN"/>
-                    <connections>
-                        <outlet property="imageView" destination="D3Q-QP-PAY" id="xr4-MN-Tkz"/>
-                        <segue destination="GTV-18-SEv" kind="show" identifier="DisplayReceiptFromAlbum" id="bDr-21-ad2"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="E3f-Ki-gcs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1952" y="1655"/>
-        </scene>
-        <!--Snap Receipt-->
-        <scene sceneID="fX4-Tb-49G">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pgt-jY-sQP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="2" title="Snap Receipt" image="CameraIcon" id="sOf-FE-HZS"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qKX-aB-znU">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="xhr-VK-VHM"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MwH-G1-cbO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1150" y="191"/>
-        </scene>
-        <!--Enter Receipt-->
-        <scene sceneID="dpc-DW-byB">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TnY-6o-2O7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="1" title="Enter Receipt" image="PointerIcon" id="tO3-ke-EUr"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5tQ-IK-cGl">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="ZsR-Ol-0cW" kind="relationship" relationship="rootViewController" id="6cN-BT-1aA"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="toI-aQ-vNC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1152" y="903"/>
+            <point key="canvasLocation" x="2542" y="790"/>
         </scene>
         <!--Receipts-->
         <scene sceneID="vNB-ar-9ml">
@@ -566,7 +146,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="NJu-NL-CXP" kind="show" identifier="ShowEventFromReceiptSummary" id="iLn-Va-yZm"/>
+                                    <segue destination="duU-CB-COy" kind="show" identifier="ShowEventFromReceiptSummary" id="cZd-pQ-c7x"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -575,30 +155,18 @@
                             <outlet property="delegate" destination="RGC-Ex-NoD" id="Z2a-KF-xup"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Receipts" id="MN0-dL-caL"/>
+                    <navigationItem key="navigationItem" title="Receipts" id="MN0-dL-caL">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="fbY-PG-i9y"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="0Kp-rK-ALh">
+                            <connections>
+                                <segue destination="dfr-oB-LeJ" kind="presentation" id="U6K-w8-XmH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gim-5Z-tfI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3321" y="-54"/>
-        </scene>
-        <!--Album-->
-        <scene sceneID="wd0-uA-T9K">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dbh-oE-qEE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Album" image="PhotoAlbum" id="phM-FT-sKx"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BnO-T0-Niv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="dTK-8p-MaY" kind="relationship" relationship="rootViewController" id="id5-19-ExE"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ft7-xF-ZQt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1151" y="1655"/>
+            <point key="canvasLocation" x="1742" y="679"/>
         </scene>
         <!--Receipts-->
         <scene sceneID="w5g-p5-wLX">
@@ -611,24 +179,20 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="dxe-sE-5X4">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="RGC-Ex-NoD" kind="relationship" relationship="rootViewController" id="isZ-6Y-5Dv"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gs8-pf-xG7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1151" y="-509"/>
+            <point key="canvasLocation" x="943" y="679"/>
         </scene>
     </scenes>
     <resources>
-        <image name="CameraIcon" width="25" height="25"/>
-        <image name="Launch Image" width="121" height="121"/>
-        <image name="PhotoAlbum" width="25" height="25"/>
-        <image name="PointerIcon" width="25" height="25"/>
         <image name="ReceiptIcon" width="25" height="25"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="DEv-pI-B9A"/>
-        <segue reference="hRE-6p-Yss"/>
-    </inferredMetricsTieBreakers>
 </document>

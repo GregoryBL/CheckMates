@@ -25,8 +25,8 @@ class ServerController {
 
         Alamofire.request(serverURL + "/bills", method: .post, parameters: toSend, encoding: JSONEncoding.default)
             .responseData { response in
-                print(response.result.value)
-                print(response)
+//                print(response.result.value)
+//                print(response)
                 
 //                print(JSON(data: response.result.value!))
                 sender.parseOriginalResponse(response.result.value!)

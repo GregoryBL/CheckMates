@@ -14,12 +14,6 @@ class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewC
     var itemStore = ItemStore()
     var eventController: EventController?
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-        navigationItem.leftBarButtonItem = editButtonItem
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
@@ -31,10 +25,6 @@ class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewC
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 65
 
-    }
-    
-    @IBAction func addNewItem(_ sender: AnyObject) {
-        self.performSegue(withIdentifier: "ShowItem", sender: self)
     }
         
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -71,13 +61,12 @@ class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewC
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
-        cell.updateLabels()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) // as! ItemCell
         
         let item = itemStore.allItems[(indexPath as NSIndexPath).row]
         
-        cell.titleLabel.text = item.title
-        cell.priceLabel.text = item.price.asLocaleCurrency
+        cell.textLabel?.text = item.title
+        cell.detailTextLabel?.text = item.price.asLocaleCurrency
         
         return cell
     }
@@ -89,7 +78,7 @@ class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewC
             detailItemViewController.delegate = self
             detailItemViewController.indexPath = tableView.indexPathForSelectedRow
         }
-        else if segue.identifier == "ShowEvent"{
+        else if segue.identifier == "ChooseContacts"{
             let contactsViewController = segue.destination as! ContactsViewController
             if self.eventController == nil {
                 self.eventController = EventController()
@@ -99,20 +88,25 @@ class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewC
         }
     }
     
+    @IBAction func cancelToDetailedReceiptsViewController(segue:UIStoryboardSegue) {
+        
+    }
+    
     // MARK: ItemDetailViewControllerDelegate
     
     func itemDetailViewControllerDidCompleteEditingItem(_ item : Item, new: Bool, sender: ItemDetailViewController) {
         if (new) {
             if (item.title == "" || item.price == 0.0) {
+                print("received blank item")
                 return
             }
             _ = self.itemStore.createItem(item.title, price: item.price)
         }
-        sender.dismiss(animated: true, completion: nil)
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
     func itemDetailViewControllerDidCancel(_ sender: ItemDetailViewController) {
-        sender.dismiss(animated: true, completion: nil)
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
     func existingItemForIndexPath(_ indexPath : IndexPath?) -> Item? {
