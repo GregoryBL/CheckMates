@@ -339,7 +339,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = checkMates;
 				TargetAttributes = {
 					379CBB951D7CC9A100352669 = {

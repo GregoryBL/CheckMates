@@ -78,9 +78,6 @@ class EventTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-//            print(eventController)
-//            print(eventController!.newEvent)
-//            print(eventController!.newEvent!.contacts)
             return eventController!.newEvent!.contacts!.count
         case 1:
             return eventController!.newEvent!.receipt!.items!.count
@@ -97,7 +94,6 @@ class EventTableViewController: UITableViewController {
         case 0:
             let currentMate = eventController!.newEvent!.contacts!.allObjects[indexPath.row] as! Contact
             cell?.textLabel!.text = "\(currentMate.firstName!) \(currentMate.lastName!)"
-            print(currentMate.mobileNumber)
             cell?.detailTextLabel!.text = "\(currentMate.mobileNumber!)"
         case 1:
             let currentItem = eventController!.newEvent!.receipt!.items!.allObjects[indexPath.row] as! ReceiptItem
