@@ -252,40 +252,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="SDb-VJ-att" kind="show" identifier="ShowEvent" id="DCb-Av-EgQ"/>
+                        <segue destination="Jdy-St-tKx" kind="show" identifier="ShowEvent" id="DCb-Av-EgQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EyQ-6y-Sq2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1494" y="-447"/>
-        </scene>
-        <!--Event Table View Controller-->
-        <scene sceneID="95R-6d-NYG">
-            <objects>
-                <tableViewController id="SDb-VJ-att" customClass="EventTableViewController" customModule="CheckMates" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Afq-hL-bq7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="bCy-ni-dfQ">
-                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bCy-ni-dfQ" id="jFD-AO-Bl2">
-                                    <frame key="frameInset" width="375" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="SDb-VJ-att" id="scz-5D-vdr"/>
-                            <outlet property="delegate" destination="SDb-VJ-att" id="CBN-F1-hRn"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tap-Wh-LsM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2457" y="-448"/>
         </scene>
         <!--Choose Method-->
         <scene sceneID="mms-Ur-YKf">
@@ -365,6 +337,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iAn-pi-bzN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1996" y="-447"/>
+        </scene>
+        <!--ViewEvent-->
+        <scene sceneID="50Y-dO-tId">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ViewEvent" id="Jdy-St-tKx" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4x8-Eh-7uU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2457" y="-448"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

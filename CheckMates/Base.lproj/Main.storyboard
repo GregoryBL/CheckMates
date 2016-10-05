@@ -15,7 +15,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="Kaf-jW-9T8">
-                            <rect key="frame" x="0.0" y="64" width="375" height="65"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44X-Ns-P3f">
@@ -34,7 +34,7 @@
                             </constraints>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="4gK-xX-yup">
-                            <rect key="frame" x="0.0" y="201" width="375" height="65"/>
+                            <rect key="frame" x="0.0" y="137" width="375" height="65"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57M-Ba-nOI">
@@ -60,7 +60,7 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" textLabel="pAk-dh-uer" detailTextLabel="8K4-v9-N9G" style="IBUITableViewCellStyleValue1" id="h54-3D-ddc">
-                                <rect key="frame" x="0.0" y="157" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="93" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h54-3D-ddc" id="mzY-Qa-57A">
                                     <frame key="frameInset" width="375" height="43"/>
@@ -95,7 +95,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zu6-xJ-XRP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2713" y="679"/>
+            <point key="canvasLocation" x="3274" y="1027"/>
         </scene>
         <!--NewReceiptNavController-->
         <scene sceneID="1yE-WO-Rfs">
@@ -104,6 +104,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6PX-Bs-iCM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2606" y="140"/>
+        </scene>
+        <!--Event-->
+        <scene sceneID="spv-II-HDG">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ViewEvent" referencedIdentifier="Event" id="duU-CB-COy" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4j9-rg-gDK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2542" y="790"/>
         </scene>
         <!--Receipts-->
         <scene sceneID="vNB-ar-9ml">
@@ -138,7 +146,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="NJu-NL-CXP" kind="show" identifier="ShowEventFromReceiptSummary" id="iLn-Va-yZm"/>
+                                    <segue destination="duU-CB-COy" kind="show" identifier="ShowEventFromReceiptSummary" id="cZd-pQ-c7x"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
