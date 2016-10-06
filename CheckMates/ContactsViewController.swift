@@ -11,18 +11,17 @@ import Contacts
 
 class ContactsViewController: UITableViewController {
     
-    var eventController = EventController(with: nil)
+    var eventController: EventController!
     var mates = [Mate]()
     let contactStore = CNContactStore()
     var contactIdentifiers = [String: [String]]()
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         self.tableView.allowsMultipleSelection = true
-        
-        let backgroundQueue = DispatchQueue(label: "com.checkmates.backgroundQueue", qos: .background, target: nil)
-        
+
+        let backgroundQueue = DispatchQueue(label: "com.checkmates.backgroundQueue", qos: .background, target: nil)       
         backgroundQueue.sync {
             self.contactIdentifiers = self.getContactIdentifiers()
             print("completed grabbing contacts")

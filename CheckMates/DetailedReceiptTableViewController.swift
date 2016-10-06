@@ -12,7 +12,7 @@ import UIKit
 class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewControllerDelegate {
     
     var itemStore = ItemStore()
-    var eventController = EventController(with: nil)
+    var eventController: EventController!
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
@@ -20,11 +20,10 @@ class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.reloadData()
-        
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 65
 
+        if eventController == nil {
+            self.eventController = EventController(with: nil)
+        }
     }
         
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

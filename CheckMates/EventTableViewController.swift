@@ -10,7 +10,7 @@ import UIKit
 import Contacts
 
 class EventTableViewController: UITableViewController {
-    var eventController = EventController(with: nil)
+    var eventController: EventController!
     
     override func viewDidLoad() {
         self.navigationController?.setToolbarHidden(false, animated: true)

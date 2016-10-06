@@ -11,26 +11,23 @@ import UIKit
 class ReceiptsTableViewController: UITableViewController {
     
     var itemStore: ItemStore!
-    var eventController: EventController = EventController(with: nil)
-    var events: [Event] = EventController.fetchAllEvents()
+    var eventController: EventController!
+    var events: [Event]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        tableView.reloadData()
-//        tableView.rowHeight = UITableViewAutomaticDimension
-//        tableView.estimatedRowHeight = 65
+        events = EventController.fetchAllEvents()
+        tableView.reloadData()
     }
-//    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-////        print("View Will Appear")
-//        tableView.reloadData()
-//    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
+    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return events.count
@@ -62,6 +59,7 @@ class ReceiptsTableViewController: UITableViewController {
                 
                 // get the item associated with this row
                 let event = events[row]
+                self.eventController = EventController(with: event)
                 self.eventController.event = event
                 let eventTableViewController = segue.destination as! EventTableViewController
                 eventTableViewController.eventController = self.eventController

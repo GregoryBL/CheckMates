@@ -93,13 +93,19 @@ class EventController {
     
     func billIsComplete() {
 //        print(self.newEvent!.receipt!)
-        self.saveEvent()
-        let serverController = ServerController()
         if self.event.receipt == nil {
-            event.receipt = NSEntityDescription.insertNewObject(forEntityName: "Receipt", into: cds.mainQueueContext) as? Receipt
+            let newReceipt = NSEntityDescription.insertNewObject(forEntityName: "Receipt", into: cds.mainQueueContext) as? Receipt
+            print(newReceipt)
+            newReceipt!.event = event
+            print(newReceipt)
+            print(event)
+            print(event.receipt)
             saveEvent()
             print("saved event")
         }
+        self.saveEvent()
+        let serverController = ServerController()
+ 
         serverController.sendNewReceiptToServer(event.receipt!, sender: self) // pass in self to get sendMessages called when it completes
     }
     
