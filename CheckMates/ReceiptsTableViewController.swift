@@ -44,9 +44,10 @@ class ReceiptsTableViewController: UITableViewController {
         let currentEvent = events![(indexPath as NSIndexPath).row] as Event!
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy"
+        let date = Date(timeIntervalSinceReferenceDate: currentEvent!.createdAt)
         
-        cell?.textLabel!.text = "09-09-2016"
-        let receiptTotal: Int = (currentEvent?.receipt?.receiptTotal(currentEvent!))!
+        cell?.textLabel!.text = dateFormatter.string(from: date)
+        let receiptTotal: Int = currentEvent!.receipt!.receiptTotal(currentEvent!)
         let formatted = Float(receiptTotal) / 100
         cell?.detailTextLabel!.text = "$" + String(formatted)
 

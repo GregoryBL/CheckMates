@@ -245,7 +245,7 @@
                     <navigationItem key="navigationItem" title="Receipt" id="CZR-82-yrk">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="aNa-QT-DHp">
                             <connections>
-                                <segue destination="8n1-OJ-5YA" kind="show" identifier="ChooseContacts" id="7f7-n9-iA6"/>
+                                <segue destination="hhy-4z-rRY" kind="show" identifier="ChooseContacts" id="Wei-ym-iBy"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -253,27 +253,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rXC-qW-tTr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="564" y="-447"/>
-        </scene>
-        <!--Contacts View Controller-->
-        <scene sceneID="TEK-MW-Y9B">
-            <objects>
-                <viewController id="8n1-OJ-5YA" customClass="ContactsViewController" customModule="CheckMates" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="yoo-wz-wCq"/>
-                        <viewControllerLayoutGuide type="bottom" id="BZF-nJ-Hd2"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="bMd-UE-6Zz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <segue destination="Jdy-St-tKx" kind="show" identifier="ShowEvent" id="DCb-Av-EgQ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EyQ-6y-Sq2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1494" y="-447"/>
         </scene>
         <!--Choose Method-->
         <scene sceneID="mms-Ur-YKf">
@@ -354,17 +333,61 @@
             </objects>
             <point key="canvasLocation" x="-1996" y="-447"/>
         </scene>
-        <!--ViewEvent-->
+        <!--Choose Contacs-->
+        <scene sceneID="rYV-9I-Rgy">
+            <objects>
+                <tableViewController id="hhy-4z-rRY" customClass="ContactsViewController" customModule="CheckMates" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Grp-j1-ruf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="ContactCell" textLabel="YA0-Mr-AUt" style="IBUITableViewCellStyleDefault" id="apW-aM-opV">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="apW-aM-opV" id="gQC-Ll-xqd">
+                                    <frame key="frameInset" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YA0-Mr-AUt">
+                                            <frame key="frameInset" minX="15" width="345" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="hhy-4z-rRY" id="V5c-Ow-fdF"/>
+                            <outlet property="delegate" destination="hhy-4z-rRY" id="C6U-Ep-1d2"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Choose Contacs" id="47j-Q0-Oeo">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="Ftd-o8-7jg">
+                            <connections>
+                                <segue destination="Jdy-St-tKx" kind="show" identifier="ShowEvent" id="TQE-jc-cAt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8sv-Jt-4eW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1455" y="-447"/>
+        </scene>
+        <!--Event-->
         <scene sceneID="50Y-dO-tId">
             <objects>
-                <viewControllerPlaceholder storyboardName="ViewEvent" id="Jdy-St-tKx" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="ViewEvent" referencedIdentifier="Event" id="Jdy-St-tKx" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4x8-Eh-7uU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2457" y="-448"/>
+            <point key="canvasLocation" x="2264" y="-447"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="iSz-ak-Gdz"/>
+        <segue reference="QjE-WJ-6ic"/>
         <segue reference="iDd-ot-amF"/>
     </inferredMetricsTieBreakers>
 </document>
