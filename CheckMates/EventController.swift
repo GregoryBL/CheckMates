@@ -12,35 +12,37 @@ import CoreData
 class EventController {
     
     let cds = (UIApplication.shared.delegate as! AppDelegate).coreDataStack
-    var event : Event?
+    var event : Event
     
-    func createNewEvent(){
-        event = NSEntityDescription.insertNewObject(forEntityName: "Event", into: cds.mainQueueContext) as? Event
-        let date = Date()
-        event!.createdAt = date.timeIntervalSinceReferenceDate
+    init(with existingEvent: Event?) {
+        if let existingEvent = existingEvent {
+            event = existingEvent
+        } else {
+            event = NSEntityDescription.insertNewObject(forEntityName: "Event", into: cds.mainQueueContext) as! Event
+            event.createdAt = Date().timeIntervalSinceReferenceDate
+        }
     }
     
     func addBillItems(_ items: ItemStore){
-        if event == nil {
-            createNewEvent()
-        }
-        if event?.receipt == nil {
-            event!.receipt = NSEntityDescription.insertNewObject(forEntityName: "Receipt", into: cds.mainQueueContext) as? Receipt
+        if event.receipt == nil {
+            let newReceipt = NSEntityDescription.insertNewObject(forEntityName: "Receipt", into: cds.mainQueueContext) as! Receipt
+            print("made new receipt")
+            newReceipt.event = event
         }
         for item in items.allItems{
             let itemToSplit = item.title.lowercased()
             let itemArr = itemToSplit.components(separatedBy: " ")
             if itemArr.contains("tax") || checkForTipAndTax("tax", text: item.title.lowercased()){
-                event!.receipt!.tax = Int64(item.price * 100)
+                event.receipt!.tax = Int64(item.price * 100)
 //                print(newEvent?.receipt)
             } else if itemArr.contains("tip") || checkForTipAndTax("tip", text: item.title.lowercased()){
-                event!.receipt!.tip = Int64(item.price * 100)
+                event.receipt!.tip = Int64(item.price * 100)
 //                print(newEvent?.receipt)
             } else {
                 let newItem = NSEntityDescription.insertNewObject(forEntityName: "ReceiptItem", into: cds.mainQueueContext) as? ReceiptItem
                 newItem?.itemDescription = item.title
                 newItem?.price = Int64(item.price * 100)
-                newItem?.receipt = (event?.receipt)!
+                newItem?.receipt = event.receipt!
 //                print(newItem)
             }
         }
@@ -78,10 +80,10 @@ class EventController {
         cds.saveChanges()
     }
     
-    func fetchAllEvents() -> [Event] {
+    static func fetchAllEvents() -> [Event] {
         let fetchRequest : NSFetchRequest<Event> = NSFetchRequest(entityName: "Event")
         do {
-            let fetchResults = try cds.mainQueueContext.fetch(fetchRequest)
+            let fetchResults = try (UIApplication.shared.delegate as! AppDelegate).coreDataStack.mainQueueContext.fetch(fetchRequest)
             return (fetchResults)
         } catch let error as NSError {
             print(error)
@@ -93,15 +95,20 @@ class EventController {
 //        print(self.newEvent!.receipt!)
         self.saveEvent()
         let serverController = ServerController()
-        serverController.sendNewReceiptToServer((self.event!.receipt!), sender: self) // pass in self to get sendMessages called when it completes
+        if self.event.receipt == nil {
+            event.receipt = NSEntityDescription.insertNewObject(forEntityName: "Receipt", into: cds.mainQueueContext) as? Receipt
+            saveEvent()
+            print("saved event")
+        }
+        serverController.sendNewReceiptToServer(event.receipt!, sender: self) // pass in self to get sendMessages called when it completes
     }
     
     func sendMessages() {
         print("starting to send messages")
         let mc = MessageController()
-        let backEndID = event!.receipt!.backEndID!
+        let backEndID = event.receipt!.backEndID!
 //        print(backEndID)
-        let contacts = event!.contacts!.allObjects as! [Contact]
+        let contacts = event.contacts!.allObjects as! [Contact]
 //        print(contacts)
         mc.textContacts(contacts, billId: backEndID)
     }
@@ -141,7 +148,7 @@ class EventController {
 //                print("bill: \(bill)")
                 if let id = (bill["id"] as? Int) {
 //                    print("id: \(id)")
-                    event?.receipt!.backEndID = String(id)
+                    event.receipt!.backEndID = String(id)
                     saveEvent()
                 }
 //                print(bill)
@@ -152,7 +159,7 @@ class EventController {
     }
     
     fileprivate func userIDHasMatch(_ userID: String) -> Contact? {
-        let contacts = event?.contacts?.allObjects as! [Contact]
+        let contacts = event.contacts?.allObjects as! [Contact]
         for contact in contacts {
             if contact.uuid == userID {
                 return contact
@@ -162,7 +169,7 @@ class EventController {
     }
     
     fileprivate func receiptItemHasMatch(_ itemDescription : String) -> ReceiptItem? {
-        let receiptItems = event?.receipt?.items!.allObjects as! [ReceiptItem]
+        let receiptItems = event.receipt?.items!.allObjects as! [ReceiptItem]
         for receiptItem in receiptItems{
             if receiptItem.itemDescription == itemDescription {
                 return receiptItem
@@ -173,6 +180,6 @@ class EventController {
     
     func userDidRequestPayment() {
         let pc = PaymentsController()
-        pc.createRequestsForEvent(event!)
+        pc.createRequestsForEvent(event)
     }
 }

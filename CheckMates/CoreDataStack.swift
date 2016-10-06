@@ -53,6 +53,7 @@ class CoreDataStack {
         do{
             try self.mainQueueContext.save()
         } catch let error as NSError {
+            print("Saving error:")
             print(error)
         }
     }

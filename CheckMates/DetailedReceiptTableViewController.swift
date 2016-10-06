@@ -12,7 +12,7 @@ import UIKit
 class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewControllerDelegate {
     
     var itemStore = ItemStore()
-    var eventController: EventController?
+    var eventController = EventController(with: nil)
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
@@ -80,10 +80,7 @@ class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewC
         }
         else if segue.identifier == "ChooseContacts"{
             let contactsViewController = segue.destination as! ContactsViewController
-            if self.eventController == nil {
-                self.eventController = EventController()
-            }
-            self.eventController!.addBillItems(itemStore)
+            self.eventController.addBillItems(itemStore)
             contactsViewController.eventController = eventController
         }
     }

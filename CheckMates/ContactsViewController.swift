@@ -11,7 +11,7 @@ import Contacts
 
 class ContactsViewController: UITableViewController {
     
-    var eventController: EventController?
+    var eventController = EventController(with: nil)
     var mates = [Mate]()
     let contactStore = CNContactStore()
     var contactIdentifiers = [String: [String]]()
@@ -19,17 +19,14 @@ class ContactsViewController: UITableViewController {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
+        self.tableView.allowsMultipleSelection = true
+        
         let backgroundQueue = DispatchQueue(label: "com.checkmates.backgroundQueue", qos: .background, target: nil)
         
         backgroundQueue.sync {
             self.contactIdentifiers = self.getContactIdentifiers()
             print("completed grabbing contacts")
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.tableView.allowsMultipleSelection = true
     }
     
     func getContactIdentifiers() -> [String: [String]] {
@@ -64,7 +61,7 @@ class ContactsViewController: UITableViewController {
         return contactsIdentifiers
     }
     
-    private func givenNameFor(first firstName: String?, andLast lastName: String?) -> String {
+    fileprivate func givenNameFor(first firstName: String?, andLast lastName: String?) -> String {
         var name = ""
         if let first = firstName {
             name = name.appending(first)
@@ -75,7 +72,7 @@ class ContactsViewController: UITableViewController {
         return name
     }
     
-    private func sortedKeys() -> [String] {
+    fileprivate func sortedKeys() -> [String] {
         return Array(self.contactIdentifiers.keys).sorted()
     }
     
@@ -130,7 +127,7 @@ class ContactsViewController: UITableViewController {
                     mates.append(Mate(firstName: contact!.givenName, lastName: contact!.familyName, mobileNumber: (contact?.phoneNumbers.first?.value.value(forKey:"digits") as! String), id: contactID, image: nil))
                 }
             }
-            self.eventController!.addContacts(mates)
+            self.eventController.addContacts(mates)
             eventViewController.eventController = self.eventController
         }
     }
