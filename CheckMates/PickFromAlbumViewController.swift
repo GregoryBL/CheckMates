@@ -57,12 +57,8 @@ class PickFromAlbumViewController: UIViewController, UIImagePickerControllerDele
     func performImageRecognition(_ image: UIImage) {
         
         let lines = PhotoTakingHelper.ocrImage(image)
-        for line in lines {
-            let rItems = PhotoTakingHelper.processLine(line)
-            for item in rItems {
-                eventController.addBillItem(item)
-            }
-        }
+        eventController.addLines(lines)
+        
         removeActivityIndicator()
 
         self.performSegue(withIdentifier: "DisplayReceiptFromAlbum", sender: self)
@@ -76,6 +72,7 @@ class PickFromAlbumViewController: UIViewController, UIImagePickerControllerDele
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DisplayReceiptFromAlbum" {
             let detailViewController = segue.destination as? DetailedReceiptTableViewController
+            detailViewController?.eventController = eventController
         }
     }
     

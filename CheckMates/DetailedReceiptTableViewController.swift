@@ -11,7 +11,6 @@ import UIKit
 
 class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewControllerDelegate {
     
-    var itemStore = ItemStore()
     var eventController: EventController!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,17 +54,17 @@ class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewC
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemStore.allItems.count
+        return eventController.event.receipt!.items!.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) // as! ItemCell
         
-        let item = itemStore.allItems[(indexPath as NSIndexPath).row]
+        let item = eventController.event.receipt!.items!.allObjects[(indexPath as NSIndexPath).row] as! ReceiptItem
         
-        cell.textLabel?.text = item.title
-        cell.detailTextLabel?.text = item.price.asLocaleCurrency
+        cell.textLabel?.text = item.description
+        cell.detailTextLabel?.text = (Float(item.price) / 100).asLocaleCurrency
         
         return cell
     }
@@ -79,7 +78,6 @@ class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewC
         }
         else if segue.identifier == "ChooseContacts"{
             let contactsViewController = segue.destination as! ContactsViewController
-            self.eventController.addBillItems(itemStore)
             contactsViewController.eventController = eventController
         }
     }
@@ -96,7 +94,7 @@ class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewC
                 print("received blank item")
                 return
             }
-            _ = self.itemStore.createItem(item.title, price: item.price)
+            eventController.addReceiptItem(item.title, price: item.price)
         }
         _ = self.navigationController?.popViewController(animated: true)
     }

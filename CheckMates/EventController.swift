@@ -23,31 +23,78 @@ class EventController {
         }
     }
     
-    func addBillItems(_ items: ItemStore){
+    func addReceiptItem(_ description: String, price: Int64) {
+        let newItem = NSEntityDescription.insertNewObject(forEntityName: "ReceiptItem", into: cds.mainQueueContext) as? ReceiptItem
+        newItem?.itemDescription = description
+        newItem?.price = price
+        newItem?.receipt = event.receipt!
+    }
+    
+    func addLines(_ lines: [String]) {
         if event.receipt == nil {
             let newReceipt = NSEntityDescription.insertNewObject(forEntityName: "Receipt", into: cds.mainQueueContext) as! Receipt
             print("made new receipt")
             newReceipt.event = event
         }
-        for item in items.allItems{
-            let itemToSplit = item.title.lowercased()
-            let itemArr = itemToSplit.components(separatedBy: " ")
-            if itemArr.contains("tax") || checkForTipAndTax("tax", text: item.title.lowercased()){
-                event.receipt!.tax = Int64(item.price * 100)
-//                print(newEvent?.receipt)
-            } else if itemArr.contains("tip") || checkForTipAndTax("tip", text: item.title.lowercased()){
-                event.receipt!.tip = Int64(item.price * 100)
-//                print(newEvent?.receipt)
-            } else {
-                let newItem = NSEntityDescription.insertNewObject(forEntityName: "ReceiptItem", into: cds.mainQueueContext) as? ReceiptItem
-                newItem?.itemDescription = item.title
-                newItem?.price = Int64(item.price * 100)
-                newItem?.receipt = event.receipt!
-//                print(newItem)
+        for line in lines {
+            let items = findGoodLines(line)
+            for (description, price) in items {
+                let split = description.lowercased()
+                let itemArr = split.components(separatedBy: " ")
+                if itemArr.contains("tax") || checkForTipAndTax("tax", text: description){
+                    event.receipt!.tax = price
+                } else if itemArr.contains("tip") || checkForTipAndTax("tip", text: description){
+                    event.receipt!.tip = Int64(price)
+                } else {
+                    addReceiptItem(description, price: price)
+                }
             }
         }
     }
-    
+        
+    fileprivate func findGoodLines(_ line: String) -> [(String, Int64)] {
+        let digits = CharacterSet.decimalDigits
+        var price: Float = 0
+        var goodLines: [(String, Int64)] = []
+        
+        // trim white leading and trailing white space
+        let components = line.components(separatedBy: CharacterSet.whitespaces).filter { !$0.isEmpty }
+        let lineAsString = components.joined(separator: " ")
+        let lineAsArray = lineAsString.components(separatedBy: " ")
+        
+        // add item as long as it is not a blank line
+        guard lineAsString != "" && lineAsString.range(of: "Suite") == nil else { print("discarding line"); return [] }
+        
+        if((lineAsString.rangeOfCharacter(from: digits)) != nil) {
+            
+            // determine the price assigned to that line
+            let lastDigits = lineAsArray.last!.trimmingCharacters(in: CharacterSet.init(charactersIn: "$"))
+            if(lastDigits.asFloat < 999) {
+                price = lastDigits.asFloat
+                
+                // if the first item in the array is not a number, there is probably only one of them
+                if((lineAsArray[0].rangeOfCharacter(from: digits)) != nil) {
+                    
+                    // either the firstValue represents the quantity or an address
+                    let components = lineAsArray[0].components(separatedBy: CharacterSet.decimalDigits.inverted)
+                    let firstNumber = components.joined(separator: "").asInteger
+                    if(firstNumber < 10) {
+                        // the first number is probably the item count, so create the appropriate number of items
+                        var i = 1
+                        while i <= firstNumber {
+                            goodLines.append((lineAsString, Int64(price * 100)))
+                            i += 1
+                        }
+                    }
+                }
+                else {
+                    goodLines.append((lineAsString, Int64(price * 100)))
+                }
+            }
+        }
+        return goodLines
+    }
+
     func addContacts(_ mates: [Mate]){
         for mate in mates{
             let newContact = NSEntityDescription.insertNewObject(forEntityName: "Contact", into: cds.mainQueueContext) as? Contact

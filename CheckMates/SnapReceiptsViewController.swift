@@ -13,34 +13,22 @@ import SwiftSpinner
 
 class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    var pickedPhoto = false
-    var itemStore = ItemStore()
     var activityIndicator:UIActivityIndicatorView!
-    
-    @IBOutlet var imageView: UIImageView!
-    
-    var photoTakingHelper: PhotoTakingHelper?
+    var eventController = EventController(with: nil)
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if(UIImagePickerController.isSourceTypeAvailable(.camera) && self.pickedPhoto == false) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
             launchCamera()
-            self.pickedPhoto = true
         }
-    }
-    
-    @IBAction func snapReceipt(_ sender:UIButton!)
-    {
-        launchCamera()
     }
     
     func launchCamera() {
         let imagePicker = UIImagePickerController()
-    
-        PhotoTakingHelper.snapPhoto(imagePicker)
-        
         imagePicker.delegate = self
+        imagePicker.sourceType = .camera
+        
         present(imagePicker, animated: true, completion: nil)
     }
     
@@ -54,21 +42,19 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-        self.pickedPhoto = true
         // get image
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         let scaledImage = PhotoTakingHelper.scaleImage(image, maxDimension: 1200)
         
-        DispatchQueue.global(qos: .background).async { self.addActivityIndicator() }
+        self.addActivityIndicator()
         
-        imageView.image = scaledImage
         dismiss(animated: true, completion: {
             self.performImageRecognition(scaledImage)
         })
     }
     
     func performImageRecognition(_ image: UIImage) {
-        itemStore = PhotoTakingHelper.ocrImage(image)
+        eventController.addLines(PhotoTakingHelper.ocrImage(image))
     
         removeActivityIndicator()
 
@@ -86,8 +72,8 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
         
         if segue.identifier == "DisplayItemsSegue"
         {
-            let detailViewController = segue.destination as? DetailedReceiptTableViewController
-            detailViewController?.itemStore = itemStore
+            let detailViewController = segue.destination as! DetailedReceiptTableViewController
+            detailViewController.eventController = eventController
         }
     }
     
