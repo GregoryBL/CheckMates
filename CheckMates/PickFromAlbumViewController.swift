@@ -17,20 +17,12 @@ class PickFromAlbumViewController: UIViewController, UIImagePickerControllerDele
     var itemStore = ItemStore()
     var activityIndicator:UIActivityIndicatorView!
     
-    @IBOutlet var imageView: UIImageView!
+//    @IBOutlet var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        launchCamera()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        if(self.pickedPhoto == false) {
-            launchCamera()
-        }
-    }
-    
     
     @IBAction func snapReceipt(_ sender:UIButton!)
     {
@@ -43,10 +35,8 @@ class PickFromAlbumViewController: UIViewController, UIImagePickerControllerDele
     
     func launchCamera() {
         let imagePicker = UIImagePickerController()
-        
-        PhotoTakingHelper.choosePhoto(imagePicker)
-        
         imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true, completion: nil)
     }
     
@@ -61,11 +51,13 @@ class PickFromAlbumViewController: UIViewController, UIImagePickerControllerDele
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         // get image
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        print(image)
         let scaledImage = PhotoTakingHelper.scaleImage(image, maxDimension: 640)
+        print(scaledImage)
 
         addActivityIndicator()
         
-        imageView.image = scaledImage
+//        imageView.image = scaledImage
         dismiss(animated: true, completion: {
             self.performImageRecognition(scaledImage)
         })
