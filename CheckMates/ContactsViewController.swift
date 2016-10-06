@@ -99,11 +99,13 @@ class ContactsViewController: UITableViewController {
         let section = sortedKeys()[indexPath.section]
         
         let ident = contactIdentifiers[section]![indexPath.row]
-        let keysToFetch = [CNContactGivenNameKey, CNContactFamilyNameKey]
+        let keysToFetch = [CNContactGivenNameKey, CNContactFamilyNameKey, CNContactImageDataKey]
         let contact = try? contactStore.unifiedContact(withIdentifier: ident, keysToFetch: keysToFetch as [CNKeyDescriptor])
 
         cell?.textLabel?.text = givenNameFor(first: contact?.givenName, andLast: contact?.familyName)
-        
+        if let contactImage = contact?.imageData {
+            cell?.imageView?.image = UIImage(data: contactImage)
+        }
         return cell!
     }
     
@@ -115,36 +117,6 @@ class ContactsViewController: UITableViewController {
         return sortedKeys().index(of: title)!
     }
     
-//    func contactPicker(_ picker: CNContactPickerViewController, didSelect contacts: [CNContact]) {
-//
-//        var mobilePhone = String()
-//        mates = []
-//        
-//        for contact in contacts {
-//           
-//            for num in contact.phoneNumbers {
-//                let numVal = (num.value ).value(forKey: "digits") as! String
-//                if num.label == CNLabelPhoneNumberMobile || num.label == CNLabelPhoneNumberiPhone {
-//                    mobilePhone = numVal
-//                }
-//
-//                let firstName = contact.givenName
-//                let lastName = contact.familyName
-//                let id = contact.identifier
-//                let image = (contact.isKeyAvailable(CNContactImageDataKey) && contact.imageDataAvailable) ? UIImage(data: contact.imageData!) : nil
-//                let newMate = Mate(firstName: firstName, lastName: lastName, mobileNumber: mobilePhone, id: id, image: image)
-//                mates.append(newMate)
-//
-//                
-//            }
-//            
-//        }
-//        
-//        self.performSegue(withIdentifier: "ShowEvent", sender: self)
-//
-//    }
-    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowEvent" {
             let eventViewController = segue.destination as! EventTableViewController
@@ -155,14 +127,13 @@ class ContactsViewController: UITableViewController {
                 for indPath in selected! {
                     let contactID = contactIdentifiers[sortedKeys()[indPath.section]]![indPath.row]
                     let contact = try? contactStore.unifiedContact(withIdentifier: contactID, keysToFetch: keysToFetch as [CNKeyDescriptor])
-                    mates.append(Mate(firstName: contact!.givenName, lastName: contact!.familyName, mobileNumber: contact!.phoneNumbers.first!.value.stringValue, id: contactID, image: nil))
+                    mates.append(Mate(firstName: contact!.givenName, lastName: contact!.familyName, mobileNumber: (contact?.phoneNumbers.first?.value.value(forKey:"digits") as! String), id: contactID, image: nil))
                 }
             }
             self.eventController!.addContacts(mates)
             eventViewController.eventController = self.eventController
         }
     }
-    
 }
 
 class Mate: NSObject {
