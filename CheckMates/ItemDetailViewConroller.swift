@@ -12,20 +12,16 @@ class ItemDetailViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var titleField: UITextField!
     @IBOutlet var priceField: UITextField!
-    @IBOutlet var dateField:  UILabel!
     
     var indexPath: IndexPath?
-    var item: Item?
     var delegate: ItemDetailViewControllerDelegate?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let existingItem = delegate?.existingItemForIndexPath(indexPath) {
-            self.item = existingItem
-            titleField.text = item!.title
-            priceField.text = item!.price.asLocaleCurrency
-            dateField.text = item!.created_at.friendlyDate
+        if let (description, price) = delegate?.existingDataForIndexPath(indexPath) {
+            titleField.text = description
+            priceField.text = price.asLocaleCurrency
             self.title = "Edit Item"
         } else {
             self.title = "New Item"
@@ -42,16 +38,7 @@ class ItemDetailViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func savePressed(_ sender: UIBarButtonItem) {
         view.endEditing(true)
-        
-        var isNew = false
-        if (item == nil) {
-            item = Item(title: titleField.text!, price: priceField.text!.asFloat)
-            isNew = true
-        } else {
-            item!.title = titleField.text!
-            item!.price = priceField.text!.asFloat
-        }
-        delegate?.itemDetailViewControllerDidCompleteEditingItem(item!, new: isNew, sender: self)
+        delegate?.itemDetailViewControllerDidCompleteEditing(description: titleField.text!, andPrice: priceField.text!.asFloat, forIndexPath: indexPath, sender: self)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -31,6 +31,7 @@ class EventTableViewController: UITableViewController {
     }
     
     @IBAction func completeEvent(_ sender: UIBarButtonItem) {
+        print("complete event called")
         eventController.billIsComplete()
     }
     

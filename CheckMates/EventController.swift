@@ -30,6 +30,10 @@ class EventController {
         newItem?.receipt = event.receipt!
     }
     
+    func deleteReceiptItem(_ receiptItem: ReceiptItem) {
+        cds.mainQueueContext.delete(receiptItem)
+    }
+    
     func addLines(_ lines: [String]) {
         if event.receipt == nil {
             let newReceipt = NSEntityDescription.insertNewObject(forEntityName: "Receipt", into: cds.mainQueueContext) as! Receipt

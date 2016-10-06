@@ -145,11 +145,6 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7jx-6H-Ms2">
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -177,9 +172,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="dateField" destination="7jx-6H-Ms2" id="BNl-FV-W4c"/>
                         <outlet property="priceField" destination="VIi-af-hGc" id="4WU-Hk-IxP"/>
-                        <outlet property="titleField" destination="pmW-Bw-Y1X" id="uVB-Cb-ozJ"/>
+                        <outlet property="titleField" destination="pmW-Bw-Y1X" id="eVO-UU-qIk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1aK-qE-6pn" userLabel="First Responder" sceneMemberID="firstResponder"/>
