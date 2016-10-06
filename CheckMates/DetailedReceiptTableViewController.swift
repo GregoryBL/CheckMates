@@ -33,7 +33,7 @@ class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewC
         if editingStyle == .delete {
             let item = items![indexPath.row]
             
-            let title = "Remove \(item.itemDescription)?"
+            let title = "Remove \(item.itemDescription!)?"
             let message = "Are you sure you want to delete this item?"
             
             let alertController = UIAlertController(title: title,
@@ -44,10 +44,11 @@ class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewC
             alertController.addAction(cancelAction)
             
             let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { action in
-                self.tableView.deleteRows(at: [indexPath], with: .automatic)
-                self.items?.remove(at: indexPath.row)
                 self.eventController.deleteReceiptItem(self.items![indexPath.row])
-                self.reloadTableView()
+                self.items?.remove(at: indexPath.row)
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+
+//                self.reloadTableView()
             }
             alertController.addAction(deleteAction)
             
@@ -60,14 +61,14 @@ class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewC
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return eventController.event.receipt!.items!.count
+        return items!.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) // as! ItemCell
         
-        let item = eventController.event.receipt!.items!.allObjects[indexPath.row] as! ReceiptItem
+        let item = items![indexPath.row]
         
         print(item)
         
@@ -97,13 +98,15 @@ class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewC
     // MARK: ItemDetailViewControllerDelegate
     
     func itemDetailViewControllerDidCompleteEditing(description: String, andPrice price: Float, forIndexPath indexPath: IndexPath?, sender: ItemDetailViewController) {
+        print(indexPath)
         if (indexPath != nil) {
             if (description == "" || price == 0.0) {
                 print("received blank item")
                 return
             }
             eventController.addReceiptItem(description, price: Int64(price * 100))
-            tableView.reloadData()
+            print("reload tableView")
+            reloadTableView()
         }
         _ = self.navigationController?.popViewController(animated: true)
     }
