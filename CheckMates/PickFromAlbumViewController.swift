@@ -12,25 +12,16 @@ import TesseractOCR
 import SwiftSpinner
 
 class PickFromAlbumViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
-    
-    var pickedPhoto = false
-    var itemStore = ItemStore()
-    var activityIndicator:UIActivityIndicatorView!
-    
-//    @IBOutlet var imageView: UIImageView!
+    var activityIndicator: UIActivityIndicatorView!
+    let eventController = EventController(with: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         launchCamera()
     }
     
-    @IBAction func snapReceipt(_ sender:UIButton!)
-    {
+    @IBAction func snapReceipt(_ sender:UIButton!) {
         launchCamera()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        self.pickedPhoto = false
     }
     
     func launchCamera() {
@@ -65,26 +56,26 @@ class PickFromAlbumViewController: UIViewController, UIImagePickerControllerDele
     
     func performImageRecognition(_ image: UIImage) {
         
-        itemStore = PhotoTakingHelper.ocrImage(image)
+        let lines = PhotoTakingHelper.ocrImage(image)
+        for line in lines {
+            let rItems = PhotoTakingHelper.processLine(line)
+            for item in rItems {
+                eventController.addBillItem(item)
+            }
+        }
         removeActivityIndicator()
 
         self.performSegue(withIdentifier: "DisplayReceiptFromAlbum", sender: self)
     }
 
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
-    {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         // picker cancelled, dismiss picker view controller
         self.dismiss(animated: true, completion: nil)
-        pickedPhoto = true
     }
 
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "DisplayReceiptFromAlbum"
-        {
+        if segue.identifier == "DisplayReceiptFromAlbum" {
             let detailViewController = segue.destination as? DetailedReceiptTableViewController
-            detailViewController?.itemStore = itemStore
         }
     }
     
