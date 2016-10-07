@@ -19,6 +19,8 @@ class EventController {
             event = existingEvent
         } else {
             event = NSEntityDescription.insertNewObject(forEntityName: "Event", into: cds.mainQueueContext) as! Event
+            let newReceipt = NSEntityDescription.insertNewObject(forEntityName: "Receipt", into: cds.mainQueueContext) as! Receipt
+            newReceipt.event = event
             event.createdAt = Date().timeIntervalSinceReferenceDate
         }
     }
@@ -35,11 +37,11 @@ class EventController {
     }
     
     func addLines(_ lines: [String]) {
-        if event.receipt == nil {
-            let newReceipt = NSEntityDescription.insertNewObject(forEntityName: "Receipt", into: cds.mainQueueContext) as! Receipt
-            print("made new receipt")
-            newReceipt.event = event
-        }
+//        if event.receipt == nil {
+//            let newReceipt = NSEntityDescription.insertNewObject(forEntityName: "Receipt", into: cds.mainQueueContext) as! Receipt
+//            print("made new receipt")
+//            newReceipt.event = event
+//        }
         for line in lines {
             let items = findGoodLines(line)
             for (description, price) in items {
@@ -144,16 +146,16 @@ class EventController {
     
     func billIsComplete() {
 //        print(self.newEvent!.receipt!)
-        if self.event.receipt == nil {
-            let newReceipt = NSEntityDescription.insertNewObject(forEntityName: "Receipt", into: cds.mainQueueContext) as? Receipt
-//            print(newReceipt)
-            newReceipt!.event = event
-//            print(newReceipt)
-//            print(event)
-//            print(event.receipt)
-//            saveEvent()
-//            print("saved event")
-        }
+//        if self.event.receipt == nil {
+//            let newReceipt = NSEntityDescription.insertNewObject(forEntityName: "Receipt", into: cds.mainQueueContext) as? Receipt
+////            print(newReceipt)
+//            newReceipt!.event = event
+////            print(newReceipt)
+////            print(event)
+////            print(event.receipt)
+////            saveEvent()
+////            print("saved event")
+//        }
         self.saveEvent()
         let serverController = ServerController()
  
