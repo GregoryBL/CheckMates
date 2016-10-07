@@ -28,6 +28,20 @@ class ContactsViewController: UITableViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let currentContacts = eventController.event.contacts?.allObjects as! [Contact]
+        for contact in currentContacts {
+            let fullName = self.givenNameFor(first: contact.firstName, andLast: contact.lastName)
+            let firstLetter = String(fullName[fullName.startIndex])
+            
+            let section = sortedKeys().index(of: firstLetter)!
+            let row = contactIdentifiers[firstLetter]!.index(of: contact.uuid!)!
+            tableView.selectRow(at: IndexPath(row: row, section: section), animated: false, scrollPosition: .none)
+        }
+    }
+    
     func getContactIdentifiers() -> [String: [String]] {
         let keysToFetch = [CNContactIdentifierKey, CNContactPhoneNumbersKey, CNContactGivenNameKey, CNContactFamilyNameKey]
         let fetchRequest = CNContactFetchRequest( keysToFetch: keysToFetch as [CNKeyDescriptor])
