@@ -146,13 +146,13 @@ class EventController {
 //        print(self.newEvent!.receipt!)
         if self.event.receipt == nil {
             let newReceipt = NSEntityDescription.insertNewObject(forEntityName: "Receipt", into: cds.mainQueueContext) as? Receipt
-            print(newReceipt)
+//            print(newReceipt)
             newReceipt!.event = event
-            print(newReceipt)
-            print(event)
-            print(event.receipt)
-            saveEvent()
-            print("saved event")
+//            print(newReceipt)
+//            print(event)
+//            print(event.receipt)
+//            saveEvent()
+//            print("saved event")
         }
         self.saveEvent()
         let serverController = ServerController()

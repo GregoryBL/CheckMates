@@ -11,6 +11,7 @@ import Contacts
 
 class EventTableViewController: UITableViewController {
     var eventController: EventController!
+    @IBOutlet weak var actionButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         self.navigationController?.setToolbarHidden(false, animated: true)
@@ -18,6 +19,7 @@ class EventTableViewController: UITableViewController {
         if self.navigationController?.presentingViewController == nil {
             if let backEndID = eventController.event.receipt?.backEndID {
                 print("had backendID")
+                actionButton.title = "Request Payment"
                 ServerController().retrieveReceiptFromServer(backEndID, target: eventController)
             } else {
                 print("sent off new bill")
@@ -30,9 +32,29 @@ class EventTableViewController: UITableViewController {
         }
     }
     
-    @IBAction func completeEvent(_ sender: UIBarButtonItem) {
+    @IBAction func pressActionButton(_ sender: UIBarButtonItem) {
+        if let title = sender.title {
+            switch title {
+            case "Send":
+                completeEvent()
+                sender.title = "Request Payment"
+                self.navigationController?.dismiss(animated: true, completion: nil)
+            case "Request Payment":
+                eventController.userDidRequestPayment()
+                sender.isEnabled = false
+            default:
+                print("Button had wrong name")
+            }
+        }
+    }
+    
+    func completeEvent() {
         print("complete event called")
         eventController.billIsComplete()
+    }
+    
+    func requestPayment() {
+        eventController.userDidRequestPayment()
     }
     
     @IBAction func editReceiptButton(_ sender: UIButton) {
