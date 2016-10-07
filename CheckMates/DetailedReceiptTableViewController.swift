@@ -70,7 +70,7 @@ class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewC
         
         let item = items![indexPath.row]
         
-        print(item)
+//        print(item)
         
         cell.textLabel?.text = item.itemDescription
         cell.detailTextLabel?.text = (Float(item.price) / 100).asLocaleCurrency
@@ -102,11 +102,23 @@ class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewC
         if (indexPath != nil) {
             if (description == "" || price == 0.0) {
                 print("received blank item")
-                return
+                self.eventController.deleteReceiptItem(self.items![indexPath!.row])
+                self.items?.remove(at: indexPath!.row)
+                self.tableView.deleteRows(at: [indexPath!], with: .automatic)
+            } else {
+                let item = self.eventController.event.receipt!.items!.allObjects[indexPath!.row] as! ReceiptItem
+                item.itemDescription = description
+                item.price = Int64(price * 100)
+                print("reload tableView")
+                reloadTableView()
             }
-            eventController.addReceiptItem(description, price: Int64(price * 100))
-            print("reload tableView")
-            reloadTableView()
+        } else {
+            if (description == "" || price == 0.0) {
+                print("received blank new item")
+            } else {
+                self.eventController.addReceiptItem(description, price: Int64(price*100))
+                reloadTableView()
+            }
         }
         _ = self.navigationController?.popViewController(animated: true)
     }
