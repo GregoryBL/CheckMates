@@ -37,11 +37,6 @@ class EventController {
     }
     
     func addLines(_ lines: [String]) {
-//        if event.receipt == nil {
-//            let newReceipt = NSEntityDescription.insertNewObject(forEntityName: "Receipt", into: cds.mainQueueContext) as! Receipt
-//            print("made new receipt")
-//            newReceipt.event = event
-//        }
         for line in lines {
             let items = findGoodLines(line)
             for (description, price) in items {
@@ -100,15 +95,28 @@ class EventController {
         }
         return goodLines
     }
-
-    func addContacts(_ mates: [Mate]){
-        for mate in mates{
-            let newContact = NSEntityDescription.insertNewObject(forEntityName: "Contact", into: cds.mainQueueContext) as? Contact
-            newContact?.firstName = mate.firstName
-            newContact?.lastName = mate.lastName
-            newContact?.mobileNumber = mate.mobileNumber
-            newContact?.uuid = mate.id
-            newContact?.event = event
+    
+    func addContact(firstName: String, lastName: String, phoneNumber: String, id: String) {
+        if let contacts = event.contacts {
+            for contact in contacts {
+                if (contact as! Contact).uuid! == id { return }
+            }
+        }
+        let newContact = NSEntityDescription.insertNewObject(forEntityName: "Contact", into: cds.mainQueueContext) as? Contact
+        newContact?.firstName = firstName
+        newContact?.lastName = lastName
+        newContact?.mobileNumber = phoneNumber
+        newContact?.uuid = id
+        newContact?.event = event
+    }
+    
+    func removeContact(id: String) {
+        if let contacts = event.contacts {
+            for contact in contacts {
+                if (contact as! Contact).uuid! == id {
+                    cds.mainQueueContext.delete(contact as! NSManagedObject)
+                }
+            }
         }
     }
     
@@ -118,11 +126,10 @@ class EventController {
             let regex = try NSRegularExpression(pattern: regex, options: [])
             let nsString = text as NSString
             results = regex.matches(in: text,
-                                            options: [], range: NSMakeRange(0, nsString.length))
-//            print(results)
+                                    options: [],
+                                    range: NSMakeRange(0, nsString.length))
         } catch let error as NSError {
             print("invalid regex: \(error.localizedDescription)")
-            
         }
         
         return results.count > 0
@@ -145,20 +152,8 @@ class EventController {
     }
     
     func billIsComplete() {
-//        print(self.newEvent!.receipt!)
-//        if self.event.receipt == nil {
-//            let newReceipt = NSEntityDescription.insertNewObject(forEntityName: "Receipt", into: cds.mainQueueContext) as? Receipt
-////            print(newReceipt)
-//            newReceipt!.event = event
-////            print(newReceipt)
-////            print(event)
-////            print(event.receipt)
-////            saveEvent()
-////            print("saved event")
-//        }
         self.saveEvent()
         let serverController = ServerController()
- 
         serverController.sendNewReceiptToServer(event.receipt!, sender: self) // pass in self to get sendMessages called when it completes
     }
     
@@ -166,29 +161,22 @@ class EventController {
         print("starting to send messages")
         let mc = MessageController()
         let backEndID = event.receipt!.backEndID!
-//        print(backEndID)
         let contacts = event.contacts!.allObjects as! [Contact]
-//        print(contacts)
         mc.textContacts(contacts, billId: backEndID)
     }
     
     func parseJSON(_ data: Data){
-
         let json = try? JSONSerialization.jsonObject(with: data, options: [])
         
         if let dictionary = json as? [String: Any] {
             
             if let itemArray = dictionary["items"] as? [Any] {
-//                print(itemArray)
                 for thing in itemArray {
                     if let item = thing as? [String: Any] {
                         if let contactName = item["user_id"] as? String, let itemString = item["item_description"] as? String {
-//                            print(contactName)
                             let contact = userIDHasMatch(contactName)
                             if let item = receiptItemHasMatch(itemString) {
                                 item.contact = contact
-//                                print(item)
-//                                print(item.contact)
                             }
                         }
                     }
@@ -199,21 +187,14 @@ class EventController {
     
     func parseOriginalResponse(_ data: Data) {
         let json = try? JSONSerialization.jsonObject(with: data, options: [])
-//        print(json)
         
         if let dictionary = (json as? [String: Any]) {
-//            print("dictionary: \(dictionary)")
             if let bill = dictionary["bill"] as? [String: Any] {
-//                print("bill: \(bill)")
                 if let id = (bill["id"] as? Int) {
-//                    print("id: \(id)")
                     event.receipt!.backEndID = String(id)
                     saveEvent()
                 }
-//                print(bill)
             }
-//            print(self.newEvent!.receipt!.backEndID)
-//            print("finish parsing original response")
         }
     }
     

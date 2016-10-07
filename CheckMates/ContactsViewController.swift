@@ -12,7 +12,6 @@ import Contacts
 class ContactsViewController: UITableViewController {
     
     var eventController: EventController!
-    var mates = [Mate]()
     let contactStore = CNContactStore()
     var contactIdentifiers = [String: [String]]()
     
@@ -127,40 +126,22 @@ class ContactsViewController: UITableViewController {
         return sortedKeys().index(of: title)!
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let keysToFetch = [CNContactGivenNameKey, CNContactFamilyNameKey, CNContactPhoneNumbersKey]
+        let contactID = contactIdentifiers[sortedKeys()[indexPath.section]]![indexPath.row]
+        let contact = try? contactStore.unifiedContact(withIdentifier: contactID, keysToFetch: keysToFetch as [CNKeyDescriptor])
+        eventController.addContact(firstName: contact!.givenName, lastName: contact!.familyName, phoneNumber: (contact?.phoneNumbers.first?.value.value(forKey:"digits") as! String), id: contactID)
+    }
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let contactID = contactIdentifiers[sortedKeys()[indexPath.section]]![indexPath.row]
+        eventController.removeContact(id: contactID)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowEvent" {
             let eventViewController = segue.destination as! EventTableViewController
-            let keysToFetch = [CNContactGivenNameKey, CNContactFamilyNameKey, CNContactPhoneNumbersKey]
-            let selected = tableView.indexPathsForSelectedRows
-            var mates = [Mate]()
-            if (selected != nil) {
-                for indPath in selected! {
-                    let contactID = contactIdentifiers[sortedKeys()[indPath.section]]![indPath.row]
-                    let contact = try? contactStore.unifiedContact(withIdentifier: contactID, keysToFetch: keysToFetch as [CNKeyDescriptor])
-                    mates.append(Mate(firstName: contact!.givenName, lastName: contact!.familyName, mobileNumber: (contact?.phoneNumbers.first?.value.value(forKey:"digits") as! String), id: contactID, image: nil))
-                }
-            }
-            self.eventController.addContacts(mates)
             eventViewController.eventController = self.eventController
         }
     }
 }
-
-class Mate: NSObject {
-    var firstName: String
-    var lastName: String
-    var mobileNumber: String
-    var id: String
-    var image: UIImage?
-    
-    init(firstName: String, lastName: String, mobileNumber: String, id: String, image: UIImage?) {
-        self.firstName = firstName
-        self.lastName = lastName
-        self.mobileNumber = mobileNumber
-        self.id = id
-        self.image = image
-        
-        super.init()
-    }
-}
-
