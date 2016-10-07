@@ -11,8 +11,8 @@ import UIKit
 
 class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewControllerDelegate {
     
-    var itemStore = ItemStore()
-    var eventController: EventController?
+    var eventController: EventController!
+    var items: [ReceiptItem]?
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
@@ -20,18 +20,26 @@ class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewC
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if eventController == nil {
+            eventController = EventController(with: nil)
+        }
+        reloadTableView()
+    }
+    
+    func reloadTableView() {
+        if let receipt = eventController.event.receipt {
+            items = receipt.items?.allObjects as? [ReceiptItem]
+        } else {
+            items = []
+        }
         tableView.reloadData()
-        
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 65
-
     }
         
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let item = itemStore.allItems[(indexPath as NSIndexPath).row]
+            let item = items![indexPath.row]
             
-            let title = "Remove \(item.title)?"
+            let title = "Remove \(item.itemDescription!)?"
             let message = "Are you sure you want to delete this item?"
             
             let alertController = UIAlertController(title: title,
@@ -42,8 +50,11 @@ class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewC
             alertController.addAction(cancelAction)
             
             let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { action in
-                self.itemStore.removeItem(item)
+                self.eventController.deleteReceiptItem(self.items![indexPath.row])
+                self.items?.remove(at: indexPath.row)
                 self.tableView.deleteRows(at: [indexPath], with: .automatic)
+
+//                self.reloadTableView()
             }
             alertController.addAction(deleteAction)
             
@@ -56,17 +67,19 @@ class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewC
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemStore.allItems.count
+        return items!.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) // as! ItemCell
         
-        let item = itemStore.allItems[(indexPath as NSIndexPath).row]
+        let item = items![indexPath.row]
         
-        cell.textLabel?.text = item.title
-        cell.detailTextLabel?.text = item.price.asLocaleCurrency
+//        print(item)
+        
+        cell.textLabel?.text = item.itemDescription
+        cell.detailTextLabel?.text = (Float(item.price) / 100).asLocaleCurrency
         
         return cell
     }
@@ -80,10 +93,6 @@ class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewC
         }
         else if segue.identifier == "ChooseContacts"{
             let contactsViewController = segue.destination as! ContactsViewController
-            if self.eventController == nil {
-                self.eventController = EventController()
-            }
-            self.eventController!.addBillItems(itemStore)
             contactsViewController.eventController = eventController
         }
     }
@@ -94,13 +103,28 @@ class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewC
     
     // MARK: ItemDetailViewControllerDelegate
     
-    func itemDetailViewControllerDidCompleteEditingItem(_ item : Item, new: Bool, sender: ItemDetailViewController) {
-        if (new) {
-            if (item.title == "" || item.price == 0.0) {
+    func itemDetailViewControllerDidCompleteEditing(description: String, andPrice price: Float, forIndexPath indexPath: IndexPath?, sender: ItemDetailViewController) {
+        print(indexPath)
+        if (indexPath != nil) {
+            if (description == "" || price == 0.0) {
                 print("received blank item")
-                return
+                self.eventController.deleteReceiptItem(self.items![indexPath!.row])
+                self.items?.remove(at: indexPath!.row)
+                self.tableView.deleteRows(at: [indexPath!], with: .automatic)
+            } else {
+                let item = self.eventController.event.receipt!.items!.allObjects[indexPath!.row] as! ReceiptItem
+                item.itemDescription = description
+                item.price = Int64(price * 100)
+                print("reload tableView")
+                reloadTableView()
             }
-            _ = self.itemStore.createItem(item.title, price: item.price)
+        } else {
+            if (description == "" || price == 0.0) {
+                print("received blank new item")
+            } else {
+                self.eventController.addReceiptItem(description, price: Int64(price*100))
+                reloadTableView()
+            }
         }
         _ = self.navigationController?.popViewController(animated: true)
     }
@@ -109,9 +133,10 @@ class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewC
         _ = self.navigationController?.popViewController(animated: true)
     }
     
-    func existingItemForIndexPath(_ indexPath : IndexPath?) -> Item? {
-        if let row = (tableView.indexPathForSelectedRow as NSIndexPath?)?.row {
-            return itemStore.allItems[row]
+    func existingDataForIndexPath(_ indexPath : IndexPath?) -> (String, Float)? {
+        if let row = indexPath?.row {
+            let receiptItem = eventController.event.receipt?.items?.allObjects[row] as! ReceiptItem
+            return (receiptItem.itemDescription!, Float(receiptItem.price / 100))
         } else {
             return nil
         }

@@ -12,43 +12,22 @@ import TesseractOCR
 import SwiftSpinner
 
 class PickFromAlbumViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
-    
-    var pickedPhoto = false
-    var itemStore = ItemStore()
-    var activityIndicator:UIActivityIndicatorView!
-    var eventController:EventController = EventController()
-    
-    
-    @IBOutlet var imageView: UIImageView!
+    var activityIndicator: UIActivityIndicatorView!
+    let eventController = EventController(with: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        if(self.pickedPhoto == false) {
-            launchCamera()
-        }
-    }
-    
-    
-    @IBAction func snapReceipt(_ sender:UIButton!)
-    {
         launchCamera()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        self.pickedPhoto = false
+    @IBAction func snapReceipt(_ sender:UIButton!) {
+        launchCamera()
     }
     
     func launchCamera() {
         let imagePicker = UIImagePickerController()
-        
-        PhotoTakingHelper.choosePhoto(imagePicker)
-        
         imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true, completion: nil)
     }
     
@@ -63,11 +42,13 @@ class PickFromAlbumViewController: UIViewController, UIImagePickerControllerDele
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         // get image
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        print(image)
         let scaledImage = PhotoTakingHelper.scaleImage(image, maxDimension: 640)
+        print(scaledImage)
 
         addActivityIndicator()
         
-        imageView.image = scaledImage
+//        imageView.image = scaledImage
         dismiss(animated: true, completion: {
             self.performImageRecognition(scaledImage)
         })
@@ -75,27 +56,22 @@ class PickFromAlbumViewController: UIViewController, UIImagePickerControllerDele
     
     func performImageRecognition(_ image: UIImage) {
         
-        itemStore = PhotoTakingHelper.ocrImage(image)
+        let lines = PhotoTakingHelper.ocrImage(image)
+        eventController.addLines(lines)
+        
         removeActivityIndicator()
 
         self.performSegue(withIdentifier: "DisplayReceiptFromAlbum", sender: self)
     }
 
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
-    {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         // picker cancelled, dismiss picker view controller
         self.dismiss(animated: true, completion: nil)
-        pickedPhoto = true
     }
 
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "DisplayReceiptFromAlbum"
-        {
-            eventController.createNewEvent()
+        if segue.identifier == "DisplayReceiptFromAlbum" {
             let detailViewController = segue.destination as? DetailedReceiptTableViewController
-            detailViewController?.itemStore = itemStore
             detailViewController?.eventController = eventController
         }
     }

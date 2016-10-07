@@ -11,22 +11,17 @@ import UIKit
 class ReceiptsTableViewController: UITableViewController {
     
     var itemStore: ItemStore!
-    var eventController: EventController = EventController()
-    var events: [Event]?
+    var eventController: EventController!
+    var events: [Event]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.reloadData()
-        
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 65
-        
+        events = EventController.fetchAllEvents()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-//        print("View Will Appear")
-        events = eventController.fetchAllEvents()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        events = EventController.fetchAllEvents()
         tableView.reloadData()
     }
     
@@ -34,23 +29,23 @@ class ReceiptsTableViewController: UITableViewController {
         return 1
     }
     
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (eventController.fetchAllEvents().count)
+        return events.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReceiptCell")
-        let currentEvent = events![(indexPath as NSIndexPath).row] as Event!
+        let currentEvent = events[(indexPath as NSIndexPath).row]
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy"
-        let date = Date(timeIntervalSinceReferenceDate: currentEvent!.createdAt)
+        let date = Date(timeIntervalSinceReferenceDate: currentEvent.createdAt)
         
         cell?.textLabel!.text = dateFormatter.string(from: date)
-        let receiptTotal: Int = currentEvent!.receipt!.receiptTotal(currentEvent!)
-        let formatted = Float(receiptTotal) / 100
-        cell?.detailTextLabel!.text = "$" + String(formatted)
-
+        if let receipt = currentEvent.receipt {
+            let receiptTotal = receipt.receiptTotal()
+            let formatted = Float(receiptTotal) / 100
+            cell?.detailTextLabel!.text = "$" + String(formatted)
+        }
         return cell!
     }
     
@@ -63,8 +58,9 @@ class ReceiptsTableViewController: UITableViewController {
 //                print(row)
                 
                 // get the item associated with this row
-                let event = events![row]
-                self.eventController.newEvent = event
+                let event = events[row]
+                self.eventController = EventController(with: event)
+                self.eventController.event = event
                 let eventTableViewController = segue.destination as! EventTableViewController
                 eventTableViewController.eventController = self.eventController
 //                eventTableViewController.titleForCERPButton = "Request Payment"

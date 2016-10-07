@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ItemDetailViewControllerDelegate {
-    func existingItemForIndexPath(_ indexPath : IndexPath?) -> Item?
-    func itemDetailViewControllerDidCompleteEditingItem(_ item : Item, new: Bool, sender: ItemDetailViewController)
+    func existingDataForIndexPath(_ indexPath : IndexPath?) -> (String, Float)?
+    func itemDetailViewControllerDidCompleteEditing(description: String, andPrice price: Float, forIndexPath indexPath: IndexPath?, sender: ItemDetailViewController)
     func itemDetailViewControllerDidCancel(_ sender: ItemDetailViewController)
 }
