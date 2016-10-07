@@ -20,12 +20,18 @@ class DetailedReceiptTableViewController: UITableViewController, ItemDetailViewC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if eventController == nil {
+            eventController = EventController(with: nil)
+        }
         reloadTableView()
     }
     
     func reloadTableView() {
-        items = eventController.event.receipt?.items?.allObjects as? [ReceiptItem]
+        if let receipt = eventController.event.receipt {
+            items = receipt.items?.allObjects as? [ReceiptItem]
+        } else {
+            items = []
+        }
         tableView.reloadData()
     }
         

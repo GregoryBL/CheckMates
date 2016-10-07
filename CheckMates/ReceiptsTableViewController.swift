@@ -17,11 +17,11 @@ class ReceiptsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         events = EventController.fetchAllEvents()
-        tableView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        events = EventController.fetchAllEvents()
         tableView.reloadData()
     }
     
