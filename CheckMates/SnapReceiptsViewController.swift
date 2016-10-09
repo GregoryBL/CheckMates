@@ -16,9 +16,8 @@ class SnapReceiptsViewController: UIViewController, UIImagePickerControllerDeleg
     var activityIndicator:UIActivityIndicatorView!
     var eventController = EventController(with: nil)
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
+    override func viewDidLoad() {
+        super.viewDidLoad()
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             launchCamera()
         }
