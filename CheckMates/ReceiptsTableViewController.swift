@@ -67,7 +67,7 @@ class ReceiptsTableViewController: UITableViewController {
     }
     
     @IBAction func cancelToReceiptsTableViewController(segue:UIStoryboardSegue) {
-        eventController.cds.mainQueueContext.reset()
+        EventController.clearContext()
     }
 }
 
