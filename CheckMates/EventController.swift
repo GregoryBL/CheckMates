@@ -218,6 +218,10 @@ class EventController {
         return nil
     }
     
+    static func clearContext() {
+        (UIApplication.shared.delegate as! AppDelegate).coreDataStack.mainQueueContext.reset()
+    }
+    
     func userDidRequestPayment() {
         let pc = PaymentsController()
         pc.createRequestsForEvent(event)

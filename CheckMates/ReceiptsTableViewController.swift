@@ -10,7 +10,6 @@ import UIKit
 
 class ReceiptsTableViewController: UITableViewController {
     
-    var itemStore: ItemStore!
     var eventController: EventController!
     var events: [Event]!
     
@@ -50,34 +49,25 @@ class ReceiptsTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "ShowEventFromReceiptSummary" {
-            
-            // determine which row was selected
             if let row = (tableView.indexPathForSelectedRow as NSIndexPath?)?.row {
-//                print(row)
-                
-                // get the item associated with this row
                 let event = events[row]
                 self.eventController = EventController(with: event)
                 self.eventController.event = event
+                
                 let eventTableViewController = segue.destination as! EventTableViewController
                 eventTableViewController.eventController = self.eventController
-//                eventTableViewController.titleForCERPButton = "Request Payment"
-                
+
                 let apiManager = DwollaAPIManager.sharedInstance
                 if !apiManager.hasOAuthToken() && !apiManager.hasRefreshToken() {
                     apiManager.startOAuth2Login()
                 }
             }
-        
         }
-        
     }
     
     @IBAction func cancelToReceiptsTableViewController(segue:UIStoryboardSegue) {
-        
+        EventController.clearContext()
     }
-
 }
 
