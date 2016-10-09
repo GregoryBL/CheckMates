@@ -32,7 +32,7 @@ class PickFromAlbumViewController: UIViewController, UIImagePickerControllerDele
     }
     
     func addActivityIndicator() {
-        SwiftSpinner.show("Processing Receipt")
+        SwiftSpinner.show("Processing Receipt", animated: true)
     }
     
     func removeActivityIndicator() {
@@ -42,9 +42,9 @@ class PickFromAlbumViewController: UIViewController, UIImagePickerControllerDele
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         // get image
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        print(image)
+//        print(image)
         let scaledImage = PhotoTakingHelper.scaleImage(image, maxDimension: 640)
-        print(scaledImage)
+//        print(scaledImage)
 
         addActivityIndicator()
         

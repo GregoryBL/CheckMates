@@ -45,7 +45,12 @@ class PhotoTakingHelper {
         tesseract.pageSegmentationMode = .auto
         tesseract.maximumRecognitionTime = 60.0
         tesseract.image = sizedImage.g8_blackAndWhite()
-        tesseract.recognize()
+        
+        let backgroundQueue = DispatchQueue(label: "background", qos: .background)
+        
+        backgroundQueue.sync {
+            tesseract.recognize()
+        }
         
         let receiptText = tesseract.recognizedText
         let lines = receiptText?.characters.split { $0 == "\n" || $0 == "\r\n" }.map(String.init)
