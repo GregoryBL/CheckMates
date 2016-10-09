@@ -10,7 +10,6 @@ import UIKit
 
 class ReceiptsTableViewController: UITableViewController {
     
-    var itemStore: ItemStore!
     var eventController: EventController!
     var events: [Event]!
     
