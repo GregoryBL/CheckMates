@@ -5,7 +5,7 @@ CheckMates is a collaborative, asynchronous bill-splitting app that is focused o
 * [Gregory Berns-Leone](https://github.com/GregoryBL)
 * [Lauren Daniels](https://github.com/ladaniels)
 * [Amy Plant](https://github.com/plantoteachme)
-* [Keith Pilsen](https://github.com/keithpilz)
+* [Keith Pilson](https://github.com/keithpilz)
 
 ## Technologies used
 * AlamoFire
