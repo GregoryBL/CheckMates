@@ -327,7 +327,7 @@
             </objects>
             <point key="canvasLocation" x="-1996" y="-447"/>
         </scene>
-        <!--Choose Contacs-->
+        <!--Choose Contacts-->
         <scene sceneID="rYV-9I-Rgy">
             <objects>
                 <tableViewController id="hhy-4z-rRY" customClass="ContactsViewController" customModule="CheckMates" customModuleProvider="target" sceneMemberID="viewController">
@@ -359,7 +359,7 @@
                             <outlet property="delegate" destination="hhy-4z-rRY" id="C6U-Ep-1d2"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Choose Contacs" id="47j-Q0-Oeo">
+                    <navigationItem key="navigationItem" title="Choose Contacts" id="47j-Q0-Oeo">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="Ftd-o8-7jg">
                             <connections>
                                 <segue destination="Jdy-St-tKx" kind="show" identifier="ShowEvent" id="TQE-jc-cAt"/>
